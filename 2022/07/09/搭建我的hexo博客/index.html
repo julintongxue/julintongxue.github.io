@@ -20,23 +20,36 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+    <meta name="description" content="[toc] 简介目前，互联网资源的普及，已经可以让每人搭建独立搭一个个人博客了；这边就教大家怎么搭建Hexo并配置。大家可以参考Hexo官方文档配合使用。 前提Windows端安装：  Node.js Git  在我们的日常开发中经常会遇到这种情况：手上有好几个项目，每个项目的需求不同，进而不同项目必须依赖不同版的 NodeJS 运行环境。如果没有一个合适的工具，这个问题将非常棘手。所以nvm应运">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建我的hexo博客">
+<meta property="og:url" content="http://example.com/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="[toc] 简介目前，互联网资源的普及，已经可以让每人搭建独立搭一个个人博客了；这边就教大家怎么搭建Hexo并配置。大家可以参考Hexo官方文档配合使用。 前提Windows端安装：  Node.js Git  在我们的日常开发中经常会遇到这种情况：手上有好几个项目，每个项目的需求不同，进而不同项目必须依赖不同版的 NodeJS 运行环境。如果没有一个合适的工具，这个问题将非常棘手。所以nvm应运">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/.com//image-20220710000533630.png">
+<meta property="og:image" content="http://example.com/.com//image-20220710000654131.png">
+<meta property="og:image" content="http://example.com/.com//image-20220710001515115.png">
+<meta property="og:image" content="http://example.com/.com//image-20220710001705412.png">
+<meta property="og:image" content="http://example.com/.com//image-20220710002047715.png">
+<meta property="og:image" content="http://example.com/.com//image-20220710002225007.png">
+<meta property="og:image" content="http://example.com/.com//image-20220710002353777.png">
+<meta property="og:image" content="http://example.com/.com//image-20220710004601578.png">
+<meta property="article:published_time" content="2022-07-09T15:05:14.000Z">
+<meta property="article:modified_time" content="2022-07-09T17:19:34.843Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/.com//image-20220710000533630.png">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/","path":"2022/07/09/搭建我的hexo博客/","title":"搭建我的hexo博客"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hexo</title>
+<title>搭建我的hexo博客 | Hexo</title>
   
 
 
@@ -63,7 +76,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
+      <p class="site-title">Hexo</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -91,7 +104,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -104,6 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E6%8F%90"><span class="nav-number">2.</span> <span class="nav-text">前提</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows%E7%AB%AF"><span class="nav-number">2.1.</span> <span class="nav-text">Windows端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top1-%E5%AE%89%E8%A3%85NVM"><span class="nav-number">2.2.</span> <span class="nav-text">top1:安装NVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top2-%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90"><span class="nav-number">2.3.</span> <span class="nav-text">top2:配置国内源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E4%B8%8E%E5%AE%89%E8%A3%85Node-js"><span class="nav-number">3.</span> <span class="nav-text">管理与安装Node.js</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#top3-%E6%9F%A5%E7%9C%8B%E5%B7%B2%E7%BB%8F%E7%89%88%E6%9C%AC"><span class="nav-number">3.1.</span> <span class="nav-text">top3:查看已经版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top4-%E6%9F%A5%E7%9C%8B%E5%8F%AF%E5%AE%89%E8%A3%85%E7%89%88%E6%9C%AC"><span class="nav-number">3.2.</span> <span class="nav-text">top4:查看可安装版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top5-%E5%AE%89%E8%A3%85Node-js"><span class="nav-number">3.3.</span> <span class="nav-text">top5:安装Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top6-%E6%BF%80%E6%B4%BBNode-js%E7%89%88%E6%9C%AC"><span class="nav-number">3.4.</span> <span class="nav-text">top6:激活Node.js版本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Git"><span class="nav-number">4.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%A1%E7%90%86Hexo%E5%8D%9A%E5%AE%A2"><span class="nav-number">5.</span> <span class="nav-text">安装和管理Hexo博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Npm%E5%AE%89%E8%A3%85Hexo"><span class="nav-number">5.1.</span> <span class="nav-text">使用Npm安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96Hexo"><span class="nav-number">5.2.</span> <span class="nav-text">初始化Hexo</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -145,16 +159,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -168,13 +183,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="name" content="搭建我的hexo博客 | Hexo">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">搭建我的hexo博客</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          搭建我的hexo博客
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -204,7 +219,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>[toc]</p>
+        <p>[toc]</p>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><strong>目前，互联网资源的普及，已经可以让每人搭建独立搭一个个人博客了；这边就教大家怎么搭建Hexo并配置。大家可以参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a>配合使用。</strong></p>
 <h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><h2 id="Windows端"><a href="#Windows端" class="headerlink" title="Windows端"></a>Windows端</h2><p><strong>安装：</strong></p>
 <ol>
@@ -270,7 +285,6 @@
 <p><img src="/.com//image-20220710004601578.png" alt="image-20220710004601578"></p>
 <p><strong>没有出现未知命令，说明安装成功。可以接下来操作了。</strong></p>
 <h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2>
-      
     </div>
 
     
@@ -278,11 +292,13 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+
+        
+
     </footer>
   </article>
 </div>
+
 
 
 
