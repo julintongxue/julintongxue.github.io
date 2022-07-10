@@ -191,7 +191,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-10 13:17:29" itemprop="dateModified" datetime="2022-07-10T13:17:29+08:00">2022-07-10</time>
+      <time title="Modified: 2022-07-11 00:13:35" itemprop="dateModified" datetime="2022-07-11T00:13:35+08:00">2022-07-11</time>
     </span>
 
   
@@ -269,7 +269,61 @@
 
 <p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710004601578.png" alt="image-20220710004601578"></p>
 <p><strong>没有出现未知命令，说明安装成功。可以接下来操作了。</strong></p>
-<h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2>
+<h2 id="创建Hexo"><a href="#创建Hexo" class="headerlink" title="创建Hexo"></a>创建Hexo</h2><p><strong>因为我们已经安装好Git，所以我们直接是由鼠标右键的<code>Git Bash Here</code>，然后在你喜欢的一个盘符里面创建一个文件夹并且命名。</strong></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233249939.png" alt="image-20220710233249939"></p>
+<p><strong>这里我在D盘创建了个orange的目录，以后我就在里面书写我的博客了，这个目录的文件非常重要，要记得备份哦。。。。。。</strong></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233151967.png" alt="image-20220710233151967"></p>
+<p><strong>刚刚我们已经切换到<code>orange</code>目录，后续操作均在<code>orange</code>目录内进行。确保：</strong></p>
+<ul>
+<li><strong>Windows用户确保<code>cmd</code>或<code>powershell</code>运行目录在刚刚创建的的<code>orange</code>文件夹内；</strong></li>
+<li><strong>注意⚠️：这个目录，日后就是是博客运行目录了。记得备份该文件夹。</strong></li>
+</ul>
+<h3 id="在目录内初始化博客"><a href="#在目录内初始化博客" class="headerlink" title="在目录内初始化博客"></a>在目录内初始化博客</h3><p><strong>初始化orange目录：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进目录之后，在Git bash里面输入下面目录初始化</span></span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233936892.png" alt="image-20220710233936892"></p>
+<p><strong>输入命令后，它会自动爬取hexo的初始化目录，在国内网络是非常不好的，如果出错需要删除目录内容重新执行命令直到成功。</strong></p>
+<h2 id="构建Hexo"><a href="#构建Hexo" class="headerlink" title="构建Hexo"></a>构建Hexo</h2><p><strong>初始化Hexo后，其实Hexo就可以使用了；构建Hexo：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p><strong>会在当前目录下生成一个叫<code>public</code>的文件夹，这个文件夹就是根据你<code>Hexo</code>的配置，生成的HTML+CSS+JS的静态文件了。</strong></p>
+<h2 id="启动Hexo内建服务器"><a href="#启动Hexo内建服务器" class="headerlink" title="启动Hexo内建服务器"></a>启动Hexo内建服务器</h2><p><strong>其实，整个<code>public</code>文件就是一个博客了，但是我们还要部署<code>Nginx</code>等网络环境或者使用<code>HBuilderX</code>等根据，启动Web服务器才能用浏览器本地IP(即：<code>127.0.0.1</code>或<code>localhost</code>)加端口进行访问；为了减少麻烦，可以使用Hexo内建服务器：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234306097.png" alt="image-20220710234306097"></p>
+<p><strong>我们可以去<code>127.0.0.1:4000</code>网址看看初始化页面的样子</strong></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234335015.png" alt="image-20220710234335015"></p>
+<h1 id="部署Hexo到远程平台"><a href="#部署Hexo到远程平台" class="headerlink" title="部署Hexo到远程平台"></a>部署Hexo到远程平台</h1><p><strong>上述操作，我们已经把<code>Hexo</code>部署在本地；接下来，我们来看看怎么部署到远程平台，部署到远程平台后，公网用户就可以访问了（也就是可以让你小伙伴通过浏览器访问到你的博客）。</strong></p>
+<h2 id="部署Hexo到GitHub"><a href="#部署Hexo到GitHub" class="headerlink" title="部署Hexo到GitHub"></a>部署Hexo到GitHub</h2><h3 id="GitHub创建仓库"><a href="#GitHub创建仓库" class="headerlink" title="GitHub创建仓库"></a>GitHub创建仓库</h3><p><strong>到Github上创建仓库</strong></p>
+<p><strong>注意：为了能通过 &lt;你的 GitHub 用户名&gt;.github.io 域名访问，你的仓库（repository） 应该直接命名为:</strong><br><strong>&lt;你的 GitHub 用户名&gt;.github.io</strong></p>
+<p><strong>比如：你的用户名叫：Demo；</strong><br><strong>那么，你就创建一个仓库叫：Demo.github.io</strong></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234923191.png" alt="image-20220710234923191"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234953614.png" alt="image-20220710234953614"></p>
+<p><strong>GitHub现在新的仓库，分支为main，而Hexo默认用master分支。所以创建好后进入仓库，看看是什么分支：</strong></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235020234.png" alt="image-20220710235020234"></p>
+<p><strong>我的博客已经推送过一次了，现在是<code>master</code></strong></p>
+<h3 id="本地安装hexo-deployer-git"><a href="#本地安装hexo-deployer-git" class="headerlink" title="本地安装hexo-deployer-git"></a>本地安装hexo-deployer-git</h3><p><strong>在博客目录内，使用命令窗口/终端输入：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#注意这些插件是安装在博客目录内的，所以是跟随博客内容一起走的</span></span><br><span class="line"><span class="comment">#这个插件是提供上传git能力</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改本地配置文件"><a href="#修改本地配置文件" class="headerlink" title="修改本地配置文件"></a>修改本地配置文件</h3><p><strong>打开博客目录下的<code>_config.yml</code>文件，编辑（这边的可以用记事本），type后的’ ‘,填’git’，然后补上其他内容：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下面这个网址是我的github的一个链接</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:julintongxue/julintongxue.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235512404.png" alt="image-20220710235512404"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235652501.png" alt="image-20220710235652501"></p>
+<p><strong>复制HTTPS或者SSH都可以，除了网址你填自己的之外，其他的要和我的符合一致哦</strong></p>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p><strong>在博客目录下命令窗口/终端输入</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email <span class="string">&quot;your_email&quot;</span></span><br><span class="line">git config --global user.name <span class="string">&quot;your_name&quot;</span></span><br><span class="line"><span class="comment"># hexo d就是推送博客到指定的地方(本博客推送的地方是Github)</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p><strong>会弹出一个github的登陆框，登录上你自己的github即可</strong></p>
+<p>然后你访问</p>
+<p><code>&lt;你的 GitHub 用户名&gt;.github.io</code>这个网址就出现你的hexo网站了，你的博客生涯正式开始。。。</p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220711001206320.png" alt="image-20220711001206320"></p>
+<p><strong>有条件的自己配一下ssh公钥验证</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your_email&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>一路下一步之后，找到你c盘下的用户，找到一个.ssh的隐藏文件夹，在里面有个<code>id_rsa.pub</code>文件，把里面内容复制到github的账户设置里面的ssh验证</strong></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220711000855560.png" alt="image-20220711000855560"></p>
+
       
     </div>
 
