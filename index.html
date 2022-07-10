@@ -191,7 +191,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-10 01:19:34" itemprop="dateModified" datetime="2022-07-10T01:19:34+08:00">2022-07-10</time>
+      <time title="Modified: 2022-07-10 13:17:29" itemprop="dateModified" datetime="2022-07-10T13:17:29+08:00">2022-07-10</time>
     </span>
 
   
@@ -215,8 +215,8 @@
 <p><strong>而我们传统的安装<code> NodeJS</code>的方法很容易出现错误，而且配置起来也特别麻烦，所以我们采用<code>nvm</code>这个项目管理工具来配合我们安装博客会更加的丝滑而且几乎没有报错的可能，读者也可以根据自己喜欢的版本无缝切换。</strong></p>
 <p><strong>Windows下配置<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows">NVM</a>：</strong></p>
 <h2 id="top1-安装NVM"><a href="#top1-安装NVM" class="headerlink" title="top1:安装NVM"></a>top1:安装NVM</h2><p><strong>进入NVM-Windows项目发布地址：<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases%EF%BC%8C%E9%80%89%E6%8B%A9%E6%9C%80%E6%96%B0%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC%60nvm-setup.zip%60%E4%B8%8B%E8%BD%BD%EF%BC%9A">https://github.com/coreybutler/nvm-windows/releases，选择最新发行版本`nvm-setup.zip`下载：</a></strong></p>
-<p><img src="/.com//image-20220710000533630.png" alt="image-20220710000533630"></p>
-<p><img src="/.com//image-20220710000654131.png" alt="image-20220710000654131"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710000533630.png" alt="image-20220710000533630"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710000654131.png" alt="image-20220710000654131"></p>
 <p><strong>安装完成后，在<code>CMD</code>或者<code>Powershell</code>下，输入<code>NVM</code>，即可发现安装完成：</strong></p>
 <h2 id="top2-配置国内源"><a href="#top2-配置国内源" class="headerlink" title="top2:配置国内源"></a>top2:配置国内源</h2><p><strong>中国大陆这边连接<code>Node.js</code>和<code>NPM</code>官方服务器有点困难，甚至不单单是下载慢了，有时候直接无法下载使用。所以我们换<code>NVM</code>和<code>Node.js</code>成国内源：</strong></p>
 <p><strong>到你<code>NVM</code>安装路径，打开<code>setting.txt</code>文件（如果没有，则创建即可），更改：</strong></p>
@@ -232,24 +232,24 @@
 <li><strong>node_mirror：node.js的下载源，这里使用的是淘宝源</strong></li>
 <li><strong>npm_mirror：npm的下载源，这里使用的是淘宝源</strong></li>
 </ul>
-<p><img src="/.com//image-20220710001515115.png" alt="image-20220710001515115"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710001515115.png" alt="image-20220710001515115"></p>
 <h1 id="管理与安装Node-js"><a href="#管理与安装Node-js" class="headerlink" title="管理与安装Node.js"></a>管理与安装Node.js</h1><h2 id="top3-查看已经版本"><a href="#top3-查看已经版本" class="headerlink" title="top3:查看已经版本"></a>top3:查看已经版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm list</span><br></pre></td></tr></table></figure>
 
 <p><strong>查看已经安装的版本：</strong></p>
 <p><strong>这里我已经安装了16.15.1版本的node.js,如果你是刚刚安装好的，那么这里将是空白一片</strong></p>
-<p><img src="/.com//image-20220710001705412.png" alt="image-20220710001705412"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710001705412.png" alt="image-20220710001705412"></p>
 <h2 id="top4-查看可安装版本"><a href="#top4-查看可安装版本" class="headerlink" title="top4:查看可安装版本"></a>top4:查看可安装版本</h2><p>如何查看通过NVM安装的Node.js版本呢？<br>你可以直接使用NVM命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows</span></span><br><span class="line">nvm list available</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//image-20220710002047715.png" alt="image-20220710002047715"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002047715.png" alt="image-20220710002047715"></p>
 <h2 id="top5-安装Node-js"><a href="#top5-安装Node-js" class="headerlink" title="top5:安装Node.js"></a>top5:安装Node.js</h2><p><strong>我们安装16.15.1版本node.js：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 16.15.1</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//image-20220710002225007.png" alt="image-20220710002225007"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002225007.png" alt="image-20220710002225007"></p>
 <h2 id="top6-激活Node-js版本"><a href="#top6-激活Node-js版本" class="headerlink" title="top6:激活Node.js版本"></a>top6:激活Node.js版本</h2><p><strong>我们安装好Node.js以后，需要激活它</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use 16.15.1</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//image-20220710002353777.png" alt="image-20220710002353777"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002353777.png" alt="image-20220710002353777"></p>
 <p><strong>然后我们发现出现这堆乱码，其实是因为我们没有用管理员权限的<code>powershell</code>,用管理员的身份打开<code>powershell</code>再来一次即可生效。</strong></p>
 <h1 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h1><p><strong>很简单，无脑下一步！！！</strong></p>
 <p><a target="_blank" rel="noopener" href="https://git-scm.com/">Git的官网地址</a> <strong>给你们啦！！！</strong></p>
@@ -267,7 +267,7 @@
 <p><strong>安装好以后，测试一下：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//image-20220710004601578.png" alt="image-20220710004601578"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710004601578.png" alt="image-20220710004601578"></p>
 <p><strong>没有出现未知命令，说明安装成功。可以接下来操作了。</strong></p>
 <h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2>
       
