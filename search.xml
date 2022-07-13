@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>nginx暑假实训</title>
+      <link href="/2022/07/13/nginx%E6%9A%91%E5%81%87%E5%AE%9E%E8%AE%AD/"/>
+      <url>/2022/07/13/nginx%E6%9A%91%E5%81%87%E5%AE%9E%E8%AE%AD/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Nginx-安装"><a href="#Nginx-安装" class="headerlink" title="Nginx 安装"></a>Nginx 安装</h2><h3 id="一、安装编译工具及库文件"><a href="#一、安装编译工具及库文件" class="headerlink" title="一、安装编译工具及库文件"></a>一、安装编译工具及库文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install make zlib zlib-devel gcc-c++ gcc libtool  openssl openssl-devel</span><br></pre></td></tr></table></figure><h3 id="二、首先要安装-PCRE"><a href="#二、首先要安装-PCRE" class="headerlink" title="二、首先要安装 PCRE"></a>二、首先要安装 PCRE</h3><p>PCRE 作用是让 Nginx 支持 Rewrite 功能。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install pcre pcre-devel</span><br></pre></td></tr></table></figure><h3 id="三、安装-Nginx"><a href="#三、安装-Nginx" class="headerlink" title="三、安装 Nginx"></a>三、安装 Nginx</h3><p>1、下载 Nginx，下载地址：<a href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找到nginx-1.22.0这个稳定包，下载下来，然后用rz上传到服务器</span></span><br></pre></td></tr></table></figure><p> 2、解压安装包</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf nginx-1.22.0.tar.gz</span><br></pre></td></tr></table></figure><p>3、进入安装包目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> nginx-1.22.0</span><br></pre></td></tr></table></figure><p>4、编译</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/nginx</span><br></pre></td></tr></table></figure><p>5、安装</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure><p>6、查看nginx版本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/nginx/sbin/nginx -v</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>搭建我的hexo博客</title>
       <link href="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/"/>
       <url>/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/</url>
