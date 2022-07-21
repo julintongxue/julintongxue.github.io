@@ -116,7 +116,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -146,6 +146,271 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/22/Arch-Linux-%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85(%E9%9D%9E%E5%8E%9F%E5%88%9B)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="甜橙子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | orangeの博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/22/Arch-Linux-%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85(%E9%9D%9E%E5%8E%9F%E5%88%9B)/" class="post-title-link" itemprop="url">Arch Linux 基础安装</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-07-22 00:22:19 / Modified: 00:22:33" itemprop="dateCreated datePublished" datetime="2022-07-22T00:22:19+08:00">2022-07-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>更新日期 2021-07-13</p>
+<h1 id="Arch-Linux-基础安装"><a href="#Arch-Linux-基础安装" class="headerlink" title="Arch Linux 基础安装"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=arch-linux-%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85">Arch Linux 基础安装</a></h1><p>本节从安装最基础的无图形化 ArchLinux 系统开始。<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Installation_guide">官方安装指南</a><br>相关视频链接： <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Jy4y1M74E">ArchLinux 安装使用教程</a> 视频中可看到全部操作步骤 强烈建议观看视频配合文字学习。</p>
+<h2 id="1-禁用-reflector"><a href="#1-禁用-reflector" class="headerlink" title="1.禁用 reflector"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_1%E7%A6%81%E7%94%A8-reflector">1.禁用 reflector</a></h2><p>2020 年新版 archliveiso 加入了 reflector 服务，它会自己更新 mirrorlist。在特定情况下，它会误删某些有用的源信息。这里启动后的第一件事就是将其禁用。也许它是一个好用的工具，但是很明显，它并不适合在安装的时候面向新手启用，尤其在中国。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop reflector.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-再次确保是否为-UEFI-模式"><a href="#2-再次确保是否为-UEFI-模式" class="headerlink" title="2.再次确保是否为 UEFI 模式"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_2%E5%86%8D%E6%AC%A1%E7%A1%AE%E4%BF%9D%E6%98%AF%E5%90%A6%E4%B8%BA-uefi-%E6%A8%A1%E5%BC%8F">2.再次确保是否为 UEFI 模式</a></h2><p>在一系列的信息刷屏后，可以看到已经以 root 登陆安装系统了，此时可以执行的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> /sys/firmware/efi/efivars</span><br></pre></td></tr></table></figure>
+
+<p>若输出了一堆东西，即 efi 变量，则说明已在 UEFI 模式。否则请确认你的启动方式是否为 UEFI。</p>
+<h2 id="3-连接网络"><a href="#3-连接网络" class="headerlink" title="3.连接网络"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_3%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C">3.连接网络</a></h2><h3 id="无线连接"><a href="#无线连接" class="headerlink" title="无线连接:"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=%E6%97%A0%E7%BA%BF%E8%BF%9E%E6%8E%A5">无线连接:</a></h3><p>无线连接使用 iwctl 进行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iwctl                           <span class="comment">#进入交互式命令行</span></span><br><span class="line">device list                     <span class="comment">#列出设备名，比如无线网卡看到叫 wlan0</span></span><br><span class="line">station wlan0 scan              <span class="comment">#扫描网络</span></span><br><span class="line">station wlan0 get-networks      <span class="comment">#列出网络 比如想连接CMCC-5AQ7这个无线</span></span><br><span class="line">station wlan0 connect CMCC-5AQ7 <span class="comment">#进行连接 输入密码即可</span></span><br><span class="line"><span class="built_in">exit</span>                            <span class="comment">#成功后exit退出</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="有线连接"><a href="#有线连接" class="headerlink" title="有线连接:"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=%E6%9C%89%E7%BA%BF%E8%BF%9E%E6%8E%A5">有线连接:</a></h3><p>正常来说，只要插上一个已经联网的路由器分出的网线(DHCP)，直接就能联网。</p>
+<p>可以等待几秒等网络建立链接后再进行下步测试网络的操作。</p>
+<h2 id="4-测试网络"><a href="#4-测试网络" class="headerlink" title="4.测试网络"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_4%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C">4.测试网络</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.gnu.org</span><br></pre></td></tr></table></figure>
+
+<p>稍等片刻，若能看到数据返回，即说明已经联网，ctrl+c 终止退出当前命令。如果还是无法连接，使用 <code>ip link set xxx up</code> 命令确认你已经激活了对应的网卡，再重新继续网络链接与测试。若看到类似<code>Operation not possible due to RF-kill</code>的报错，继续尝试<code>rfkill unblock wifi</code>来解锁无线网卡。[<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Network_configuration/Wireless#Check_the_driver_status">1]</a></p>
+<h2 id="5-更新系统时钟"><a href="#5-更新系统时钟" class="headerlink" title="5.更新系统时钟"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_5%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%92%9F">5.更新系统时钟</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-ntp <span class="literal">true</span>    <span class="comment">#将系统时间与网络时间进行同步</span></span><br><span class="line">timedatectl status          <span class="comment">#检查服务状态</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-更换国内镜像源加快下载速度"><a href="#6-更换国内镜像源加快下载速度" class="headerlink" title="6.更换国内镜像源加快下载速度"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_6%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90%E5%8A%A0%E5%BF%AB%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6">6.更换国内镜像源加快下载速度</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pacman.d/mirrorlist    <span class="comment">#不会vim的同学，此处注意视频中的vim操作步骤</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>放在最上面的是会使用的更新源,把中科大 ustc 的或者清华的放在最上面。</p>
+<h2 id="7-分区"><a href="#7-分区" class="headerlink" title="7.分区"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_7%E5%88%86%E5%8C%BA">7.分区</a></h2><p>这里总共设置三个分区，可以满足绝大多数人的需求。此步骤会清除磁盘中全部内容，请事先确认。</p>
+<ul>
+<li>EFI 分区： <code>/efi</code> 800M</li>
+<li>根目录： <code>/</code> 100G</li>
+<li>用户主目录： <code>/home</code> 剩余全部 越大越好</li>
+</ul>
+<blockquote>
+<p>这里根目录的大小仅为参考，一般来说个人日常使用的 linux 分配 100G 已经够用了。根目录最小建议不小于 50G，根目录过小会造成无法更新系统软件包等问题。</p>
+</blockquote>
+<p>首先将磁盘转换为 gpt 类型</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lsblk                       <span class="comment">#显示分区情况</span></span><br><span class="line">parted /dev/sdx             <span class="comment">#执行parted，进行磁盘类型变更</span></span><br><span class="line">(parted)mktable             <span class="comment">#输入mktable</span></span><br><span class="line">New disk label <span class="built_in">type</span>? gpt    <span class="comment">#输入gpt 将磁盘类型转换为gpt 如磁盘有数据会警告，输入yes即可</span></span><br><span class="line">quit                        <span class="comment">#最后quit退出parted命令行交互</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来使用 cfdisk 命令对磁盘分区</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cfdisk /dev/sdx <span class="comment">#来执行分区操作,分配各个分区大小，类型</span></span><br><span class="line">fdisk -l <span class="comment">#复查磁盘情况</span></span><br></pre></td></tr></table></figure>
+
+<p>cfdisk 分区的详细操作见视频中的操作。一般建议将 EFI 分区设置为磁盘的第一个分区，据说有些主板如果不将 EFI 设置为第一个分区，可能有不兼容的问题。</p>
+<h2 id="8-格式化"><a href="#8-格式化" class="headerlink" title="8.格式化"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_8%E6%A0%BC%E5%BC%8F%E5%8C%96">8.格式化</a></h2><p>这里的 sdax 只是例子，具体根据你的实际情况来，请注意视频中的操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#磁盘若有数据会问 &#x27;proceed any way?&#x27; y回车 即可</span></span><br><span class="line">mkfs.ext4  /dev/sdax            <span class="comment">#格式化根目录和home目录的两个分区</span></span><br><span class="line">mkfs.vfat  /dev/sdax            <span class="comment">#格式化efi分区</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="9-挂载"><a href="#9-挂载" class="headerlink" title="9.挂载"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_9%E6%8C%82%E8%BD%BD">9.挂载</a></h2><p>在挂载时，挂载是有顺序的，需要从根目录开始挂载<br>这里的 sdax 只是例子，具体根据你的实际情况来，请注意视频中的操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sdax  /mnt</span><br><span class="line"><span class="built_in">mkdir</span> /mnt/home</span><br><span class="line">mount /dev/sdax /mnt/home</span><br><span class="line"><span class="built_in">mkdir</span> /mnt/efi</span><br><span class="line">mount /dev/sdax /mnt/efi</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-安装系统"><a href="#10-安装系统" class="headerlink" title="10.安装系统"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_10%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F">10.安装系统</a></h2><p>基础包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware  <span class="comment">#base-devel在AUR包的安装是必须的</span></span><br></pre></td></tr></table></figure>
+
+<p>功能性软件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt dhcpcd iwd vim sudo bash-completion   <span class="comment">#一个有线所需 一个无线所需 一个编辑器  一个提权工具 一个补全工具 iwd也需要dhcpcd</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="11-生成-fstab-文件"><a href="#11-生成-fstab-文件" class="headerlink" title="11.生成 fstab 文件"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_11%E7%94%9F%E6%88%90-fstab-%E6%96%87%E4%BB%B6">11.生成 fstab 文件</a></h2><p>fstab 用来定义磁盘分区</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+
+<p>复查一下 /mnt/etc/fstab 确保没有错误</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+
+<h2 id="12-change-root"><a href="#12-change-root" class="headerlink" title="12.change root"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_12change-root">12.change root</a></h2><p>把环境切换到新系统的/mnt 下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure>
+
+<h2 id="13-设置主机名与时区"><a href="#13-设置主机名与时区" class="headerlink" title="13.设置主机名与时区"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_13%E8%AE%BE%E7%BD%AE%E4%B8%BB%E6%9C%BA%E5%90%8D%E4%B8%8E%E6%97%B6%E5%8C%BA">13.设置主机名与时区</a></h2><p>首先在<code>/etc/hostname</code>设置主机名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br></pre></td></tr></table></figure>
+
+<p>加入你想为主机取的主机名，这里比如叫 myarch。</p>
+<p>接下来在<code>/etc/hosts</code>设置与其匹配的条目。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<p>加入如下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1   localhost</span><br><span class="line">::1         localhost</span><br><span class="line">127.0.1.1   myarch.localdomain    myarch</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>某些情况下如不设置主机名，在 KDE 下可能会存在网络情况变更时无法启动 GUI 应用的问题，在终端中出现形如<code>No protocol specified qt.qpa.xcb: could not connect to display</code>的错误，这种情况较为少见。相关参考链接:[<a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?id=241338">1]</a>，[<a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?id=243674">2]</a></p>
+</blockquote>
+<hr>
+<p>随后设置时区，在/etc/localtime 下用/usr 中合适的时区创建符号连接。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+
+<h2 id="14-硬件时间设置"><a href="#14-硬件时间设置" class="headerlink" title="14.硬件时间设置"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_14%E7%A1%AC%E4%BB%B6%E6%97%B6%E9%97%B4%E8%AE%BE%E7%BD%AE">14.硬件时间设置</a></h2><p>将系统时间同步到硬件时间</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure>
+
+<h2 id="15-设置-Locale"><a href="#15-设置-Locale" class="headerlink" title="15.设置 Locale"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_15%E8%AE%BE%E7%BD%AE-locale">15.设置 Locale</a></h2><p>Locale 决定了软件使用的语言、书写习惯和字符集。</p>
+<p>编辑 /etc/locale.gen，去掉 en_US.UTF-8 行以及 zh_CN.UTF-8 的注释符号（#）。</p>
+<p>然后使用如下命令生成 locale。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale-gen</span><br></pre></td></tr></table></figure>
+
+<p>向 /etc/locale.conf 输入内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;LANG=en_US.UTF-8&#x27;</span>  &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="16-为-root-用户设置密码"><a href="#16-为-root-用户设置密码" class="headerlink" title="16.为 root 用户设置密码"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_16%E4%B8%BA-root-%E7%94%A8%E6%88%B7%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81">16.为 root 用户设置密码</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
+
+<h2 id="17-安装微码"><a href="#17-安装微码" class="headerlink" title="17.安装微码"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_17%E5%AE%89%E8%A3%85%E5%BE%AE%E7%A0%81">17.安装微码</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -S intel-ucode   <span class="comment">#Intel</span></span><br><span class="line">pacman -S amd-ucode     <span class="comment">#AMD</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="18-安装引导程序"><a href="#18-安装引导程序" class="headerlink" title="18.安装引导程序"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_18%E5%AE%89%E8%A3%85%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F">18.安装引导程序</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -S grub efibootmgr   <span class="comment">#grub是启动引导器，efibootmgr被 grub 脚本用来将启动项写入 NVRAM。</span></span><br><span class="line">grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB <span class="comment">#取名为GRUB 并将grubx64.efi安装到之前的指定位置</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来编辑/etc/default/grub 文件，去掉<code>GRUB_CMDLINE_LINUX_DEFAULT</code>一行中最后的 quiet 参数，同时把 log level 的数值从 3 改成 5。这样是为了后续如果出现系统错误，方便排错。同时加入 nowatchdog 参数，这可以显著提高开关机速度。不会 vim 的同学注意视频中的操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/grub</span><br></pre></td></tr></table></figure>
+
+<p>最后生成 GRUB 所需的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在某些主板安装完成后，你会发现没有启动条目。这是因为某些主板的 UEFI 固件在显示 UEFI NVRAM 引导条目之前，需要在特定的位置存放可引导文件，不支持自定义存放 efi 文件(如微星 Z170-A Gaming PRO)。解决方案是在默认启动路径下安装 GRUB。重新插入安装优盘，挂载目录，chroot 到/mnt，然后你可以直接把已经生成好的 efi 文件移动到默认目录下，如下代码所示。只有安装完成后你的主板不出现启动条目才需要尝试如下命令，正常安装无需执行。<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/GRUB#Default/fallback_boot_path">官方参考文档</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /efi/EFI/BOOT</span><br><span class="line"><span class="built_in">mv</span> /efi/EFI/GRUB/grubx64.efi /efi/EFI/BOOT/BOOTX64.EFI</span><br></pre></td></tr></table></figure>
+
+<h2 id="19-完成安装"><a href="#19-完成安装" class="headerlink" title="19.完成安装"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=_19%E5%AE%8C%E6%88%90%E5%AE%89%E8%A3%85">19.完成安装</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span>                <span class="comment"># 退回安装环境#</span></span><br><span class="line">umount -R  /mnt     <span class="comment"># 卸载新分区</span></span><br><span class="line">reboot              <span class="comment"># 重启</span></span><br></pre></td></tr></table></figure>
+
+<p>注意，重启前要先拔掉优盘，否则你重启后还是进安装程序而不是安装好的系统。重启后，开启 dhcp 服务，即可连接网络</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start dhcpcd  <span class="comment">#立即启动dhcp</span></span><br><span class="line">ping www.gnu.org      <span class="comment">#测试网络连接</span></span><br></pre></td></tr></table></figure>
+
+<p>若为无线链接，则还需要启动 iwd 才可以使用 iwctl 连接网络</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start iwd <span class="comment">#立即启动iwd</span></span><br><span class="line">iwctl               <span class="comment">#和之前的方式一样，连接无线网络</span></span><br></pre></td></tr></table></figure>
+
+<p>到此为止，一个基础的，无 UI 界面的 Arch Linux 已经安装完成了。紧接着下一节，我们来安装图形界面。</p>
+<blockquote>
+<p>archlinux 在 2021 年 4 月在安装镜像中内置了一个<a target="_blank" rel="noopener" href="https://archlinux.org/packages/extra/any/archinstall/">安装脚本</a>，其就是类似一个一键安装脚本，提供一些选项，即可快速安装。其和所有一键安装脚本类似，提供自动化，且不灵活的安装过程。缺陷为：只提供有限的文件系统格式、只可限定在一个磁盘、不能指定源、只提供有限的桌面选择、自动分区不可手动干预、输入错误直接崩溃退出、仅支持 UEFI 等。不建议使用这种安装脚本，除了以上各种原因，初学者也无法在这种安装过程中学到任何东西。如果你因为任何原因需要快速启动一个基础的 archlinux 环境，那么可以尝试此脚本。</p>
+</blockquote>
+<p>更新日期 2021-07-13</p>
+<h1 id="桌面环境与常用应用"><a href="#桌面环境与常用应用" class="headerlink" title="桌面环境与常用应用"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E4%B8%8E%E5%B8%B8%E7%94%A8%E5%BA%94%E7%94%A8">桌面环境与常用应用</a></h1><p>官方文档: <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/General_recommendations">安装后的工作</a><br>本节只介绍最基本的，能使系统真正意义上可用所需的组件<br>相关视频链接： <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Fv411H7x2">安装 KDE 与常用软件</a> 视频文字结合效果更好<br>注: 文档中带有 AUR 角标的软件代表是用户自行打包的第三方软件<a target="_blank" rel="noopener" href="https://aur.archlinux.org/">AUR</a>，不在 Arch 官方支持范围内，可能会出现更新不及时、无法安装、使用出错等各种问题。如果不是实在没有官方支持的同类软件，则不建议使用。</p>
+<h2 id="1-确保系统为最新"><a href="#1-确保系统为最新" class="headerlink" title="1.确保系统为最新"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_1%E7%A1%AE%E4%BF%9D%E7%B3%BB%E7%BB%9F%E4%B8%BA%E6%9C%80%E6%96%B0">1.确保系统为最新</a></h2><p>如果你在做完上一节的内容后，重启并放置过一段时间，那需要先按照上节末尾处的方式重新连接网络，然后更新系统。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syyu    <span class="comment">#升级系统中全部包</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-准备非-root-用户"><a href="#2-准备非-root-用户" class="headerlink" title="2.准备非 root 用户"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_2%E5%87%86%E5%A4%87%E9%9D%9E-root-%E7%94%A8%E6%88%B7">2.准备非 root 用户</a></h2><p>添加用户，比如新增加的用户叫 testuser</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -G wheel -s /bin/bash testuser  <span class="comment">#wheel附加组可sudo进行提权 -m同时创建用户家目录</span></span><br></pre></td></tr></table></figure>
+
+<p>设置新用户 testuser 的密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd testuser</span><br></pre></td></tr></table></figure>
+
+<p>编辑 sudo 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EDITOR=vim visudo</span><br></pre></td></tr></table></figure>
+
+<p>找到这样的一行,把前面的注释符号#去掉，<code>:wq</code>保存并退出即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#%wheel ALL=(ALL) ALL</span></span><br></pre></td></tr></table></figure>
+
+<p>这里稍微解释一下 %wheel 代表是 wheel 组，百分号是前缀<br>ALL= 代表在所有主机上都生效(如果把同样的<code>sudoers</code>文件下发到了多个主机上)<br>(ALL) 代表可以成为任意目标用户<br>ALL 代表可以执行任意命令<br>一个更详细的例子:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%mailadmin   snow,rain=(root) /usr/sbin/postfix, /usr/sbin/postsuper, /usr/bin/doveadm</span><br><span class="line">nobody       ALL=(root) NOPASSWD: /usr/sbin/rndc reload</span><br></pre></td></tr></table></figure>
+
+<p>组 mailadmin 可以作为 root 用户，执行一些邮件服务器控制命令。可以在 “snow” 和 “rain”这两台主机上执行<br>用户 nobody 可以以 root 用户执行<code>rndc reload</code>命令。可以在所有主机上执行。同时可以不输入密码。(正常来说 sudo 都是要求输入调用方的密码的)</p>
+<h2 id="3-安装-KDE-Plasma-桌面环境"><a href="#3-安装-KDE-Plasma-桌面环境" class="headerlink" title="3.安装 KDE Plasma 桌面环境"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_3%E5%AE%89%E8%A3%85-kde-plasma-%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83">3.安装 KDE Plasma 桌面环境</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S plasma-meta konsole dolphin  <span class="comment">#安装plasma-meta元软件包以及终端和文件管理器</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-配置-greeter-sddm"><a href="#4-配置-greeter-sddm" class="headerlink" title="4.配置 greeter sddm"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_4%E9%85%8D%E7%BD%AE-greeter-sddm">4.配置 greeter sddm</a></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable sddm</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-设置交换文件-swap"><a href="#5-设置交换文件-swap" class="headerlink" title="5.设置交换文件 swap"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_5%E8%AE%BE%E7%BD%AE%E4%BA%A4%E6%8D%A2%E6%96%87%E4%BB%B6-swap">5.设置交换文件 swap</a></h2><p>在桌面环境中，交换分区或文件用来实现休眠(hibernate)的功能，即将当前环境保存在磁盘的交换文件或分区部分。除此之外，某些特定软件需要 swap 才可以正确运行。交换文件与分区性能相同，且交换文件更为灵活，可随时变更大小，增加与删除。[<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Swap#Swap_file">1]</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=/swapfile bs=1M count=16384 status=progress <span class="comment">#创建16G的交换空间 大小根据需要自定</span></span><br><span class="line"><span class="built_in">chmod</span> 600 /swapfile <span class="comment">#设置正确的权限</span></span><br><span class="line">mkswap /swapfile <span class="comment">#格式化swap文件</span></span><br><span class="line">swapon /swapfile <span class="comment">#启用swap文件</span></span><br></pre></td></tr></table></figure>
+
+<p>最后，向/etc/fstab 中追加如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/swapfile none swap defaults 0 0</span><br></pre></td></tr></table></figure>
+
+<p>KDE 自身提供开箱即用的睡眠功能(suspend)，即将系统挂起到内存，消耗少量的电量。休眠(hibernate)会将系统挂起到交换分区或文件，几乎不消耗电量。sleep 睡眠功能已可满足绝大多数人的需求，如果你一定需要休眠功能，可以参考<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate">官方文档</a>设置休眠相关步骤。</p>
+<h2 id="6-开启-32-位支持库与-ArchLinuxCN-支持库"><a href="#6-开启-32-位支持库与-ArchLinuxCN-支持库" class="headerlink" title="6.开启 32 位支持库与 ArchLinuxCN 支持库"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_6%E5%BC%80%E5%90%AF-32-%E4%BD%8D%E6%94%AF%E6%8C%81%E5%BA%93%E4%B8%8E-archlinuxcn-%E6%94%AF%E6%8C%81%E5%BA%93">6.开启 32 位支持库与 ArchLinuxCN 支持库</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pacman.conf</span><br></pre></td></tr></table></figure>
+
+<p>去掉[multilib]一节中两行的注释，来开启 32 位库支持。<br>在文档结尾处加入下面的文字，来开启 ArchLinuxCN 源。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
+
+<p>上面服务器的地址是中科大的，也可用下面清华的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/archlinuxcn/mirrorlist-repo#arch-linux-cn-community-repo-mirrors-list">此处</a>为 archlinuxcn 全部仓库地址 可以根据自己实际情况另行选择。</p>
+<p>最后:wq 保存退出，刷新 pacman 数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syyu</span><br></pre></td></tr></table></figure>
+
+<p>重启电脑，即可看到欢迎界面，输入新用户的密码即可登录桌面</p>
+<h2 id="7-安装基础功能包"><a href="#7-安装基础功能包" class="headerlink" title="7.安装基础功能包"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_7%E5%AE%89%E8%A3%85%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD%E5%8C%85">7.安装基础功能包</a></h2><p>进入桌面后，搜索 konsole。它是 KDE 桌面环境默认的命令行终端。</p>
+<p>首先先进行桌面环境中的网络设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">disable</span> iwd                                                  <span class="comment">#确保iwd开机处于关闭状态，其无线连接会与NetworkManager冲突</span></span><br><span class="line">sudo systemctl stop iwd                                                     <span class="comment">#同上，立即关闭iwd</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> --now NetworkManager                                  <span class="comment">#确保先启动NetworkManager，并进行网络连接 若iwd已经与NetworkManager冲突 则执行完上一步重启一下电脑即可。</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来安装一些基础功能包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S ntfs-3g                                                      <span class="comment">#识别NTFS格式的硬盘</span></span><br><span class="line">sudo pacman -S adobe-source-han-serif-cn-fonts wqy-zenhei                   <span class="comment">#安装几个开源中文字体 一般装上文泉驿就能解决大多wine应用中文方块的问题</span></span><br><span class="line">sudo pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts-extra             <span class="comment">#安装谷歌开源字体及表情</span></span><br><span class="line">sudo pacman -S firefox chromium                                             <span class="comment">#安装常用的火狐、谷歌浏览器</span></span><br><span class="line">sudo pacman -S ark                                                          <span class="comment">#与dolphin同用右键解压 注意可同时安装可选解压支持项</span></span><br><span class="line">sudo pacman -S packagekit-qt5 packagekit appstream-qt appstream             <span class="comment">#确保Discover(软件中心）可用 需重启</span></span><br><span class="line">sudo pacman -S gwenview                                                     <span class="comment">#图片查看器</span></span><br><span class="line">sudo pacman -S steam                                                        <span class="comment">#稍后看完显卡驱动再使用 专有软件</span></span><br></pre></td></tr></table></figure>
+
+<p>最后要安装 archlinuxcn 源的相关步骤。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S archlinuxcn-keyring                                          <span class="comment">#cn源中的签名(archlinuxcn-keyring在archLinuxCn)</span></span><br><span class="line">sudo pacman -S yay                                                          <span class="comment">#yay命令可以让用户安装AUR中的软件(yay在archLinuxCn)</span></span><br></pre></td></tr></table></figure>
+
+<p>若安装 archlinuxcn-keyring 时报错，是由于密钥环的问题，可先按照<a target="_blank" rel="noopener" href="https://www.archlinuxcn.org/gnupg-2-1-and-the-pacman-keyring/">此链接</a>执行其中的命令，再安装 archlinuxcn-keyring</p>
+<h2 id="8-设置系统为中文"><a href="#8-设置系统为中文" class="headerlink" title="8.设置系统为中文"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_8%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E4%B8%BA%E4%B8%AD%E6%96%87">8.设置系统为中文</a></h2><p>打开 <em>System Settings</em> &gt; <em>Regional Settings</em> &gt; <em>Language</em> -&gt; <em>Add languages</em> 中选择中文加入，再拖拽到第一位，Apply。</p>
+<p>再将<em>System Settings</em> &gt; <em>Regional Settings</em> &gt; <em>Formats</em> 中的值设为<code>中文-简体中文(zh_CN)</code></p>
+<p>最后重新登陆即可。</p>
+<blockquote>
+<p>很多人会错误的更改 <em>System Settings</em> &gt; <em>Regional Settings</em> &gt; <em>Formats</em> 中的值为中文蒙古(mn_CN)，默认，或者其他值，这会导致系统中一半英文一般中文。这里的值要保持默认的 en_US 或 zh_CN,或者改为你在 locale.gen 中添加的任意一种语言。</p>
+</blockquote>
+<h2 id="9-安装输入法"><a href="#9-安装输入法" class="headerlink" title="9.安装输入法"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_9%E5%AE%89%E8%A3%85%E8%BE%93%E5%85%A5%E6%B3%95">9.安装输入法</a></h2><p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Fcitx5_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Fcitx5 官方文档</a><br>中文及日文输入法均体验良好。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx5-im <span class="comment">#基础包组</span></span><br><span class="line">sudo pacman -S fcitx5-chinese-addons <span class="comment">#官方中文输入引擎</span></span><br><span class="line">sudo pacman -S fcitx5-anthy <span class="comment">#日文输入引擎</span></span><br><span class="line">sudo pacman -S fcitx5-pinyin-moegirl <span class="comment">#萌娘百科词库 二刺猿必备(ArchLinuxCn)</span></span><br><span class="line">sudo pacman -S fcitx5-material-color <span class="comment">#主题</span></span><br></pre></td></tr></table></figure>
+
+<p>设置环境变量 编辑文件 <code>sudo vim /etc/environment</code> 加入以下内容。konsole 以及 dophin 都需要这些环境变量，倒是 chrome 和 firefox 都不需要就可以输入中文</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br><span class="line">SDL_IM_MODULE=fcitx</span><br></pre></td></tr></table></figure>
+
+<p>打开 <em>系统设置</em> &gt; <em>区域设置</em> &gt; _输入法_，先点击<code>运行Fcitx</code>即可，拼音为默认添加项。如你还需要更多输入法如五笔，则再点击<code>添加输入法</code>，找到简体中文下的五笔 ，点击添加即可加入五笔输入法。</p>
+<p>接下来点击 <em>拼音</em> 右侧的配置按钮，点选<code>云拼音</code>和<code>在程序中显示预编辑文本</code> 最后应用。</p>
+<p>回到输入法设置，点击<code>配置附加组件</code>，找到 <em>经典用户界面</em> 在主题里选择一个你喜欢的颜色 最后应用。</p>
+<p>注销，重新登陆，就可以发现已经可以在各个软件中输入中文了</p>
+<h2 id="10-配置系统默认编辑器"><a href="#10-配置系统默认编辑器" class="headerlink" title="10.配置系统默认编辑器"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_10%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E7%BC%96%E8%BE%91%E5%99%A8">10.配置系统默认编辑器</a></h2><p>默认情况下，Arch Linux 在一些终端编辑场景使用 vi 编辑器，但是我们使用 vim。如果不做一个额外配置，在 git 等场景下，在终端调用编辑器会出错。编辑~/.bashrc 文件，加入如下内容，将 vim 设置为默认 EDITOR</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> EDITOR=<span class="string">&#x27;vim&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="11-启动蓝牙-若有"><a href="#11-启动蓝牙-若有" class="headerlink" title="11.启动蓝牙(若有)"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_11%E5%90%AF%E5%8A%A8%E8%93%9D%E7%89%99%E8%8B%A5%E6%9C%89">11.启动蓝牙(若有)</a></h2><p>如果你有蓝牙设备，需要启用蓝牙服务。随后在系统设置中进行添加设备与连接即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> --now bluetooth</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1605,177 +1870,6 @@
 
 
 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/17/HCIA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="甜橙子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | orangeの博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/HCIA/" class="post-title-link" itemprop="url">HCIA</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-07-17 16:52:12" itemprop="dateCreated datePublished" datetime="2022-07-17T16:52:12+08:00">2022-07-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-21 20:43:14" itemprop="dateModified" datetime="2022-07-21T20:43:14+08:00">2022-07-21</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="HCIA"><a href="#HCIA" class="headerlink" title="HCIA"></a>HCIA</h1><p>[toc]</p>
-<h2 id="回环网卡设置过程"><a href="#回环网卡设置过程" class="headerlink" title="回环网卡设置过程"></a>回环网卡设置过程</h2><h3 id="一-安装过程"><a href="#一-安装过程" class="headerlink" title="一.安装过程"></a>一.安装过程</h3><p><strong>1.找到”开始”选项，鼠标右击找到”设备管理器”,然后随便在空白处单击鼠标一下。</strong></p>
-<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(4).png" alt="屏幕截图(4)"></p>
-<p><strong>2.鼠标单击菜单栏选项的”操作”选项，然后单击”添加过时硬件”，然后在”弹窗”选项单击”下一步”;在”你想向导做什么”选项里面选择”安装我手动从列表选择的硬件(高级)”，然后单击”下一步”;在”常见硬件类型”选择中选择”网络适配器”,然后单击”下一步”;然后在”厂商”选项中选择”Microsoft”,然后在”型号”选项中选择”Microsoft KM-TEST 环回适配器”，然后单击”下一步“，然后在单击一次”下一步”，系统就会按照选项按照网卡，等待”完成”选项出来后，单击”完成”选项即可完成配置。</strong></p>
-<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(5).png" alt="屏幕截图(5)"></p>
-<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(6).png" alt="屏幕截图(6)"></p>
-<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(7).png" alt="屏幕截图(7)"></p>
-<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(10).png" alt="屏幕截图(10)"></p>
-<h3 id="二-检查过程"><a href="#二-检查过程" class="headerlink" title="二.检查过程"></a>二.检查过程</h3><p><strong>1.然后可以在”更改适配器选项中”找到”以太网”这张回环网卡</strong></p>
-<p><img src="/2022/07/17/HCIA/image-20220118203530057.png" alt="image-20220118203530057"></p>
-<p><strong>1.当然你也可以给这张网卡”重命名”,比如左上角那张”loop”网卡就是我上一次实验的回环网卡，接下来我会用”loop”网卡做实验（顺带说一句，回环网卡安装好后是必须要重启才能生效）</strong></p>
-<h3 id="三-ensp配置回环实验"><a href="#三-ensp配置回环实验" class="headerlink" title="三.ensp配置回环实验"></a>三.ensp配置回环实验</h3><p><strong>1.接下来我用这个拓扑来做一次</strong></p>
-<p><img src="/2022/07/17/HCIA/image-20220118235018574-1658238267503.png" alt="image-20220118235018574"></p>
-<p><strong>2.首先，我们单拖一个云”Cloud”出来。然后”右击”鼠标选择”设置”。没开始配置前的设置是这样的，如下图:</strong></p>
-<p><img src="/2022/07/17/HCIA/image-20220118205140449-1658238267503.png" alt="image-20220118205140449"></p>
-<p><strong>3.我们首先在端口创建那里找到绑定信息”UDP”，然后单击右边的”增加”选项。然后，配置表就出现一行配置，如下图:</strong></p>
-<p><img src="/2022/07/17/HCIA/image-20220118205410999-1658238267504.png" alt="image-20220118205410999"></p>
-<p><strong>4.然后我们在端口创建那里找到绑定信息”loop”（我们创建的回环网卡，这里的回环网卡我更改了设备名，所以叫loop），然后单击右边的”增加”选项。然后，配置表就出现第二行配置，如下图:</strong></p>
-<p><img src="/2022/07/17/HCIA/image-20220118205550165-1658238267504.png" alt="image-20220118205550165"></p>
-<p><img src="/2022/07/17/HCIA/image-20220118205753084-1658238267504.png" alt="image-20220118205753084"></p>
-<p><strong>5.然后我们看下方的”端口映射设置”，在”出”或者”入”端口设置里面选择一方的端口编号设置成为”2”,然后再勾选下方的”双向通道”，然后单击”增加”即可完成配置。</strong></p>
-<p><img src="/2022/07/17/HCIA/image-20220118210211711-1658238267504.png" alt="image-20220118210211711"></p>
-<p><strong>6.设置回环网卡ip为”1.0.0.2”,打开”网络设配器选项”找到目标网卡改就行了</strong></p>
-<p><img src="/2022/07/17/HCIA/image-20220118210811144-1658238267504.png" alt="image-20220118210811144"></p>
-<p><strong>7.给路由器刷入命令(记得开启路由器)</strong></p>
-<p><img src="/2022/07/17/HCIA/image-20220118211028820-1658238267504.png" alt="image-20220118211028820"></p>
-<p><strong>8.xshell测试路由器ip”1.0.0.1”是否可以ping通</strong></p>
-<p><img src="/2022/07/17/HCIA/image-20220118210928564-1658238267504.png" alt="image-20220118210928564"></p>
-<p>9.把服务命令刷入路由器，然后用xshell连接上去。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys AR1</span><br><span class="line">int g0/0/0</span><br><span class="line">ip add 1.0.0.1 24</span><br><span class="line">q</span><br><span class="line">telnet server <span class="built_in">enable</span></span><br><span class="line">user-interface vty 0 4</span><br><span class="line">authentication-mode aaa</span><br><span class="line">q</span><br><span class="line">aaa</span><br><span class="line">local-user julintongxue password cipher 123.com</span><br><span class="line">local-user julintongxue privilege level 15</span><br><span class="line">local-user julintongxue service-type telnet</span><br><span class="line">display this</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/07/17/HCIA/image-20220118235856933-1658238267504.png" alt="image-20220118235856933"></p>
-<p><img src="/2022/07/17/HCIA/image-20220118235920804-1658238267504.png" alt="image-20220118235920804"></p>
-<table>
-<thead>
-<tr>
-<th>认证 模式</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>AAA</td>
-<td>登录时需要用户名和密码</td>
-</tr>
-<tr>
-<td>Password</td>
-<td>登录时只需要密码</td>
-</tr>
-</tbody></table>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dis telnet server status</span><br><span class="line">dis telnet server <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
-
-
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>user-interface vty 0 4</td>
-<td>进入vty配置模式</td>
-</tr>
-<tr>
-<td>+ authentication-mode password/aaa</td>
-<td>配置认证模式</td>
-</tr>
-<tr>
-<td>+ set authentication password cipher huawei</td>
-<td>配置认证密码huawei</td>
-</tr>
-<tr>
-<td>+ user privilege level 15</td>
-<td>配置用户级别为15</td>
-</tr>
-<tr>
-<td>user-interface maximum-vty 15</td>
-<td>配置最大vty会话数量</td>
-</tr>
-<tr>
-<td>aaa</td>
-<td>进入aaa配置模式</td>
-</tr>
-<tr>
-<td>+ local-user julintongxue password cipher huawei</td>
-<td>创建julintongxue用户和huawei密码</td>
-</tr>
-<tr>
-<td>+ local-user julintongxue privilege level 15</td>
-<td>创建用户级别</td>
-</tr>
-<tr>
-<td>+ local-user julintongxue service-type telnet</td>
-<td>创建用户可用服务</td>
-</tr>
-</tbody></table>
 
       
     </div>
