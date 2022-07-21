@@ -1141,7 +1141,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-19 21:02:08" itemprop="dateModified" datetime="2022-07-19T21:02:08+08:00">2022-07-19</time>
+      <time title="Modified: 2022-07-21 20:53:52" itemprop="dateModified" datetime="2022-07-21T20:53:52+08:00">2022-07-21</time>
     </span>
 
   
@@ -1155,7 +1155,17 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>[toc]</p>
-<h1 id="Manjaro-生存手册"><a href="#Manjaro-生存手册" class="headerlink" title="Manjaro 生存手册"></a>Manjaro 生存手册</h1><h3 id="1-单系统-manjaro"><a href="#1-单系统-manjaro" class="headerlink" title="1.单系统(manjaro)"></a>1.单系统(manjaro)</h3><h3 id="2-双系统-window10-manjaro"><a href="#2-双系统-window10-manjaro" class="headerlink" title="2.双系统(window10 + manjaro)"></a>2.双系统(window10 + manjaro)</h3><h3 id="一-与window10-efi-共存方案"><a href="#一-与window10-efi-共存方案" class="headerlink" title="一.与window10 efi 共存方案"></a>一.与window10 efi 共存方案</h3><h3 id="二-单独一个-manjaro-efi-方案"><a href="#二-单独一个-manjaro-efi-方案" class="headerlink" title="二.单独一个 manjaro efi 方案"></a>二.单独一个 manjaro efi 方案</h3><h3 id="三-如何删除双系统下的manjaro系统"><a href="#三-如何删除双系统下的manjaro系统" class="headerlink" title="三.如何删除双系统下的manjaro系统"></a>三.如何删除双系统下的manjaro系统</h3><h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>直接在window系统上面格式化manjaro的磁盘是不能完全删除manjaro的，这样做会触发efi检测不到manjaro硬盘而进入grub模式！！！</p>
+<h1 id="Manjaro-生存手册"><a href="#Manjaro-生存手册" class="headerlink" title="Manjaro 生存手册"></a>Manjaro 生存手册</h1><p>[toc]</p>
+<h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a><a target="_blank" rel="noopener" href="https://manjaro.org/download/">下载镜像</a></h3><h4 id="选择镜像"><a href="#选择镜像" class="headerlink" title="选择镜像"></a>选择镜像</h4><h5 id="1-XFCE"><a href="#1-XFCE" class="headerlink" title="1.XFCE"></a>1.XFCE</h5><!--Xfce 是一个用于类 UNIX 操作系统的轻量级桌面环境。它的目标是快速和低系统资源，同时仍然具有视觉吸引力和用户友好性。Xfce 体现了传统的 UNIX 模块化和可重用性哲学。它由许多组件组成，这些组件提供了现代桌面环境所期望的全部功能。它们是单独包装的，您可以在可用的软件包中进行选择，以创建最佳的个人工作环境。-->
+
+<h5 id="2-KDE-Plasma"><a href="#2-KDE-Plasma" class="headerlink" title="2.KDE Plasma"></a>2.KDE Plasma</h5><!--KDE Plasma 适合那些想要用户友好和可定制桌面的人。它是一个功能丰富且用途广泛的桌面环境，提供多种不同风格的菜单来访问应用程序。一个出色的内置界面，可以轻松访问和安装来自互联网的新主题、小部件等，也值得一提。默认情况下，KDE Plasma 很简单，它是一个干净的工作区域，供实际使用，不会妨碍您，因此用户可以创建工作流程，从而更有效地完成任务。-->
+
+<h5 id="3-GNOME"><a href="#3-GNOME" class="headerlink" title="3.GNOME"></a>3.GNOME</h5><!--对于想要一个非常现代和简单的桌面的人-->
+
+<p>简单来说，这就是像ubuntu那样的桌面，算是极简主义者的天堂了。</p>
+<h3 id="制造启动U盘"><a href="#制造启动U盘" class="headerlink" title="制造启动U盘"></a><a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">制造启动U盘</a></h3><h4 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h4><p>这里我们去<code>balenaEtcher</code>的官网下载一个便携式的u盘刻录工具，萌新前期可以通过这个工具把我们需要装的系统刻录进u盘中。(如果觉得一次只能刻录一个镜像而感到苦恼的话，也可以去<a target="_blank" rel="noopener" href="https://www.ventoy.net/cn/index.html">ventoy官网</a>下载ventoy这款无敌的工具，能够兼容多个系统镜像，真正让你的u盘不再唯一)</p>
+<p>刻录好u盘之后我们可以开始进行我们的系统安装了！！！</p>
+<h3 id="1-单系统-manjaro"><a href="#1-单系统-manjaro" class="headerlink" title="1.单系统(manjaro)"></a>1.单系统(manjaro)</h3><h3 id="2-双系统-window10-manjaro"><a href="#2-双系统-window10-manjaro" class="headerlink" title="2.双系统(window10 + manjaro)"></a>2.双系统(window10 + manjaro)</h3><h3 id="一-与window10-efi-共存方案"><a href="#一-与window10-efi-共存方案" class="headerlink" title="一.与window10 efi 共存方案"></a>一.与window10 efi 共存方案</h3><h3 id="二-单独一个-manjaro-efi-方案"><a href="#二-单独一个-manjaro-efi-方案" class="headerlink" title="二.单独一个 manjaro efi 方案"></a>二.单独一个 manjaro efi 方案</h3><h3 id="三-如何删除双系统下的manjaro系统"><a href="#三-如何删除双系统下的manjaro系统" class="headerlink" title="三.如何删除双系统下的manjaro系统"></a>三.如何删除双系统下的manjaro系统</h3><h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>直接在window系统上面格式化manjaro的磁盘是不能完全删除manjaro的，这样做会触发efi检测不到manjaro硬盘而进入grub模式！！！</p>
 <h4 id="1-EFI根除教程"><a href="#1-EFI根除教程" class="headerlink" title="1.EFI根除教程"></a>1.EFI根除教程</h4><p>1.删除EFI首先在<strong>cmd</strong>里面把装系统的那个分区显现出来，并且赋予盘符号。</p>
 <ul>
 <li><p>1.用<strong>diskpart</strong>来对磁盘进行操作</p>
