@@ -191,7 +191,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-21 19:47:55" itemprop="dateModified" datetime="2022-07-21T19:47:55+08:00">2022-07-21</time>
+      <time title="Modified: 2022-07-21 23:12:54" itemprop="dateModified" datetime="2022-07-21T23:12:54+08:00">2022-07-21</time>
     </span>
 
   
@@ -290,7 +290,7 @@
 <p><strong>不过需要重启才能生效。重启后本地IP地址、网关也要重新设置。</strong></p>
 <h5 id="二-使用软件进行防护"><a href="#二-使用软件进行防护" class="headerlink" title="二.使用软件进行防护"></a>二.使用软件进行防护</h5><p><strong>国产软件360安全卫士里面有个实用的功能大全，里面的360流量防火墙可以对您局域网内的设备进行防护，刚入门的小白还是建议使用软件辅助学习会更加事半功倍。</strong></p>
 <p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/16.png" alt="16"></p>
-<h3 id="永恒之蓝攻击"><a href="#永恒之蓝攻击" class="headerlink" title="永恒之蓝攻击"></a>永恒之蓝攻击</h3><p>本次实验有两台设备，Kali Linux(攻击机) ip:192.168.110.132、Windows 7(靶机) ip:192.168.110.133</p>
+<h3 id="永恒之蓝攻击"><a href="#永恒之蓝攻击" class="headerlink" title="永恒之蓝攻击"></a>永恒之蓝攻击</h3><h4 id="ms17-010-eternalblue"><a href="#ms17-010-eternalblue" class="headerlink" title="ms17_010_eternalblue"></a>ms17_010_eternalblue</h4><p>本次实验有两台设备，Kali Linux(攻击机) ip:192.168.110.132、Windows 7(靶机) ip:192.168.110.133</p>
 <p>注意：实验前确认靶机的防火墙已经被关闭</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 收集目标系统信息</span></span><br><span class="line">nmap -T4 -A 192.168.110.133</span><br></pre></td></tr></table></figure>
 
@@ -338,9 +338,31 @@
 
 <p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720022426306.png" alt="image-20220720022426306"></p>
 <p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220720022438311.png" alt="image-20220720022438311"></p>
-<p>如果rdesktop登不进去的话，你得看看你在信息收集的时候，看看靶机的3389端口是否开启！！！</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（输入命令为修改系统注册表，开启 3389 端口）</span><br><span class="line">C:\Windows\system32&gt;REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal<span class="string">&quot;</span></span><br><span class="line"><span class="string">&quot;</span>Server /v fDenyTSConnections /t REG_DWORD /d 0 /f</span><br></pre></td></tr></table></figure>
+<h4 id="注册表开启3389"><a href="#注册表开启3389" class="headerlink" title="注册表开启3389"></a>注册表开启3389</h4><p>如果rdesktop登不进去的话，你得看看你在信息收集的时候，看看靶机的3389端口是否开启！！！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（输入命令为修改系统注册表，开启 3389 端口）</span><br><span class="line">C:\Windows\system32&gt;reg add <span class="string">&quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server&quot;</span> /v fDenyTSConnections /t REG_DWORD /d <span class="string">&quot;0&quot;</span> /f</span><br></pre></td></tr></table></figure>
 
+<p>呵呵，不要学我，你们可以在msf的shell里面修改win7的注册表即可。。。</p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220721225610024.png" alt="image-20220721225610024"></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220721225822146.png" alt="image-20220721225822146"></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220721225956759.png" alt="image-20220721225956759"></p>
+<h4 id="隐藏不想显示的特定账户在登录界面"><a href="#隐藏不想显示的特定账户在登录界面" class="headerlink" title="隐藏不想显示的特定账户在登录界面"></a>隐藏不想显示的特定账户在登录界面</h4><p>这样在人家那边在登录的时候可以看出我们创建的隐藏账号的登录痕迹，即下图：</p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/Snipaste_2022-07-21_22-03-09.png" alt="Snipaste_2022-07-21_22-03-09"></p>
+<p>我们不可以留这种把柄给别人。。。那么得修改一下注册表，隐藏不想显示的特定账户在登录界面</p>
+<p>按住键盘<code>win+r</code>唤出<code>运行</code>,在窗口里输入<code>regedit</code>调出注册表</p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220721221751469.png" alt="image-20220721221751469"></p>
+<p>在打开的注册表编辑器中 依次展开“HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon”。</p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220721222142774.png" alt="image-20220721222142774"></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220721222254325.png" alt="image-20220721222254325"></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220721222347466.png" alt="image-20220721222347466"></p>
+<p>鼠标右击Winlogon ,在弹出的菜单中点击 新建-项 输入SpecialAccounts 按回车，鼠标右击SpecialAccounts，再次新建项输入 UserList 。新建完以后如图。</p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220721222557106.png" alt="image-20220721222557106"></p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220721222631453.png" alt="image-20220721222631453"></p>
+<p>之后鼠标右击 UserList -新建-DWORD值。</p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220721222738754.png" alt="image-20220721222738754"></p>
+<p>输入你要隐藏的账户名称，如果还要添加其它账户，可以再次新建DWORD值即可。现在你可以重启一次电脑看看，账户是不是已经隐藏了。</p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/image-20220721222949327.png" alt="image-20220721222949327"></p>
+<p>输入你要隐藏的账户名称，如果还要添加其它账户，可以再次新建DWORD值即可。现在你可以重启一次电脑看看，账户是不是已经隐藏了。</p>
+<p><img src="/2022/07/19/%E6%B8%97%E9%80%8F-and-web/Snipaste_2022-07-21_22-01-47.png" alt="Snipaste_2022-07-21_22-01-47"></p>
 <p>再狗一点，我们把隐藏账号做成影子账号</p>
 <h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="一-DVWA"><a href="#一-DVWA" class="headerlink" title="一.DVWA"></a>一.DVWA</h3><h4 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h4><h5 id="安装phpstudy"><a href="#安装phpstudy" class="headerlink" title="安装phpstudy"></a>安装phpstudy</h5><h5 id="下载DVWA源码"><a href="#下载DVWA源码" class="headerlink" title="下载DVWA源码"></a>下载DVWA源码</h5><h5 id="安装需要的依赖库"><a href="#安装需要的依赖库" class="headerlink" title="安装需要的依赖库"></a>安装需要的依赖库</h5><h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><p>1.这里把<code>DVWA</code>源码解压到<code>phpstudy</code>的<code>WWW</code>目录中，然后修改DVWA的配置文件目录config里面的<code>config.inc.php.dist</code>,将其重命名为<code>config.inc.php</code>。</p>
 <p>2.编辑<code>config.inc.php</code>文件 </p>
@@ -1141,7 +1163,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-21 20:53:52" itemprop="dateModified" datetime="2022-07-21T20:53:52+08:00">2022-07-21</time>
+      <time title="Modified: 2022-07-21 21:42:29" itemprop="dateModified" datetime="2022-07-21T21:42:29+08:00">2022-07-21</time>
     </span>
 
   
@@ -1268,7 +1290,8 @@
 
 
 
-<h5 id="三-配置镜像加速"><a href="#三-配置镜像加速" class="headerlink" title="三.配置镜像加速"></a>三.配置镜像加速</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
+<h5 id="三-配置镜像加速和docker代理"><a href="#三-配置镜像加速和docker代理" class="headerlink" title="三.配置镜像加速和docker代理"></a>三.配置镜像加速和docker代理</h5><p><strong>镜像加速</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
 
 <p>加入这个中科大的源</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1278,6 +1301,24 @@
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
 
+<p><strong>docker代理</strong></p>
+<p><strong>docker是一个非常方便的容器环境，但docker常常需要拉取大量的镜像，而docker hub的主机又架设在国外，如果使用国内网络访问，将十分的慢，因此我们可以使用国外的代理访问。</strong><br><strong>然而，问题来了，我们使用以下命令试图让docker走代理，却遇到了问题：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">proxy_on</span></span>() &#123;</span><br><span class="line">    <span class="built_in">export</span> http_proxy=http://your_ip:your_port</span><br><span class="line">    <span class="built_in">export</span> https_proxy=<span class="variable">$http_proxy</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;终端代理已开启。&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">proxy_off</span></span>()&#123;</span><br><span class="line">    <span class="built_in">unset</span> http_proxy https_proxy</span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;终端代理已关闭。&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>通过<code>proxy_on</code>启动代理，<code>proxy_off</code>关闭代理。</strong></p>
+<p><strong>敲完之后<code>source /etc/profile</code>即可使用</strong></p>
+<p><strong>可以执行<code>curl cip.cc</code>验证：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># proxy_on</span></span><br><span class="line">终端代理已开启。</span><br><span class="line">root@raspbian:~<span class="comment"># curl cip.cc</span></span><br><span class="line">IP      : 124.156.0.207</span><br><span class="line">地址    : 中国  中国</span><br><span class="line"></span><br><span class="line">数据二  : 印度 | 孟买腾讯云</span><br><span class="line"></span><br><span class="line">数据三  : 印度马哈拉施特拉孟买 | 腾讯</span><br><span class="line"></span><br><span class="line">URL     : http://www.cip.cc/124.156.0.207</span><br></pre></td></tr></table></figure>
+
+<p><strong>但是，你在拉取docker镜像的时候发现还是龟速，几k几k这样,docker容器依旧非常的慢，而使用<code>curl cip.cc</code>返回的确实是国外的<code>ip</code>，这是怎么回事呢？</strong><br><strong>原来，docker这个程序只是一个控制台程序，用于<code>attach</code>，真正操作docker的是运行在后台的<code>docker daemon</code>，也就是我们需要通过<code>systemctl start docker</code>来启动<code>docker daemon</code>。所以说即使我们设置了环境变量<code>http_proxy</code>，那么也只是针对前台<code>docker console</code>使用，而真正访问<code>pull</code>镜像的确是后台的<code>daemon</code>，因此，需要设置<code>daemon</code>访问<code>proxy</code>。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/systemd/system/docker.service.d</span><br><span class="line">nano /etc/systemd/system/docker.service.d/http-proxy.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[Service]</span><br><span class="line">Environment=<span class="string">&quot;HTTP_PROXY=http://your_ip:your_port/&quot;</span></span><br><span class="line">Environment=<span class="string">&quot;HTTPS_PROXY=http://your_ip:your_port/&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：这个东西的使用是在本地搭建了代理的前提下使用</strong></p>
+<p><strong>注意：其实可以配加速源来下载东西的，我就喜欢折腾</strong></p>
 <h5 id="四-docker命令"><a href="#四-docker命令" class="headerlink" title="四.docker命令"></a>四.docker命令</h5><p>查看docker安装的镜像</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
 
