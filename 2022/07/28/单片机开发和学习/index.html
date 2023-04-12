@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"username.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="[toc] 单片机吹水1.学习哪种单片机 51、AVR、MSP430、STM8、STM32、DSP、linux、FPGA 2.学习单片机的最佳办法  鹦鹉学舌 照葫芦画瓢 他山之石，可以攻玉 理论和实践相结合，温故而知新  3.学习单片机的准备工作  要有信心、恒心和耐心 完善的配套流程 计算机一台 51开发板一块  安装单片机开发环境安装keilKEIL C51 软件获取要在电脑上成功安装 KE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单片机开发和学习">
+<meta property="og:url" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="orangeの博客">
+<meta property="og:description" content="[toc] 单片机吹水1.学习哪种单片机 51、AVR、MSP430、STM8、STM32、DSP、linux、FPGA 2.学习单片机的最佳办法  鹦鹉学舌 照葫芦画瓢 他山之石，可以攻玉 理论和实践相结合，温故而知新  3.学习单片机的准备工作  要有信心、恒心和耐心 完善的配套流程 计算机一台 51开发板一块  安装单片机开发环境安装keilKEIL C51 软件获取要在电脑上成功安装 KE">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728220612959.png">
+<meta property="og:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728220739858.png">
+<meta property="og:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728223545240.png">
+<meta property="og:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728223846155.png">
+<meta property="og:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728224107252.png">
+<meta property="og:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225157414.png">
+<meta property="og:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225336184.png">
+<meta property="og:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225539980.png">
+<meta property="og:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225655136.png">
+<meta property="og:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728231058888.png">
+<meta property="og:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728235716845.png">
+<meta property="og:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220729002023233.png">
+<meta property="og:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220729003425413.png">
+<meta property="article:published_time" content="2022-07-28T14:04:50.000Z">
+<meta property="article:modified_time" content="2023-04-10T00:30:01.914Z">
+<meta property="article:author" content="涩橙子">
+<meta property="article:tag" content="单片机">
+<meta property="article:tag" content="51">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728220612959.png">
+
+<link rel="canonical" href="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>单片机开发和学习 | orangeの博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">orangeの博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">29</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">24</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          单片机开发和学习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-28 22:04:50" itemprop="dateCreated datePublished" datetime="2022-07-28T22:04:50+08:00">2022-07-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>[toc]</p>
+<h2 id="单片机吹水"><a href="#单片机吹水" class="headerlink" title="单片机吹水"></a>单片机吹水</h2><p>1.学习哪种单片机</p>
+<p>51、AVR、MSP430、STM8、STM32、DSP、linux、FPGA</p>
+<p>2.学习单片机的最佳办法</p>
+<ul>
+<li>鹦鹉学舌</li>
+<li>照葫芦画瓢</li>
+<li>他山之石，可以攻玉</li>
+<li>理论和实践相结合，温故而知新</li>
+</ul>
+<p>3.学习单片机的准备工作</p>
+<ul>
+<li>要有信心、恒心和耐心</li>
+<li>完善的配套流程</li>
+<li>计算机一台</li>
+<li>51开发板一块</li>
+</ul>
+<h2 id="安装单片机开发环境"><a href="#安装单片机开发环境" class="headerlink" title="安装单片机开发环境"></a>安装单片机开发环境</h2><h3 id="安装keil"><a href="#安装keil" class="headerlink" title="安装keil"></a>安装keil</h3><h4 id="KEIL-C51-软件获取"><a href="#KEIL-C51-软件获取" class="headerlink" title="KEIL C51 软件获取"></a>KEIL C51 软件获取</h4><p>要在电脑上成功安装 KEIL C51，首先必须要有安装包，我们可以通过万能的百度，搜索关键字“KEIL C51 下载”，上面会有很多下载渠道，也可以在KEIL的官网上下载： <a target="_blank" rel="noopener" href="https://www.keil.com/download/product/%EF%BC%8C%E6%89%93%E5%BC%80%E7%95%8C%E9%9D%A2%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%89%80%E7%A4%BA%E3%80%82">https://www.keil.com/download/product/，打开界面如下图所示。</a></p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728220612959.png" alt="image-20220728220612959"></p>
+<p>不过我们资料内已经给大家提供了下载好的软件，在资料“<strong>\5–开发工具\1-KEILC51 软件</strong>”内，直接使用即可，省去了查找下载的时间。我们使用KEIL C51 是 9.01 版本， 如果后面出了更高的版本选择性升级即可，不过也没有必要使用最新的，用习惯了一个软件就行。 使用我们提供下载好的软件包，其内部含有如下图所示文件。</p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728220739858.png" alt="image-20220728220739858"></p>
+<p><strong>C51V901.exe：是 KEIL C51 软件的安装文件。</strong> </p>
+<p><strong>keygen_new2032.zip：KEIL C51 破解软件</strong>，在 KEIL C51 不破解的情况下只能编译 2K 大小文件，如果工程超过 2K，编译即会报错，因此需要破解。有的电脑系统会误认为该文件是病毒文件，所以这里把它压缩存放。</p>
+<h4 id="KEIL-C51-软件安装"><a href="#KEIL-C51-软件安装" class="headerlink" title="KEIL C51 软件安装"></a>KEIL C51 软件安装</h4><p>软件包下载完成之后，我们双击 C51V901.exe 这个应用程序，弹出如下所示对话框。</p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728223545240.png" alt="image-20220728223545240"></p>
+<p>点击 Next 按钮。 弹出如下对话框。</p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728223846155.png" alt="image-20220728223846155"></p>
+<p>在红框 2 中勾选上，点击 Next 按钮。弹出如下对话框。</p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728224107252.png" alt="image-20220728224107252"></p>
+<p>点击红框 4 选择软件安装的路径，我们这里在 磁盘盘内新建一个文件夹，命名为 KEILC51，将其安装到该文件夹内，方便软件的管理。**特别要注意： **</p>
+<p>**（1）软件安装保存路径不能出现中文或者特殊字符，否则会出现很多奇怪的错误，到时候很难找问题。 **</p>
+<p><strong>（2）不要将 KEIL5 软件和 KEIL4 或者 51 的 KEIL 安装在一个文件夹内。</strong>然后点击 Next。弹出如下对话框。</p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225157414.png" alt="image-20220728225157414"></p>
+<p>在红色框 6 和 7 中我们随便输入一些东西， 我们这里输入数字11，当然也可以输入空格， 但是一定要输入， 否则红色框 8 就一直是灰色状态，输入完成后点击 Next， 弹出如下对话框。</p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225336184.png" alt="image-20220728225336184"></p>
+<p>说明 KEIL C51 软件正在安装，只要等一段时间即可，安装完成以后会出现如下界面。</p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225539980.png" alt="image-20220728225539980"></p>
+<p>点击 Finish 按钮完成 KEIL C51 软件的安装过程。KEIL C51 安装完成后在电脑桌面上一般会有一个快捷方式，如下所示：</p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225655136.png" alt="image-20220728225655136"></p>
+<h4 id="KEIL-C51-软件破解"><a href="#KEIL-C51-软件破解" class="headerlink" title="KEIL C51 软件破解"></a>KEIL C51 软件破解</h4><p>上一节我们已经安装好了 KEIL C51 编程软件，可以使用它来编译51 单片机一些代码量小于 2K 的工程。但是有时候我们开发的项目可能比较大，程序代码超过了 2K，编译后会报错，因此就需要破解 KEIL C51。下面就来介绍下如何破解。 </p>
+<p>（1）首先打开 KEIL C51 软件，点击 File&#x2F;License Management,复制红色框 3 中的 CID。 操作步骤如下：</p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728231058888.png" alt="image-20220728231058888"></p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728235716845.png" alt="image-20220728235716845"></p>
+<p>然后我们打开之前下载的 KEIL C51 软件包，里面还有一个keygen 压缩文件，该压缩文件内含有 keygen_new2032.exe 文件，此文件用于破解。因此需要解压，解压后电脑会误认为该文件为病毒文件，会隔离掉，因此我们需要在弹出病毒隔离窗口时点击找回文件即可。</p>
+<p>以管理员模式打开此破解软件 keygen_new2032.exe，将刚才从KEIL C51中复制的 CID 码粘贴到下面红色框 4 中，并且在红色框 5 选择C51，然后点击红色框 6，生成破解码，将此破解码即红色框 7 内容复制到KEIL C51 软件内LIC框中，点击 Add LIC 即可破解，如果破解成功则会显示。操作步骤如下：</p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220729002023233.png" alt="image-20220729002023233"></p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220729003425413.png" alt="image-20220729003425413"></p>
+<p>如 果 破 解 失 败 ， 请 确 认 是 否 使 用 管 理 员 模 式打开KEIL C51 软件和keygen_new2032.exe 破解工具。管理员模式打开方式：选择右键：RunAsAdministrator ,中文系统应该是“以管理员权限运行”，然后就可以正常加licence 了。建议所有用户，都以管理员身份运行，以避免重复破解。至此，我们就将 KEIL C51 软件安装和破解成功。后面就可以使用该软件来编写我们的 51 单片机程序。</p>
+<h3 id="01实验课程-点亮LED灯"><a href="#01实验课程-点亮LED灯" class="headerlink" title="01实验课程_点亮LED灯"></a>01实验课程_点亮LED灯</h3><h4 id="点亮一个LED-D1"><a href="#点亮一个LED-D1" class="headerlink" title="点亮一个LED_D1"></a>点亮一个LED_D1</h4><p>LED灯的端口有四组，分别是P0,P1,P2,P3</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">sbit LED1 = P2^<span class="number">0</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	LED1 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="点亮一个LED-D1-闪烁"><a href="#点亮一个LED-D1-闪烁" class="headerlink" title="点亮一个LED_D1_闪烁"></a>点亮一个LED_D1_闪烁</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> u16;	<span class="comment">//使用typedef来为用户自定义的数据类型取一个新的名字</span></span><br><span class="line">sbit LED1 = P2^<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay_10us</span><span class="params">(u16 ten_us)</span>     <span class="comment">//当传2入ten_us=1时，大约延时10us</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(ten_us--);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">	LED1 = <span class="number">0</span>;	<span class="comment">//点亮</span></span><br><span class="line">	delay_10us(<span class="number">50000</span>);<span class="comment">//大约450ms</span></span><br><span class="line">	LED1 = <span class="number">1</span>;	<span class="comment">//熄灭    </span></span><br><span class="line">	delay_10us(<span class="number">50000</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="点亮一个LED-D1-流水灯"><a href="#点亮一个LED-D1-流水灯" class="headerlink" title="点亮一个LED_D1_流水灯"></a>点亮一个LED_D1_流水灯</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LED_PORT P2		<span class="comment">//使用宏定义将P2端口定义	</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> u8;	</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> u16;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay_10us</span><span class="params">(u16 ten_us)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(ten_us--);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	u8 i =<span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			LED_PORT=~(<span class="number">0x01</span>&lt;&lt;i);</span><br><span class="line">			delay_10us(<span class="number">50000</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="点亮一个LED-D1-库函数实现-流水灯"><a href="#点亮一个LED-D1-库函数实现-流水灯" class="headerlink" title="点亮一个LED_D1_库函数实现_流水灯"></a>点亮一个LED_D1_库函数实现_流水灯</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;intrins.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LED_PORT P2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> u8;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> u16;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay_10us</span><span class="params">(u16 ten_us)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(ten_us--);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	u8 i =<span class="number">0</span>;</span><br><span class="line">	LED_PORT=~<span class="number">0x01</span>;</span><br><span class="line">	delay_10us(<span class="number">50000</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">7</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			LED_PORT=_crol_(LED_PORT,<span class="number">1</span>);</span><br><span class="line">			delay_10us(<span class="number">50000</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">7</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			LED_PORT=_cror_(LED_PORT,<span class="number">1</span>);</span><br><span class="line">			delay_10us(<span class="number">50000</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="02实验课程-蜂鸣器"><a href="#02实验课程-蜂鸣器" class="headerlink" title="02实验课程_蜂鸣器"></a>02实验课程_蜂鸣器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;reg52.h&gt;</span></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">typedef unsigned char u8;	</span><br><span class="line">typedef unsigned int u16;</span><br><span class="line"></span><br><span class="line">sbit BEEP=P2^5;</span><br><span class="line"></span><br><span class="line">void delay_10us(u16 ten_us)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(ten_us--);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void <span class="function"><span class="title">main</span></span>()</span><br><span class="line">&#123;	</span><br><span class="line">	u16 i =2000; //蜂鸣器发声时间</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">while</span>(1)</span><br><span class="line">	&#123;</span><br><span class="line">		  <span class="keyword">while</span>(i--)</span><br><span class="line">		  &#123;</span><br><span class="line">		  BEEP=!BEEP;</span><br><span class="line">		  delay_10us(100);</span><br><span class="line"></span><br><span class="line">//		  BEEP=0;</span><br><span class="line">//		  delay_10us(50);</span><br><span class="line">//		  BEEP=1;</span><br><span class="line">//		  delay_10us(150);</span><br><span class="line">		  &#125;</span><br><span class="line">		  i = 0;</span><br><span class="line">		  BEEP = 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="03实验课程-数码管"><a href="#03实验课程-数码管" class="headerlink" title="03实验课程_数码管"></a>03实验课程_数码管</h3>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag"># 单片机</a>
+              <a href="/tags/51/" rel="tag"># 51</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/22/Arch-Linux-%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85(%E9%9D%9E%E5%8E%9F%E5%88%9B)/" rel="prev" title="Arch Linux 基础安装">
+      <i class="fa fa-chevron-left"></i> Arch Linux 基础安装
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" rel="next" title="ssh反向代理">
+      ssh反向代理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E7%89%87%E6%9C%BA%E5%90%B9%E6%B0%B4"><span class="nav-number">1.</span> <span class="nav-text">单片机吹水</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">安装单片机开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85keil"><span class="nav-number">2.1.</span> <span class="nav-text">安装keil</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#KEIL-C51-%E8%BD%AF%E4%BB%B6%E8%8E%B7%E5%8F%96"><span class="nav-number">2.1.1.</span> <span class="nav-text">KEIL C51 软件获取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KEIL-C51-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.2.</span> <span class="nav-text">KEIL C51 软件安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KEIL-C51-%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3"><span class="nav-number">2.1.3.</span> <span class="nav-text">KEIL C51 软件破解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#01%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B-%E7%82%B9%E4%BA%AELED%E7%81%AF"><span class="nav-number">2.2.</span> <span class="nav-text">01实验课程_点亮LED灯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%82%B9%E4%BA%AE%E4%B8%80%E4%B8%AALED-D1"><span class="nav-number">2.2.1.</span> <span class="nav-text">点亮一个LED_D1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%82%B9%E4%BA%AE%E4%B8%80%E4%B8%AALED-D1-%E9%97%AA%E7%83%81"><span class="nav-number">2.2.2.</span> <span class="nav-text">点亮一个LED_D1_闪烁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%82%B9%E4%BA%AE%E4%B8%80%E4%B8%AALED-D1-%E6%B5%81%E6%B0%B4%E7%81%AF"><span class="nav-number">2.2.3.</span> <span class="nav-text">点亮一个LED_D1_流水灯</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%82%B9%E4%BA%AE%E4%B8%80%E4%B8%AALED-D1-%E5%BA%93%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0-%E6%B5%81%E6%B0%B4%E7%81%AF"><span class="nav-number">2.2.4.</span> <span class="nav-text">点亮一个LED_D1_库函数实现_流水灯</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B-%E8%9C%82%E9%B8%A3%E5%99%A8"><span class="nav-number">2.3.</span> <span class="nav-text">02实验课程_蜂鸣器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03%E5%AE%9E%E9%AA%8C%E8%AF%BE%E7%A8%8B-%E6%95%B0%E7%A0%81%E7%AE%A1"><span class="nav-number">2.4.</span> <span class="nav-text">03实验课程_数码管</span></a></li></ol></li></ol></div>
+      </div>
+
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="涩橙子"
+      src="/images/head.jpg">
+  <p class="site-author-name" itemprop="name">涩橙子</p>
+  <div class="site-description" itemprop="description">自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="/julintongxue@gmail.com" title="E-Mail → julintongxue@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://aienh.github.io/" title="https:&#x2F;&#x2F;aienh.github.io" rel="noopener" target="_blank">ienAの博客</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://tokiame.cn/" title="https:&#x2F;&#x2F;tokiame.cn" rel="noopener" target="_blank">时雨小栈</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+      
+      <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=8269604294&auto=1&height=90"></iframe>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+  
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">涩橙子</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 't3KNgr4WVcpJVh17S5thqEXl-gzGzoHsz',
+      appKey     : 'tvxyuYI5nZrSoGZ4ct2MSuxe',
+      placeholder: "写下你的评论吧",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
+
+
