@@ -3685,4 +3685,45 @@
 
 ]]></content>
   </entry>
+  <entry>
+    <title>EFI根除教程</title>
+    <url>/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="EFI根除教程"><a href="#EFI根除教程" class="headerlink" title="EFI根除教程"></a>EFI根除教程</h1><p>1.删除EFI首先在<strong>cmd</strong>里面把装系统的那个分区显现出来，并且赋予盘符号。</p>
+<ul>
+<li><p>1.用<strong>diskpart</strong>来对磁盘进行操作</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(52).png"></p>
+</li>
+<li><p>然后给diskpart授权开启</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(53).png"></p>
+</li>
+<li><p>2.查看磁盘命令****</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(54).png"></p>
+</li>
+<li><p>3.选中目标<strong>磁盘0</strong>用<strong>select disk 0</strong>命令</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(55).png"></p>
+</li>
+<li><p>4.列出该磁盘下的所有分区信息用<strong>list partition</strong>命令</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(56).png"></p>
+</li>
+<li><p>5.选择我们的EFI系统分区用<strong>select partition 1</strong>命令（在这一步也可以删掉选中盘的<strong>所有内容</strong>（命令是<strong>delete partition override</strong>）（执行这条命令相当于把那个分区抹去了））</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(57).png"></p>
+</li>
+<li><p>6.用命令给这个EFI分区赋予盘符之后，它就会像一个磁盘出现在电脑里面，命令是<strong>assign letter&#x3D;p</strong>（这里p是盘符号，你也可以按照自己喜欢来打其他字母，只要不重复就好。）</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(49).png"></p>
+</li>
+<li><p>7.然后你就神奇的发现多了一个p盘分区（这个叫SYSTEM的磁盘分区就是那个EFI）</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(58).png"></p>
+</li>
+<li><p>8.这个时候你可以使用<strong>新建文本文档</strong>在里面打开这个p盘里面<strong>删掉EFI里面的系统启动文件</strong>或者用<strong>Total Commander 64 bit</strong>这个东西来删除里面的<strong>删掉EFI里面的系统启动文件</strong>（<strong>千万别把整个EFI干掉，那就是一把梭，莽！！！</strong>）<br><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(59).png"><br><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(48).png"><br><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(60).png"></p>
+</li>
+<li><p>然后移除盘符p用命令<strong>remove letter&#x3D;p</strong></p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(61).png"></p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(62).png"></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>efi</tag>
+      </tags>
+  </entry>
 </search>

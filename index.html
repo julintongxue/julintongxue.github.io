@@ -122,7 +122,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">29</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">30</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -132,7 +132,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">24</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">25</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -173,6 +173,125 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">EFI根除教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-04-19 00:33:09 / 修改时间：00:33:49" itemprop="dateCreated datePublished" datetime="2023-04-19T00:33:09+08:00">2023-04-19</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>520</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="EFI根除教程"><a href="#EFI根除教程" class="headerlink" title="EFI根除教程"></a>EFI根除教程</h1><p>1.删除EFI首先在<strong>cmd</strong>里面把装系统的那个分区显现出来，并且赋予盘符号。</p>
+<ul>
+<li><p>1.用<strong>diskpart</strong>来对磁盘进行操作</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(52).png"></p>
+</li>
+<li><p>然后给diskpart授权开启</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(53).png"></p>
+</li>
+<li><p>2.查看磁盘命令****</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(54).png"></p>
+</li>
+<li><p>3.选中目标<strong>磁盘0</strong>用<strong>select disk 0</strong>命令</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(55).png"></p>
+</li>
+<li><p>4.列出该磁盘下的所有分区信息用<strong>list partition</strong>命令</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(56).png"></p>
+</li>
+<li><p>5.选择我们的EFI系统分区用<strong>select partition 1</strong>命令（在这一步也可以删掉选中盘的<strong>所有内容</strong>（命令是<strong>delete partition override</strong>）（执行这条命令相当于把那个分区抹去了））</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(57).png"></p>
+</li>
+<li><p>6.用命令给这个EFI分区赋予盘符之后，它就会像一个磁盘出现在电脑里面，命令是<strong>assign letter&#x3D;p</strong>（这里p是盘符号，你也可以按照自己喜欢来打其他字母，只要不重复就好。）</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(49).png"></p>
+</li>
+<li><p>7.然后你就神奇的发现多了一个p盘分区（这个叫SYSTEM的磁盘分区就是那个EFI）</p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(58).png"></p>
+</li>
+<li><p>8.这个时候你可以使用<strong>新建文本文档</strong>在里面打开这个p盘里面<strong>删掉EFI里面的系统启动文件</strong>或者用<strong>Total Commander 64 bit</strong>这个东西来删除里面的<strong>删掉EFI里面的系统启动文件</strong>（<strong>千万别把整个EFI干掉，那就是一把梭，莽！！！</strong>）<br><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(59).png"><br><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(48).png"><br><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(60).png"></p>
+</li>
+<li><p>然后移除盘符p用命令<strong>remove letter&#x3D;p</strong></p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(61).png"></p>
+<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(62).png"></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1533,135 +1652,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/" class="post-title-link" itemprop="url">VSCODE编程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-28 18:24:42" itemprop="dateCreated datePublished" datetime="2022-11-28T18:24:42+08:00">2022-11-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>526</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="VSCODE编程"><a href="#VSCODE编程" class="headerlink" title="VSCODE编程"></a>VSCODE编程</h1><h2 id="GO环境搭建"><a href="#GO环境搭建" class="headerlink" title="GO环境搭建"></a>GO环境搭建</h2><h3 id="安装GO"><a href="#安装GO" class="headerlink" title="安装GO"></a>安装GO</h3><p><a target="_blank" rel="noopener" href="https://golang.google.cn/dl/">golang安装包下载</a></p>
-<p>无脑安装完成之后，需要配置GO的环境。</p>
-<p>先去下面的网站找到GO的代理模块，然后更改计算机的环境变量。</p>
-<p><a target="_blank" rel="noopener" href="https://goproxy.io/zh/">GOPROXY.IO - 一个全球代理 为 Go 模块而生</a></p>
-<p>此电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量-&gt;系统变量-&gt;新建</p>
-<p>然后按照代理官网改成这样即可</p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128181434274.png" alt="image-20221128181434274"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置 GOPROXY 环境变量</span></span><br><span class="line"><span class="variable">$env</span>:GOPROXY = <span class="string">&quot;https://proxy.golang.com.cn,direct&quot;</span></span><br><span class="line"><span class="comment"># 还可以设置不走 proxy 的私有仓库或组，多个用逗号相隔（可选）</span></span><br><span class="line"><span class="variable">$env</span>:GOPRIVATE = <span class="string">&quot;git.mycompany.com,github.com/my/private&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>很简单的</p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/Snipaste_2022-12-08_19-47-15.png" alt="Snipaste_2022-12-08_19-47-15"></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/Snipaste_2022-12-08_19-47-54.png" alt="Snipaste_2022-12-08_19-47-54"></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/Snipaste_2022-12-08_19-48-32.png" alt="Snipaste_2022-12-08_19-48-32"></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128181347802.png" alt="image-20221128181347802"></p>
-<p>然后打开vscode</p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128182822511.png" alt="image-20221128182822511"></p>
-<p>然后打开一个文件夹，这里我打开一个叫GO的文件夹</p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128182935927.png" alt="image-20221128182935927"></p>
-<p>在左侧鼠标右击选择在集成终端中打开</p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183011568.png" alt="image-20221128183011568"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go mod init github.com/your_github_name/GO</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183233831.png" alt="image-20221128183233831"></p>
-<p>然后创建一个文件，写你的helloword去</p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183333155.png" alt="image-20221128183333155"></p>
-<p>注意！写完文件的后缀之后，它会识别你的是go语言，然后右下角又弹出的安装go的插件，记得全部都安装。</p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183520112.png" alt="image-20221128183520112"></p>
-<p>这个运行和调试就是运行代码。。。你懂的！！！</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1737,7 +1727,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1750,7 +1740,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
