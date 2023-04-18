@@ -1596,7 +1596,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+                <time title="修改时间：2023-04-13 01:44:35" itemprop="dateModified" datetime="2023-04-13T01:44:35+08:00">2023-04-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1628,7 +1628,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.2k</span>
+              <span>5.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1788,7 +1788,26 @@
 
 <p><strong>然后修改博客根目录下的全局配置文件<code>_config.yml</code>将<code>theme</code>后面的字母改为<code>your_theme_name</code>,即<code>next-reloaded</code></strong></p>
 <p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230401130703259.png" alt="image-20230401130703259"></p>
-<h2 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h2><h2 id="主题菜单"><a href="#主题菜单" class="headerlink" title="主题菜单"></a>主题菜单</h2><h2 id="隐藏网页底部"><a href="#隐藏网页底部" class="headerlink" title="隐藏网页底部"></a>隐藏网页底部</h2><h2 id="网易云音乐外链"><a href="#网易云音乐外链" class="headerlink" title="网易云音乐外链"></a>网易云音乐外链</h2><h2 id="看板娘-初音未来"><a href="#看板娘-初音未来" class="headerlink" title="看板娘-初音未来"></a>看板娘-初音未来</h2>
+<h2 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h2><h2 id="主题菜单"><a href="#主题菜单" class="headerlink" title="主题菜单"></a>主题菜单</h2><h2 id="隐藏网页底部"><a href="#隐藏网页底部" class="headerlink" title="隐藏网页底部"></a>隐藏网页底部</h2><h2 id="网易云音乐外链"><a href="#网易云音乐外链" class="headerlink" title="网易云音乐外链"></a>网易云音乐外链</h2><h2 id="看板娘-初音未来"><a href="#看板娘-初音未来" class="headerlink" title="看板娘-初音未来"></a>看板娘-初音未来</h2><h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><p>在安装配置node时，cmd检查node没问题</p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013508753.png" alt="image-20230413013508753"></p>
+<p> 但是检查npm就出现<code>npm WARN config global </code>–global<code>, </code>–local<code>are deprecated. Use</code>–location&#x3D;global<code> instead.</code></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013542955.png" alt="image-20230413013542955"></p>
+<p>我们就要来到nvm的路径找到里面的v16.15.1的node的文件夹<code>C:\Users\orange\AppData\Roaming\nvm\v16.15.1</code></p>
+<p>我们需要修改两个文件<code>npm</code>和<code>npm.cmd</code></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013913294.png" alt="image-20230413013913294"></p>
+<p>将npm文件的<strong>第23行</strong>，修改成下图样式，命令如下，可以直接粘贴</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prefix --location=global</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014025801.png" alt="image-20230413014025801"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014108237.png" alt="image-20230413014108237"></p>
+<p>将npm.cmd文件的第12行，修改成下图样式，命令如下，可以直接粘贴，修改完保存。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prefix --location=global</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014223400.png" alt="image-20230413014223400"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014302436.png" alt="image-20230413014302436"></p>
+<p>那么，我们再次打开cmd，执行一下命令再看看还有没报错</p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014433543.png" alt="image-20230413014433543"></p>
+
       
     </div>
 
