@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Arch Linux 基础安装</title>
+    <title>Arch Linux 基础安装(非原创)</title>
     <url>/2022/07/22/Arch-Linux-%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85(%E9%9D%9E%E5%8E%9F%E5%88%9B)/</url>
     <content><![CDATA[<p>[toc]</p>
 <h1 id="Arch-Linux-基础安装"><a href="#Arch-Linux-基础安装" class="headerlink" title="Arch Linux 基础安装"></a><a href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=arch-linux-%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85">Arch Linux 基础安装</a></h1><p>本节从安装最基础的无图形化 ArchLinux 系统开始。<a href="https://wiki.archlinux.org/index.php/Installation_guide">官方安装指南</a></p>
@@ -2163,22 +2163,23 @@
     <title>单片机开发和学习</title>
     <url>/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p>[toc]</p>
-<h2 id="单片机吹水"><a href="#单片机吹水" class="headerlink" title="单片机吹水"></a>单片机吹水</h2><p>1.学习哪种单片机</p>
-<p>51、AVR、MSP430、STM8、STM32、DSP、linux、FPGA</p>
-<p>2.学习单片机的最佳办法</p>
+<h2 id="单片机吹水"><a href="#单片机吹水" class="headerlink" title="单片机吹水"></a>单片机吹水</h2><p><strong>1.学习哪种单片机</strong></p>
+<p><strong>51、AVR、MSP430、STM8、STM32、DSP、linux、FPGA</strong></p>
+<p><strong>2.学习单片机的最佳办法</strong></p>
 <ul>
-<li>鹦鹉学舌</li>
-<li>照葫芦画瓢</li>
-<li>他山之石，可以攻玉</li>
-<li>理论和实践相结合，温故而知新</li>
+<li><strong>鹦鹉学舌</strong></li>
+<li><strong>照葫芦画瓢</strong></li>
+<li><strong>他山之石，可以攻玉</strong></li>
+<li><strong>理论和实践相结合，温故而知新</strong></li>
 </ul>
-<p>3.学习单片机的准备工作</p>
+<p><strong>3.学习单片机的准备工作</strong></p>
 <ul>
-<li>要有信心、恒心和耐心</li>
-<li>完善的配套流程</li>
-<li>计算机一台</li>
-<li>51开发板一块</li>
+<li><strong>要有信心、恒心和耐心</strong></li>
+<li><strong>完善的配套流程</strong></li>
+<li><strong>计算机一台</strong></li>
+<li><strong>51开发板一块</strong></li>
 </ul>
+<h2 id="芯片学习"><a href="#芯片学习" class="headerlink" title="芯片学习"></a>芯片学习</h2><p><strong>51单片机是对所有兼容Intel8031指令系统的单片机的统称，这一系列的单片机的始祖是Intel的8031单片机，后来随着flash ROM技术的发展，8031单片机取得了长足的进展成为了应用最广泛的8bit单片机之一，他的代表型号就是ATMEL公司的AT89系列。</strong></p>
 <h2 id="安装单片机开发环境"><a href="#安装单片机开发环境" class="headerlink" title="安装单片机开发环境"></a>安装单片机开发环境</h2><h3 id="安装keil"><a href="#安装keil" class="headerlink" title="安装keil"></a>安装keil</h3><h4 id="KEIL-C51-软件获取"><a href="#KEIL-C51-软件获取" class="headerlink" title="KEIL C51 软件获取"></a>KEIL C51 软件获取</h4><p>要在电脑上成功安装 KEIL C51，首先必须要有安装包，我们可以通过万能的百度，搜索关键字“KEIL C51 下载”，上面会有很多下载渠道，也可以在KEIL的官网上下载： <a href="https://www.keil.com/download/product/%EF%BC%8C%E6%89%93%E5%BC%80%E7%95%8C%E9%9D%A2%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%89%80%E7%A4%BA%E3%80%82">https://www.keil.com/download/product/，打开界面如下图所示。</a></p>
 <p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728220612959.png" alt="image-20220728220612959"></p>
 <p>不过我们资料内已经给大家提供了下载好的软件，在资料“<strong>\5–开发工具\1-KEILC51 软件</strong>”内，直接使用即可，省去了查找下载的时间。我们使用KEIL C51 是 9.01 版本， 如果后面出了更高的版本选择性升级即可，不过也没有必要使用最新的，用习惯了一个软件就行。 使用我们提供下载好的软件包，其内部含有如下图所示文件。</p>
@@ -2210,7 +2211,9 @@
 <p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220729002023233.png" alt="image-20220729002023233"></p>
 <p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220729003425413.png" alt="image-20220729003425413"></p>
 <p>如 果 破 解 失 败 ， 请 确 认 是 否 使 用 管 理 员 模 式打开KEIL C51 软件和keygen_new2032.exe 破解工具。管理员模式打开方式：选择右键：RunAsAdministrator ,中文系统应该是“以管理员权限运行”，然后就可以正常加licence 了。建议所有用户，都以管理员身份运行，以避免重复破解。至此，我们就将 KEIL C51 软件安装和破解成功。后面就可以使用该软件来编写我们的 51 单片机程序。</p>
-<h3 id="01实验课程-创建模板"><a href="#01实验课程-创建模板" class="headerlink" title="01实验课程_创建模板"></a>01实验课程_创建模板</h3><h3 id="02实验课程-点亮LED灯"><a href="#02实验课程-点亮LED灯" class="headerlink" title="02实验课程_点亮LED灯"></a>02实验课程_点亮LED灯</h3><h4 id="点亮一个LED-D1"><a href="#点亮一个LED-D1" class="headerlink" title="点亮一个LED_D1"></a>点亮一个LED_D1</h4><p>LED灯的端口有四组，分别是P0,P1,P2,P3</p>
+<h3 id="实验课程-创建模板"><a href="#实验课程-创建模板" class="headerlink" title="实验课程_创建模板"></a>实验课程_创建模板</h3><h3 id="实验课程-使用PZ-ISP"><a href="#实验课程-使用PZ-ISP" class="headerlink" title="实验课程_使用PZ-ISP"></a>实验课程_使用PZ-ISP</h3><p><strong>如果我们使用的是STC89C516RD+的处理器，选择带RC的芯片类型，也就是说带RD的就选择带RC的芯片类型，如果不带RD的处理器选择不带RC的芯片类型</strong></p>
+<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20230419163408643.png" alt="image-20230419163408643"></p>
+<h3 id="实验课程-点亮LED灯"><a href="#实验课程-点亮LED灯" class="headerlink" title="实验课程_点亮LED灯"></a>实验课程_点亮LED灯</h3><h4 id="点亮一个LED-D1"><a href="#点亮一个LED-D1" class="headerlink" title="点亮一个LED_D1"></a>点亮一个LED_D1</h4><p>LED灯的端口有四组，分别是P0,P1,P2,P3</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">sbit LED1 = P2^<span class="number">0</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	LED1 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="点亮一个LED-D1-闪烁"><a href="#点亮一个LED-D1-闪烁" class="headerlink" title="点亮一个LED_D1_闪烁"></a>点亮一个LED_D1_闪烁</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> u16;	<span class="comment">//使用typedef来为用户自定义的数据类型取一个新的名字</span></span><br><span class="line">sbit LED1 = P2^<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay_10us</span><span class="params">(u16 ten_us)</span>     <span class="comment">//当传2入ten_us=1时，大约延时10us</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(ten_us--);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">	LED1 = <span class="number">0</span>;	<span class="comment">//点亮</span></span><br><span class="line">	delay_10us(<span class="number">50000</span>);<span class="comment">//大约450ms</span></span><br><span class="line">	LED1 = <span class="number">1</span>;	<span class="comment">//熄灭    </span></span><br><span class="line">	delay_10us(<span class="number">50000</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -3724,6 +3727,42 @@
 ]]></content>
       <tags>
         <tag>efi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Arch linux如何美化GRUB</title>
+    <url>/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/</url>
+    <content><![CDATA[<h1 id="Archlinux如何美化GRUB"><a href="#Archlinux如何美化GRUB" class="headerlink" title="Archlinux如何美化GRUB"></a>Archlinux如何美化GRUB</h1><p>玩了这么久的Arch,每次换主题都是在桌面、软件这些地方，朋友来用你电脑才能看到你美轮美奂的桌面，那么怎么让你朋友一开机能知道你是一个资深二次元呢？答案很简单，给我们的Archlinux的GRUB换个衣服就能做到。</p>
+<p>我们可以来到下面这个网站寻找自己喜欢的GRUB主题:</p>
+<p><a href="https://www.pling.com/browse?cat=109&ord=latest">PLING</a></p>
+<p>本次使用的主题是<a href="https://www.pling.com/p/1526503/">The Quintessential Quintuplets GRUB Theme</a></p>
+<p>首先，把安装包下载下来。</p>
+<p><img src="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408203651056.png" alt="image-20230408203651056"></p>
+<p>将压缩包解压</p>
+<p><img src="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408203806670.png" alt="image-20230408203806670"></p>
+<p>解压之后，我们需要进去目录里面，要进去多次，直到能看到图片为止</p>
+<p><img src="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408203854175.png" alt="image-20230408203854175"></p>
+<p><img src="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408204047142.png" alt="image-20230408204047142"></p>
+<p><img src="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408210306115.png" alt="image-20230408210306115"></p>
+<p>然后把这个文件夹内容全部拷贝到</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r . /usr/share/grub/themes/Nino/</span><br></pre></td></tr></table></figure>
+
+<p>然后编辑</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/default/grub</span><br></pre></td></tr></table></figure>
+
+<p>添加下面这行参数</p>
+<p><img src="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408210607247.png" alt="image-20230408210607247"></p>
+<p>最后，重新生成一次grub.cfg</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<p>重启之后，就能看到新装扮的GRUB了。</p>
+]]></content>
+      <categories>
+        <category>Linux系统</category>
+      </categories>
+      <tags>
+        <tag>Arch</tag>
+        <tag>Archlinux</tag>
       </tags>
   </entry>
 </search>
