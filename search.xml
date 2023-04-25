@@ -581,7 +581,7 @@
 <h3 id="制造启动U盘"><a href="#制造启动U盘" class="headerlink" title="制造启动U盘"></a><a href="https://www.balena.io/etcher/">制造启动U盘</a></h3><h4 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h4><p>这里我们去<code>balenaEtcher</code>的官网下载一个便携式的u盘刻录工具，萌新前期可以通过这个工具把我们需要装的系统刻录进u盘中。(如果觉得一次只能刻录一个镜像而感到苦恼的话，也可以去<a href="https://www.ventoy.net/cn/index.html">ventoy官网</a>下载ventoy这款无敌的工具，能够兼容多个系统镜像，真正让你的u盘不再唯一)</p>
 <p>刻录好u盘之后我们可以开始进行我们的系统安装了！！！</p>
 <h3 id="1-单系统-manjaro"><a href="#1-单系统-manjaro" class="headerlink" title="1.单系统(manjaro)"></a>1.单系统(manjaro)</h3><h3 id="2-双系统-window10-manjaro"><a href="#2-双系统-window10-manjaro" class="headerlink" title="2.双系统(window10 + manjaro)"></a>2.双系统(window10 + manjaro)</h3><h3 id="一-与window10-efi-共存方案"><a href="#一-与window10-efi-共存方案" class="headerlink" title="一.与window10 efi 共存方案"></a>一.与window10 efi 共存方案</h3><h3 id="二-单独一个-manjaro-efi-方案"><a href="#二-单独一个-manjaro-efi-方案" class="headerlink" title="二.单独一个 manjaro efi 方案"></a>二.单独一个 manjaro efi 方案</h3><h3 id="三-如何删除双系统下的manjaro系统"><a href="#三-如何删除双系统下的manjaro系统" class="headerlink" title="三.如何删除双系统下的manjaro系统"></a>三.如何删除双系统下的manjaro系统</h3><h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p><strong>直接在window系统上面格式化manjaro的磁盘是不能完全删除manjaro的，这样做会触发efi检测不到manjaro硬盘而进入grub模式！！！</strong></p>
-<h4 id="1-EFI根除教程"><a href="#1-EFI根除教程" class="headerlink" title="1.EFI根除教程"></a><strong>1.EFI根除教</strong>程</h4><p><strong>1.删除EFI首先在cmd里面把装系统的那个分区显现出来，并且赋予盘符号。</strong></p>
+<h4 id="1-EFI根除教程"><a href="#1-EFI根除教程" class="headerlink" title="1.EFI根除教程"></a>1.EFI根除教程</h4><p><strong>1.删除EFI首先在cmd里面把装系统的那个分区显现出来，并且赋予盘符号。</strong></p>
 <ul>
 <li><p><strong>1.用diskpart来对磁盘进行操作</strong></p>
 <p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(52).png"></p>
@@ -615,7 +615,7 @@
 </li>
 </ul>
 <h4 id="2-删除卷"><a href="#2-删除卷" class="headerlink" title="2.删除卷"></a>2.删除卷</h4><p><strong>右键<code>此电脑</code>—&gt;单击<code>管理</code>—&gt;单击<code>磁盘管理</code>—&gt;找到你分配给<code>manjaro</code>的磁盘，直接右击<code>删除卷</code>，然后重新添加新的分区就行了。</strong></p>
-<h2 id="3-manjaro系统入门操作-过不了就躺板板吧，别学了"><a href="#3-manjaro系统入门操作-过不了就躺板板吧，别学了" class="headerlink" title="3.manjaro系统入门操作(过不了就躺板板吧，别学了)"></a>3.manjaro系统入门操作(过不了就躺板板吧，别学了)</h2><h3 id="一-换源"><a href="#一-换源" class="headerlink" title="一.换源"></a>一.换源</h3><h4 id="1-换国内源"><a href="#1-换国内源" class="headerlink" title="1.换国内源"></a>1.换国内源</h4><p>安装完成manjaro的第一步就是给manjaro换上国内源，使接下来能安装软件等其他操作。</p>
+<h2 id="3-manjaro系统入门操作-过不了就躺板板吧，别学了"><a href="#3-manjaro系统入门操作-过不了就躺板板吧，别学了" class="headerlink" title="3.manjaro系统入门操作(过不了就躺板板吧，别学了)"></a>3.manjaro系统入门操作(过不了就躺板板吧，别学了)</h2><h3 id="一-换源"><a href="#一-换源" class="headerlink" title="一.换源"></a>一.换源</h3><h4 id="1-换国内软件源"><a href="#1-换国内软件源" class="headerlink" title="1.换国内软件源"></a>1.换国内软件源</h4><p>安装完成manjaro的第一步就是给manjaro换上国内源，使接下来能安装软件等其他操作。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman-mirrors -i -c China -m rank <span class="comment">#在弹出来的面板选择一道两个时间短的源</span></span><br></pre></td></tr></table></figure>
 
 <p>下面这个跟上面那一步操作类似，它是直接把源放入到文件里面一步到位(注意：这个源要放文件内容最前面)，有上面命令的操作可以跳过导入源到mirrorlist这一步。</p>
@@ -1537,10 +1537,10 @@
 ]]></content>
   </entry>
   <entry>
-    <title>kali 系统基础配置（2022版）</title>
+    <title>kali 系统基础配置（2023版）</title>
     <url>/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/</url>
     <content><![CDATA[<p>[toc]</p>
-<h1 id="kali-系统基础配置（2022版）"><a href="#kali-系统基础配置（2022版）" class="headerlink" title="kali 系统基础配置（2022版）"></a>kali 系统基础配置（2022版）</h1><h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<h1 id="kali-系统基础配置（2023版）"><a href="#kali-系统基础配置（2023版）" class="headerlink" title="kali 系统基础配置（2023版）"></a>kali 系统基础配置（2023版）</h1><h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 
 <p><strong>然后将原有的源全部注释掉，然后插入下面这串源地址</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
@@ -3687,47 +3687,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># cp ./grub2.bak/grub.cfg /boot/grub2/</span></span><br><span class="line">[root@localhost ~]<span class="comment"># reboot</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
-  </entry>
-  <entry>
-    <title>EFI根除教程</title>
-    <url>/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="EFI根除教程"><a href="#EFI根除教程" class="headerlink" title="EFI根除教程"></a>EFI根除教程</h1><p>1.删除EFI首先在<strong>cmd</strong>里面把装系统的那个分区显现出来，并且赋予盘符号。</p>
-<ul>
-<li><p>1.用<strong>diskpart</strong>来对磁盘进行操作</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(52).png"></p>
-</li>
-<li><p>然后给diskpart授权开启</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(53).png"></p>
-</li>
-<li><p>2.查看磁盘命令****</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(54).png"></p>
-</li>
-<li><p>3.选中目标<strong>磁盘0</strong>用<strong>select disk 0</strong>命令</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(55).png"></p>
-</li>
-<li><p>4.列出该磁盘下的所有分区信息用<strong>list partition</strong>命令</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(56).png"></p>
-</li>
-<li><p>5.选择我们的EFI系统分区用<strong>select partition 1</strong>命令（在这一步也可以删掉选中盘的<strong>所有内容</strong>（命令是<strong>delete partition override</strong>）（执行这条命令相当于把那个分区抹去了））</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(57).png"></p>
-</li>
-<li><p>6.用命令给这个EFI分区赋予盘符之后，它就会像一个磁盘出现在电脑里面，命令是<strong>assign letter&#x3D;p</strong>（这里p是盘符号，你也可以按照自己喜欢来打其他字母，只要不重复就好。）</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(49).png"></p>
-</li>
-<li><p>7.然后你就神奇的发现多了一个p盘分区（这个叫SYSTEM的磁盘分区就是那个EFI）</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(58).png"></p>
-</li>
-<li><p>8.这个时候你可以使用<strong>新建文本文档</strong>在里面打开这个p盘里面<strong>删掉EFI里面的系统启动文件</strong>或者用<strong>Total Commander 64 bit</strong>这个东西来删除里面的<strong>删掉EFI里面的系统启动文件</strong>（<strong>千万别把整个EFI干掉，那就是一把梭，莽！！！</strong>）<br><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(59).png"><br><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(48).png"><br><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(60).png"></p>
-</li>
-<li><p>然后移除盘符p用命令<strong>remove letter&#x3D;p</strong></p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(61).png"></p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(62).png"></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>efi</tag>
-      </tags>
   </entry>
   <entry>
     <title>Arch linux如何美化GRUB</title>

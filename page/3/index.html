@@ -122,7 +122,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">30</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -132,7 +132,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">25</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">24</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -177,173 +177,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/07/19/MYSQL-5-7-16-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/19/MYSQL-5-7-16-install/" class="post-title-link" itemprop="url">MYSQL_5.7.16_install</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-07-19 20:37:24" itemprop="dateCreated datePublished" datetime="2022-07-19T20:37:24+08:00">2022-07-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/07/19/MYSQL-5-7-16-install/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/19/MYSQL-5-7-16-install/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h1 id="一-MYSQL"><a href="#一-MYSQL" class="headerlink" title="一.MYSQL"></a>一.MYSQL</h1><h3 id="1-MYSQL简介"><a href="#1-MYSQL简介" class="headerlink" title="1.MYSQL简介"></a><strong>1.MYSQL简介</strong></h3><p>​		MYSQL 是一种开源的关系型数据库产品，具有开放式的架构。MYSQL最初由瑞典MYSQL AB 公司研发，后被SUN 公司收购，最后被Oracle公司收购。</p>
-<p>​		MYSQL 数据库是传统的关系型数据库，其开放式的架构使得用户有更多的选择。当下大多数互联网公司也比较热衷选择开源代码架构的产品。MYSQL 数据库在不断的更新和迭代发展，其功能也越来越强大，性能越爱越好，支持的平台越来越广。在实际工作中，MYSQL也是使用最多的是数据库。</p>
-<h3 id="2-MYSQL版本"><a href="#2-MYSQL版本" class="headerlink" title="2.MYSQL版本"></a><strong>2.MYSQL版本</strong></h3><p>​		MYSQL有众多版本，如下所示：</p>
-<p>(1)Alpha版本：一般在软件开发公司内部运行，不对外公开。</p>
-<p>(2)Beta版本：完成功能开发和所有测试工作后的产品，不会存在较大的功能或者性能Bug。</p>
-<p>(3)PC版本：属于正式发布前的一个版本，也是最终测试版本，进一步收集Bug或者不足之处，然后进行修复和完善。</p>
-<p>(4)GA版本：软件产品正式发布的版本，也是生产环境使用的版本。</p>
-<h3 id="3-MYSQL的安装方式"><a href="#3-MYSQL的安装方式" class="headerlink" title="3.MYSQL的安装方式"></a><strong>3.MYSQL的安装方式</strong></h3><p>（1）常见的编译安装方式（适用于MYSQL 5.5前的版本）。</p>
-<p>（2）二进制包安装的方式。</p>
-<p>（3）RPM包的安装方式。</p>
-<p>（4）Cmake方式安装（适用于MYSQL 5.5后的版本）。</p>
-<h1 id="二-MYSQL-的安装与部署（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）"><a href="#二-MYSQL-的安装与部署（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）" class="headerlink" title="二.MYSQL 的安装与部署（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）"></a><strong>二.MYSQL 的安装与部署</strong>（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）</h1><h3 id="1-MYSQL安装包的下载网站"><a href="#1-MYSQL安装包的下载网站" class="headerlink" title="1.MYSQL安装包的下载网站"></a><strong>1.MYSQL安装包的下载网站</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://downloads.mysql.com/archives/community/</span><br></pre></td></tr></table></figure>
-
-<p>在里面下载一个Linux的 <strong>mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</strong> 二进制安装包</p>
-<h3 id="2-安装依赖包软件"><a href="#2-安装依赖包软件" class="headerlink" title="2.安装依赖包软件"></a><strong>2.安装依赖包软件</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># yum -y install zlib-devel gcc-c++ ncurses ncurses-devel libaio libaio-devel libncurses*</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-用xshell上传-mysql-5-7-16-linux-glibc2-5-x86-64-tar-gz到服务器上"><a href="#3-用xshell上传-mysql-5-7-16-linux-glibc2-5-x86-64-tar-gz到服务器上" class="headerlink" title="*3.用xshell上传 mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz到服务器上*"></a>*<em>3.用xshell上传 <em>mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</em>到服务器上</em>*</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># yum -y install lrzsz     #安装lrzsz 方便两设备上传下载东西</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(25).png"></p>
-<p>安装好 <strong>lrzsz</strong> 后即可时使用 <strong>rz</strong> 命令上传文件到服务器，使用 <strong>sz</strong> 命令下载文件到客户端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># rz</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(26).png"></p>
-<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(27).png"></p>
-<p>上传完成后可以用 <strong>ls</strong> 命令来看到 <strong>mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</strong> 二进制安装包</p>
-<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(28).png"></p>
-<h3 id="4-安装MYSQL"><a href="#4-安装MYSQL" class="headerlink" title="4.安装MYSQL"></a><strong>4.安装MYSQL</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># useradd mysql -s /sbin/nologin -M      #创建一个mysql的账号，并且定义它不能登录shell，-M参数：不要自动建立用户的主目录（意味这mysql这个用户没有家）</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># mkdir -p /mysql/data           #创建一个递归目录，-p参数：没有的目录自动创建</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># chown -R mysql.mysql /mysql/   #递归更改目录的属主和属组为mysql，-R参数：递归地更改指定文件夹的所有权，但不更改链接指向目录</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># tar zxf mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz -C /usr/local/     #指定解压 mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz 到/usr/local/ 目录下</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># ln -s /usr/local/mysql-5.7.16-linux-glibc2.5-x86_64 /usr/local/mysql    #说真的。。。看到这个我tm笑死，建立软连接干嘛，怕那么点字母？</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># cd /usr/local/mysql/      </span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># cp support-files/my-default.cnf /etc/my.cnf    #修改/etc/my.cnf 里面的数据就好，my-default.cnf 这个压根不用管。。。配置文件都转移到/etc/目录下面了</span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># cp support-files/mysql.server /etc/init.d/mysqld</span></span><br><span class="line"><span class="comment"># init.d目录包含许多系统各种服务的启动和停止脚本(/etc/init.d里的shell脚本能够响应start，stop，restart，reload命令来管理某个具体的应用)。</span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># chmod +x /etc/init.d/mysqld    #添加执行权限，x参数：执行权限</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="5-MYSQL初始化"><a href="#5-MYSQL初始化" class="headerlink" title="5.MYSQL初始化"></a><strong>5.MYSQL初始化</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># ./bin/mysqld --initialize --basedir=/usr/local/mysql --datadir=/mysql/data/ --user=mysql      #初始化并且规定服务安装目录、	MYSQL服务数据存储目录、规定使用者是 mysql</span></span><br></pre></td></tr></table></figure>
-
-<p>初始化完成后会出现一段密码，把它保存下来，后面登录数据库需要用到它</p>
-<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(29)_%E7%88%B1%E5%A5%87%E8%89%BA.jpg"></p>
-<p>后面这样一串就是密码： <strong>&gt;rqiYpmT9Sh_</strong>   (注意：这里别把空格弄进去了，空格在密码也算一个位置的，密码是自动生成的，每台设备都不一样，别抄我的密码进去了，这样都弄错。。。小心我锤爆你狗头doge）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># egrep -v &quot;^#|^$&quot; /etc/my.cnf    #其实刚刚看到这串鬼东西的时候，我人都傻了，我只学过grep这个命令，egrep这是什么鬼东西，后来从度娘那边查到egrep == grep -e ，秒懂！！！（废话一堆，这句话意思就是，过滤掉 my.cnf 文本里面的注释和空格，剩下的东西全部显现在屏幕上）</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看出<strong>my.cnf</strong> 里面就两行配置信息</p>
-<p>那么我们直接进去加点料，定义一些配置信息，让我们装逼装的更加彻底</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># vim /etc/my.cnf</span></span><br></pre></td></tr></table></figure>
-
-<p>进去就会看到这样的 <strong>冥场面</strong> </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For advice on how to change settings please see</span></span><br><span class="line"><span class="comment"># http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html</span></span><br><span class="line"><span class="comment"># *** DO NOT EDIT THIS FILE. It&#x27;s a template which will be copied to the</span></span><br><span class="line"><span class="comment"># *** default location during install, and will be replaced if you</span></span><br><span class="line"><span class="comment"># *** upgrade to a newer version of MySQL.</span></span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove leading # and set to the amount of RAM for the most important data</span></span><br><span class="line"><span class="comment"># cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.</span></span><br><span class="line"><span class="comment"># innodb_buffer_pool_size = 128M</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove leading # to turn on a very important data integrity option: logging</span></span><br><span class="line"><span class="comment"># changes to the binary log between backups.</span></span><br><span class="line"><span class="comment"># log_bin</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># These are commonly set, remove the # and set as required.</span></span><br><span class="line"><span class="comment"># basedir = .....</span></span><br><span class="line"><span class="comment"># datadir = .....</span></span><br><span class="line"><span class="comment"># port = .....</span></span><br><span class="line"><span class="comment"># server_id = .....</span></span><br><span class="line"><span class="comment"># socket = .....</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove leading # to set options mainly useful for reporting servers.</span></span><br><span class="line"><span class="comment"># The server defaults are faster for transactions and fast SELECTs.</span></span><br><span class="line"><span class="comment"># Adjust sizes as needed, experiment to find the optimal values.</span></span><br><span class="line"><span class="comment"># join_buffer_size = 128M</span></span><br><span class="line"><span class="comment"># sort_buffer_size = 2M</span></span><br><span class="line"><span class="comment"># read_rnd_buffer_size = 2M </span></span><br><span class="line"></span><br><span class="line">sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line">~                                                                                                                                                                          </span><br><span class="line">~ </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>对于我这个英语小白来说简直绝望</strong></p>
-<p><strong>在里面写入这段配置信息，注意不要重复了</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">port = 3306</span><br><span class="line">socket = /mysql/mysql.sock</span><br><span class="line">[mysqld]</span><br><span class="line">basedir = /usr/local/mysql</span><br><span class="line">datadir = /mysql/data/</span><br><span class="line">port = 3306</span><br><span class="line">server_id = 1</span><br><span class="line">socket = /mysql/mysql.sock</span><br><span class="line">sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line">[mysqld_safe]</span><br><span class="line">log-error = /mysql/mysql.log</span><br><span class="line">pid-file = /mysql/mysql.pid</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="6-开启MYSQL服务"><a href="#6-开启MYSQL服务" class="headerlink" title="6.开启MYSQL服务"></a><strong>6.开启MYSQL服务</strong></h3><p>开启这个服务之后，然后就能看到唯一看得懂的英文 <strong>SUCCESS</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># /etc/init.d/mysqld start</span></span><br><span class="line">Starting MySQL.. SUCCESS! </span><br></pre></td></tr></table></figure>
-
-<p>可以使用这段代码来监听端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># lsof -i :3306</span></span><br><span class="line">COMMAND   PID  USER   FD   TYPE DEVICE SIZE/OFF NODE NAME</span><br><span class="line">mysqld  11932 mysql   23u  IPv6 150481      0t0  TCP *:mysql (LISTEN)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="7-配置环境变量"><a href="#7-配置环境变量" class="headerlink" title="7.配置环境变量"></a><strong>7.配置环境变量</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># echo &#x27;export PATH=$PATH:/usr/local/mysql/bin&#x27; &gt;&gt; /etc/profile</span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># source /etc/profile</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="8-登录数据库"><a href="#8-登录数据库" class="headerlink" title="8.登录数据库"></a><strong>8.登录数据库</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># mysql -uroot -p      </span></span><br><span class="line">Enter password:     <span class="comment">#别告诉我你没有保存密码哦，小心狗头！！！</span></span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection <span class="built_in">id</span> is 2</span><br><span class="line">Server version: 5.7.16</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; </span><br><span class="line">mysql&gt; </span><br><span class="line">mysql&gt; </span><br></pre></td></tr></table></figure>
-
-<h3 id="9-修改密码"><a href="#9-修改密码" class="headerlink" title="9.修改密码"></a><strong>9.修改密码</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;1234567890&#x27;</span>;    <span class="comment">#密码改成1234567890</span></span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line">mysql&gt; <span class="built_in">exit</span>       <span class="comment">#退出数据库</span></span><br><span class="line">Bye</span><br><span class="line">[root@kejulin ~]<span class="comment">#</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># mysql -uroot -p1234567890</span></span><br><span class="line">mysql: [Warning] Using a password on the <span class="built_in">command</span> line interface can be insecure.</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection <span class="built_in">id</span> is 3</span><br><span class="line">Server version: 5.7.16 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="三-结尾"><a href="#三-结尾" class="headerlink" title="三.结尾"></a><strong>三.结尾</strong></h1><p>虽然，CSDN 和 百度 等搜索工具里面查到的MYSQL很坑，但是作为一个先行者，我可以很负责任的说能善于用任何工具来解决自己问题对于日后的排错非常有帮助。</p>
-<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210614171041.png"></p>
-<p>遇到的困难都可以自己尝试去解决的。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -358,7 +191,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/" class="post-title-link" itemprop="url">kali 系统基础配置（2022版）</a>
+            <a href="/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/" class="post-title-link" itemprop="url">kali 系统基础配置（2023版）</a>
         </h2>
 
         <div class="post-meta">
@@ -375,7 +208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+                <time title="修改时间：2023-04-22 14:30:26" itemprop="dateModified" datetime="2023-04-22T14:30:26+08:00">2023-04-22</time>
               </span>
 
           
@@ -418,7 +251,7 @@
 
       
           <p>[toc]</p>
-<h1 id="kali-系统基础配置（2022版）"><a href="#kali-系统基础配置（2022版）" class="headerlink" title="kali 系统基础配置（2022版）"></a>kali 系统基础配置（2022版）</h1><h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<h1 id="kali-系统基础配置（2023版）"><a href="#kali-系统基础配置（2023版）" class="headerlink" title="kali 系统基础配置（2023版）"></a>kali 系统基础配置（2023版）</h1><h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 
 <p><strong>然后将原有的源全部注释掉，然后插入下面这串源地址</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
@@ -866,7 +699,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-10 08:30:02" itemprop="dateModified" datetime="2023-04-10T08:30:02+08:00">2023-04-10</time>
+                <time title="修改时间：2023-04-23 00:34:59" itemprop="dateModified" datetime="2023-04-23T00:34:59+08:00">2023-04-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -925,7 +758,7 @@
 <h3 id="制造启动U盘"><a href="#制造启动U盘" class="headerlink" title="制造启动U盘"></a><a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">制造启动U盘</a></h3><h4 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h4><p>这里我们去<code>balenaEtcher</code>的官网下载一个便携式的u盘刻录工具，萌新前期可以通过这个工具把我们需要装的系统刻录进u盘中。(如果觉得一次只能刻录一个镜像而感到苦恼的话，也可以去<a target="_blank" rel="noopener" href="https://www.ventoy.net/cn/index.html">ventoy官网</a>下载ventoy这款无敌的工具，能够兼容多个系统镜像，真正让你的u盘不再唯一)</p>
 <p>刻录好u盘之后我们可以开始进行我们的系统安装了！！！</p>
 <h3 id="1-单系统-manjaro"><a href="#1-单系统-manjaro" class="headerlink" title="1.单系统(manjaro)"></a>1.单系统(manjaro)</h3><h3 id="2-双系统-window10-manjaro"><a href="#2-双系统-window10-manjaro" class="headerlink" title="2.双系统(window10 + manjaro)"></a>2.双系统(window10 + manjaro)</h3><h3 id="一-与window10-efi-共存方案"><a href="#一-与window10-efi-共存方案" class="headerlink" title="一.与window10 efi 共存方案"></a>一.与window10 efi 共存方案</h3><h3 id="二-单独一个-manjaro-efi-方案"><a href="#二-单独一个-manjaro-efi-方案" class="headerlink" title="二.单独一个 manjaro efi 方案"></a>二.单独一个 manjaro efi 方案</h3><h3 id="三-如何删除双系统下的manjaro系统"><a href="#三-如何删除双系统下的manjaro系统" class="headerlink" title="三.如何删除双系统下的manjaro系统"></a>三.如何删除双系统下的manjaro系统</h3><h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p><strong>直接在window系统上面格式化manjaro的磁盘是不能完全删除manjaro的，这样做会触发efi检测不到manjaro硬盘而进入grub模式！！！</strong></p>
-<h4 id="1-EFI根除教程"><a href="#1-EFI根除教程" class="headerlink" title="1.EFI根除教程"></a><strong>1.EFI根除教</strong>程</h4><p><strong>1.删除EFI首先在cmd里面把装系统的那个分区显现出来，并且赋予盘符号。</strong></p>
+<h4 id="1-EFI根除教程"><a href="#1-EFI根除教程" class="headerlink" title="1.EFI根除教程"></a>1.EFI根除教程</h4><p><strong>1.删除EFI首先在cmd里面把装系统的那个分区显现出来，并且赋予盘符号。</strong></p>
 <ul>
 <li><p><strong>1.用diskpart来对磁盘进行操作</strong></p>
 <p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(52).png"></p>
@@ -959,7 +792,7 @@
 </li>
 </ul>
 <h4 id="2-删除卷"><a href="#2-删除卷" class="headerlink" title="2.删除卷"></a>2.删除卷</h4><p><strong>右键<code>此电脑</code>—&gt;单击<code>管理</code>—&gt;单击<code>磁盘管理</code>—&gt;找到你分配给<code>manjaro</code>的磁盘，直接右击<code>删除卷</code>，然后重新添加新的分区就行了。</strong></p>
-<h2 id="3-manjaro系统入门操作-过不了就躺板板吧，别学了"><a href="#3-manjaro系统入门操作-过不了就躺板板吧，别学了" class="headerlink" title="3.manjaro系统入门操作(过不了就躺板板吧，别学了)"></a>3.manjaro系统入门操作(过不了就躺板板吧，别学了)</h2><h3 id="一-换源"><a href="#一-换源" class="headerlink" title="一.换源"></a>一.换源</h3><h4 id="1-换国内源"><a href="#1-换国内源" class="headerlink" title="1.换国内源"></a>1.换国内源</h4><p>安装完成manjaro的第一步就是给manjaro换上国内源，使接下来能安装软件等其他操作。</p>
+<h2 id="3-manjaro系统入门操作-过不了就躺板板吧，别学了"><a href="#3-manjaro系统入门操作-过不了就躺板板吧，别学了" class="headerlink" title="3.manjaro系统入门操作(过不了就躺板板吧，别学了)"></a>3.manjaro系统入门操作(过不了就躺板板吧，别学了)</h2><h3 id="一-换源"><a href="#一-换源" class="headerlink" title="一.换源"></a>一.换源</h3><h4 id="1-换国内软件源"><a href="#1-换国内软件源" class="headerlink" title="1.换国内软件源"></a>1.换国内软件源</h4><p>安装完成manjaro的第一步就是给manjaro换上国内源，使接下来能安装软件等其他操作。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman-mirrors -i -c China -m rank <span class="comment">#在弹出来的面板选择一道两个时间短的源</span></span><br></pre></td></tr></table></figure>
 
 <p>下面这个跟上面那一步操作类似，它是直接把源放入到文件里面一步到位(注意：这个源要放文件内容最前面)，有上面命令的操作可以跳过导入源到mirrorlist这一步。</p>
@@ -2135,10 +1968,148 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/03/28/PHP-Study/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/28/PHP-Study/" class="post-title-link" itemprop="url">PHP_Study</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-28 15:28:18" itemprop="dateCreated datePublished" datetime="2022-03-28T15:28:18+08:00">2022-03-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/03/28/PHP-Study/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/03/28/PHP-Study/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="php连接数据库"><a href="#php连接数据库" class="headerlink" title="php连接数据库"></a>php连接数据库</h2><p>第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">var_dump(<span class="variable">$conn</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>返回这个说明连接成功</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153359251.png" alt="image-20230328153359251"></p>
+<p><strong>返回这个说明数据库连接失败，可能是ip错了</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153537406.png" alt="image-20230328153537406"></p>
+<p><strong>返回这个说明是数据库账号错了</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153756724.png" alt="image-20230328153756724"></p>
+<p><strong>返回这个说明是数据库密码错了</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153829750.png" alt="image-20230328153829750"></p>
+<p><strong>接下来开始连接数据库然后打印数据库表内容</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">// 执行SQL语句,这里是意思是把整张test02表格输出</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">var_dump(<span class="variable">$result</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>*<em>看到这个说明我们执行成功，后面int(4)说我们有4条记录，我们数据表确实有4条记录，那么为啥没有具体是查询出来捏<del>(￣▽￣)</del><em>，我们得转换一下将执行结果转换成为结果集</em></em></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328154327099.png" alt="image-20230328154327099"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">// 执行SQL语句,这里是意思是把整张test02表格输出</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line"><span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>);</span><br><span class="line">var_dump(<span class="variable">$data</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>下面这个则是输出值:(你会发现，为啥我四行的数据表只输出了一行)</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328155530623.png" alt="image-20230328155530623"></p>
+<p><strong>这个时候，我们使用循环遍历，把一个个数据表遍历出来</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">	var_dump(<span class="variable">$data</span>);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/28/PHP-Study/image-20230328161200638.png" alt="image-20230328161200638"></p>
+<p><strong>数据都遍历出来了，但是很密集，我这给它空几行</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    var_dump(<span class="variable">$data</span>);</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>这样看就舒服多了，是不是捏<del>(￣▽￣)</del></strong>*</p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328161509400.png" alt="image-20230328161509400"></p>
+<p><strong>如果我需要它的名字怎么办？</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT name FROM test02&quot;</span>;       <span class="comment">#这里把*改name</span></span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    var_dump(<span class="variable">$data</span>);</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/28/PHP-Study/image-20230328161904981.png" alt="image-20230328161904981"></p>
+<p><strong>但是，还是不够简洁，那么可以改成这样</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;       <span class="comment">#这里把name改*也可以</span></span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$data</span>[<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/28/PHP-Study/image-20230328162301304.png" alt="image-20230328162301304"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
 
 
@@ -2210,7 +2181,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2223,7 +2194,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -122,7 +122,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">30</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -132,7 +132,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">25</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">24</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -173,125 +173,6 @@
 
           <div class="content index posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://username.github.io/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">EFI根除教程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-04-19 00:33:09 / 修改时间：00:33:49" itemprop="dateCreated datePublished" datetime="2023-04-19T00:33:09+08:00">2023-04-19</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>520</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="EFI根除教程"><a href="#EFI根除教程" class="headerlink" title="EFI根除教程"></a>EFI根除教程</h1><p>1.删除EFI首先在<strong>cmd</strong>里面把装系统的那个分区显现出来，并且赋予盘符号。</p>
-<ul>
-<li><p>1.用<strong>diskpart</strong>来对磁盘进行操作</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(52).png"></p>
-</li>
-<li><p>然后给diskpart授权开启</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(53).png"></p>
-</li>
-<li><p>2.查看磁盘命令****</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(54).png"></p>
-</li>
-<li><p>3.选中目标<strong>磁盘0</strong>用<strong>select disk 0</strong>命令</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(55).png"></p>
-</li>
-<li><p>4.列出该磁盘下的所有分区信息用<strong>list partition</strong>命令</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(56).png"></p>
-</li>
-<li><p>5.选择我们的EFI系统分区用<strong>select partition 1</strong>命令（在这一步也可以删掉选中盘的<strong>所有内容</strong>（命令是<strong>delete partition override</strong>）（执行这条命令相当于把那个分区抹去了））</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(57).png"></p>
-</li>
-<li><p>6.用命令给这个EFI分区赋予盘符之后，它就会像一个磁盘出现在电脑里面，命令是<strong>assign letter&#x3D;p</strong>（这里p是盘符号，你也可以按照自己喜欢来打其他字母，只要不重复就好。）</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(49).png"></p>
-</li>
-<li><p>7.然后你就神奇的发现多了一个p盘分区（这个叫SYSTEM的磁盘分区就是那个EFI）</p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(58).png"></p>
-</li>
-<li><p>8.这个时候你可以使用<strong>新建文本文档</strong>在里面打开这个p盘里面<strong>删掉EFI里面的系统启动文件</strong>或者用<strong>Total Commander 64 bit</strong>这个东西来删除里面的<strong>删掉EFI里面的系统启动文件</strong>（<strong>千万别把整个EFI干掉，那就是一把梭，莽！！！</strong>）<br><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(59).png"><br><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(48).png"><br><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(60).png"></p>
-</li>
-<li><p>然后移除盘符p用命令<strong>remove letter&#x3D;p</strong></p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(61).png"></p>
-<p><img src="/2023/04/19/EFI%E6%A0%B9%E9%99%A4%E6%95%99%E7%A8%8B/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(62).png"></p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
       
   
   
@@ -1642,10 +1523,145 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/11/28/%E7%BC%96%E7%A8%8B%E6%A1%88%E4%BE%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/28/%E7%BC%96%E7%A8%8B%E6%A1%88%E4%BE%8B/" class="post-title-link" itemprop="url">编程案例</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-28 20:07:03" itemprop="dateCreated datePublished" datetime="2022-11-28T20:07:03+08:00">2022-11-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/11/28/%E7%BC%96%E7%A8%8B%E6%A1%88%E4%BE%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/28/%E7%BC%96%E7%A8%8B%E6%A1%88%E4%BE%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="编程案例"><a href="#编程案例" class="headerlink" title="编程案例"></a>编程案例</h1><h2 id="多重循环控制-for"><a href="#多重循环控制-for" class="headerlink" title="多重循环控制-for"></a>多重循环控制-for</h2><p><strong>编写一个程序，可以接收一个整数，表示层数，打印出金字塔。</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  *</span><br><span class="line"> ***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编程思路</span></span><br><span class="line"><span class="comment">// 1.打印一个矩形</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	***</span></span><br><span class="line"><span class="comment">	***</span></span><br><span class="line"><span class="comment">	***</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">    </span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">3</span>; i++ &#123;</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= <span class="number">3</span>; j++ &#123;</span><br><span class="line">			fmt.Print(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">		fmt.Println(<span class="string">&quot;&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/28/%E7%BC%96%E7%A8%8B%E6%A1%88%E4%BE%8B/image-20221128165532356.png" alt="image-20221128165532356"></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.打印半个金字塔</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*   1 个 *</span></span><br><span class="line"><span class="comment">**  2 个 *</span></span><br><span class="line"><span class="comment">*** 3 个 *</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">3</span>; i++ &#123;</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= i; j++ &#123;</span><br><span class="line">			fmt.Print(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">		fmt.Println(<span class="string">&quot;&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/28/%E7%BC%96%E7%A8%8B%E6%A1%88%E4%BE%8B/image-20221128165738560.png" alt="image-20221128165738560"></p>
+<p><strong>但是这个每层的*数目不对</strong></p>
+<p><strong>应该是第一层一个，第二层三个，第三层五个，第n层2n-1个。</strong></p>
+<p><strong>所以</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.打印半个金字塔</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*   1 个 *</span></span><br><span class="line"><span class="comment">***  3 个 *</span></span><br><span class="line"><span class="comment">***** 5 个 *</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">3</span>; i++ &#123;</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= <span class="number">2</span>*i<span class="number">-1</span>; j++ &#123;</span><br><span class="line">			fmt.Print(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">		fmt.Println(<span class="string">&quot;&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/28/%E7%BC%96%E7%A8%8B%E6%A1%88%E4%BE%8B/image-20221128170735903.png" alt="image-20221128170735903"></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.打印个金字塔</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  *   1 个 *    规律：2 * 层数 - 1 空格2 空格规律：总层数-当前层数</span></span><br><span class="line"><span class="comment"> ***  3 个 *    规律：2 * 层数 - 1 空格1</span></span><br><span class="line"><span class="comment">***** 5 个 *    规律：2 * 层数 - 1 空格0</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">这里使用k提前打印空格打印空格</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">3</span>; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> k:= <span class="number">1</span>; k &lt;= <span class="number">3</span> - i;k++&#123;</span><br><span class="line">            fmt.Print(<span class="string">&quot; &quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= <span class="number">2</span>*i<span class="number">-1</span>; j++ &#123;</span><br><span class="line">			fmt.Print(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">		fmt.Println(<span class="string">&quot;&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/28/%E7%BC%96%E7%A8%8B%E6%A1%88%E4%BE%8B/image-20221128171618471.png" alt="image-20221128171618471"></p>
+<p><strong>再修改题目，将层数改成一个变量。</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> totalLevel <span class="type">int</span> = <span class="number">9</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= totalLevel; i++ &#123;</span><br><span class="line">		<span class="keyword">for</span> k := <span class="number">1</span>; k &lt;= totalLevel-i; k++ &#123;</span><br><span class="line">			fmt.Print(<span class="string">&quot; &quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= <span class="number">2</span>*i<span class="number">-1</span>; j++ &#123;</span><br><span class="line">			fmt.Print(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">		fmt.Println(<span class="string">&quot;&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/28/%E7%BC%96%E7%A8%8B%E6%A1%88%E4%BE%8B/image-20221128171918526.png" alt="image-20221128171918526"></p>
+<p>在修改题目，打印空心金字塔</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 分析：在我们打印每行 * 号时，需要考虑是打印 * 还是打印 空格</span></span><br><span class="line"><span class="comment">// 分析结果是，每层的第一个和最后一个打印*，其他就应该是空的。</span></span><br><span class="line"><span class="keyword">var</span> totalLevel <span class="type">int</span> = <span class="number">9</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= totalLevel; i++ &#123;</span><br><span class="line">		<span class="keyword">for</span> k := <span class="number">1</span>; k &lt;= totalLevel-i; k++ &#123;</span><br><span class="line">			fmt.Print(<span class="string">&quot; &quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= <span class="number">2</span>*i<span class="number">-1</span>; j++ &#123;</span><br><span class="line">			<span class="keyword">if</span> j == <span class="number">1</span> || j == <span class="number">2</span>*i<span class="number">-1</span> &#123;</span><br><span class="line">				fmt.Print(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				fmt.Print(<span class="string">&quot; &quot;</span>)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		fmt.Println(<span class="string">&quot;&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/28/%E7%BC%96%E7%A8%8B%E6%A1%88%E4%BE%8B/image-20221128172445711.png" alt="image-20221128172445711"></p>
+<p><strong>但是这个打印到最后没封底就很不美观，所以要封底。</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 分析：在我们打印每行 * 号时，需要考虑是打印 * 还是打印 空格</span></span><br><span class="line"><span class="comment">// 分析结果是，每层的第一个和最后一个打印*，其他就应该是空的。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> totalLevel <span class="type">int</span> = <span class="number">9</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= totalLevel; i++ &#123;</span><br><span class="line">		<span class="keyword">for</span> k := <span class="number">1</span>; k &lt;= totalLevel-i; k++ &#123;</span><br><span class="line">			fmt.Print(<span class="string">&quot; &quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= <span class="number">2</span>*i<span class="number">-1</span>; j++ &#123;</span><br><span class="line">			<span class="keyword">if</span> j == <span class="number">1</span> || j == <span class="number">2</span>*i<span class="number">-1</span> || i == totalLevel &#123;</span><br><span class="line">				fmt.Print(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				fmt.Print(<span class="string">&quot; &quot;</span>)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		fmt.Println(<span class="string">&quot;&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/28/%E7%BC%96%E7%A8%8B%E6%A1%88%E4%BE%8B/image-20221128173341992.png" alt="image-20221128173341992"></p>
+<h2 id="打印九九乘法表"><a href="#打印九九乘法表" class="headerlink" title="打印九九乘法表"></a>打印九九乘法表</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">9</span>; i++ &#123; <span class="comment">//打印九行</span></span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= i; j++ &#123; <span class="comment">//有几行就打印几列</span></span><br><span class="line">			fmt.Printf(<span class="string">&quot;%v * %v = %v \t&quot;</span>, j, i, j*i)</span><br><span class="line">		&#125;</span><br><span class="line">		fmt.Println(<span class="string">&quot;&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/28/%E7%BC%96%E7%A8%8B%E6%A1%88%E4%BE%8B/image-20221208200330636.png" alt="image-20221208200330636"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1717,7 +1733,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1730,7 +1746,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
