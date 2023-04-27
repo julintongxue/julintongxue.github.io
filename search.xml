@@ -1079,6 +1079,25 @@
 <p><strong>然后修改Linux系统的<code>/etc/hosts</code>文件</strong></p>
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230244687.png" alt="image-20230125230244687"></p>
 <p><strong>那么终端就能临时性的访问Github的能力了。</strong></p>
+<h3 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h3><h4 id="备份一个盘符"><a href="#备份一个盘符" class="headerlink" title="备份一个盘符"></a>备份一个盘符</h4><p><strong>首先，先确定盘符，然后开始备份</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">dd</span>=4M <span class="keyword">if</span>=/dev/sda | gzip &gt; bask-raspberry.img.gz</span><br></pre></td></tr></table></figure>
+
+<h4 id="解压至盘符"><a href="#解压至盘符" class="headerlink" title="解压至盘符"></a>解压至盘符</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo gzip -<span class="built_in">cd</span> bask-raspberry.img.gz | <span class="built_in">dd</span> bs=4M of=/dev/sda</span><br></pre></td></tr></table></figure>
+
+<h4 id="备份到远程服务器"><a href="#备份到远程服务器" class="headerlink" title="备份到远程服务器"></a>备份到远程服务器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -p bask-raspberry.img.gz user@ip:path/</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>scp 和 rsync : scp是每次传都是重新重传独立的一份，rsync使用的是差分传输算法，只会传输发生了变化的那部分</strong></p>
+</blockquote>
+<h4 id="定时备份脚本"><a href="#定时备份脚本" class="headerlink" title="定时备份脚本"></a>定时备份脚本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">TODAY=$(<span class="built_in">date</span> + <span class="string">&quot;%F&quot;</span>)</span><br><span class="line"><span class="built_in">cd</span> /home/pi</span><br><span class="line">tar -czf mydocsbackup-<span class="string">&quot;<span class="variable">$TODAY</span>&quot;</span>.tgz Documents</span><br><span class="line">scp mydocsbackup-<span class="string">&quot;<span class="variable">$TODAY</span>&quot;</span>.tgz user@ip:path/bak/</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>这里需要双方互换ssh-key，不然需要验证密码，这样脚本就无法完成最后一步</strong></p>
+</blockquote>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p><strong>学到这里了，那么我默认你已经是具有RHCSA（RHCSA是Red Hat Certified System Administrator的简称，属于红帽linux的初级入门认证）的实力。下面学到的命令，跟RHCSA学到的可以起到相辅相成的作用。</strong></p>
+<h4 id="安全移除数据"><a href="#安全移除数据" class="headerlink" title="安全移除数据"></a>安全移除数据</h4><p><strong>别以为，你<code>rm -rf</code>就是删掉了数据，其实跟win一样都是只删掉了对应的<code>inode表项</code>，是可以通过修复底层数据的修复来还原整个文件系统，如果你需要安全清理某些敏感数据，可以试一下<code>shred</code>这是通过多次覆盖，下面是覆盖5次。（其实<code>dd</code>命令也是可以以比特为单位覆盖数据，<code>shred</code>能干多次而已）</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">shred</span> -v -n 5 a.txt</span><br><span class="line"><span class="built_in">shred</span> -v -n 5 /dev/sdb</span><br></pre></td></tr></table></figure>
+
 <h3 id="我的世界"><a href="#我的世界" class="headerlink" title="我的世界"></a>我的世界</h3><h4 id="我的世界启动器安装"><a href="#我的世界启动器安装" class="headerlink" title="我的世界启动器安装"></a>我的世界启动器安装</h4><h5 id="HMCL"><a href="#HMCL" class="headerlink" title="HMCL"></a>HMCL</h5><p><strong>[HMCL](<a href="https://hmcl.huangyuhui.net/">Hello Minecraft! Launcher (huangyuhui.net)</a>)</strong></p>
 <p><strong>下载好后点开安装即可</strong></p>
 <h4 id="我的世界程序安装"><a href="#我的世界程序安装" class="headerlink" title="我的世界程序安装"></a>我的世界程序安装</h4><p><strong>想要我的世界服务跑起来，光有启动器是不行的，还得有我的世界程序。那么这个 程序可以跑在本地电脑（自己一个人游玩和局域网内和小伙伴们一起游玩），也可以跑在公网服务器上（自己游玩的同时，小伙伴们也不限制在局域网连机，小伙伴可以在各自的家里舒舒服服地躺着玩，也因为是公网服务器，世界各地的小伙伴也可以进来happy，只不过由于地域距离的问题，他们要顶着高ping和国人玩耍。正常来讲是我们顶着高ping去玩人家的服务器，网易服务器的尿性你们懂的！！！）</strong></p>
