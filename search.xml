@@ -823,6 +823,13 @@
 <p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210614171041.png"></p>
 <p>遇到的困难都可以自己尝试去解决的。</p>
 ]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+        <tag>MYSQL</tag>
+      </tags>
   </entry>
   <entry>
     <title>Manjaro 生存手册</title>
@@ -1198,12 +1205,20 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在orange目录里面，执行后去4000端口查看博客生成</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20220830135622620.png" alt="image-20220830135622620"></p>
-<h3 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h3><p><strong>很多时候，我们使用终端去克隆下载GitHub的东西的时候，发现会被拒绝的现象出现，这个原因是我们国家的GFW在发挥着不可或缺的作用，那么Github在世界是有大量的CDN节点的，我们可以利用这个特性，让我们的终端临时性重新获得下载东西的能力。</strong></p>
+<h3 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h3><h4 id="临时获得访问GitHub"><a href="#临时获得访问GitHub" class="headerlink" title="临时获得访问GitHub"></a>临时获得访问GitHub</h4><p><strong>很多时候，我们使用终端去克隆下载GitHub的东西的时候，发现会被拒绝的现象出现，这个原因是我们国家的GFW在发挥着不可或缺的作用，那么Github在世界是有大量的CDN节点的，我们可以利用这个特性，让我们的终端临时性重新获得下载东西的能力。</strong></p>
 <p><strong>首先，访问<a href="https://tool.lu/ip/">tool.lu</a>把域名的ip解析出来</strong></p>
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230205943.png" alt="image-20230125230205943"></p>
 <p><strong>然后修改Linux系统的<code>/etc/hosts</code>文件</strong></p>
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230244687.png" alt="image-20230125230244687"></p>
 <p><strong>那么终端就能临时性的访问Github的能力了。</strong></p>
+<h4 id="终端代理访问GitHub"><a href="#终端代理访问GitHub" class="headerlink" title="终端代理访问GitHub"></a>终端代理访问GitHub</h4><p><strong>如果你们设计了本地代理软件的话，可以把局域网共享打开然后让树莓派也获得访问GitHub能力，这样终端下载国外的deb包速度也是很快的(因为我不习惯换国内源，国内源删太多东西了，有些资源包说没有的时候比下的慢更难受)</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">proxy_on</span></span>() &#123;</span><br><span class="line">    <span class="built_in">export</span> http_proxy=http://your_ip:your_port</span><br><span class="line">    <span class="built_in">export</span> https_proxy=<span class="variable">$http_proxy</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;终端代理已开启。&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">proxy_off</span></span>()&#123;</span><br><span class="line">    <span class="built_in">unset</span> http_proxy https_proxy</span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;终端代理已关闭。&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>弄好后，记得要<code>source  /etc/profile</code>让其临时生效，不然就要重启才能使用了</strong></p>
+<p><strong>通过<code>proxy_on</code>启动代理，<code>proxy_off</code>关闭代理。</strong></p>
+<p><strong>可以执行<code>curl cip.cc</code>验证：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># proxy_on</span></span><br><span class="line">终端代理已开启。</span><br><span class="line">root@raspbian:~<span class="comment"># curl cip.cc</span></span><br><span class="line">IP	: 3.113.4.154</span><br><span class="line">地址	: 美国  美国</span><br><span class="line"></span><br><span class="line">数据二	: 日本 | 东京Amazon数据中心</span><br><span class="line"></span><br><span class="line">数据三	: 美国华盛顿 | 亚马逊</span><br><span class="line"></span><br><span class="line">URL	: http://www.cip.cc/3.113.4.154</span><br></pre></td></tr></table></figure>
+
 <h3 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h3><h4 id="备份一个盘符"><a href="#备份一个盘符" class="headerlink" title="备份一个盘符"></a>备份一个盘符</h4><p><strong>首先，先确定盘符，然后开始备份</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">dd</span> bs=4M <span class="keyword">if</span>=/dev/sda | gzip &gt; bask-raspberry.img.gz</span><br></pre></td></tr></table></figure>
 
@@ -1423,7 +1438,12 @@
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184202042.png" alt="image-20221222184202042"></p>
 <p><strong>这样可以很好的切换，而且只有浏览器能够fq，想要电脑全局fq就在代理里面设置<code>ip+端口</code>即可。记住win的代理和浏览器的插件只能开一个，别环路了。。。</strong></p>
 <p><strong>docker版的openwrt还有其他的很多功能，可以自己私下去探索，这里就不再多说了，各自努力吧！</strong></p>
-<h4 id="aria2"><a href="#aria2" class="headerlink" title="aria2"></a>aria2</h4><h4 id="mariadb"><a href="#mariadb" class="headerlink" title="mariadb"></a>mariadb</h4><p><strong>先拉取mariadb</strong></p>
+<h4 id="aria2"><a href="#aria2" class="headerlink" title="aria2"></a>aria2</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name aria2-pro \</span><br><span class="line">    --restart unless-stopped \</span><br><span class="line">    --log-opt max-size=1m \</span><br><span class="line">    -e PUID=<span class="variable">$UID</span> \</span><br><span class="line">    -e PGID=<span class="variable">$GID</span> \</span><br><span class="line">    -e UMASK_SET=022 \</span><br><span class="line">    -e RPC_SECRET=orange \        <span class="comment"># 这个自定义，一定要记住</span></span><br><span class="line">    -e RPC_PORT=6800 \</span><br><span class="line">    -p 6800:6800 \</span><br><span class="line">    -e LISTEN_PORT=6888 \</span><br><span class="line">    -p 6888:6888 \</span><br><span class="line">    -p 6888:6888/udp \</span><br><span class="line">    -v <span class="variable">$PWD</span>/aria2-config:/config \</span><br><span class="line">    -v <span class="variable">$PWD</span>/aria2-downloads:/downloads \</span><br><span class="line">    p3terx/aria2-pro</span><br></pre></td></tr></table></figure>
+
+<p><strong>WebUI</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name ariang \</span><br><span class="line">    --log-opt max-size=1m \</span><br><span class="line">    --restart unless-stopped \</span><br><span class="line">    -p 6880:6880 \</span><br><span class="line">    p3terx/ariang</span><br></pre></td></tr></table></figure>
+
+<h4 id="mariadb"><a href="#mariadb" class="headerlink" title="mariadb"></a>mariadb</h4><p><strong>先拉取mariadb</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull mariadb</span><br></pre></td></tr></table></figure>
 
 <p><strong>下面需要修改的地方就是密码password修改成为自己需要的密码就可以刷入命令了</strong></p>
@@ -1529,84 +1549,6 @@
       </categories>
       <tags>
         <tag>环境工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ctf之Crypto</title>
-    <url>/2023/04/28/ctf%E4%B9%8BCrypto/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>网安比赛</category>
-      </categories>
-      <tags>
-        <tag>CTF</tag>
-        <tag>Crypto</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ctf之Misc</title>
-    <url>/2023/04/28/ctf%E4%B9%8BMisc/</url>
-    <content><![CDATA[<p>[toc]</p>
-<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="BUUCTF"><a href="#BUUCTF" class="headerlink" title="BUUCTF"></a>BUUCTF</h2><h3 id="金三胖"><a href="#金三胖" class="headerlink" title="金三胖"></a>金三胖</h3><p><img src="/2023/04/28/ctf%E4%B9%8BMisc/image-20230428170342734.png" alt="image-20230428170342734"></p>
-<p><strong>很显然是一张动图，还能看到红色的一闪而过</strong></p>
-<p><strong>使用<code>GifSplitter.exe</code>对图片进行分帧</strong></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/image-20230428170143971.png" alt="image-20230428170143971"></p>
-<p><strong>找到原来的文件夹，可以看到多出了个文件夹</strong></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/image-20230428170127525.png" alt="image-20230428170127525"></p>
-<p><strong>答案显而易见</strong></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/image-20230428170255818.png" alt="image-20230428170255818"></p>
-<p><strong>当然，这个也有第二种解法，那就是利用<code>Stegsolve.jar</code>一帧一帧查看，并且手动记录</strong></p>
-<h2 id="Bugku"><a href="#Bugku" class="headerlink" title="Bugku"></a>Bugku</h2><h3 id="1和0的故事"><a href="#1和0的故事" class="headerlink" title="1和0的故事"></a>1和0的故事</h3><ul>
-<li>打开1和0的故事的文件，发现里面一堆0101数字，但是排列很有规律<code>25*25</code>这很正方形哦！！！</li>
-<li>脑洞大点就是二维码了</li>
-</ul>
-<p><strong>excel 绘制二维码</strong></p>
-<ul>
-<li>新建一个excel</li>
-<li>在里面拉出足够大的位置并在<code>设置单元格格式里面设置为文本</code></li>
-<li>把1和0的数字粘贴进去</li>
-</ul>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(12)-1682773519881.png" alt="屏幕截图(12)"></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(13).png" alt="屏幕截图(13)"></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(14)-1682773564255.png" alt="屏幕截图(14)"></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(15).png" alt="屏幕截图(15)"></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(16).png" alt="屏幕截图(16)"></p>
-<p>然后点击 <code>A列</code>再点击 <code>数据</code> 然后点击 <code>分列</code></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(17).png" alt="屏幕截图(17)"></p>
-<ul>
-<li><p>选择固定宽度然后下一步</p>
-</li>
-<li><p>在里面的每一列间隙点一下会插入一根黑线，然后数字会被间隔开来<img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(19).png" alt="屏幕截图(19)"></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(20).png" alt="屏幕截图(20)"></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(21).png" alt="屏幕截图(21)"></p>
-<p>设置列宽为2，行高为15</p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(22).png" alt="屏幕截图(22)"></p>
-<p><strong>替换0和1</strong></p>
-<ul>
-<li>按住ctrl+f调出查找和替换</li>
-<li>点击替换把0换为无颜色，把1换为黑色</li>
-</ul>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(24).png" alt="屏幕截图(24)"></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(25).png" alt="屏幕截图(25)"></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(25)-16348989571181.png" alt="屏幕截图(25)-16348989571181"></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(26).png" alt="屏幕截图(26)"></p>
-<ul>
-<li>这个时候发现二维码的<code>定位符</code>没了</li>
-<li>手动加上1然后重复黑色操作</li>
-</ul>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(27).png" alt="屏幕截图(27)"></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(28).png" alt="屏幕截图(28)"></p>
-<p><img src="/2023/04/28/ctf%E4%B9%8BMisc/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(29).png" alt="屏幕截图(29)"></p>
-</li>
-</ul>
-<p><strong>二维码完成</strong></p>
-]]></content>
-      <categories>
-        <category>网安比赛</category>
-      </categories>
-      <tags>
-        <tag>CTF</tag>
-        <tag>Misc</tag>
       </tags>
   </entry>
   <entry>
@@ -1741,17 +1683,11 @@
 
 <p>在这个配置文件中增加</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">* soft nofile 65535</span><br><span class="line">* hard nofile 65535</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>ctf之Web</title>
-    <url>/2023/04/28/ctf%E4%B9%8BWeb/</url>
-    <content><![CDATA[]]></content>
       <categories>
-        <category>网安比赛</category>
+        <category>Linux小知识</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
-        <tag>Web</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -2157,6 +2093,12 @@
 <p>我的解释是ssh反代基于tcp&#x2F;ip连接，还是比较可靠的，如果是丢包的话它也会继续发送重连，而且服务器B没有被<code>GFW</code>封杀，我也可以ssh到B服务器上面，理论上我应该是可以反代成功的。</p>
 <p>2.我曾经换过内核，令服务器B能够开启bbr极限压缩带宽的使用，我不清楚这个是否构成失败原因。</p>
 ]]></content>
+      <categories>
+        <category>Linux系统</category>
+      </categories>
+      <tags>
+        <tag>SSH</tag>
+      </tags>
   </entry>
   <entry>
     <title>基于next主题的hexo博客</title>
@@ -2876,6 +2818,12 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># cp ./grub2.bak/grub.cfg /boot/grub2/</span></span><br><span class="line">[root@localhost ~]<span class="comment"># reboot</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>Linux系统</category>
+      </categories>
+      <tags>
+        <tag>GRUB</tag>
+      </tags>
   </entry>
   <entry>
     <title>渗透 and web</title>
@@ -3917,6 +3865,181 @@
       <tags>
         <tag>渗透</tag>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blackarch</title>
+    <url>/2022/05/01/Blackarch/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h1 id="Blackarch"><a href="#Blackarch" class="headerlink" title="Blackarch"></a>Blackarch</h1><h3 id="netdiscover"><a href="#netdiscover" class="headerlink" title="netdiscover"></a>netdiscover</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay -S netdiscover</span><br></pre></td></tr></table></figure>
+
+<h4 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 这会无休止一直广播ARP</span></span><br><span class="line">sudo netdiscover </span><br><span class="line"><span class="comment"># -i 设置网卡</span></span><br><span class="line">sudo netdiscover -i wlan0</span><br><span class="line"><span class="comment"># -r 设置ip段</span></span><br><span class="line">sudo netdiscover -i wlan0 -r 192.168.1.0/24</span><br></pre></td></tr></table></figure>
+
+<h3 id="arp-scan"><a href="#arp-scan" class="headerlink" title="arp-scan"></a>arp-scan</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 我有blackarch的源，你懂的！！！</span></span><br><span class="line">[orange@orange ~]$ yay -Ss arp-scan</span><br><span class="line">aur/obs-time-warp-scan 0.1.6-3 (+0 0.00) </span><br><span class="line">    Time Warp Scan filter <span class="keyword">for</span> OBS Studio</span><br><span class="line">aur/arp-scan-git r304.af905ce-1 (+1 0.00) </span><br><span class="line">    The ARP Scanner</span><br><span class="line">blackarch/arp-scan 1.9.7-2 (337.6 KiB 1017.9 KiB) [blackarch blackarch-networking blackarch-scanner blackarch-fingerprint] </span><br><span class="line">    A tool that uses ARP to discover and fingerprint IP hosts on the <span class="built_in">local</span> network</span><br><span class="line">community/arp-scan 1.9.7-2 (337.6 KiB 1017.9 KiB) </span><br><span class="line">    A tool that uses ARP to discover and fingerprint IP hosts on the <span class="built_in">local</span> network</span><br><span class="line">[orange@orange ~]$ yay -S arp-scan</span><br></pre></td></tr></table></figure>
+
+<h4 id="简单使用-1"><a href="#简单使用-1" class="headerlink" title="简单使用"></a>简单使用</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -l 使用本地网络段扫描</span></span><br><span class="line">sudo arp-scan -l</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="wireshark"><a href="#wireshark" class="headerlink" title="wireshark"></a>wireshark</h3>]]></content>
+      <categories>
+        <category>攻防</category>
+      </categories>
+      <tags>
+        <tag>Arch</tag>
+        <tag>Archlinux</tag>
+        <tag>渗透</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux应用与服务</title>
+    <url>/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h1 id="LINUX应用与服务"><a href="#LINUX应用与服务" class="headerlink" title="LINUX应用与服务"></a>LINUX应用与服务</h1><h2 id="NFS"><a href="#NFS" class="headerlink" title="NFS"></a>NFS</h2><p><strong>安装rpcbind</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install rpcbind</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看rpcbind.socket状态</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status rpcbind.socket</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508145322917.png" alt="image-20230508145322917"></p>
+<p><strong>可以看出rpcbind.socket一直在监听端口</strong></p>
+<p><strong>安装nfs</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install nfs-kernel-server</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508145655757.png" alt="image-20230508145655757"></p>
+<p><strong>查看rpcbind.socket状态</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status rpcbind.service</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508145512096.png" alt="image-20230508145512096"></p>
+<p><strong>从上面安装好看nfs再查看rpcbind.service可以发现，nfs没开启服务，rpcbind.service也不会自动开启</strong></p>
+<p><strong>这次，我们开启nfs再查看nfs和rpcbind.service的服务状态</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart nfs-kernel-server.service</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status nfs-kernel-server.service</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508145901666.png" alt="image-20230508145901666"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status rpcbind.service</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508145927673.png" alt="image-20230508145927673"></p>
+<p><strong>可以看出，nfs服务启动后，rpcbind.socket检测到端口被激活从而开启了rpcbind.service服务</strong></p>
+<p><strong>编辑&#x2F;etc&#x2F;exports</strong></p>
+<p><strong>后面的权限我先不加，这里默认是只读</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/data *</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508152044419.png" alt="image-20230508152044419"></p>
+<p><strong>重新加载配置(不需要重启服务)</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">exportfs -r</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508152209456.png" alt="image-20230508152209456"></p>
+<p><strong>查看默认权限</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">exportfs -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508152254228.png" alt="image-20230508152254228"></p>
+<p><strong>显示NFS服务器的共享信息</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">showmount -e</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508152331011.png" alt="image-20230508152331011"></p>
+<p><strong>win10挂载nfs共享目录</strong></p>
+<p><strong>先打开控制面板，找到程序</strong></p>
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508152719331.png" alt="image-20230508152719331"></p>
+<p><strong>点击启用或者关闭windows功能</strong></p>
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508152753361.png" alt="image-20230508152753361"></p>
+<p><strong>把nfs服务全选上</strong></p>
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508152913031.png" alt="image-20230508152913031"></p>
+<p><strong>然后确认退出，打开此电脑找到映射网络驱动器</strong></p>
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508152644711.png" alt="image-20230508152644711"></p>
+<p><strong>按照<code>\\ip\共享目录名字</code>这样的格式</strong></p>
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508153030562.png" alt="image-20230508153030562"></p>
+<p><strong>然后就能看到共享的文件了</strong></p>
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508153203212.png" alt="image-20230508153203212"></p>
+<p><strong>由于上面在&#x2F;etc&#x2F;exports里没有添加权限使用仅有下载功能，硬盘的大小还不能完全支配</strong></p>
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508153328881.png" alt="image-20230508153328881"></p>
+<p><strong>卸载挂载。。。懂？</strong></p>
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508154432995.png" alt="image-20230508154432995"></p>
+<p><strong>linux挂载nfs共享目录</strong></p>
+<p><strong>很简单。。。知道怎么挂载磁盘吧。。。就是这样</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount ip:/data /服务器的本地文件夹</span><br></pre></td></tr></table></figure>
+
+<p><strong>临时挂载很不方便，你懂的！！！重启就没了，可以试一下永久挂载，这里就不BB了</strong></p>
+<p><strong>卸载挂载</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">umount /服务器的本地文件夹</span><br></pre></td></tr></table></figure>
+
+<p><strong>权限修改</strong></p>
+<p><strong>rw</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/data *(rw)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">exportfs -r</span><br><span class="line">exportfs -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508160434284.png" alt="image-20230508160434284"></p>
+<p><strong>拉个文件进去，它说哒咩！！！</strong></p>
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508155738554.png" alt="image-20230508155738554"></p>
+<p><strong>这怎么回事捏，我可是win10的主人，居然没有权限访问？</strong></p>
+<p><strong>好吧！虽然是win10的主人，但是linux层面上你只是一个来宾，所以还要在文件夹授予其他用户权限</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> o+rw /data/</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508160220572.png" alt="image-20230508160220572"></p>
+<p><strong>嘿嘿！给了权限就可以上传了</strong></p>
+<p><img src="/2023/05/08/Linux%E5%BA%94%E7%94%A8%E4%B8%8E%E6%9C%8D%E5%8A%A1/image-20230508160209860.png" alt="image-20230508160209860"></p>
+<table>
+<thead>
+<tr>
+<th>权限选择</th>
+<th>权限的作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ro</td>
+<td>只读</td>
+</tr>
+<tr>
+<td>rw</td>
+<td>读写</td>
+</tr>
+<tr>
+<td>async</td>
+<td>异步，先将数据写入到内存，在将数据写入到硬盘（性能高）</td>
+</tr>
+<tr>
+<td>root_squash</td>
+<td>将客户端使用的是root用户时，则映射到NFS服务器的用户为NFS的匿名用户（nfsnobody）</td>
+</tr>
+<tr>
+<td>no_root_squash</td>
+<td>将客户端使用的是root用户时，则映射到FNS服务器的用户依然为root用户</td>
+</tr>
+<tr>
+<td>all_squash</td>
+<td>默认选项，将所有访问NFS服务器的客户端的用户都映射为匿名用户，不管客户端使用的是什么用户</td>
+</tr>
+<tr>
+<td>anonuid</td>
+<td>设置映射到本地的匿名用户的UID（配合all_squash使用）</td>
+</tr>
+<tr>
+<td>anongid</td>
+<td>设置映射到本地的匿名用户的GID（配合all_squash使用）</td>
+</tr>
+<tr>
+<td>sync</td>
+<td>默认选项，保持数据同步，数据同步写入到内存和硬盘</td>
+</tr>
+<tr>
+<td>secure</td>
+<td>NFS客户端必须使用NFS保留端口（通常是1024以下的端口），默认选项</td>
+</tr>
+<tr>
+<td>insecure</td>
+<td>允许NFS客户端不使用NFS保留端口（通常是1024以上的端口）</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Linux系统</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
 </search>

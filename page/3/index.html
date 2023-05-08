@@ -117,12 +117,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">34</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">33</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -132,7 +132,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">28</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">29</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -173,295 +173,6 @@
 
           <div class="content index posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" class="post-title-link" itemprop="url">ssh反向代理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-08-09 20:38:52" itemprop="dateCreated datePublished" datetime="2022-08-09T20:38:52+08:00">2022-08-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>22k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>20 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h1 id="ssh反代问题"><a href="#ssh反代问题" class="headerlink" title="ssh反代问题"></a>ssh反代问题</h1><h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h2><p> 问题一.我有A和B两台服务器，一台在学校ip是<code>10.71.10.25</code>,另外一台在印度ip是<code>124.156.xx.xx</code>，现在我想构建ssh反向代理，让我的服务器A能被外网ssh连接，防止我不在校园也能控制服务器A。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务器A设置</span></span><br><span class="line">root@raspbian:/configuration/script<span class="comment"># vim ssh_reverse_proxy.sh </span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line">ssh -fN -R 8101:localhost:22 root@124.156.xx.xx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 监控程序脚本</span></span><br><span class="line">root@raspbian:/configuration/script<span class="comment"># vim ssh_reverse_proxy_daemon.sh </span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span>;<span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">	Flag=`ps -ef | grep <span class="string">&quot;8101&quot;</span> | grep -v <span class="string">&quot;grep&quot;</span>`</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$Flag</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line"></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;restart ssh server&quot;</span> </span><br><span class="line">		bash /configuration/script/ssh_reverse_proxy.sh</span><br><span class="line">		<span class="comment"># ssh -fN -R 8101:localhost:22 root@124.156.xx.xx</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">sleep</span> 100</span><br><span class="line"></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加入reboot开机自启计划</span></span><br><span class="line">root@raspbian:/configuration/script<span class="comment"># crontab -e</span></span><br><span class="line">@reboot /configuration/script/ssh_reverse_proxy.sh</span><br><span class="line">@reboot /configuration/script/ssh_reverse_proxy_daemon.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 两台服务器相互交换公钥到对方的/.ssh/authorized_keys，并且把自己的公钥加入到自己的/.ssh/authorized_keys</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>服务器互联目前不需要密码</strong><br><strong>脚本程序一切正常，但是服务器A只有重启后的几分钟内能够用服务器B连接，时间长点的话，比如：30分钟后，会发现服务器B一直连接不上</strong></p>
-<p><strong>附图(一下三种情况都是在A服务器发出脚本，并且正常运行的到的)：</strong></p>
-<h3 id="情况一：-连得上"><a href="#情况一：-连得上" class="headerlink" title="情况一：(连得上)"></a><strong>情况一：(连得上)</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">服务器A</span><br><span class="line">root@raspbian:/configuration/script<span class="comment"># ps -ef | grep 8101 | grep -v &quot;grep&quot;</span></span><br><span class="line">root     21390     1  0 11:27 ?        00:00:00 ssh -fN -R 8101:localhost:22 root@124.156.xx.xx</span><br><span class="line"></span><br><span class="line">服务器B</span><br><span class="line">[root@VM-0-17-centos ~]<span class="comment"># ip a</span></span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 52:54:00:46:11:0d brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 10.0.0.17/20 brd 10.0.15.255 scope global eth0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::5054:ff:fe46:110d/64 scope <span class="built_in">link</span> </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">[root@VM-0-17-centos ~]<span class="comment"># ssh localhost -p 8101</span></span><br><span class="line">Linux raspbian 5.10.78-Release-OPENFANS+20211111-v8 <span class="comment">#1 SMP PREEMPT Thu Nov 11 15:43:52 CST 2021 aarch64</span></span><br><span class="line"></span><br><span class="line">This system Debian Pi Aarch64 <span class="keyword">for</span> Raspberry Pi 3B/3B+/3A+/4B,</span><br><span class="line">Created by OPENFANS.ORG &amp; PIFAN.ORG .</span><br><span class="line"></span><br><span class="line">Your can visit our official site:</span><br><span class="line">http://www.openfans.org &amp; http://www.pifan.org</span><br><span class="line"></span><br><span class="line">Project address:</span><br><span class="line">https://github.com/openfans-community-offical/Debian-Pi-Aarch64</span><br><span class="line"></span><br><span class="line">It is strictly prohibited <span class="keyword">for</span> any commercial use</span><br><span class="line">without permission!</span><br><span class="line"></span><br><span class="line">Especially some disgusting Taobao merchants,</span><br><span class="line">congratulations to being warned!</span><br><span class="line"></span><br><span class="line">Activate the web console with: systemctl <span class="built_in">enable</span> --now cockpit.socket</span><br><span class="line"></span><br><span class="line">You have new mail.</span><br><span class="line">Last login: Tue May 31 11:10:02 2022 from 10.71.5.50</span><br><span class="line"></span><br><span class="line">   .~~.   .~~.         ___                __                      ___  _ </span><br><span class="line">   <span class="string">&#x27;. \ &#x27;</span> <span class="string">&#x27; / .&#x27;</span>      / _ \___  ___ ___  / /  ___  ___ ___ _ __  / _ \(_)</span><br><span class="line">    .~ .~~~..~.      / , _/ _ `(_-&lt;/ _ \/ _ \/ -_) __/ __/ // / / ___/ / </span><br><span class="line">   : .~.<span class="string">&#x27;~&#x27;</span>.~. :    /_/|_|\_,_/___/ .__/_.__/\__/_/ /_/  \_, / /_/  /_/  </span><br><span class="line">  ~ (   ) (   ) ~                /_/                    /___/          </span><br><span class="line"> ( : <span class="string">&#x27;~&#x27;</span>.~.<span class="string">&#x27;~&#x27;</span> : )  </span><br><span class="line">  ~ .~ (   ) ~. ~     Copyright (c) 2017-2022, OPENFANS.ORG &amp; PIFAN.ORG</span><br><span class="line">   (  : <span class="string">&#x27;~&#x27;</span> :  )      Linux Version 5.10.78-Release-OPENFANS+2021111</span><br><span class="line">    <span class="string">&#x27;~ .~~~. ~&#x27;</span>       Compiled <span class="comment">#1 SMP PREEMPT Thu Nov 11 15:43:52 CST 2021</span></span><br><span class="line">        <span class="string">&#x27;~&#x27;</span>           Four ARM  Processors, 7.9GB RAM</span><br><span class="line">                      432.00 Bogomips Total</span><br><span class="line">root@raspbian:~<span class="comment"># ip a</span></span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether e4:5f:01:3d:b7:4f brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 10.71.10.159/24 brd 10.71.10.255 scope global dynamic noprefixroute eth0</span><br><span class="line">       valid_lft 133302sec preferred_lft 133302sec</span><br><span class="line">    inet6 fe80::c2b7:8023:6697:581f/64 scope <span class="built_in">link</span> noprefixroute </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">3: wlan0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq state DOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether e4:5f:01:3d:b7:50 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">4: macvlan@eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 1a:55:9c:25:a7:5b brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 10.71.10.25/24 brd 10.71.10.255 scope global macvlan</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::1855:9cff:fe25:a75b/64 scope <span class="built_in">link</span> </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">5: docker0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default </span><br><span class="line">    <span class="built_in">link</span>/ether 02:42:5b:34:04:4f brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::42:5bff:fe34:44f/64 scope <span class="built_in">link</span> </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">6: br-6f69248df895: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN group default </span><br><span class="line">    <span class="built_in">link</span>/ether 02:42:f3:c1:54:d1 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 172.18.0.1/16 brd 172.18.255.255 scope global br-6f69248df895</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">9: vetha11c56c@if8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue master docker0 state UP group default </span><br><span class="line">    <span class="built_in">link</span>/ether 42:0f:dc:8a:33:57 brd ff:ff:ff:ff:ff:ff link-netnsid 0</span><br><span class="line">    inet6 fe80::400f:dcff:fe8a:3357/64 scope <span class="built_in">link</span> </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line"><span class="comment"># 已经连上</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="情况二：-连不上，但是一直尝试连接，没有报错"><a href="#情况二：-连不上，但是一直尝试连接，没有报错" class="headerlink" title="情况二：(连不上，但是一直尝试连接，没有报错)"></a><strong>情况二：(连不上，但是一直尝试连接，没有报错)</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-0-17-centos ~]<span class="comment"># ssh localhost -p 8101</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">^C</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113156680.png" alt="image-20220531113156680"></p>
-<h3 id="情况三：-直接连接不上，服务器B发出连接不了报错"><a href="#情况三：-直接连接不上，服务器B发出连接不了报错" class="headerlink" title="情况三：(直接连接不上，服务器B发出连接不了报错)"></a><strong>情况三：(直接连接不上，服务器B发出连接不了报错)</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务器B</span></span><br><span class="line">[root@VM-0-17-centos ~]<span class="comment"># ssh localhost -p 8101</span></span><br><span class="line">ssh_exchange_identification: <span class="built_in">read</span>: Connection reset by peer</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113218786.png" alt="image-20220531113218786"></p>
-<h3 id="现在状态"><a href="#现在状态" class="headerlink" title="现在状态"></a>现在状态</h3><p><code>截至时间2022-6-17中午12：52分，服务器A重启后，服务器B也没办法连接上</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line">服务器A的crontab日志信息如下</span><br><span class="line">root@raspbian:~<span class="comment"># cat /var/log/cron.log</span></span><br><span class="line">Jun 17 00:05:01 raspbian CRON[15444]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:15:01 raspbian CRON[16476]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:17:01 raspbian CRON[16674]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 00:20:01 raspbian CRON[16978]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 00:25:01 raspbian CRON[17516]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:35:01 raspbian CRON[18539]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:40:01 raspbian CRON[19040]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 00:45:01 raspbian CRON[19582]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:55:01 raspbian CRON[20582]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:00:01 raspbian CRON[21079]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 01:05:01 raspbian CRON[21620]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:15:01 raspbian CRON[22651]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:17:01 raspbian CRON[22848]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 01:20:01 raspbian CRON[23155]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 01:25:01 raspbian CRON[23693]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:35:01 raspbian CRON[24713]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:40:01 raspbian CRON[25215]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 01:45:01 raspbian CRON[25754]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:55:01 raspbian CRON[26772]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:00:01 raspbian CRON[27260]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 02:05:01 raspbian CRON[27812]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:15:01 raspbian CRON[28827]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:17:01 raspbian CRON[29025]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 02:20:01 raspbian CRON[29336]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 02:25:01 raspbian CRON[29877]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:35:01 raspbian CRON[30899]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:40:01 raspbian CRON[31405]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 02:45:01 raspbian CRON[31941]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:55:01 raspbian CRON[533]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:00:01 raspbian CRON[1085]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 03:05:01 raspbian CRON[1675]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:15:01 raspbian CRON[2693]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:17:01 raspbian CRON[2906]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 03:20:01 raspbian CRON[3229]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 03:25:01 raspbian CRON[3784]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:35:01 raspbian CRON[4811]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:40:01 raspbian CRON[5313]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 03:45:01 raspbian CRON[5858]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:55:01 raspbian CRON[6922]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:00:01 raspbian CRON[7425]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 04:05:01 raspbian CRON[7974]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:15:01 raspbian CRON[8973]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:17:01 raspbian CRON[9173]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 04:20:01 raspbian CRON[9480]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 04:25:01 raspbian CRON[10021]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:35:01 raspbian CRON[11045]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:40:02 raspbian CRON[11545]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 04:45:01 raspbian CRON[12093]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:55:01 raspbian CRON[13117]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:00:01 raspbian CRON[13619]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 05:05:01 raspbian CRON[14155]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:15:01 raspbian CRON[15165]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:17:01 raspbian CRON[15366]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 05:20:01 raspbian CRON[15672]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 05:25:01 raspbian CRON[16215]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:35:01 raspbian CRON[17250]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:40:01 raspbian CRON[17746]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 05:45:01 raspbian CRON[18285]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:55:01 raspbian CRON[19301]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:00:01 raspbian CRON[19800]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 06:05:01 raspbian CRON[22560]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:15:01 raspbian CRON[23560]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:17:01 raspbian CRON[23760]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 06:20:01 raspbian CRON[24067]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 06:25:01 raspbian CRON[24615]: (root) CMD (<span class="built_in">test</span> -x /usr/sbin/anacron || ( <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.daily ))</span><br><span class="line">Jun 17 06:25:01 raspbian CRON[24616]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:25:02 raspbian cracklib: no dictionary update necessary.</span><br><span class="line">Jun 17 06:35:01 raspbian CRON[25732]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:40:01 raspbian CRON[26237]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 06:45:01 raspbian CRON[26777]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:55:01 raspbian CRON[27789]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 07:00:01 raspbian CRON[28292]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 07:05:01 raspbian CRON[28833]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:17:02 raspbian cron[412]: (CRON) INFO (pidfile fd = 3)</span><br><span class="line">Jun 17 06:17:02 raspbian cron[412]: (CRON) INFO (Running @reboot <span class="built_in">jobs</span>)</span><br><span class="line">Jun 17 06:17:03 raspbian CRON[569]: (root) CMD (mount --<span class="built_in">bind</span> /configuration /www/wwwroot/orange/mount_disk/)</span><br><span class="line">Jun 17 06:17:03 raspbian CRON[570]: (root) CMD (/configuration/script/ssh_reverse_proxy_daemon.sh)</span><br><span class="line">Jun 17 06:17:03 raspbian CRON[572]: (root) CMD (/configuration/script/ssh_reverse_proxy.sh )</span><br><span class="line">Jun 17 07:56:17 raspbian CRON[5396]: (root) CMD (<span class="built_in">test</span> -x /usr/sbin/anacron || ( <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.daily ))</span><br><span class="line">Jun 17 07:56:17 raspbian cracklib: no dictionary update necessary.</span><br><span class="line">Jun 17 08:00:01 raspbian CRON[7985]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 08:05:01 raspbian CRON[8241]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:15:01 raspbian CRON[8717]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:17:01 raspbian CRON[8839]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 08:20:01 raspbian CRON[8995]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 08:25:01 raspbian CRON[9252]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:35:01 raspbian CRON[9750]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:40:01 raspbian CRON[10002]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 08:45:01 raspbian CRON[10263]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:55:01 raspbian CRON[10760]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:00:01 raspbian CRON[11020]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 09:05:01 raspbian CRON[11280]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:15:01 raspbian CRON[11749]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:17:01 raspbian CRON[11863]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 09:20:01 raspbian CRON[12055]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 09:25:01 raspbian CRON[12401]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:35:01 raspbian CRON[12917]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:40:01 raspbian CRON[13202]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 09:45:01 raspbian CRON[13470]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:47:36 raspbian cron[409]: (CRON) INFO (pidfile fd = 3)</span><br><span class="line">Jun 17 09:47:36 raspbian cron[409]: (CRON) INFO (Running @reboot <span class="built_in">jobs</span>)</span><br><span class="line">Jun 17 09:47:37 raspbian CRON[571]: (root) CMD (/configuration/script/ssh_reverse_proxy_daemon.sh)</span><br><span class="line">Jun 17 09:47:37 raspbian CRON[574]: (root) CMD (mount --<span class="built_in">bind</span> /configuration /www/wwwroot/orange/mount_disk/)</span><br><span class="line">Jun 17 09:47:37 raspbian CRON[575]: (root) CMD (/configuration/script/ssh_reverse_proxy.sh )</span><br><span class="line">Jun 17 09:55:01 raspbian CRON[7749]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:00:01 raspbian CRON[8058]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 10:05:01 raspbian CRON[8425]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:15:01 raspbian CRON[8920]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:17:01 raspbian CRON[9018]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 10:20:01 raspbian CRON[9186]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 10:25:01 raspbian CRON[9438]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:35:01 raspbian CRON[9927]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:40:01 raspbian CRON[10189]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 10:45:01 raspbian CRON[10449]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:55:01 raspbian CRON[10928]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:00:01 raspbian CRON[11180]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 11:05:01 raspbian CRON[11439]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:15:01 raspbian CRON[12987]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:17:01 raspbian CRON[13086]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 11:20:01 raspbian CRON[13246]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 11:25:01 raspbian CRON[13507]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:35:01 raspbian CRON[13994]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:40:01 raspbian CRON[14264]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 11:45:01 raspbian CRON[14596]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:55:01 raspbian CRON[15063]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:00:01 raspbian CRON[15319]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 12:05:01 raspbian CRON[15572]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:15:01 raspbian CRON[16062]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:17:01 raspbian CRON[16156]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 12:20:01 raspbian CRON[16328]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 12:25:01 raspbian CRON[16584]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:35:01 raspbian CRON[17183]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:40:01 raspbian CRON[17629]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 12:43:45 raspbian cron[379]: (CRON) INFO (pidfile fd = 3)</span><br><span class="line">Jun 17 12:43:45 raspbian cron[379]: (CRON) INFO (Running @reboot <span class="built_in">jobs</span>)</span><br><span class="line">Jun 17 12:43:45 raspbian CRON[518]: (root) CMD (/configuration/script/ssh_reverse_proxy.sh )</span><br><span class="line">Jun 17 12:43:45 raspbian CRON[519]: (root) CMD (/configuration/script/ssh_reverse_proxy_daemon.sh)</span><br><span class="line">Jun 17 12:43:45 raspbian CRON[520]: (root) CMD (mount --<span class="built_in">bind</span> /configuration /www/wwwroot/orange/mount_disk/)   <span class="comment">#这是我的一个挂载命令，不构成影响。</span></span><br><span class="line">Jun 17 12:45:03 raspbian CRON[7329]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p><code>检查服务器B防火墙</code></p>
-<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617125728813.png" alt="image-20220617125728813"></p>
-<p>A服务器</p>
-<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617130523176.png" alt="image-20220617130523176"></p>
-<p>B服务器</p>
-<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617130544082.png" alt="image-20220617130544082"></p>
-<h4 id="猜想"><a href="#猜想" class="headerlink" title="猜想"></a>猜想</h4><p>1.我的朋友说可能是网络问题，毕竟是国外的服务器，连接过去可能出现丢包。</p>
-<p>我的解释是ssh反代基于tcp&#x2F;ip连接，还是比较可靠的，如果是丢包的话它也会继续发送重连，而且服务器B没有被<code>GFW</code>封杀，我也可以ssh到B服务器上面，理论上我应该是可以反代成功的。</p>
-<p>2.我曾经换过内核，令服务器B能够开启bbr极限压缩带宽的使用，我不清楚这个是否构成失败原因。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">单片机开发和学习</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-07-28 22:04:50" itemprop="dateCreated datePublished" datetime="2022-07-28T22:04:50+08:00">2022-07-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-19 19:36:43" itemprop="dateModified" datetime="2023-04-19T19:36:43+08:00">2023-04-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h2 id="单片机吹水"><a href="#单片机吹水" class="headerlink" title="单片机吹水"></a>单片机吹水</h2><p><strong>1.学习哪种单片机</strong></p>
-<p><strong>51、AVR、MSP430、STM8、STM32、DSP、linux、FPGA</strong></p>
-<p><strong>2.学习单片机的最佳办法</strong></p>
-<ul>
-<li><strong>鹦鹉学舌</strong></li>
-<li><strong>照葫芦画瓢</strong></li>
-<li><strong>他山之石，可以攻玉</strong></li>
-<li><strong>理论和实践相结合，温故而知新</strong></li>
-</ul>
-<p><strong>3.学习单片机的准备工作</strong></p>
-<ul>
-<li><strong>要有信心、恒心和耐心</strong></li>
-<li><strong>完善的配套流程</strong></li>
-<li><strong>计算机一台</strong></li>
-<li><strong>51开发板一块</strong></li>
-</ul>
-<h2 id="芯片学习"><a href="#芯片学习" class="headerlink" title="芯片学习"></a>芯片学习</h2><p><strong>51单片机是对所有兼容Intel8031指令系统的单片机的统称，这一系列的单片机的始祖是Intel的8031单片机，后来随着flash ROM技术的发展，8031单片机取得了长足的进展成为了应用最广泛的8bit单片机之一，他的代表型号就是ATMEL公司的AT89系列。</strong></p>
-<h2 id="安装单片机开发环境"><a href="#安装单片机开发环境" class="headerlink" title="安装单片机开发环境"></a>安装单片机开发环境</h2><h3 id="安装keil"><a href="#安装keil" class="headerlink" title="安装keil"></a>安装keil</h3><h4 id="KEIL-C51-软件获取"><a href="#KEIL-C51-软件获取" class="headerlink" title="KEIL C51 软件获取"></a>KEIL C51 软件获取</h4><p>要在电脑上成功安装 KEIL C51，首先必须要有安装包，我们可以通过万能的百度，搜索关键字“KEIL C51 下载”，上面会有很多下载渠道，也可以在KEIL的官网上下载： <a target="_blank" rel="noopener" href="https://www.keil.com/download/product/%EF%BC%8C%E6%89%93%E5%BC%80%E7%95%8C%E9%9D%A2%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%89%80%E7%A4%BA%E3%80%82">https://www.keil.com/download/product/，打开界面如下图所示。</a></p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728220612959.png" alt="image-20220728220612959"></p>
-<p>不过我们资料内已经给大家提供了下载好的软件，在资料“<strong>\5–开发工具\1-KEILC51 软件</strong>”内，直接使用即可，省去了查找下载的时间。我们使用KEIL C51 是 9.01 版本， 如果后面出了更高的版本选择性升级即可，不过也没有必要使用最新的，用习惯了一个软件就行。 使用我们提供下载好的软件包，其内部含有如下图所示文件。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728220739858.png" alt="image-20220728220739858"></p>
-<p><strong>C51V901.exe：是 KEIL C51 软件的安装文件。</strong> </p>
-<p><strong>keygen_new2032.zip：KEIL C51 破解软件</strong>，在 KEIL C51 不破解的情况下只能编译 2K 大小文件，如果工程超过 2K，编译即会报错，因此需要破解。有的电脑系统会误认为该文件是病毒文件，所以这里把它压缩存放。</p>
-<h4 id="KEIL-C51-软件安装"><a href="#KEIL-C51-软件安装" class="headerlink" title="KEIL C51 软件安装"></a>KEIL C51 软件安装</h4><p>软件包下载完成之后，我们双击 C51V901.exe 这个应用程序，弹出如下所示对话框。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728223545240.png" alt="image-20220728223545240"></p>
-<p>点击 Next 按钮。 弹出如下对话框。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728223846155.png" alt="image-20220728223846155"></p>
-<p>在红框 2 中勾选上，点击 Next 按钮。弹出如下对话框。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728224107252.png" alt="image-20220728224107252"></p>
-<p>点击红框 4 选择软件安装的路径，我们这里在 磁盘盘内新建一个文件夹，命名为 KEILC51，将其安装到该文件夹内，方便软件的管理。**特别要注意： **</p>
-<p>**（1）软件安装保存路径不能出现中文或者特殊字符，否则会出现很多奇怪的错误，到时候很难找问题。 **</p>
-<p><strong>（2）不要将 KEIL5 软件和 KEIL4 或者 51 的 KEIL 安装在一个文件夹内。</strong>然后点击 Next。弹出如下对话框。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225157414.png" alt="image-20220728225157414"></p>
-<p>在红色框 6 和 7 中我们随便输入一些东西， 我们这里输入数字11，当然也可以输入空格， 但是一定要输入， 否则红色框 8 就一直是灰色状态，输入完成后点击 Next， 弹出如下对话框。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225336184.png" alt="image-20220728225336184"></p>
-<p>说明 KEIL C51 软件正在安装，只要等一段时间即可，安装完成以后会出现如下界面。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225539980.png" alt="image-20220728225539980"></p>
-<p>点击 Finish 按钮完成 KEIL C51 软件的安装过程。KEIL C51 安装完成后在电脑桌面上一般会有一个快捷方式，如下所示：</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225655136.png" alt="image-20220728225655136"></p>
-<h4 id="KEIL-C51-软件破解"><a href="#KEIL-C51-软件破解" class="headerlink" title="KEIL C51 软件破解"></a>KEIL C51 软件破解</h4><p>上一节我们已经安装好了 KEIL C51 编程软件，可以使用它来编译51 单片机一些代码量小于 2K 的工程。但是有时候我们开发的项目可能比较大，程序代码超过了 2K，编译后会报错，因此就需要破解 KEIL C51。下面就来介绍下如何破解。 </p>
-<p>（1）首先打开 KEIL C51 软件，点击 File&#x2F;License Management,复制红色框 3 中的 CID。 操作步骤如下：</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728231058888.png" alt="image-20220728231058888"></p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728235716845.png" alt="image-20220728235716845"></p>
-<p>然后我们打开之前下载的 KEIL C51 软件包，里面还有一个keygen 压缩文件，该压缩文件内含有 keygen_new2032.exe 文件，此文件用于破解。因此需要解压，解压后电脑会误认为该文件为病毒文件，会隔离掉，因此我们需要在弹出病毒隔离窗口时点击找回文件即可。</p>
-<p>以管理员模式打开此破解软件 keygen_new2032.exe，将刚才从KEIL C51中复制的 CID 码粘贴到下面红色框 4 中，并且在红色框 5 选择C51，然后点击红色框 6，生成破解码，将此破解码即红色框 7 内容复制到KEIL C51 软件内LIC框中，点击 Add LIC 即可破解，如果破解成功则会显示。操作步骤如下：</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220729002023233.png" alt="image-20220729002023233"></p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220729003425413.png" alt="image-20220729003425413"></p>
-<p>如 果 破 解 失 败 ， 请 确 认 是 否 使 用 管 理 员 模 式打开KEIL C51 软件和keygen_new2032.exe 破解工具。管理员模式打开方式：选择右键：RunAsAdministrator ,中文系统应该是“以管理员权限运行”，然后就可以正常加licence 了。建议所有用户，都以管理员身份运行，以避免重复破解。至此，我们就将 KEIL C51 软件安装和破解成功。后面就可以使用该软件来编写我们的 51 单片机程序。</p>
-<h3 id="实验课程-创建模板"><a href="#实验课程-创建模板" class="headerlink" title="实验课程_创建模板"></a>实验课程_创建模板</h3><h3 id="实验课程-使用PZ-ISP"><a href="#实验课程-使用PZ-ISP" class="headerlink" title="实验课程_使用PZ-ISP"></a>实验课程_使用PZ-ISP</h3><p><strong>如果我们使用的是STC89C516RD+的处理器，选择带RC的芯片类型，也就是说带RD的就选择带RC的芯片类型，如果不带RD的处理器选择不带RC的芯片类型</strong></p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20230419163408643.png" alt="image-20230419163408643"></p>
-<h3 id="实验课程-点亮LED灯"><a href="#实验课程-点亮LED灯" class="headerlink" title="实验课程_点亮LED灯"></a>实验课程_点亮LED灯</h3><h4 id="点亮一个LED-D1"><a href="#点亮一个LED-D1" class="headerlink" title="点亮一个LED_D1"></a>点亮一个LED_D1</h4><p>LED灯的端口有四组，分别是P0,P1,P2,P3</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">sbit LED1 = P2^<span class="number">0</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	LED1 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="点亮一个LED-D1-闪烁"><a href="#点亮一个LED-D1-闪烁" class="headerlink" title="点亮一个LED_D1_闪烁"></a>点亮一个LED_D1_闪烁</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> u16;	<span class="comment">//使用typedef来为用户自定义的数据类型取一个新的名字</span></span><br><span class="line">sbit LED1 = P2^<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay_10us</span><span class="params">(u16 ten_us)</span>     <span class="comment">//当传2入ten_us=1时，大约延时10us</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(ten_us--);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">	LED1 = <span class="number">0</span>;	<span class="comment">//点亮</span></span><br><span class="line">	delay_10us(<span class="number">50000</span>);<span class="comment">//大约450ms</span></span><br><span class="line">	LED1 = <span class="number">1</span>;	<span class="comment">//熄灭    </span></span><br><span class="line">	delay_10us(<span class="number">50000</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="点亮一个LED-D1-流水灯"><a href="#点亮一个LED-D1-流水灯" class="headerlink" title="点亮一个LED_D1_流水灯"></a>点亮一个LED_D1_流水灯</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LED_PORT P2		<span class="comment">//使用宏定义将P2端口定义	</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> u8;	</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> u16;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay_10us</span><span class="params">(u16 ten_us)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(ten_us--);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	u8 i =<span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			LED_PORT=~(<span class="number">0x01</span>&lt;&lt;i);</span><br><span class="line">			delay_10us(<span class="number">50000</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="点亮一个LED-D1-库函数实现-流水灯"><a href="#点亮一个LED-D1-库函数实现-流水灯" class="headerlink" title="点亮一个LED_D1_库函数实现_流水灯"></a>点亮一个LED_D1_库函数实现_流水灯</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;intrins.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LED_PORT P2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> u8;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> u16;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay_10us</span><span class="params">(u16 ten_us)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(ten_us--);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	u8 i =<span class="number">0</span>;</span><br><span class="line">	LED_PORT=~<span class="number">0x01</span>;</span><br><span class="line">	delay_10us(<span class="number">50000</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">7</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			LED_PORT=_crol_(LED_PORT,<span class="number">1</span>);</span><br><span class="line">			delay_10us(<span class="number">50000</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">7</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			LED_PORT=_cror_(LED_PORT,<span class="number">1</span>);</span><br><span class="line">			delay_10us(<span class="number">50000</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="02实验课程-蜂鸣器"><a href="#02实验课程-蜂鸣器" class="headerlink" title="02实验课程_蜂鸣器"></a>02实验课程_蜂鸣器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;reg52.h&gt;</span></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">typedef unsigned char u8;	</span><br><span class="line">typedef unsigned int u16;</span><br><span class="line"></span><br><span class="line">sbit BEEP=P2^5;</span><br><span class="line"></span><br><span class="line">void delay_10us(u16 ten_us)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(ten_us--);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void <span class="function"><span class="title">main</span></span>()</span><br><span class="line">&#123;	</span><br><span class="line">	u16 i =2000; //蜂鸣器发声时间</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">while</span>(1)</span><br><span class="line">	&#123;</span><br><span class="line">		  <span class="keyword">while</span>(i--)</span><br><span class="line">		  &#123;</span><br><span class="line">		  BEEP=!BEEP;</span><br><span class="line">		  delay_10us(100);</span><br><span class="line"></span><br><span class="line">//		  BEEP=0;</span><br><span class="line">//		  delay_10us(50);</span><br><span class="line">//		  BEEP=1;</span><br><span class="line">//		  delay_10us(150);</span><br><span class="line">		  &#125;</span><br><span class="line">		  i = 0;</span><br><span class="line">		  BEEP = 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="03实验课程-数码管"><a href="#03实验课程-数码管" class="headerlink" title="03实验课程_数码管"></a>03实验课程_数码管</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
       
   
   
@@ -790,8 +501,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+                <time title="修改时间：2023-05-01 19:09:55" itemprop="dateModified" datetime="2023-05-01T19:09:55+08:00">2023-05-01</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
 
           
   
@@ -1984,6 +1704,478 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/07/17/HCIA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/17/HCIA/" class="post-title-link" itemprop="url">HCIA</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-17 16:52:12" itemprop="dateCreated datePublished" datetime="2022-07-17T16:52:12+08:00">2022-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" itemprop="url" rel="index"><span itemprop="name">路由交换</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/17/HCIA/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/17/HCIA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="HCIA"><a href="#HCIA" class="headerlink" title="HCIA"></a>HCIA</h1><p>[toc]</p>
+<h2 id="子网计算"><a href="#子网计算" class="headerlink" title="子网计算"></a>子网计算</h2><p><img src="/2022/07/17/HCIA/image-20230214194022895.png" alt="image-20230214194022895"></p>
+<p><img src="/2022/07/17/HCIA/image-20230214194423029.png" alt="image-20230214194423029"></p>
+<h3 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">4个部门 4个子网</span><br><span class="line">每个部门最多到50台主机 每个子网至少容纳50个主机地址</span><br><span class="line">借两位  主机数=62台</span><br><span class="line">192.168.100.0/24-&gt;26</span><br><span class="line"></span><br><span class="line">0        1~62        63</span><br><span class="line">64       65~126      127</span><br><span class="line">128      129~190     192</span><br><span class="line">192      193~254     255</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/17/HCIA/image-20230215000603724.png" alt="image-20230215000603724"></p>
+<p>块（Block） &#x3D; 2^主机数位&#x3D;256-感兴趣掩码数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">如果生产部主机100台，销售部有50台，财务部有25台，客服部有12台，应该如何划分子网呢？</span><br><span class="line"></span><br><span class="line">生产部100台，至少保留7位主机位，最多借1位</span><br><span class="line"></span><br><span class="line">块=128</span><br><span class="line">生产部可以在下面两个子网二选一，假设选了子网1，那么子网1就不能参与下面其他部门的分割，只能使用子网2去分割。</span><br><span class="line"></span><br><span class="line">子网1：192.168.100.0/25</span><br><span class="line">子网2：192.168.100.128/25</span><br><span class="line"></span><br><span class="line">销售部50台，至少保留6位主机位，最多借两位</span><br><span class="line">块=64</span><br><span class="line"></span><br><span class="line">子网3：192.168.100.128/26</span><br><span class="line">子网4：192.168.100.192/26</span><br><span class="line"></span><br><span class="line">销售部25台，客服部有12台，至少保留5位主机位，最多借三位</span><br><span class="line">块=32</span><br><span class="line"></span><br><span class="line">子网5：192.168.100.192/27   销售部</span><br><span class="line">子网6：192.168.100.224/27   客服部</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>第1问：61.179.150.39&#x2F;28 子网号为多少，广播号为多少，可用IP地址范围是多少？</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">块=16</span><br><span class="line"></span><br><span class="line">？ X 块 = B &lt; 39</span><br><span class="line">? = 2 B = 32</span><br><span class="line">子网号32</span><br><span class="line">广播号47</span><br><span class="line">可用ip地址范围33 ~ 46</span><br></pre></td></tr></table></figure>
+
+<p><strong>第2问:19.224.17.0&#x2F;17 可不可以配置在路由器的接口上?如果可以，是为什么，不可以又是为什么?</strong> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">块=128</span><br><span class="line"></span><br><span class="line">子网地址19.224.0.0/17</span><br><span class="line">19.2240.0~19.224.127.255</span><br><span class="line">可以</span><br></pre></td></tr></table></figure>
+
+<p><strong>第3问:37.95.221.16&#x2F;5 和 41.222.221.16&#x2F;5 两个地址在不在同一个网段，能不能ping通?为什么?</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">块=8</span><br><span class="line">32.0.0.0/5 40.0.0.0/5 很明显不是同一个网段，ping不通</span><br></pre></td></tr></table></figure>
+
+<p><strong>第4问:给出第3问的IP地址 37.95.221.16的子网号和广播号</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">块=128</span><br><span class="line"></span><br><span class="line">子网号32.0.0.0/5</span><br><span class="line">广播号39.255.255.255/5</span><br><span class="line">可以</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="回环网卡设置过程"><a href="#回环网卡设置过程" class="headerlink" title="回环网卡设置过程"></a>回环网卡设置过程</h2><h3 id="一-安装过程"><a href="#一-安装过程" class="headerlink" title="一.安装过程"></a>一.安装过程</h3><p><strong>1.找到”开始”选项，鼠标右击找到”设备管理器”,然后随便在空白处单击鼠标一下。</strong></p>
+<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(4).png" alt="屏幕截图(4)"></p>
+<p><strong>2.鼠标单击菜单栏选项的”操作”选项，然后单击”添加过时硬件”，然后在”弹窗”选项单击”下一步”;在”你想向导做什么”选项里面选择”安装我手动从列表选择的硬件(高级)”，然后单击”下一步”;在”常见硬件类型”选择中选择”网络适配器”,然后单击”下一步”;然后在”厂商”选项中选择”Microsoft”,然后在”型号”选项中选择”Microsoft KM-TEST 环回适配器”，然后单击”下一步“，然后在单击一次”下一步”，系统就会按照选项按照网卡，等待”完成”选项出来后，单击”完成”选项即可完成配置。</strong></p>
+<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(5).png" alt="屏幕截图(5)"></p>
+<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(6).png" alt="屏幕截图(6)"></p>
+<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(7).png" alt="屏幕截图(7)"></p>
+<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(10).png" alt="屏幕截图(10)"></p>
+<h3 id="二-检查过程"><a href="#二-检查过程" class="headerlink" title="二.检查过程"></a>二.检查过程</h3><p><strong>1.然后可以在”更改适配器选项中”找到”以太网”这张回环网卡</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118203530057.png" alt="image-20220118203530057"></p>
+<p><strong>1.当然你也可以给这张网卡”重命名”,比如左上角那张”loop”网卡就是我上一次实验的回环网卡，接下来我会用”loop”网卡做实验（顺带说一句，回环网卡安装好后是必须要重启才能生效）</strong></p>
+<h3 id="三-ensp配置回环实验"><a href="#三-ensp配置回环实验" class="headerlink" title="三.ensp配置回环实验"></a>三.ensp配置回环实验</h3><p><strong>1.接下来我用这个拓扑来做一次</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118235018574-1658238267503.png" alt="image-20220118235018574"></p>
+<p><strong>2.首先，我们单拖一个云”Cloud”出来。然后”右击”鼠标选择”设置”。没开始配置前的设置是这样的，如下图:</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118205140449-1658238267503.png" alt="image-20220118205140449"></p>
+<p><strong>3.我们首先在端口创建那里找到绑定信息”UDP”，然后单击右边的”增加”选项。然后，配置表就出现一行配置，如下图:</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118205410999-1658238267504.png" alt="image-20220118205410999"></p>
+<p><strong>4.然后我们在端口创建那里找到绑定信息”loop”（我们创建的回环网卡，这里的回环网卡我更改了设备名，所以叫loop），然后单击右边的”增加”选项。然后，配置表就出现第二行配置，如下图:</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118205550165-1658238267504.png" alt="image-20220118205550165"></p>
+<p><img src="/2022/07/17/HCIA/image-20220118205753084-1658238267504.png" alt="image-20220118205753084"></p>
+<p><strong>5.然后我们看下方的”端口映射设置”，在”出”或者”入”端口设置里面选择一方的端口编号设置成为”2”,然后再勾选下方的”双向通道”，然后单击”增加”即可完成配置。</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118210211711-1658238267504.png" alt="image-20220118210211711"></p>
+<p><strong>6.设置回环网卡ip为”1.0.0.2”,打开”网络设配器选项”找到目标网卡改就行了</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118210811144-1658238267504.png" alt="image-20220118210811144"></p>
+<p><strong>7.给路由器刷入命令(记得开启路由器)</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118211028820-1658238267504.png" alt="image-20220118211028820"></p>
+<p><strong>8.xshell测试路由器ip”1.0.0.1”是否可以ping通</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118210928564-1658238267504.png" alt="image-20220118210928564"></p>
+<p>9.把服务命令刷入路由器，然后用xshell连接上去。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys AR1</span><br><span class="line">int g0/0/0</span><br><span class="line">ip add 1.0.0.1 24</span><br><span class="line">q</span><br><span class="line">telnet server <span class="built_in">enable</span></span><br><span class="line">user-interface vty 0 4</span><br><span class="line">authentication-mode aaa</span><br><span class="line">q</span><br><span class="line">aaa</span><br><span class="line">local-user julintongxue password cipher 123.com</span><br><span class="line">local-user julintongxue privilege level 15</span><br><span class="line">local-user julintongxue service-type telnet</span><br><span class="line">display this</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/17/HCIA/image-20220118235856933-1658238267504.png" alt="image-20220118235856933"></p>
+<p><img src="/2022/07/17/HCIA/image-20220118235920804-1658238267504.png" alt="image-20220118235920804"></p>
+<table>
+<thead>
+<tr>
+<th>认证 模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AAA</td>
+<td>登录时需要用户名和密码</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>登录时只需要密码</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dis telnet server status</span><br><span class="line">dis telnet server <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user-interface vty 0 4</td>
+<td>进入vty配置模式</td>
+</tr>
+<tr>
+<td>+ authentication-mode password&#x2F;aaa</td>
+<td>配置认证模式</td>
+</tr>
+<tr>
+<td>+ set authentication password cipher huawei</td>
+<td>配置认证密码huawei</td>
+</tr>
+<tr>
+<td>+ user privilege level 15</td>
+<td>配置用户级别为15</td>
+</tr>
+<tr>
+<td>user-interface maximum-vty 15</td>
+<td>配置最大vty会话数量</td>
+</tr>
+<tr>
+<td>aaa</td>
+<td>进入aaa配置模式</td>
+</tr>
+<tr>
+<td>+ local-user julintongxue password cipher huawei</td>
+<td>创建julintongxue用户和huawei密码</td>
+</tr>
+<tr>
+<td>+ local-user julintongxue privilege level 15</td>
+<td>创建用户级别</td>
+</tr>
+<tr>
+<td>+ local-user julintongxue service-type telnet</td>
+<td>创建用户可用服务</td>
+</tr>
+</tbody></table>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="交换机划分VLAN配置"><a href="#交换机划分VLAN配置" class="headerlink" title="交换机划分VLAN配置"></a>交换机划分VLAN配置</h3><h4 id="一、实验目标"><a href="#一、实验目标" class="headerlink" title="一、实验目标"></a>一、实验目标</h4><p><strong>1、理解虚拟LAN(VLAN)基本配置；</strong></p>
+<p><strong>2、掌握一般交换机按端口划分VLAN的配置方法；</strong></p>
+<p><strong>3、掌握Tag VLAN配置方法。</strong></p>
+<h4 id="二、实验背景"><a href="#二、实验背景" class="headerlink" title="二、实验背景"></a>二、实验背景</h4><p><strong>某一公司内财务部、销售部的PC通过2台交换机实现通信；要求财务部和销售部的PC可以互通，但为了数据安全起见，销售部和财务部需要进行互相隔离，现要在交换机上做适当配置来实现这一目标。</strong></p>
+<h4 id="三、技术原理"><a href="#三、技术原理" class="headerlink" title="三、技术原理"></a>三、技术原理</h4><p>​	<strong>VLAN是指在一个物理网段内。进行逻辑的划分，划分成若干个虚拟局域网，VLAN做大的特性是不受物理位置的限制，可以进行灵活的划分。VLAN具备了一个物理网段所具备的特性。相同VLAN内的主机可以相互直接通信，不同VLAN间的主机之间互相访问必须经路由设备进行转发，广播数据包只可以在本VLAN内进行广播，不能传输到其他VLAN中。</strong></p>
+<p>​	<strong>Port VLAN是实现VLAN的方式之一，它利用交换机的端口进行VALN的划分，一个端口只能属于一个VLAN。</strong><br>​	<strong>Tag VLAN是基于交换机端口的另一种类型，主要用于是交换机的相同Vlan内的主机之间可以直接访问，同时对不同Vlan的主机进行隔离。Tag VLAN遵循IEEE802.1Q协议的标准，在使用配置了Tag VLAN的端口进行数据传输时，需要在数据帧内添加4个字节的802.1Q标签信息，用于标示该数据帧属于哪个VLAN,便于对端交换机接收到数据帧后进行准确的过滤。</strong></p>
+<h4 id="四、实验设备"><a href="#四、实验设备" class="headerlink" title="四、实验设备"></a>四、实验设备</h4><p><strong>PC1,PC2,PC3,PC4</strong></p>
+<p><strong>两台S5700交换机</strong></p>
+<h4 id="五、实验的步骤和结果"><a href="#五、实验的步骤和结果" class="headerlink" title="五、实验的步骤和结果"></a>五、实验的步骤和结果</h4><p><img src="/2022/07/17/HCIA/image-20221224163323380.png" alt="image-20221224163323380"></p>
+<p><strong>结果就是PC1ping通PC3，PC2ping通PC4，PC1和PC3都不能访问PC2和PC4</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20221224163549970.png" alt="image-20221224163549970"></p>
+<p><img src="/2022/07/17/HCIA/image-20221224163612934.png" alt="image-20221224163612934"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># LSW1配置：</span><br><span class="line">sys</span><br><span class="line">sys LSW1</span><br><span class="line">vlan b 10 20</span><br><span class="line">int g0/0/2</span><br><span class="line">p l a</span><br><span class="line">p d v 10</span><br><span class="line">q</span><br><span class="line">int g0/0/3</span><br><span class="line">p l a</span><br><span class="line">p d v 20</span><br><span class="line">q</span><br><span class="line">int g0/0/1</span><br><span class="line">p l t</span><br><span class="line">p t a v 10 20 </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># LSW2配置：</span><br><span class="line">sys</span><br><span class="line">sys LSW2</span><br><span class="line">vlan b 10 20</span><br><span class="line">int g0/0/2</span><br><span class="line">p l a</span><br><span class="line">p d v 10</span><br><span class="line">q</span><br><span class="line">int g0/0/3</span><br><span class="line">p l a</span><br><span class="line">p d v 20</span><br><span class="line">q</span><br><span class="line">int g0/0/1</span><br><span class="line">p l t</span><br><span class="line">p t a v 10 20 </span><br></pre></td></tr></table></figure>
+
+<p>PC1配置（所有的PC只需配ip和子网掩码即可）</p>
+<p><img src="/2022/07/17/HCIA/image-20221224164203896.png" alt="image-20221224164203896"></p>
+<h3 id="三层交换机基本配置"><a href="#三层交换机基本配置" class="headerlink" title="三层交换机基本配置"></a>三层交换机基本配置</h3><h4 id="一、实验目标-1"><a href="#一、实验目标-1" class="headerlink" title="一、实验目标"></a>一、实验目标</h4><p><strong>1、理解三层交换机的基本原理；</strong></p>
+<p><strong>2、掌握三层交换机物理端口开启路由功能的配置方法。</strong></p>
+<h4 id="二、实验背景-1"><a href="#二、实验背景-1" class="headerlink" title="二、实验背景"></a>二、实验背景</h4><p><strong>公司现有1台三层交换机，要求你进行测试，该交换机的三层功能是否工作正常。</strong></p>
+<h4 id="三、技术原理-1"><a href="#三、技术原理-1" class="headerlink" title="三、技术原理"></a>三、技术原理</h4><p>​	<strong>三层交换机是带有三层路由功能的交换机，也就是这台交换机的端口既有三层路由功能，也具有二层交换功能。三层交换机端口默认为二层口，如果需要启用三层功能就需要在此端口输入undo portswitch命令。如果切换二层交换机可以用portswitch命令。</strong></p>
+<h4 id="四、实验设备-1"><a href="#四、实验设备-1" class="headerlink" title="四、实验设备"></a>四、实验设备</h4><p><strong>PC1,PC2</strong></p>
+<p><strong>一台S5700交换机</strong></p>
+<h4 id="五、实验的步骤和结果-1"><a href="#五、实验的步骤和结果-1" class="headerlink" title="五、实验的步骤和结果"></a>五、实验的步骤和结果</h4><p><strong>讲一下我的设想，PC1和PC2处于不同网段，想要互访必须要经过路由，但是实验只有一个交换机，我们可以使用交换机的三层功能（即套一个路由器，这个路由器是虚拟的，这就是三层路由功能）</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20230104192525719.png" alt="image-20230104192525719"></p>
+<p>交换机配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW1</span><br><span class="line">vlan batch 10 20</span><br><span class="line">int g0/0/1</span><br><span class="line"> p l a</span><br><span class="line"> p d v 10</span><br><span class="line">int vlanif10</span><br><span class="line"> ip add 192.168.1.254 24</span><br><span class="line">int g0/0/2</span><br><span class="line"> p l a</span><br><span class="line"> p d v 20</span><br><span class="line">int vlanif20</span><br><span class="line"> ip add 192.168.2.254 24</span><br></pre></td></tr></table></figure>
+
+<p>PC配置</p>
+<p><img src="/2022/07/17/HCIA/image-20230104193842862.png" alt="image-20230104193842862"></p>
+<p><img src="/2022/07/17/HCIA/image-20230104193858032.png" alt="image-20230104193858032"></p>
+<h3 id="利用三层交换机实现VLAN间路由（有问题。。。）"><a href="#利用三层交换机实现VLAN间路由（有问题。。。）" class="headerlink" title="利用三层交换机实现VLAN间路由（有问题。。。）"></a>利用三层交换机实现VLAN间路由（有问题。。。）</h3><h4 id="一、实验目标-2"><a href="#一、实验目标-2" class="headerlink" title="一、实验目标"></a>一、实验目标</h4><p><strong>1、掌握交换机Tag VLAN的配置；<br>2、掌握三层交换机基本配置方法；<br>3、掌握三层交换机VLAN路由的配置方法；<br>4、通过三层交换机实现VLAN间相互通信。</strong></p>
+<h4 id="二、实验背景-2"><a href="#二、实验背景-2" class="headerlink" title="二、实验背景"></a>二、实验背景</h4><p><strong>某企业有两个主要部门，技术部和销售部，分处于不同的办公室，为了安全和便于管理对两个部门的主机进行了VLAN的划分，技术部和销售部分处于不同的VLAN，先由于业务的需求需要销售部和技术部的主机能够相互访问，获得相应的资源，两个部门的交换机通过一台三层交换机进行了连接。</strong></p>
+<h4 id="三、技术原理-2"><a href="#三、技术原理-2" class="headerlink" title="三、技术原理"></a>三、技术原理</h4><p>​	<strong>三层交换机具备网络层的功能，实现VLAN相互访问的原理是：利用三层交换机的路由功能，通过识别数据包的IP地址，查找路由表进行选路转发，三层交换机利用直连路由可以实现不同VLAN之间的相互访问。三层交换机给接口配置IP地址。采用SVI（交换虚拟接口）的方式实现VLAN间互连。SVI是指为交换机中的VLAN创建虚拟接口，并且配置IP地址。</strong></p>
+<h4 id="四、实验设备-2"><a href="#四、实验设备-2" class="headerlink" title="四、实验设备"></a>四、实验设备</h4><p><strong>PC1,PC2,PC3,PC4</strong></p>
+<p><strong>两台S5700交换机</strong></p>
+<h4 id="五、实验的步骤和结果-2"><a href="#五、实验的步骤和结果-2" class="headerlink" title="五、实验的步骤和结果"></a>五、实验的步骤和结果</h4><p><img src="/2022/07/17/HCIA/image-20230104211928090.png" alt="image-20230104211928090"></p>
+<p><strong>交换机LSW1配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW1</span><br><span class="line">vlan batch 10 20</span><br><span class="line">int g0/0/1</span><br><span class="line"> p l a</span><br><span class="line"> p d v 10</span><br><span class="line">int g0/0/2</span><br><span class="line"> p l a</span><br><span class="line"> p d v 20</span><br><span class="line">int g0/0/3</span><br><span class="line"> p l t</span><br><span class="line"> p t a v 10 20</span><br></pre></td></tr></table></figure>
+
+<p><strong>交换机LSW2配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW2</span><br><span class="line">vlan batch 10 20</span><br><span class="line">int g0/0/1</span><br><span class="line"> p l t</span><br><span class="line"> p t a v 10 20</span><br><span class="line">int g0/0/2</span><br><span class="line"> p l a</span><br><span class="line"> p d v 10</span><br><span class="line">int g0/0/3</span><br><span class="line"> p l a</span><br><span class="line"> p d v 20</span><br></pre></td></tr></table></figure>
+
+<p><strong>PC1配置</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20230104212214169.png" alt="image-20230104212214169"></p>
+<p><strong>PC2配置</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20230104212226789.png" alt="image-20230104212226789"></p>
+<p><strong>PC3配置</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20230104212237237.png" alt="image-20230104212237237"></p>
+<p><strong>PC4配置</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20230104212252180.png" alt="image-20230104212252180"></p>
+<p><strong>我发现这实验有问题的。。。可能是我技术不好，这个更改后的配置，更改前的配置如下：</strong></p>
+<p><strong>交换机LSW2配置（其他配置不变）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW2</span><br><span class="line">vlan batch 10 20</span><br><span class="line">int g0/0/1</span><br><span class="line"> p l t</span><br><span class="line"> p t a v 10 20</span><br><span class="line">int g0/0/2</span><br><span class="line"> p l a</span><br><span class="line"> p d v 10</span><br><span class="line">int g0/0/3</span><br><span class="line"> p l a</span><br><span class="line"> p d v 20</span><br><span class="line">int vlanif 10 </span><br><span class="line"> ip add 192.168.1.254 24</span><br><span class="line">int vlanif 20</span><br><span class="line"> ip add 192.168.2.254 24</span><br></pre></td></tr></table></figure>
+
+<p><strong>我开启了三层功能会发现vlan全部失效，vlan10可以访问vlan20了。。。无奈之下我只能把vlanif的配置去掉，所以上面的配置ping网关全部都是失联的。。。</strong></p>
+<h3 id="路由器综合路由配置"><a href="#路由器综合路由配置" class="headerlink" title="路由器综合路由配置"></a>路由器综合路由配置</h3><h4 id="一、实验目标-3"><a href="#一、实验目标-3" class="headerlink" title="一、实验目标"></a>一、实验目标</h4><p><strong>1.掌握中和路由器的配置方法；</strong></p>
+<p><strong>2.掌握查看通过路由重分布学习产生的路由；</strong></p>
+<p><strong>3.熟悉广域网线缆的链接方式。</strong></p>
+<h4 id="二、实验背景-3"><a href="#二、实验背景-3" class="headerlink" title="二、实验背景"></a>二、实验背景</h4><p><strong>假设某公司通过一台三层交换机连到公司出口路由器 R1上，路由器 R1再和公司外的另一台路由器 R2 连接。三层交换机与 R1 间运行 RIPV2 路由协议，R1与 R2 间运行 OSPF 路由协议。现要做适当配置，实现公司内部主机与公司外部主机之间的相互通信。</strong></p>
+<h4 id="三、技术原理-3"><a href="#三、技术原理-3" class="headerlink" title="三、技术原理"></a>三、技术原理</h4><p><strong>为了支持本设备能够运行多个路由协议进程，系统软件提供了路由信息从一个路由进程重分布到另一个路由进程的功能。比如你可以将 OSPF 路由域的路由重新分布后通高 RIP 路由域中，也可以将 RIP 路由域的路由重新分布后通告到OSPE 路由域中。路由的相互重分布可以在所有的 IP路由协议之间进行。要把路由从一个路由域分布到另一个路由域，并且进行控制路由重分布。</strong></p>
+<h4 id="四、实验设备-3"><a href="#四、实验设备-3" class="headerlink" title="四、实验设备"></a>四、实验设备</h4><p><strong>S5700交换机一台，AR2220路由器两台，PC两台</strong></p>
+<h4 id="五、实验的步骤和结果-3"><a href="#五、实验的步骤和结果-3" class="headerlink" title="五、实验的步骤和结果"></a>五、实验的步骤和结果</h4><p><img src="/2022/07/17/HCIA/image-20230104215057099.png" alt="image-20230104215057099"></p>
+<p><strong>交换机LSW1配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW1</span><br><span class="line">v b 10 20</span><br><span class="line">int g0/0/2</span><br><span class="line">p l a</span><br><span class="line">p d v 10</span><br><span class="line">int vlan 10</span><br><span class="line">ip add 192.168.1.1 24</span><br><span class="line">int g0/0/1</span><br><span class="line">p l a</span><br><span class="line">p d v 20</span><br><span class="line">int vlan 20</span><br><span class="line">ip add 192.168.2.1 24</span><br><span class="line">rip</span><br><span class="line">version 2</span><br><span class="line">undo summary </span><br><span class="line">network 192.168.1.0</span><br><span class="line">network 192.168.2.0</span><br></pre></td></tr></table></figure>
+
+<p><strong>AR1配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys AR1</span><br><span class="line">int g0/0/1</span><br><span class="line">ip add 192.168.2.2 24</span><br><span class="line">int g0/0/0</span><br><span class="line">ip add 192.168.3.1 24</span><br><span class="line">rip</span><br><span class="line">version 2</span><br><span class="line">undo summary </span><br><span class="line">network 192.168.2.0</span><br><span class="line">ospf 1 router-id 1.1.1.1</span><br><span class="line">area 0</span><br><span class="line">network 192.168.3.0 0.0.0.255</span><br></pre></td></tr></table></figure>
+
+<p><strong>AR1路由重分布配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rip</span><br><span class="line">import-route ospf</span><br><span class="line">q</span><br><span class="line">ospf 1</span><br><span class="line">import-route rip</span><br></pre></td></tr></table></figure>
+
+<p><strong>AR2配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys AR2</span><br><span class="line">int g0/0/1</span><br><span class="line">ip add 192.168.3.2 24</span><br><span class="line">int g0/0/0</span><br><span class="line">ip add 192.168.4.1 24</span><br><span class="line">ospf 1 router-id 2.2.2.2</span><br><span class="line">area 0</span><br><span class="line">network 192.168.3.0 0.0.0.255</span><br><span class="line">network 192.168.4.0 0.0.0.255</span><br></pre></td></tr></table></figure>
+
+<p><strong>PC配置</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20230104215454559.png" alt="image-20230104215454559"></p>
+<p><img src="/2022/07/17/HCIA/image-20230104215509179.png" alt="image-20230104215509179"></p>
+<h3 id="单臂路由"><a href="#单臂路由" class="headerlink" title="单臂路由"></a>单臂路由</h3><h4 id="一、实验设备"><a href="#一、实验设备" class="headerlink" title="一、实验设备"></a>一、实验设备</h4><p><strong>PC1,PC2</strong></p>
+<p><strong>一台S5700交换机和一台AR2220交换机</strong></p>
+<h4 id="二、实验的步骤和结果"><a href="#二、实验的步骤和结果" class="headerlink" title="二、实验的步骤和结果"></a>二、实验的步骤和结果</h4><p><img src="/2022/07/17/HCIA/image-20230101193234867.png" alt="image-20230101193234867"></p>
+<p>交换机配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW1</span><br><span class="line">vlan batch 10 20</span><br><span class="line">int g0/0/1</span><br><span class="line"> p l a</span><br><span class="line"> p d v 10</span><br><span class="line">int g0/0/2</span><br><span class="line"> p l a</span><br><span class="line"> p d v 20</span><br><span class="line">int g0/0/3</span><br><span class="line"> p l t</span><br><span class="line"> p t a v 10 20</span><br></pre></td></tr></table></figure>
+
+<p>路由器配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys AR1</span><br><span class="line">int g0/0/0.10                  <span class="comment">#创建子接口</span></span><br><span class="line"> ip add 192.168.10.254 24      </span><br><span class="line"> dot1q termination vid 10      <span class="comment">#配置子接口终结的VLAN ID </span></span><br><span class="line"> arp broadcast <span class="built_in">enable</span>          <span class="comment">#开启子接口的arp广播功能</span></span><br><span class="line">int g0/0/0.20</span><br><span class="line"> ip add 192.168.20.254 24</span><br><span class="line"> dot1q termination vid 20</span><br><span class="line"> arp broadcast <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
+
+<p>PC配置</p>
+<p><img src="/2022/07/17/HCIA/image-20230101193316730.png" alt="image-20230101193316730"></p>
+<p><img src="/2022/07/17/HCIA/image-20230101193332409.png" alt="image-20230101193332409"></p>
+<h3 id="单臂路由转三层交换"><a href="#单臂路由转三层交换" class="headerlink" title="单臂路由转三层交换"></a>单臂路由转三层交换</h3><h4 id="一、实验设备-1"><a href="#一、实验设备-1" class="headerlink" title="一、实验设备"></a>一、实验设备</h4><p><strong>PC1,PC2</strong></p>
+<p><strong>一台S5700交换机</strong></p>
+<h4 id="二、实验的步骤和结果-1"><a href="#二、实验的步骤和结果-1" class="headerlink" title="二、实验的步骤和结果"></a>二、实验的步骤和结果</h4><p><img src="/2022/07/17/HCIA/image-20230101203109624.png" alt="image-20230101203109624"></p>
+<p>交换机配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW1</span><br><span class="line">vlan batch 10 20</span><br><span class="line">int g0/0/1</span><br><span class="line"> p l a</span><br><span class="line"> p d v 10</span><br><span class="line">int g0/0/2</span><br><span class="line"> p l a</span><br><span class="line"> p d v 20</span><br><span class="line">int g0/0/3</span><br><span class="line"> p l t</span><br><span class="line"> p t a v 10 20</span><br><span class="line">int vlanif 10 </span><br><span class="line"> ip add 192.168.10.254 24</span><br><span class="line">int vlanif 20</span><br><span class="line"> ip add 192.168.20.254 24</span><br></pre></td></tr></table></figure>
+
+<p>PC配置</p>
+<p><img src="/2022/07/17/HCIA/image-20230101193316730.png" alt="image-20230101193316730"></p>
+<p><img src="/2022/07/17/HCIA/image-20230101193332409.png" alt="image-20230101193332409"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/07/13/nginx%E6%9A%91%E5%81%87%E5%AE%9E%E8%AE%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/13/nginx%E6%9A%91%E5%81%87%E5%AE%9E%E8%AE%AD/" class="post-title-link" itemprop="url">nginx暑假实训</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-13 20:29:52" itemprop="dateCreated datePublished" datetime="2022-07-13T20:29:52+08:00">2022-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/13/nginx%E6%9A%91%E5%81%87%E5%AE%9E%E8%AE%AD/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/13/nginx%E6%9A%91%E5%81%87%E5%AE%9E%E8%AE%AD/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h2 id="1-Nginx-安装"><a href="#1-Nginx-安装" class="headerlink" title="1.Nginx 安装"></a>1.Nginx 安装</h2><h3 id="一、安装编译工具及库文件"><a href="#一、安装编译工具及库文件" class="headerlink" title="一、安装编译工具及库文件"></a>一、安装编译工具及库文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装编译环境:gcc gcc-c++</span></span><br><span class="line"><span class="comment">#安装openssl-devel（使nginx支持ssl）</span></span><br><span class="line"><span class="comment">#安装lib</span></span><br><span class="line">yum -y install make zlib zlib-devel gcc gcc-c++ libtool  openssl openssl-devel</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="二、首先要安装-PCRE"><a href="#二、首先要安装-PCRE" class="headerlink" title="二、首先要安装 PCRE"></a>二、首先要安装 PCRE</h3><p><strong>PCRE 作用是让 Nginx 支持 Rewrite 功能。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install pcre pcre-devel</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、安装-Nginx"><a href="#三、安装-Nginx" class="headerlink" title="三、安装 Nginx"></a>三、安装 Nginx</h3><p><strong>1、下载 Nginx，下载地址：<a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找到nginx-1.22.0这个稳定包，下载下来，然后用rz上传到服务器</span></span><br></pre></td></tr></table></figure>
+
+<p> <strong>2、解压安装包</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf nginx-1.22.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、进入安装包目录</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> nginx-1.22.0</span><br></pre></td></tr></table></figure>
+
+<p><strong>4、编译</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/nginx</span><br></pre></td></tr></table></figure>
+
+<p><strong>5、安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<p><strong>6、查看nginx版本</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/nginx/sbin/nginx -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、启动Nginx"><a href="#四、启动Nginx" class="headerlink" title="四、启动Nginx"></a>四、启动Nginx</h3><p><strong>进入安装好的目录&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./nginx           启动</span><br><span class="line">./nginx -s stop   快速关闭</span><br><span class="line">./nginx -s quit   优雅关闭，在退出前完成已经接受的连接请求</span><br><span class="line">./nginx -s reload 重新加载配置</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、关于防火墙和SELINUX"><a href="#五、关于防火墙和SELINUX" class="headerlink" title="五、关于防火墙和SELINUX"></a>五、关于防火墙和SELINUX</h3><p><strong>关闭防火墙</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+
+<p><strong>禁止防火墙开机自启</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#关闭SELINUX</span></span><br><span class="line">sed -ri <span class="string">&#x27;/^SELINUX=/cSELINUX=disabled&#x27;</span> /etc/selinux/config</span><br><span class="line"><span class="comment">#修改完成之后重启服务器，然后getenforce看看</span></span><br><span class="line"><span class="comment">#当然如果不想重启服务器也可以先修改好配置，然后用 setenforce 0来临时关闭SELINUX，下次重启自然会识别配置文件了。</span></span><br><span class="line">[root@localhost ~]<span class="comment"># setenforce 0</span></span><br><span class="line">[root@localhost ~]<span class="comment"># getenforce </span></span><br><span class="line">Permissive</span><br></pre></td></tr></table></figure>
+
+<h3 id="六、添加systemctl管理"><a href="#六、添加systemctl管理" class="headerlink" title="六、添加systemctl管理"></a>六、添加systemctl管理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt; <span class="string">EOF &gt; /usr/lib/systemd/system/nginx.service</span></span><br><span class="line"><span class="string">[Unit]</span></span><br><span class="line"><span class="string">Description=nginx</span></span><br><span class="line"><span class="string">After=network.target</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">[Service]</span></span><br><span class="line"><span class="string">Type=forking</span></span><br><span class="line"><span class="string">ExecStartPre=/bin/mkdir /tmp/nginx</span></span><br><span class="line"><span class="string">ExecStart=/usr/local/nginx/sbin/nginx</span></span><br><span class="line"><span class="string">ExecReload=/usr/local/nginx/sbin/nginx -s reload</span></span><br><span class="line"><span class="string">ExecStop=/usr/local/nginx/sbin/nginx -s stop</span></span><br><span class="line"><span class="string">PrivateTmp=true</span></span><br><span class="line"><span class="string">[Install]</span></span><br><span class="line"><span class="string">WantedBy=multi-user.target</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="七、创建环境变量"><a href="#七、创建环境变量" class="headerlink" title="七、创建环境变量"></a>七、创建环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile.d/nginx.sh</span><br><span class="line"></span><br><span class="line">NGINX_HOME=/usr/local/nginx</span><br><span class="line">PATH=<span class="variable">$NGINX_HOME</span>/sbin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> NGINX_HOME PATH</span><br></pre></td></tr></table></figure>
+
+<p><strong>source &#x2F;etc&#x2F;profile.d&#x2F;nginx.sh</strong></p>
+<p><strong>启动nginx</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /tmp/nginx</span><br><span class="line">nginx</span><br></pre></td></tr></table></figure>
+
+<h3 id="八、修改ip为静态地址"><a href="#八、修改ip为静态地址" class="headerlink" title="八、修改ip为静态地址"></a>八、修改ip为静态地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">TYPE=<span class="string">&quot;Ethernet&quot;</span></span><br><span class="line">PROXY_METHOD=<span class="string">&quot;none&quot;</span></span><br><span class="line">BROWSER_ONLY=<span class="string">&quot;no&quot;</span></span><br><span class="line">DEFROUTE=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV4_FAILURE_FATAL=<span class="string">&quot;no&quot;</span></span><br><span class="line">IPV6INIT=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV6_AUTOCONF=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV6_DEFROUTE=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV6_FAILURE_FATAL=<span class="string">&quot;no&quot;</span></span><br><span class="line">IPV6_ADDR_GEN_MODE=<span class="string">&quot;stable-privacy&quot;</span></span><br><span class="line">NAME=<span class="string">&quot;ens33&quot;</span></span><br><span class="line">UUID=<span class="string">&quot;ff458f3b-f132-400d-ae06-86277ce43612&quot;</span></span><br><span class="line">DEVICE=<span class="string">&quot;ens33&quot;</span></span><br><span class="line">ONBOOT=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPADDR=192.168.110.131         <span class="comment"># 静态ip地址</span></span><br><span class="line">NETMASK=255.255.255.0          <span class="comment"># 子网掩码</span></span><br><span class="line">GATEWAY=192.168.110.1          <span class="comment"># 网关地址</span></span><br><span class="line">BROADCAST=192.168.110.255      <span class="comment"># 广播地址</span></span><br><span class="line">BOOTPROTO=<span class="string">&quot;static&quot;</span>             <span class="comment"># 修改静态</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="2-Nginx的conf学习"><a href="#2-Nginx的conf学习" class="headerlink" title="2.Nginx的conf学习"></a>2.Nginx的conf学习</h2><p><strong>nginx.conf的配置如下：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">more /usr/local/nginx/conf/nginx.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">#user  nobody;</span></span><br><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line"><span class="comment">#error_log  logs/error.log;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  notice;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  info;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#pid        logs/nginx.pid;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span></span><br><span class="line">    <span class="comment">#                  &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span></span><br><span class="line">    <span class="comment">#                  &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#access_log  logs/access.log  main;</span></span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    <span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#keepalive_timeout  0;</span></span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#gzip  on;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># 虚拟服务器 这里开始    </span></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#charset koi8-r;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#error_page  404              /404.html;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">        <span class="comment">#    proxy_pass   http://127.0.0.1;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">        <span class="comment">#    root           html;</span></span><br><span class="line">        <span class="comment">#    fastcgi_pass   127.0.0.1:9000;</span></span><br><span class="line">        <span class="comment">#    fastcgi_index  index.php;</span></span><br><span class="line">        <span class="comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span><br><span class="line">        <span class="comment">#    include        fastcgi_params;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># deny access to .htaccess files, if Apache&#x27;s document root</span></span><br><span class="line">        <span class="comment"># concurs with nginx&#x27;s one</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#location ~ /\.ht &#123;</span></span><br><span class="line">        <span class="comment">#    deny  all;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment"># 虚拟服务器 这里结束</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># another virtual host using mix of IP-, name-, and port-based configuration</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#server &#123;</span></span><br><span class="line">    <span class="comment">#    listen       8000;</span></span><br><span class="line">    <span class="comment">#    listen       somename:8080;</span></span><br><span class="line">    <span class="comment">#    server_name  somename  alias  another.alias;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    location / &#123;</span></span><br><span class="line">    <span class="comment">#        root   html;</span></span><br><span class="line">    <span class="comment">#        index  index.html index.htm;</span></span><br><span class="line">    <span class="comment">#    &#125;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># HTTPS server</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#server &#123;</span></span><br><span class="line">    <span class="comment">#    listen       443 ssl;</span></span><br><span class="line">    <span class="comment">#    server_name  localhost;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    ssl_certificate      cert.pem;</span></span><br><span class="line">    <span class="comment">#    ssl_certificate_key  cert.key;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    ssl_session_cache    shared:SSL:1m;</span></span><br><span class="line">    <span class="comment">#    ssl_session_timeout  5m;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    ssl_ciphers  HIGH:!aNULL:!MD5;</span></span><br><span class="line">    <span class="comment">#    ssl_prefer_server_ciphers  on;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    location / &#123;</span></span><br><span class="line">    <span class="comment">#        root   html;</span></span><br><span class="line">    <span class="comment">#        index  index.html index.htm;</span></span><br><span class="line">    <span class="comment">#    &#125;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="虚拟主机"><a href="#虚拟主机" class="headerlink" title="虚拟主机"></a>虚拟主机</h4><p><strong>虚拟主机应用场景：一个WEB服务器同时发布多个WEB站点</strong></p>
+<h5 id="用ip基于端口访问"><a href="#用ip基于端口访问" class="headerlink" title="用ip基于端口访问"></a>用ip基于端口访问</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在跟目录下放置www目录，然后内置两个目录，分别是www目录和void目录</span></span><br><span class="line"><span class="comment"># 写入不同的html页面</span></span><br><span class="line">[root@localhost /]<span class="comment"># cd www</span></span><br><span class="line">[root@localhost www]<span class="comment"># ls</span></span><br><span class="line">void  www</span><br><span class="line">[root@localhost www]<span class="comment"># cat void/index.html </span></span><br><span class="line">this is void web site...</span><br><span class="line">[root@localhost www]<span class="comment"># cat www/index.html </span></span><br><span class="line">this is www web site...</span><br><span class="line">[root@localhost www]<span class="comment"># </span></span><br></pre></td></tr></table></figure>
+
+<p><strong>修改nginx.conf配置文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost www]<span class="comment"># vim /usr/local/nginx/conf/nginx.conf</span></span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;             <span class="comment">#网页访问端口80</span></span><br><span class="line">        server_name  localhost;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /www/www;         <span class="comment">#网址指定目录</span></span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       81;             <span class="comment">#网页访问端口81</span></span><br><span class="line">        server_name  localhost;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /www/void;         <span class="comment">#网址指定目录      </span></span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="用域名基于端口访问"><a href="#用域名基于端口访问" class="headerlink" title="用域名基于端口访问"></a>用域名基于端口访问</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost www]<span class="comment"># vim /usr/local/nginx/conf/nginx.conf</span></span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;             <span class="comment">#网页访问端口80</span></span><br><span class="line">        server_name  www.julintongxue.top;<span class="comment">#域名</span></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /www/www;         <span class="comment">#网址指定目录</span></span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       81;             <span class="comment">#网页访问端口81</span></span><br><span class="line">        server_name  void.julintongxue.top;<span class="comment">#域名</span></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /www/void;         <span class="comment">#网址指定目录      </span></span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -2059,20 +2251,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
