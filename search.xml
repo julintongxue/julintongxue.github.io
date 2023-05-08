@@ -1503,6 +1503,143 @@
 <h3 id="RaspAP"><a href="#RaspAP" class="headerlink" title="RaspAP"></a>RaspAP</h3><p><a href="https://raspap.com/">https://raspap.com/</a></p>
 <h3 id="raspberry-python-控-GPIO"><a href="#raspberry-python-控-GPIO" class="headerlink" title="raspberry python 控 GPIO"></a>raspberry python 控 GPIO</h3><p><strong>python添加gpiozero库</strong></p>
 <h3 id="raspberry-python-与树莓派硬件交互"><a href="#raspberry-python-与树莓派硬件交互" class="headerlink" title="raspberry python 与树莓派硬件交互"></a>raspberry python 与树莓派硬件交互</h3><p><strong>python添加psutil库、OS库、commands库、subprocess库</strong></p>
+<h3 id="LINUX应用与服务"><a href="#LINUX应用与服务" class="headerlink" title="LINUX应用与服务"></a>LINUX应用与服务</h3><h4 id="NFS"><a href="#NFS" class="headerlink" title="NFS"></a>NFS</h4><p><strong>安装rpcbind</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install rpcbind</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看rpcbind.socket状态</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status rpcbind.socket</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145322917.png" alt="image-20230508145322917"></p>
+<p><strong>可以看出rpcbind.socket一直在监听端口</strong></p>
+<p><strong>安装nfs</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install nfs-kernel-server</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145655757.png" alt="image-20230508145655757"></p>
+<p><strong>查看rpcbind.socket状态</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status rpcbind.service</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145512096.png" alt="image-20230508145512096"></p>
+<p><strong>从上面安装好看nfs再查看rpcbind.service可以发现，nfs没开启服务，rpcbind.service也不会自动开启</strong></p>
+<p><strong>这次，我们开启nfs再查看nfs和rpcbind.service的服务状态</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart nfs-kernel-server.service</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status nfs-kernel-server.service</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145901666.png" alt="image-20230508145901666"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status rpcbind.service</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145927673.png" alt="image-20230508145927673"></p>
+<p><strong>可以看出，nfs服务启动后，rpcbind.socket检测到端口被激活从而开启了rpcbind.service服务</strong></p>
+<p><strong>编辑&#x2F;etc&#x2F;exports</strong></p>
+<p><strong>后面的权限我先不加，这里默认是只读</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/data *</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152044419.png" alt="image-20230508152044419"></p>
+<p><strong>重新加载配置(不需要重启服务)</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">exportfs -r</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152209456.png" alt="image-20230508152209456"></p>
+<p><strong>查看默认权限</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">exportfs -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152254228.png" alt="image-20230508152254228"></p>
+<p><strong>显示NFS服务器的共享信息</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">showmount -e</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152331011.png" alt="image-20230508152331011"></p>
+<p><strong>win10挂载nfs共享目录</strong></p>
+<p><strong>先打开控制面板，找到程序</strong></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152719331.png" alt="image-20230508152719331"></p>
+<p><strong>点击启用或者关闭windows功能</strong></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152753361.png" alt="image-20230508152753361"></p>
+<p><strong>把nfs服务全选上</strong></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152913031.png" alt="image-20230508152913031"></p>
+<p><strong>然后确认退出，打开此电脑找到映射网络驱动器</strong></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152644711.png" alt="image-20230508152644711"></p>
+<p><strong>按照<code>\\ip\共享目录名字</code>这样的格式</strong></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153030562.png" alt="image-20230508153030562"></p>
+<p><strong>然后就能看到共享的文件了</strong></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153203212.png" alt="image-20230508153203212"></p>
+<p><strong>由于上面在&#x2F;etc&#x2F;exports里没有添加权限使用仅有下载功能，硬盘的大小还不能完全支配</strong></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153328881.png" alt="image-20230508153328881"></p>
+<p><strong>卸载挂载。。。懂？</strong></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508154432995.png" alt="image-20230508154432995"></p>
+<p><strong>linux挂载nfs共享目录</strong></p>
+<p><strong>很简单。。。知道怎么挂载磁盘吧。。。就是这样</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount ip:/data /服务器的本地文件夹</span><br></pre></td></tr></table></figure>
+
+<p><strong>临时挂载很不方便，你懂的！！！重启就没了，可以试一下永久挂载，这里就不BB了</strong></p>
+<p><strong>卸载挂载</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">umount /服务器的本地文件夹</span><br></pre></td></tr></table></figure>
+
+<p><strong>权限修改</strong></p>
+<p><strong>rw</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/data *(rw)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">exportfs -r</span><br><span class="line">exportfs -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160434284.png" alt="image-20230508160434284"></p>
+<p><strong>拉个文件进去，它说哒咩！！！</strong></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508155738554.png" alt="image-20230508155738554"></p>
+<p><strong>这怎么回事捏，我可是win10的主人，居然没有权限访问？</strong></p>
+<p><strong>好吧！虽然是win10的主人，但是linux层面上你只是一个来宾，所以还要在文件夹授予其他用户权限</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> o+rw /data/</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160220572.png" alt="image-20230508160220572"></p>
+<p><strong>嘿嘿！给了权限就可以上传了</strong></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160209860.png" alt="image-20230508160209860"></p>
+<table>
+<thead>
+<tr>
+<th>权限选择</th>
+<th>权限的作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ro</td>
+<td>只读</td>
+</tr>
+<tr>
+<td>rw</td>
+<td>读写</td>
+</tr>
+<tr>
+<td>async</td>
+<td>异步，先将数据写入到内存，在将数据写入到硬盘（性能高）</td>
+</tr>
+<tr>
+<td>root_squash</td>
+<td>将客户端使用的是root用户时，则映射到NFS服务器的用户为NFS的匿名用户（nfsnobody）</td>
+</tr>
+<tr>
+<td>no_root_squash</td>
+<td>将客户端使用的是root用户时，则映射到FNS服务器的用户依然为root用户</td>
+</tr>
+<tr>
+<td>all_squash</td>
+<td>默认选项，将所有访问NFS服务器的客户端的用户都映射为匿名用户，不管客户端使用的是什么用户</td>
+</tr>
+<tr>
+<td>anonuid</td>
+<td>设置映射到本地的匿名用户的UID（配合all_squash使用）</td>
+</tr>
+<tr>
+<td>anongid</td>
+<td>设置映射到本地的匿名用户的GID（配合all_squash使用）</td>
+</tr>
+<tr>
+<td>sync</td>
+<td>默认选项，保持数据同步，数据同步写入到内存和硬盘</td>
+</tr>
+<tr>
+<td>secure</td>
+<td>NFS客户端必须使用NFS保留端口（通常是1024以下的端口），默认选项</td>
+</tr>
+<tr>
+<td>insecure</td>
+<td>允许NFS客户端不使用NFS保留端口（通常是1024以上的端口）</td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>娱乐单片机</category>
@@ -4035,11 +4172,5 @@
 </tr>
 </tbody></table>
 ]]></content>
-      <categories>
-        <category>Linux系统</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
   </entry>
 </search>
