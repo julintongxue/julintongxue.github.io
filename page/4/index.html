@@ -122,7 +122,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">33</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">36</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -173,6 +173,437 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/07/17/python%E7%88%AC%E8%99%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/17/python%E7%88%AC%E8%99%AB/" class="post-title-link" itemprop="url">python爬虫</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-17 18:44:18" itemprop="dateCreated datePublished" datetime="2022-07-17T18:44:18+08:00">2022-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/17/python%E7%88%AC%E8%99%AB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/17/python%E7%88%AC%E8%99%AB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="python爬虫"><a href="#python爬虫" class="headerlink" title="python爬虫"></a>python爬虫</h1><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印一条线</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">printoneLine</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">30</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印一条可以定义的线</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">printNumLine</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * num)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据用户的输入，打印相应数量的线条</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">printNumLine2</span>(<span class="params">num</span>):</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; num:</span><br><span class="line">        printoneLine()</span><br><span class="line">        i +=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printoneLine()     <span class="comment"># ------------------------------</span></span><br><span class="line">printNumLine(<span class="number">30</span>)   <span class="comment"># ------------------------------</span></span><br><span class="line">printNumLine2(<span class="number">3</span>)   <span class="comment"># 三条------------------------------</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 求三个数的和</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum3Number</span>(<span class="params">a, b, c</span>):</span><br><span class="line">    <span class="keyword">return</span> a + b + c</span><br><span class="line"><span class="built_in">print</span>(sum3Number(<span class="number">1</span>,<span class="number">3</span>,<span class="number">6</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 完成三个数的平均值计算</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">avg3Number</span>(<span class="params">a,b,c</span>):</span><br><span class="line">	<span class="keyword">return</span> (a+b+c)/<span class="number">3</span></span><br><span class="line"><span class="built_in">print</span>(avg3Number(<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 局部变量和全局变量</span></span><br><span class="line">a = <span class="number">1000</span> <span class="comment"># 全局变量</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test1</span>():</span><br><span class="line">    a = <span class="number">300</span>    <span class="comment"># 有局部变量，优先使用</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;test1------修改前：a = %d&quot;</span>%a)</span><br><span class="line">    a = <span class="number">100</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;test1------修改后：a = %d&quot;</span>%a)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test2</span>():</span><br><span class="line">    a = <span class="number">500</span>      <span class="comment"># 不同的函数可以定义相同的名字，彼此无关</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;test1------a = %d&quot;</span>%a)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test3</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;全局变量:%d&quot;</span>%a)  <span class="comment">#没有局部变量，默认使用全局变量</span></span><br><span class="line"></span><br><span class="line">test1()</span><br><span class="line">test2()</span><br><span class="line">test3()</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">test1------修改前：a = 300</span></span><br><span class="line"><span class="string">test1------修改后：a = 100</span></span><br><span class="line"><span class="string">test1------a = 500</span></span><br><span class="line"><span class="string">全局变量:1000</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 全局变量的引用和修改</span></span><br><span class="line">a = <span class="number">1000</span> <span class="comment"># 全局变量</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test1</span>():</span><br><span class="line">    <span class="keyword">global</span> a     <span class="comment"># 生命全局变量在函数中的标识符</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;test1------修改前：a = %d&quot;</span>%a)</span><br><span class="line">    a = <span class="number">100</span>      <span class="comment"># 全局变量已经被修改成为100</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;test1------修改后：a = %d&quot;</span>%a)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test3</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;全局变量:%d&quot;</span>%a)  <span class="comment">#没有局部变量，默认使用全局变量</span></span><br><span class="line"></span><br><span class="line">test1()</span><br><span class="line">test3()</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">/usr/bin/python3 /home/orange/PycharmProjects/pythonProject/fid.py</span></span><br><span class="line"><span class="string">test1------修改前：a = 1000</span></span><br><span class="line"><span class="string">test1------修改后：a = 100</span></span><br><span class="line"><span class="string">全局变量:100</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,<span class="string">&quot;w&quot;</span>)   <span class="comment"># 在当前目录下打开test.txt(w写模式),如果文件不存在则创建</span></span><br><span class="line">f.close()   <span class="comment"># 关闭文件</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,<span class="string">&quot;w&quot;</span>)   <span class="comment"># 在当前目录下打开test.txt(w写模式),如果文件不存在则创建</span></span><br><span class="line">f.write(<span class="string">&quot;hello world,i love python!!!&quot;</span>) <span class="comment"># 写入</span></span><br><span class="line">f.close()   <span class="comment"># 关闭文件</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/17/python%E7%88%AC%E8%99%AB/Screenshot_20220703_020542.png" alt="Screenshot_20220703_020542"></p>
+<p><strong>找到<code>test.txt</code>可以看到已经写入的内容</strong></p>
+<h4 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h4><h5 id="默认读取-全读"><a href="#默认读取-全读" class="headerlink" title="默认读取(全读)"></a>默认读取(全读)</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line">content = f.read()</span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/17/python%E7%88%AC%E8%99%AB/image-20220703021241993.png" alt="image-20220703021241993"></p>
+<h5 id="局部读取"><a href="#局部读取" class="headerlink" title="局部读取"></a>局部读取</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,<span class="string">&quot;r&quot;</span>) <span class="comment"># read方法，读取指定的字符，开始时定位在文件头部，每执行一次向后移动指定字符数</span></span><br><span class="line">content = f.read(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line">content = f.read(<span class="number">6</span>)</span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/17/python%E7%88%AC%E8%99%AB/image-20220703021448108.png" alt="image-20220703021448108"></p>
+<p><strong>好像空格也算一个一个格,读取是指针的移动罢了</strong></p>
+<h5 id="全部读取"><a href="#全部读取" class="headerlink" title="全部读取"></a>全部读取</h5><p><strong>给test.txt文件复制到四行这个</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hello world,i love python!!!</span><br><span class="line">hello world,i love python!!!</span><br><span class="line">hello world,i love python!!!</span><br><span class="line">hello world,i love python!!!</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line">content = f.readlines()</span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/17/python%E7%88%AC%E8%99%AB/image-20220703022343705.png" alt="image-20220703022343705"></p>
+<p><strong>由图可以看出，读取出来的数据是列表格式，每行为一个字符串元素</strong></p>
+<p><strong>这个样式不好看，排序一下</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line">content = f.readlines()</span><br><span class="line"></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> test <span class="keyword">in</span> content:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;%d.%s&quot;</span>%(i,test))</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">f.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/17/python%E7%88%AC%E8%99%AB/image-20220703023358456.png" alt="image-20220703023358456"></p>
+<h5 id="单行读取"><a href="#单行读取" class="headerlink" title="单行读取"></a>单行读取</h5><p><strong>修改<code>test.txt</code>为</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hello world,i love python!!!--<span class="number">1</span></span><br><span class="line">hello world,i love python!!!--<span class="number">2</span></span><br><span class="line">hello world,i love python!!!--<span class="number">3</span></span><br><span class="line">hello world,i love python!!!--<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line">content = f.readline()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;1.%s&quot;</span>%content)</span><br><span class="line">content = f.readline()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;2.%s&quot;</span>%content)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/17/python%E7%88%AC%E8%99%AB/image-20220703024659381.png" alt="image-20220703024659381"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 结果发现有换行，给print加上 end=&quot;&quot; 就可以了</span></span><br><span class="line">/usr/<span class="built_in">bin</span>/python3 /home/orange/PycharmProjects/pythonProject/fid.py</span><br><span class="line"><span class="number">1.</span>hello world,i love python!!!--<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>hello world,i love python!!!--<span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="文件改名"><a href="#文件改名" class="headerlink" title="文件改名"></a>文件改名</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os   <span class="comment"># 需要os模块中的rename()</span></span><br><span class="line">os.rename(<span class="string">&quot;test.txt&quot;</span>,<span class="string">&quot;test1.txt&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>执行前名字是<code>test.txt</code></strong></p>
+<p><img src="/2022/07/17/python%E7%88%AC%E8%99%AB/image-20220703025307808.png" alt="image-20220703025307808"></p>
+<p><strong>执行之后名字更改为<code>test1.txt</code></strong></p>
+<p><img src="/2022/07/17/python%E7%88%AC%E8%99%AB/image-20220703025509661.png" alt="image-20220703025509661"></p>
+<h4 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h4><p><strong>os模块中的remove()可以完成对文件的删除操作</strong></p>
+<p><strong>remove(待删除的文件名)</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os </span><br><span class="line">os.remove(<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>懒得截图了，自己脑补吧</strong></p>
+<h4 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h4><p><strong>mkdir(待创建的文件夹名字)</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os </span><br><span class="line">os.mkdir(<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取当前目录"><a href="#获取当前目录" class="headerlink" title="获取当前目录"></a>获取当前目录</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os </span><br><span class="line">os.getcwd()</span><br></pre></td></tr></table></figure>
+
+<p>更改默认目录</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os </span><br><span class="line">os.chdir(<span class="string">&quot;../&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>获取目录列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os </span><br><span class="line">os.listdir(<span class="string">&quot;./&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>删除文件夹</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os </span><br><span class="line">os.rmdir(<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/07/17/HCIA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/17/HCIA/" class="post-title-link" itemprop="url">HCIA</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-17 16:52:12" itemprop="dateCreated datePublished" datetime="2022-07-17T16:52:12+08:00">2022-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-05-12 01:13:05" itemprop="dateModified" datetime="2023-05-12T01:13:05+08:00">2023-05-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" itemprop="url" rel="index"><span itemprop="name">路由交换</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/17/HCIA/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/17/HCIA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          这里有东西被加密了，需要输入密码查看哦。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/17/HCIA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/07/13/nginx%E6%9A%91%E5%81%87%E5%AE%9E%E8%AE%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/13/nginx%E6%9A%91%E5%81%87%E5%AE%9E%E8%AE%AD/" class="post-title-link" itemprop="url">nginx暑假实训</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-13 20:29:52" itemprop="dateCreated datePublished" datetime="2022-07-13T20:29:52+08:00">2022-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/13/nginx%E6%9A%91%E5%81%87%E5%AE%9E%E8%AE%AD/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/13/nginx%E6%9A%91%E5%81%87%E5%AE%9E%E8%AE%AD/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h2 id="1-Nginx-安装"><a href="#1-Nginx-安装" class="headerlink" title="1.Nginx 安装"></a>1.Nginx 安装</h2><h3 id="一、安装编译工具及库文件"><a href="#一、安装编译工具及库文件" class="headerlink" title="一、安装编译工具及库文件"></a>一、安装编译工具及库文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装编译环境:gcc gcc-c++</span></span><br><span class="line"><span class="comment">#安装openssl-devel（使nginx支持ssl）</span></span><br><span class="line"><span class="comment">#安装lib</span></span><br><span class="line">yum -y install make zlib zlib-devel gcc gcc-c++ libtool  openssl openssl-devel</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="二、首先要安装-PCRE"><a href="#二、首先要安装-PCRE" class="headerlink" title="二、首先要安装 PCRE"></a>二、首先要安装 PCRE</h3><p><strong>PCRE 作用是让 Nginx 支持 Rewrite 功能。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install pcre pcre-devel</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、安装-Nginx"><a href="#三、安装-Nginx" class="headerlink" title="三、安装 Nginx"></a>三、安装 Nginx</h3><p><strong>1、下载 Nginx，下载地址：<a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找到nginx-1.22.0这个稳定包，下载下来，然后用rz上传到服务器</span></span><br></pre></td></tr></table></figure>
+
+<p> <strong>2、解压安装包</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf nginx-1.22.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、进入安装包目录</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> nginx-1.22.0</span><br></pre></td></tr></table></figure>
+
+<p><strong>4、编译</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/nginx</span><br></pre></td></tr></table></figure>
+
+<p><strong>5、安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<p><strong>6、查看nginx版本</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/nginx/sbin/nginx -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、启动Nginx"><a href="#四、启动Nginx" class="headerlink" title="四、启动Nginx"></a>四、启动Nginx</h3><p><strong>进入安装好的目录&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./nginx           启动</span><br><span class="line">./nginx -s stop   快速关闭</span><br><span class="line">./nginx -s quit   优雅关闭，在退出前完成已经接受的连接请求</span><br><span class="line">./nginx -s reload 重新加载配置</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、关于防火墙和SELINUX"><a href="#五、关于防火墙和SELINUX" class="headerlink" title="五、关于防火墙和SELINUX"></a>五、关于防火墙和SELINUX</h3><p><strong>关闭防火墙</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+
+<p><strong>禁止防火墙开机自启</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#关闭SELINUX</span></span><br><span class="line">sed -ri <span class="string">&#x27;/^SELINUX=/cSELINUX=disabled&#x27;</span> /etc/selinux/config</span><br><span class="line"><span class="comment">#修改完成之后重启服务器，然后getenforce看看</span></span><br><span class="line"><span class="comment">#当然如果不想重启服务器也可以先修改好配置，然后用 setenforce 0来临时关闭SELINUX，下次重启自然会识别配置文件了。</span></span><br><span class="line">[root@localhost ~]<span class="comment"># setenforce 0</span></span><br><span class="line">[root@localhost ~]<span class="comment"># getenforce </span></span><br><span class="line">Permissive</span><br></pre></td></tr></table></figure>
+
+<h3 id="六、添加systemctl管理"><a href="#六、添加systemctl管理" class="headerlink" title="六、添加systemctl管理"></a>六、添加systemctl管理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt; <span class="string">EOF &gt; /usr/lib/systemd/system/nginx.service</span></span><br><span class="line"><span class="string">[Unit]</span></span><br><span class="line"><span class="string">Description=nginx</span></span><br><span class="line"><span class="string">After=network.target</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">[Service]</span></span><br><span class="line"><span class="string">Type=forking</span></span><br><span class="line"><span class="string">ExecStartPre=/bin/mkdir /tmp/nginx</span></span><br><span class="line"><span class="string">ExecStart=/usr/local/nginx/sbin/nginx</span></span><br><span class="line"><span class="string">ExecReload=/usr/local/nginx/sbin/nginx -s reload</span></span><br><span class="line"><span class="string">ExecStop=/usr/local/nginx/sbin/nginx -s stop</span></span><br><span class="line"><span class="string">PrivateTmp=true</span></span><br><span class="line"><span class="string">[Install]</span></span><br><span class="line"><span class="string">WantedBy=multi-user.target</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="七、创建环境变量"><a href="#七、创建环境变量" class="headerlink" title="七、创建环境变量"></a>七、创建环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile.d/nginx.sh</span><br><span class="line"></span><br><span class="line">NGINX_HOME=/usr/local/nginx</span><br><span class="line">PATH=<span class="variable">$NGINX_HOME</span>/sbin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> NGINX_HOME PATH</span><br></pre></td></tr></table></figure>
+
+<p><strong>source &#x2F;etc&#x2F;profile.d&#x2F;nginx.sh</strong></p>
+<p><strong>启动nginx</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /tmp/nginx</span><br><span class="line">nginx</span><br></pre></td></tr></table></figure>
+
+<h3 id="八、修改ip为静态地址"><a href="#八、修改ip为静态地址" class="headerlink" title="八、修改ip为静态地址"></a>八、修改ip为静态地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">TYPE=<span class="string">&quot;Ethernet&quot;</span></span><br><span class="line">PROXY_METHOD=<span class="string">&quot;none&quot;</span></span><br><span class="line">BROWSER_ONLY=<span class="string">&quot;no&quot;</span></span><br><span class="line">DEFROUTE=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV4_FAILURE_FATAL=<span class="string">&quot;no&quot;</span></span><br><span class="line">IPV6INIT=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV6_AUTOCONF=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV6_DEFROUTE=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV6_FAILURE_FATAL=<span class="string">&quot;no&quot;</span></span><br><span class="line">IPV6_ADDR_GEN_MODE=<span class="string">&quot;stable-privacy&quot;</span></span><br><span class="line">NAME=<span class="string">&quot;ens33&quot;</span></span><br><span class="line">UUID=<span class="string">&quot;ff458f3b-f132-400d-ae06-86277ce43612&quot;</span></span><br><span class="line">DEVICE=<span class="string">&quot;ens33&quot;</span></span><br><span class="line">ONBOOT=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPADDR=192.168.110.131         <span class="comment"># 静态ip地址</span></span><br><span class="line">NETMASK=255.255.255.0          <span class="comment"># 子网掩码</span></span><br><span class="line">GATEWAY=192.168.110.1          <span class="comment"># 网关地址</span></span><br><span class="line">BROADCAST=192.168.110.255      <span class="comment"># 广播地址</span></span><br><span class="line">BOOTPROTO=<span class="string">&quot;static&quot;</span>             <span class="comment"># 修改静态</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="2-Nginx的conf学习"><a href="#2-Nginx的conf学习" class="headerlink" title="2.Nginx的conf学习"></a>2.Nginx的conf学习</h2><p><strong>nginx.conf的配置如下：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">more /usr/local/nginx/conf/nginx.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">#user  nobody;</span></span><br><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line"><span class="comment">#error_log  logs/error.log;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  notice;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  info;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#pid        logs/nginx.pid;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span></span><br><span class="line">    <span class="comment">#                  &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span></span><br><span class="line">    <span class="comment">#                  &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#access_log  logs/access.log  main;</span></span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    <span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#keepalive_timeout  0;</span></span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#gzip  on;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># 虚拟服务器 这里开始    </span></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#charset koi8-r;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#error_page  404              /404.html;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">        <span class="comment">#    proxy_pass   http://127.0.0.1;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">        <span class="comment">#    root           html;</span></span><br><span class="line">        <span class="comment">#    fastcgi_pass   127.0.0.1:9000;</span></span><br><span class="line">        <span class="comment">#    fastcgi_index  index.php;</span></span><br><span class="line">        <span class="comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span><br><span class="line">        <span class="comment">#    include        fastcgi_params;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># deny access to .htaccess files, if Apache&#x27;s document root</span></span><br><span class="line">        <span class="comment"># concurs with nginx&#x27;s one</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#location ~ /\.ht &#123;</span></span><br><span class="line">        <span class="comment">#    deny  all;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment"># 虚拟服务器 这里结束</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># another virtual host using mix of IP-, name-, and port-based configuration</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#server &#123;</span></span><br><span class="line">    <span class="comment">#    listen       8000;</span></span><br><span class="line">    <span class="comment">#    listen       somename:8080;</span></span><br><span class="line">    <span class="comment">#    server_name  somename  alias  another.alias;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    location / &#123;</span></span><br><span class="line">    <span class="comment">#        root   html;</span></span><br><span class="line">    <span class="comment">#        index  index.html index.htm;</span></span><br><span class="line">    <span class="comment">#    &#125;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># HTTPS server</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#server &#123;</span></span><br><span class="line">    <span class="comment">#    listen       443 ssl;</span></span><br><span class="line">    <span class="comment">#    server_name  localhost;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    ssl_certificate      cert.pem;</span></span><br><span class="line">    <span class="comment">#    ssl_certificate_key  cert.key;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    ssl_session_cache    shared:SSL:1m;</span></span><br><span class="line">    <span class="comment">#    ssl_session_timeout  5m;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    ssl_ciphers  HIGH:!aNULL:!MD5;</span></span><br><span class="line">    <span class="comment">#    ssl_prefer_server_ciphers  on;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    location / &#123;</span></span><br><span class="line">    <span class="comment">#        root   html;</span></span><br><span class="line">    <span class="comment">#        index  index.html index.htm;</span></span><br><span class="line">    <span class="comment">#    &#125;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="虚拟主机"><a href="#虚拟主机" class="headerlink" title="虚拟主机"></a>虚拟主机</h4><p><strong>虚拟主机应用场景：一个WEB服务器同时发布多个WEB站点</strong></p>
+<h5 id="用ip基于端口访问"><a href="#用ip基于端口访问" class="headerlink" title="用ip基于端口访问"></a>用ip基于端口访问</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在跟目录下放置www目录，然后内置两个目录，分别是www目录和void目录</span></span><br><span class="line"><span class="comment"># 写入不同的html页面</span></span><br><span class="line">[root@localhost /]<span class="comment"># cd www</span></span><br><span class="line">[root@localhost www]<span class="comment"># ls</span></span><br><span class="line">void  www</span><br><span class="line">[root@localhost www]<span class="comment"># cat void/index.html </span></span><br><span class="line">this is void web site...</span><br><span class="line">[root@localhost www]<span class="comment"># cat www/index.html </span></span><br><span class="line">this is www web site...</span><br><span class="line">[root@localhost www]<span class="comment"># </span></span><br></pre></td></tr></table></figure>
+
+<p><strong>修改nginx.conf配置文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost www]<span class="comment"># vim /usr/local/nginx/conf/nginx.conf</span></span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;             <span class="comment">#网页访问端口80</span></span><br><span class="line">        server_name  localhost;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /www/www;         <span class="comment">#网址指定目录</span></span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       81;             <span class="comment">#网页访问端口81</span></span><br><span class="line">        server_name  localhost;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /www/void;         <span class="comment">#网址指定目录      </span></span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="用域名基于端口访问"><a href="#用域名基于端口访问" class="headerlink" title="用域名基于端口访问"></a>用域名基于端口访问</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost www]<span class="comment"># vim /usr/local/nginx/conf/nginx.conf</span></span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;             <span class="comment">#网页访问端口80</span></span><br><span class="line">        server_name  www.julintongxue.top;<span class="comment">#域名</span></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /www/www;         <span class="comment">#网址指定目录</span></span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       81;             <span class="comment">#网页访问端口81</span></span><br><span class="line">        server_name  void.julintongxue.top;<span class="comment">#域名</span></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /www/void;         <span class="comment">#网址指定目录      </span></span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -761,7 +1192,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
