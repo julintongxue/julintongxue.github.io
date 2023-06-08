@@ -117,12 +117,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">36</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">39</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -132,7 +132,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">30</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">32</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -177,6 +177,527 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/2023/03/16/raspberry-400/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/16/raspberry-400/" class="post-title-link" itemprop="url">raspberry-400</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-16 22:19:05" itemprop="dateCreated datePublished" datetime="2023-03-16T22:19:05+08:00">2023-03-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-18 18:41:02" itemprop="dateModified" datetime="2023-04-18T18:41:02+08:00">2023-04-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/03/16/raspberry-400/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/03/16/raspberry-400/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h1><h1 id="更换系统源"><a href="#更换系统源" class="headerlink" title="更换系统源"></a>更换系统源</h1><p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/raspbian/">清华大学源</a></p>
+<p>如何添加armv7l架构源，很简单，只需编辑<code>/etc/apt/sources.list</code>，并且无需额外的服务或者整机的重启操作。</p>
+<p>先注释掉所有语句，然后加入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ bullseye main non-free contrib rpi</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ bullseye main non-free contrib rpi</span><br><span class="line">deb [<span class="built_in">arch</span>=arm64] https://mirrors.tuna.tsinghua.edu.cn/raspbian/multiarch/ bullseye main</span><br></pre></td></tr></table></figure>
+
+<p>第一行是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择你的 Raspbian 对应的 Debian 版本： Debian 11 (bullseye) Debian 10 (buster) Debian 9 (stretch) </span><br></pre></td></tr></table></figure>
+
+<p>第二行是：</p>
+<p>源码目录仓库是否开启</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启用源码镜像：是 </span><br></pre></td></tr></table></figure>
+
+<p>第三行是：</p>
+<p>为arm64和aarch64提供deb包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启用 multi-arch aarch64：是</span><br></pre></td></tr></table></figure>
+
+<p>然后更新软件列表和软件即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>如果出现证书问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --keyserver keyserver.ubuntu.com --recv-keys [报错的公钥]</span><br></pre></td></tr></table></figure>
+
+<p>如果还想加入aarch64架构的源也可这样，编辑 <code>/etc/apt/sources.list.d/raspi.list</code> 文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ bullseye main</span><br></pre></td></tr></table></figure>
+
+<p>然后更新软件列表和软件即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<h1 id="树莓派实验"><a href="#树莓派实验" class="headerlink" title="树莓派实验"></a>树莓派实验</h1><h2 id="RPI-GPIO-使用手册"><a href="#RPI-GPIO-使用手册" class="headerlink" title="RPI.GPIO 使用手册"></a>RPI.GPIO 使用手册</h2><h3 id="RPI-GPIO包介绍"><a href="#RPI-GPIO包介绍" class="headerlink" title="RPI.GPIO包介绍"></a>RPI.GPIO包介绍</h3><p><strong>RPi.GPIO 模块程序包提供了一个在 Raspberry Pi 中控制 GPIO 的类。</strong></p>
+<p>**RPi.GPIO是 Python的一个module( 模块 ), 树莓派官方系统默认已经安装, 仍在不断更新中，可以访问 <a target="_blank" rel="noopener" href="https://pypi.python.org/pypi/RPi.GPIO">python主页下载源码</a> **</p>
+<p><img src="/2023/03/16/raspberry-400/image-20230412210044844.png" alt="image-20230412210044844"></p>
+<p><strong>注意，该模块不适合应用到追求实时性或计数周期的应用中。这是由于您无法预测 Ptyhon 何时繁忙，以及资源回收的时间。而且它是运行在基于 Linux 核心的系统中，也不合适用于实时应用 – 原因在于其它进程可能获得更高的 CPU 优先级。</strong></p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/">官方的帮助文档的链接：</a></p>
+<p><img src="/2023/03/16/raspberry-400/image-20230412210406116.png" alt="image-20230412210406116"></p>
+<p><img src="/2023/03/16/raspberry-400/image-20230412210518012.png" alt="image-20230412210518012"></p>
+<h3 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br></pre></td></tr></table></figure>
+
+<p><strong>通过这样，您可以在脚本的其余部分中将其称为 GPIO。</strong></p>
+<p><strong>要导入模块并检查它是否成功，请执行以下操作：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    import RPi.GPIO as GPIO</span><br><span class="line">except RuntimeError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Error importing RPi.GPIO!  This is probably because you need superuser privileges.  You can achieve this by using &#x27;sudo&#x27; to run your script&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解释：try except异常捕获处理</span><br><span class="line">RuntimeError是运行时错误，如果触发这个就会打印后面<span class="built_in">print</span>里面的话</span><br></pre></td></tr></table></figure>
+
+<h3 id="引脚编号"><a href="#引脚编号" class="headerlink" title="引脚编号"></a>引脚编号</h3><p><strong>在RPi.GPIO中，有两种方法可以对Raspberry Pi上的IO引脚进行编号。</strong></p>
+<p><strong>第一种是使用BOARD编号系统。这是指Raspberry Pi板上P1接头上的引脚号。使用这种编号系统的优点是，无论树莓派的电路板版本如何，您的硬件都能正常工作。你不需要重新连接你的连接器或更改你的代码。</strong></p>
+<p><strong>第二个编号系统是BCM号码。这是一种较低级别的工作方式 - 它指的是Broadcom SOC上的通道号码。您必须始终使用那个通道编号所对应的树莓派板上哪个引脚的图表。您的脚本程序可能会在Raspberry Pi板的硬件修订后而不能使用。</strong></p>
+<p><strong>我们在使用RPi.GPIO包的时候必须要指定正在使用的（必需）：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GPIO.setmode(GPIO.BOARD)</span><br><span class="line">  <span class="comment"># or</span></span><br><span class="line">GPIO.setmode(GPIO.BCM)</span><br></pre></td></tr></table></figure>
+
+<p><strong>模式将是GPIO.BOARD则返回10，如果是GPIO.BCM则返回11，如果没有设置则返回None</strong></p>
+<p><strong>下面附上GPIO图，适用BCM编码</strong></p>
+<p><img src="/2023/03/16/raspberry-400/GPIO-Pinout-Diagram-2.png" alt="GPIO-Pinout-Diagram-2"></p>
+<p><img src="/2023/03/16/raspberry-400/image-20230412230626919.png" alt="image-20230412230626919"></p>
+<p><strong><a target="_blank" rel="noopener" href="https://pinout.xyz/">交互式引脚排列图：</a>这个网站可以查看GPIO接口作用</strong></p>
+<h3 id="警告"><a href="#警告" class="headerlink" title="警告"></a>警告</h3><p><strong>你可能在Raspberry Pi的GPIO上有多个脚本&#x2F;电路。因此，如果RPi.GPIO检测到引脚已被配置为默认（输入）以外的其他引脚，则在尝试配置脚本时会收到警告。要禁用这些警告：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPIO.setwarnings(<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置一个通道"><a href="#设置一个通道" class="headerlink" title="设置一个通道"></a>设置一个通道</h3><p><strong>你需要设置您用作输入或输出的每个通道。下面是将通道配置为输入：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPIO.setup(channel, GPIO.IN)     <span class="comment">#channel是作者定义的通道名，它最终会调用一个数字，即通道编号</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>（其中通道是基于你指定的编号系统（BOARD或BCM）的通道编号）。</strong></p>
+<p><strong>有关设置输入通道的更多高级信息，请参阅<a target="_blank" rel="noopener" href="https://sourceforge.net/p/raspberry-gpio-python/wiki/Inputs/">此处</a>。</strong></p>
+<p><strong>要将通道设置为输出：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPIO.setup(channel, GPIO.OUT)</span><br></pre></td></tr></table></figure>
+
+<p><strong>（其中通道是基于您指定的编号系统（BOARD或BCM）的通道编号）。</strong></p>
+<p><strong>你还可以为您的输出通道指定一个初始值：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPIO.setup(channel, GPIO.OUT, initial=GPIO.HIGH)</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置多个通道"><a href="#设置多个通道" class="headerlink" title="设置多个通道"></a>设置多个通道</h3><p><strong>你可以一次设置多个通道（从版本 0.5.8 及更高版本）。例如：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chan_list  =  [ <span class="number">11</span> ，<span class="number">12</span> ]     ＃添加任意数量的通道！</span><br><span class="line">                              ＃你可以用元组代替，即：</span><br><span class="line">                              ＃chan_list =（<span class="number">11</span>,<span class="number">12</span>）</span><br><span class="line">GPIO.setup(chan_list, GPIO.OUT)</span><br></pre></td></tr></table></figure>
+
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p><strong>读取GPIO引脚的值：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPIO.<span class="built_in">input</span>(channel)</span><br></pre></td></tr></table></figure>
+
+<p><strong>（其中通道是基于你指定的编号系统（BOARD 或 BCM）的通道编号）。这将返回<code>0 / GPIO.LOW / False</code>或<code>1 / GPIO.HIGH / True</code></strong></p>
+<p><strong>有几种方法可以将GPIO输入到您的程序中。第一种也是最简单的方法是在某个时间点检查输入值。这就是所谓的“轮询”，如果你的程序在错误的时间读取了值，可能会错过输入。轮询在循环中执行，并可能是处理器密集型的。响应GPIO输入的另一种方式是使用’中断’（边沿检测）。边沿是从高电平到低电平（下降沿）或从低电平到高电平（上升沿）的意思。</strong></p>
+<h2 id="点亮LED灯珠"><a href="#点亮LED灯珠" class="headerlink" title="点亮LED灯珠"></a>点亮LED灯珠</h2><p><strong>实验材料：1.官方说的耐压2.2v的小灯珠（我经过5V测试两颗，果然烧了，然后使用树莓派3.3VGPIO口）、2.色环电阻一颗（27K）3.杜邦线公口若干条、4.GPIO口拓展线一根、5.T型GPIO拓展板一块、6.面包板一块</strong></p>
+<p><strong>我们使用树莓派GPIO17接面包板的GND，然后树莓派GPIO第1口（3.3V）接面包板VCC，LED和电阻一起接上面包板GND和VCC（注意：LED有正负极，长的是+，短的是-；电阻不分正负），接上去之后可以看到LED灯是亮的，因为GPIO1口是默认3.3V电压，所以灯已经亮起。</strong></p>
+<p><img src="/2023/03/16/raspberry-400/image-20230412230418872.png" alt="image-20230412230418872"></p>
+<p><img src="/2023/03/16/raspberry-400/IMG_20230412_184612.jpg" alt="IMG_20230412_184612"></p>
+<p><strong>那么，由于前面烧了两颗LED，我可以得知，我的LED是能扛得住3.3V电压直接上电的，所以有了下面这个图（电阻去掉，用杜邦线直接连接）</strong></p>
+<p><img src="/2023/03/16/raspberry-400/IMG_20230412_184544.jpg" alt="IMG_20230412_184544"></p>
+<p> <strong>一直亮着也不是个好玩的是吧，那我写个python让它闪烁咯</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">LED = <span class="number">17</span></span><br><span class="line">GPIO.setmode(GPIO.BCM)</span><br><span class="line">GPIO.setup(LED,GPIO.OUT)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        GPIO.output(LED,GPIO.HIGH)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">        GPIO.output(LED,GPIO.LOW)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;except&quot;</span>)</span><br><span class="line">        GPIO.cleanup()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/03/16/raspberry-400/IMG_20230412_184628.jpg" alt="IMG_20230412_184628"></p>
+<p><strong>可以看出，python控制的HIGHT电平比默认的更加亮，而且能够闪烁（这里由于是图片，所以看不到闪烁）</strong></p>
+<h2 id="显示信息在LCD-1602"><a href="#显示信息在LCD-1602" class="headerlink" title="显示信息在LCD_1602"></a>显示信息在LCD_1602</h2><p><strong>实验材料：1.LCD1602显示面板、2.可调电阻（也叫可变电阻）3.杜邦线公口若干条、4.GPIO口拓展线一根、5.T型GPIO拓展板一块、6.面包板一块</strong></p>
+<p><strong>我们要根据BCM编码来接线</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">root@raspberrypi:/share/raspberry<span class="comment"># gpio readall</span></span><br><span class="line"> +-----+-----+---------+------+---+---Pi 3B+-+---+------+---------+-----+-----+</span><br><span class="line"> | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |</span><br><span class="line"> +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+</span><br><span class="line"> |     |     |    3.3v |      |   |  1 || 2  |   |      | 5v      |     |     |</span><br><span class="line"> |   2 |   8 |   SDA.1 |   IN | 1 |  3 || 4  |   |      | 5v      |     |     |</span><br><span class="line"> |   3 |   9 |   SCL.1 |   IN | 1 |  5 || 6  |   |      | 0v      |     |     |</span><br><span class="line"> |   4 |   7 | GPIO. 7 |  OUT | 0 |  7 || 8  | 0 | IN   | TxD     | 15  | 14  |</span><br><span class="line"> |     |     |      0v |      |   |  9 || 10 | 1 | IN   | RxD     | 16  | 15  |</span><br><span class="line"> |  17 |   0 | GPIO. 0 |   IN | 0 | 11 || 12 | 0 | IN   | GPIO. 1 | 1   | 18  |</span><br><span class="line"> |  27 |   2 | GPIO. 2 |   IN | 0 | 13 || 14 |   |      | 0v      |     |     |</span><br><span class="line"> |  22 |   3 | GPIO. 3 |   IN | 0 | 15 || 16 | 0 | IN   | GPIO. 4 | 4   | 23  |</span><br><span class="line"> |     |     |    3.3v |      |   | 17 || 18 | 0 | IN   | GPIO. 5 | 5   | 24  |</span><br><span class="line"> |  10 |  12 |    MOSI |   IN | 0 | 19 || 20 |   |      | 0v      |     |     |</span><br><span class="line"> |   9 |  13 |    MISO |   IN | 0 | 21 || 22 | 0 | IN   | GPIO. 6 | 6   | 25  |</span><br><span class="line"> |  11 |  14 |    SCLK |   IN | 0 | 23 || 24 | 1 | IN   | CE0     | 10  | 8   |</span><br><span class="line"> |     |     |      0v |      |   | 25 || 26 | 1 | IN   | CE1     | 11  | 7   |</span><br><span class="line"> |   0 |  30 |   SDA.0 |   IN | 1 | 27 || 28 | 1 | IN   | SCL.0   | 31  | 1   |</span><br><span class="line"> |   5 |  21 | GPIO.21 |   IN | 1 | 29 || 30 |   |      | 0v      |     |     |</span><br><span class="line"> |   6 |  22 | GPIO.22 |   IN | 1 | 31 || 32 | 0 | IN   | GPIO.26 | 26  | 12  |</span><br><span class="line"> |  13 |  23 | GPIO.23 |   IN | 0 | 33 || 34 |   |      | 0v      |     |     |</span><br><span class="line"> |  19 |  24 | GPIO.24 |   IN | 0 | 35 || 36 | 0 | IN   | GPIO.27 | 27  | 16  |</span><br><span class="line"> |  26 |  25 | GPIO.25 |   IN | 0 | 37 || 38 | 0 | IN   | GPIO.28 | 28  | 20  |</span><br><span class="line"> |     |     |      0v |      |   | 39 || 40 | 0 | IN   | GPIO.29 | 29  | 21  |</span><br><span class="line"> +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+</span><br><span class="line"> | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |</span><br><span class="line"> +-----+-----+---------+------+---+---Pi 3B+-+---+------+---------+-----+-----+</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>这个图不够直观的话，可以看看下面这个图：</strong></p>
+<p><img src="/2023/03/16/raspberry-400/rpi-pins-40-0.png" alt="rpi-pins-40-0"></p>
+<p><strong>根据python代码接好线路</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LCD_RS = <span class="number">7</span></span><br><span class="line">LCD_E = <span class="number">8</span></span><br><span class="line">LCD_D4 = <span class="number">25</span></span><br><span class="line">LCD_D5 = <span class="number">24</span></span><br><span class="line">LCD_D6 = <span class="number">23</span></span><br><span class="line">LCD_D7 = <span class="number">18</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>LCE1602的VSS和K接口要接地，</strong></li>
+<li><strong>VDD和A要接上正极（+），</strong></li>
+<li><strong>V0是调节液晶显示的偏压信号，可接10K的可调电阻，V0接可调电阻中间脚位，可调电阻另外两个脚位一个接地一个接正极，</strong></li>
+<li><strong>RS接树莓派BCM7号位，</strong></li>
+<li><strong>RW接地（接地表示是写入模式），</strong></li>
+<li><strong>E使能接树莓派BCM8号位，</strong></li>
+<li><strong>D4接树莓派BCM25号位，</strong></li>
+<li><strong>D5接树莓派BCM24号位，</strong></li>
+<li><strong>D6接树莓派BCM23号位，</strong></li>
+<li><strong>D7接树莓派BCM18号位</strong></li>
+</ul>
+<p><strong>下面是接完线之后的样子：</strong></p>
+<p><img src="/2023/03/16/raspberry-400/IMG_20230418_154545.jpg" alt="IMG_20230418_154545"><img src="/2023/03/16/raspberry-400/IMG_20230418_154550.jpg" alt="IMG_20230418_154550"></p>
+<p><strong>给树莓派执行下面python脚本</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">LCD_RS = <span class="number">7</span></span><br><span class="line">LCD_E = <span class="number">8</span></span><br><span class="line">LCD_D4 = <span class="number">25</span></span><br><span class="line">LCD_D5 = <span class="number">24</span></span><br><span class="line">LCD_D6 = <span class="number">23</span></span><br><span class="line">LCD_D7 = <span class="number">18</span></span><br><span class="line">LCD_CHR = <span class="literal">True</span></span><br><span class="line">LCD_CMD = <span class="literal">False</span></span><br><span class="line">LCD_LINE_1 = <span class="number">0x80</span></span><br><span class="line">LCD_LINE_2 = <span class="number">0xc0</span></span><br><span class="line">E_PULSE = <span class="number">0.0005</span></span><br><span class="line">E_DELAY = <span class="number">0.0005</span></span><br><span class="line"></span><br><span class="line">like = <span class="string">&#x27;I love raspberry&#x27;</span></span><br><span class="line">lu = <span class="string">&#x27;       orange&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">lcd_toggle_enable</span>():</span><br><span class="line">    time.sleep(E_DELAY)</span><br><span class="line">    GPIO.output(LCD_E,<span class="literal">True</span>)</span><br><span class="line">    time.sleep(E_PULSE)</span><br><span class="line">    GPIO.output(LCD_E,<span class="literal">False</span>)</span><br><span class="line">    time.sleep(E_DELAY)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">lcd_byte</span>(<span class="params">bits,mode</span>):</span><br><span class="line">    GPIO.output(LCD_RS,mode)</span><br><span class="line">    GPIO.output(LCD_D4,<span class="literal">False</span>)</span><br><span class="line">    GPIO.output(LCD_D5,<span class="literal">False</span>)</span><br><span class="line">    GPIO.output(LCD_D6,<span class="literal">False</span>)</span><br><span class="line">    GPIO.output(LCD_D7,<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x10</span> == <span class="number">0x10</span>:</span><br><span class="line">        GPIO.output(LCD_D4,<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x20</span> == <span class="number">0x20</span>:</span><br><span class="line">        GPIO.output(LCD_D5,<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x40</span> == <span class="number">0x40</span>:</span><br><span class="line">        GPIO.output(LCD_D6,<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x80</span> == <span class="number">0x80</span>:</span><br><span class="line">        GPIO.output(LCD_D7,<span class="literal">True</span>)</span><br><span class="line">    lcd_toggle_enable()</span><br><span class="line"></span><br><span class="line">    GPIO.output(LCD_D4,<span class="literal">False</span>)</span><br><span class="line">    GPIO.output(LCD_D5,<span class="literal">False</span>)</span><br><span class="line">    GPIO.output(LCD_D6,<span class="literal">False</span>)</span><br><span class="line">    GPIO.output(LCD_D7,<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x01</span> == <span class="number">0x01</span>:</span><br><span class="line">        GPIO.output(LCD_D4,<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x02</span> == <span class="number">0x02</span>:</span><br><span class="line">        GPIO.output(LCD_D5,<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x04</span> == <span class="number">0x04</span>:</span><br><span class="line">        GPIO.output(LCD_D6,<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x08</span> == <span class="number">0x08</span>:</span><br><span class="line">        GPIO.output(LCD_D7,<span class="literal">True</span>)</span><br><span class="line">    lcd_toggle_enable()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">lcd_init</span>():</span><br><span class="line">    lcd_byte(<span class="number">0x33</span>,LCD_CMD)</span><br><span class="line">    lcd_byte(<span class="number">0x32</span>,LCD_CMD)</span><br><span class="line">    lcd_byte(<span class="number">0x01</span>,LCD_CMD)</span><br><span class="line">    lcd_byte(<span class="number">0x0f</span>,LCD_CMD)</span><br><span class="line">    lcd_byte(<span class="number">0x06</span>,LCD_CMD)</span><br><span class="line">    lcd_byte(LCD_LINE_1,LCD_CMD)</span><br><span class="line">    time.sleep(E_DELAY)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    GPIO.setwarnings(<span class="literal">False</span>)</span><br><span class="line">    GPIO.setmode(GPIO.BCM)</span><br><span class="line">    GPIO.setup(LCD_E,GPIO.OUT)</span><br><span class="line">    GPIO.setup(LCD_RS,GPIO.OUT)</span><br><span class="line">    GPIO.setup(LCD_D4,GPIO.OUT)</span><br><span class="line">    GPIO.setup(LCD_D5,GPIO.OUT)</span><br><span class="line">    GPIO.setup(LCD_D6,GPIO.OUT)</span><br><span class="line">    GPIO.setup(LCD_D7,GPIO.OUT)</span><br><span class="line">    lcd_init()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(like)):</span><br><span class="line">        lcd_byte(<span class="built_in">ord</span>(like[i]),LCD_CHR)</span><br><span class="line">        time.sleep(<span class="number">0.05</span>)</span><br><span class="line">    lcd_byte(LCD_LINE_2,LCD_CMD)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(lu)):</span><br><span class="line">        lcd_byte(<span class="built_in">ord</span>(lu[i]),LCD_CHR)</span><br><span class="line">        time.sleep(<span class="number">0.05</span>)</span><br><span class="line">        </span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+
+<p><strong>看看效果吧</strong></p>
+<p><img src="/2023/03/16/raspberry-400/IMG_20230418_143304.jpg" alt="IMG_20230418_143304"></p>
+<p><strong>开头的显示没有问题，但是第二行出现了乱码。</strong></p>
+<p><img src="/2023/03/16/raspberry-400/IMG_20230418_142443.jpg" alt="IMG_20230418_142443"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">JavaScript入门</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-01-27 14:37:19" itemprop="dateCreated datePublished" datetime="2023-01-27T14:37:19+08:00">2023-01-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>8.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h3 id="alert—控制浏览器弹出警告框"><a href="#alert—控制浏览器弹出警告框" class="headerlink" title="alert—控制浏览器弹出警告框"></a>alert—控制浏览器弹出警告框</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="title function_">alert</span>(<span class="string">&quot;你好世界&quot;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230127144935599.png" alt="image-20230127144935599"></p>
+<h3 id="document-write—向body中输出一个内容"><a href="#document-write—向body中输出一个内容" class="headerlink" title="document.write—向body中输出一个内容"></a>document.write—向body中输出一个内容</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&quot;你好世界&quot;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230127145807827.png" alt="image-20230127145807827"></p>
+<h3 id="console-log—向控制台输出内容"><a href="#console-log—向控制台输出内容" class="headerlink" title="console.log—向控制台输出内容"></a>console.log—向控制台输出内容</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;你好世界&quot;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230127154535686.png" alt="image-20230127154535686"></p>
+<h3 id="button—按钮"><a href="#button—按钮" class="headerlink" title="button—按钮"></a>button—按钮</h3><p><strong>可以将js编写到button标签的onlick属性中，当我们点击按钮时候，js代码才会执行</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;alert(&#x27;你干嘛~哈哈~诶哟&#x27;)&quot;</span>&gt;</span>点我一下<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230127175516056.png" alt="image-20230127175516056"></p>
+<h3 id="href—可以把js代码写入href属性中"><a href="#href—可以把js代码写入href属性中" class="headerlink" title="href—可以把js代码写入href属性中"></a>href—可以把js代码写入href属性中</h3><p><strong>这样点击超链接，就会执行js代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:alert(&#x27;你干嘛~哈哈~诶哟&#x27;);&quot;</span>&gt;</span>点我一下<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230127180038954.png" alt="image-20230127180038954"></p>
+<h3 id="script—标签引入外部js文件"><a href="#script—标签引入外部js文件" class="headerlink" title="script—标签引入外部js文件"></a>script—标签引入外部js文件</h3><p><strong>写到外部文件中可以在不同的页面中同时引用，也可以利用到浏览器的缓存机制，推荐使用</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;script.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230127181115462.png" alt="image-20230127181115462"></p>
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230127181039767.png" alt="image-20230127181039767"></p>
+<p><strong>script标签一旦用于引入外部文件，就不能编写内部代码了，即使有也会被浏览器忽略，如果需要则可以再创建一个新的script标签用于编写内部代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;script.js&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="title function_">alert</span>(<span class="string">&quot;我是内部js标签&quot;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230127181828388.png" alt="image-20230127181828388"></p>
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230127181549688.png" alt="image-20230127181549688"></p>
+<h3 id="toString—调用数据类型的方法"><a href="#toString—调用数据类型的方法" class="headerlink" title="toString—调用数据类型的方法"></a>toString—调用数据类型的方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> a = <span class="number">123</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> b = a.<span class="title function_">toString</span>();</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> b);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230129010048594.png" alt="image-20230129010048594"></p>
+<h3 id="string-—直接调用函数"><a href="#string-—直接调用函数" class="headerlink" title="string()—直接调用函数"></a>string()—直接调用函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> a = <span class="number">123</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> b = <span class="title class_">String</span>(a);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> b);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230129010239358.png" alt="image-20230129010239358"></p>
+<h3 id="Number-—直接调用函数"><a href="#Number-—直接调用函数" class="headerlink" title="Number()—直接调用函数"></a>Number()—直接调用函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> a = <span class="string">&quot;123&quot;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> b = <span class="title class_">Number</span>(a);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> b);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230129010534088.png" alt="image-20230129010534088"></p>
+<h3 id="parseInt-—该函数将字符串的有效的整数提取出来"><a href="#parseInt-—该函数将字符串的有效的整数提取出来" class="headerlink" title="parseInt()—该函数将字符串的有效的整数提取出来"></a>parseInt()—该函数将字符串的有效的整数提取出来</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> a = <span class="string">&quot;123.ab&quot;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> b = <span class="built_in">parseInt</span>(a);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> b);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230129011133454.png" alt="image-20230129011133454"></p>
+<h3 id="parseFloat-—取有效的小数"><a href="#parseFloat-—取有效的小数" class="headerlink" title="parseFloat()—取有效的小数"></a>parseFloat()—取有效的小数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> a = <span class="string">&quot;123.456.789ab&quot;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> b = <span class="built_in">parseFloat</span>(a);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> b);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230129011328896.png" alt="image-20230129011328896"></p>
+<h3 id="Boolean-—该函数可以转成字符串"><a href="#Boolean-—该函数可以转成字符串" class="headerlink" title="Boolean()—该函数可以转成字符串"></a>Boolean()—该函数可以转成字符串</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> a = <span class="number">123</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> b = <span class="title class_">Boolean</span>(a);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> b);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230129121729902.png" alt="image-20230129121729902"></p>
+<h3 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h3><p><strong>js里面可以直接使用Unicode编码，在html里面需要换算成为10进制而且用放在&amp;#后面</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;\u2620&quot;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">&quot;font-size: 200px;&quot;</span>&gt;</span>&amp;#9760<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230129200707329.png" alt="image-20230129200707329"></p>
+<h3 id="isNaN-—使用该函数判断是不是NaN"><a href="#isNaN-—使用该函数判断是不是NaN" class="headerlink" title="isNaN()—使用该函数判断是不是NaN"></a>isNaN()—使用该函数判断是不是NaN</h3><p><strong>如果是NaN，则返回true</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> a = <span class="title class_">NaN</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="built_in">isNaN</span>(a));</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230129203436249.png" alt="image-20230129203436249"></p>
+<h3 id="prompt-—接收键盘输入"><a href="#prompt-—接收键盘输入" class="headerlink" title="prompt()—接收键盘输入"></a>prompt()—接收键盘输入</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> a = <span class="title function_">prompt</span>(<span class="string">&quot;输入你的年龄：&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="title function_">alert</span>(a);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230130185410670.png" alt="image-20230130185410670"></p>
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230130185422027.png" alt="image-20230130185422027"></p>
+<h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> a = <span class="title function_">prompt</span>(<span class="string">&quot;输入你的成绩：&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">if</span>(a == <span class="number">100</span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="title function_">alert</span>(<span class="string">&quot;奖励宝马一辆&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(a &gt;= <span class="number">80</span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="title function_">alert</span>(<span class="string">&quot;奖励一台手机&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(a &gt;= <span class="number">60</span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="title function_">alert</span>(<span class="string">&quot;奖励十年模拟，三年高考试卷100套&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;<span class="keyword">else</span>&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="title function_">alert</span>(<span class="string">&quot;奖励棍子打断！！！&quot;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230130193948675.png" alt="image-20230130193948675"></p>
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230130193957418.png" alt="image-20230130193957418"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> a = <span class="title function_">prompt</span>(<span class="string">&quot;输入你的成绩：&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">if</span>(a &gt; <span class="number">100</span> || a &lt; <span class="number">0</span> || <span class="built_in">isNaN</span>(a))&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="title function_">alert</span>(<span class="string">&quot;拖出去毙了！！！&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;<span class="keyword">else</span>&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="keyword">if</span>(a == <span class="number">100</span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="title function_">alert</span>(<span class="string">&quot;奖励宝马一辆&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(a &gt;= <span class="number">80</span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="title function_">alert</span>(<span class="string">&quot;奖励一台手机&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(a &gt;= <span class="number">60</span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="title function_">alert</span>(<span class="string">&quot;奖励十年模拟，三年高考试卷100套&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;<span class="keyword">else</span>&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="title function_">alert</span>(<span class="string">&quot;奖励棍子打断！！！&quot;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"> </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230130194424865.png" alt="image-20230130194424865"></p>
+<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;<span class="built_in">head</span>&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">            var a = Number(prompt(<span class="string">&quot;输入1-3其中之一的数字：&quot;</span>));</span><br><span class="line">            switch(a)&#123;</span><br><span class="line">                <span class="keyword">case</span> 1:</span><br><span class="line">                    console.log(<span class="string">&quot;壹&quot;</span>);</span><br><span class="line">                    <span class="built_in">break</span>;</span><br><span class="line">                <span class="keyword">case</span> 2:</span><br><span class="line">                    console.log(<span class="string">&quot;贰&quot;</span>);</span><br><span class="line">                    <span class="built_in">break</span>;</span><br><span class="line">                <span class="keyword">case</span> 3:</span><br><span class="line">                    console.log(<span class="string">&quot;叁&quot;</span>);</span><br><span class="line">                    <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230130213105881.png" alt="image-20230130213105881"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;<span class="built_in">head</span>&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">            var a = Number(prompt(<span class="string">&quot;输入你的成绩0~100：&quot;</span>));</span><br><span class="line">            switch(parseInt(a/10))&#123;</span><br><span class="line">                <span class="keyword">case</span> 10:</span><br><span class="line">                <span class="keyword">case</span> 9:</span><br><span class="line">                <span class="keyword">case</span> 8:</span><br><span class="line">                <span class="keyword">case</span> 7:</span><br><span class="line">                <span class="keyword">case</span> 6:</span><br><span class="line">                    console.log(<span class="string">&quot;合格&quot;</span>);</span><br><span class="line">                    <span class="built_in">break</span>;</span><br><span class="line">                default:</span><br><span class="line">                    console.log(<span class="string">&quot;不合格&quot;</span>);</span><br><span class="line">                    <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230130221606311.png" alt="image-20230130221606311"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;<span class="built_in">head</span>&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">            var a = Number(prompt(<span class="string">&quot;输入你的成绩0~100：&quot;</span>));</span><br><span class="line">            switch(<span class="literal">true</span>)&#123;</span><br><span class="line">                <span class="keyword">case</span> a &gt;= 60:</span><br><span class="line">                    console.log(<span class="string">&quot;合格&quot;</span>);</span><br><span class="line">                    <span class="built_in">break</span>;</span><br><span class="line">                default:</span><br><span class="line">                    console.log(<span class="string">&quot;不合格&quot;</span>);</span><br><span class="line">                    <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230130221811910.png" alt="image-20230130221811910"></p>
+<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> a = <span class="number">1</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">while</span>(a &lt;= <span class="number">10</span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="variable language_">document</span>.<span class="title function_">write</span>(a++ +<span class="string">&quot;&lt;/br/&gt;&quot;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230201001654609.png" alt="image-20230201001654609"></p>
+<h3 id="do…while"><a href="#do…while" class="headerlink" title="do…while"></a>do…while</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">var</span> a = <span class="number">1</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="keyword">do</span>&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="variable language_">document</span>.<span class="title function_">write</span>(a++ +<span class="string">&quot;&lt;br/&gt;&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;<span class="keyword">while</span>(a &lt;= <span class="number">10</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/27/JavaScript%E5%85%A5%E9%97%A8/image-20230201002041684.png" alt="image-20230201002041684"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/2023/01/14/pte/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/01/14/pte/" class="post-title-link" itemprop="url">pte</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-01-14 15:05:59" itemprop="dateCreated datePublished" datetime="2023-01-14T15:05:59+08:00">2023-01-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/01/14/pte/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/01/14/pte/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>651</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<p><strong>把下载好的<code>pte81-85</code>解压到&#x2F;root目录下，知道<code>pte81-85</code>解压后是一个<code>www</code>目录</strong></p>
+<p><strong>将<code>tutum/apache-php</code>pull下来</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull tutum/apache-php</span><br></pre></td></tr></table></figure>
+
+<p><strong>然后把<code>/root/www</code>下的每一个文件夹分别对应81，82，83，84，85这五个端口即可</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 81:80 --name=pte_81 -v /root/www/0x1oa/:/app  tutum/apache-php</span><br><span class="line">docker run -d -p 82:80 --name=pte_82 -v /root/www/md3oa/:/app  tutum/apache-php</span><br><span class="line">docker run -d -p 83:80 --name=pte_83 -v /root/www/mk2po/:/app  tutum/apache-php</span><br><span class="line">docker run -d -p 84:80 --name=pte_84 -v /root/www/oj5fp/:/app  tutum/apache-php</span><br><span class="line">docker run -d -p 85:80 --name=pte_85 -v /root/www/zo4m1/:/app  tutum/apache-php</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -A -sV -T4 -p- 192.168.241.134</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/14/pte/image-20230114194132350.png" alt="image-20230114194132350"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirsearch -u http://192.168.241.134:27689</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/01/14/pte/image-20230114194559985.png" alt="image-20230114194559985"></p>
+<p><strong>看<code>/robots.txt</code>和<code>/web.config.bak</code>通过<code>/web.config.bak</code>可得知数据库的账号和密码</strong></p>
+<p><img src="/2023/01/14/pte/image-20230114195354272.png" alt="image-20230114195354272"></p>
+<ul>
+<li><strong>账号:down</strong></li>
+<li><strong>密码:downsql</strong></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://username.github.io/2023/01/08/window%E7%AB%AF%E6%9C%89%E8%B6%A3%E7%9A%84%E8%BD%AF%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -208,7 +729,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+                <time title="修改时间：2023-05-24 02:29:13" itemprop="dateModified" datetime="2023-05-24T02:29:13+08:00">2023-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,7 +761,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>135</span>
+              <span>147</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -280,7 +801,8 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN">v2rayn</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fq 软件</span><br></pre></td></tr></table></figure>
 
-
+<p><a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash/releases">clash</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clash猫</span><br></pre></td></tr></table></figure>
 
 
 
@@ -1066,7 +1588,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-12 01:12:23" itemprop="dateModified" datetime="2023-05-12T01:12:23+08:00">2023-05-12</time>
+                <time title="修改时间：2023-06-07 02:01:02" itemprop="dateModified" datetime="2023-06-07T02:01:02+08:00">2023-06-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1126,378 +1648,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/" class="post-title-link" itemprop="url">版本切换工具篇</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-23 00:22:19" itemprop="dateCreated datePublished" datetime="2022-11-23T00:22:19+08:00">2022-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-12 01:13:12" itemprop="dateModified" datetime="2023-05-12T01:13:12+08:00">2023-05-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          这里有东西被加密了，需要输入密码查看哦。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/11/23/%E6%B8%97%E9%80%8F-and-web/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/" class="post-title-link" itemprop="url">渗透 and web</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-23 00:22:19" itemprop="dateCreated datePublished" datetime="2022-11-23T00:22:19+08:00">2022-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-12 01:13:19" itemprop="dateModified" datetime="2023-05-12T01:13:19+08:00">2023-05-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%94%BB%E9%98%B2/" itemprop="url" rel="index"><span itemprop="name">攻防</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>52k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>47 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          这里有东西被加密了，需要输入密码查看哦。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://username.github.io/2022/09/04/linux%E5%B0%8F%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/04/linux%E5%B0%8F%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">linux小知识</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-09-04 11:37:06" itemprop="dateCreated datePublished" datetime="2022-09-04T11:37:06+08:00">2022-09-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-08 21:55:26" itemprop="dateModified" datetime="2023-05-08T21:55:26+08:00">2023-05-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux%E5%B0%8F%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">Linux小知识</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/09/04/linux%E5%B0%8F%E7%9F%A5%E8%AF%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/09/04/linux%E5%B0%8F%E7%9F%A5%E8%AF%86/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>13k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>12 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h1 id="free"><a href="#free" class="headerlink" title="free"></a>free</h1><p>检测系统内存<code>Mem</code>和交换空间<code>swap</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># free -h</span></span><br><span class="line">              total        used        free      shared  buff/cache   available</span><br><span class="line">Mem:          7.7Gi       405Mi       6.8Gi        17Mi       481Mi       7.1Gi</span><br><span class="line">Swap:         1.0Gi          0B       1.0Gi</span><br></pre></td></tr></table></figure>
-
-<p>total:内存总大小</p>
-<p>used:已用</p>
-<p>free:空闲</p>
-<p>available:可用</p>
-<p>swap:交换</p>
-<h1 id="hdparm"><a href="#hdparm" class="headerlink" title="hdparm"></a>hdparm</h1><p>检查磁盘性能，指定-t选项检查磁盘（评估硬盘的读取效率(不经过磁盘cache)），指定-T 平估硬盘快取的读取效率</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># hdparm -t /dev/mmcblk0</span></span><br><span class="line"></span><br><span class="line">/dev/mmcblk0:</span><br><span class="line"> HDIO_DRIVE_CMD(identify) failed: Invalid argument</span><br><span class="line"> Timing buffered disk reads: 132 MB <span class="keyword">in</span>  3.02 seconds =  43.65 MB/sec</span><br><span class="line"></span><br><span class="line">root@raspbian:~<span class="comment"># hdparm -tT /dev/mmcblk0</span></span><br><span class="line"></span><br><span class="line">/dev/mmcblk0:</span><br><span class="line"> Timing cached reads:   1914 MB <span class="keyword">in</span>  2.00 seconds = 958.37 MB/sec</span><br><span class="line"> HDIO_DRIVE_CMD(identify) failed: Invalid argument</span><br><span class="line"> Timing buffered disk reads: 132 MB <span class="keyword">in</span>  3.03 seconds =  43.63 MB/sec</span><br></pre></td></tr></table></figure>
-
-<h1 id="查找命令在哪个软件包"><a href="#查找命令在哪个软件包" class="headerlink" title="查找命令在哪个软件包"></a>查找命令在哪个软件包</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 比如说我需要iostat</span></span><br><span class="line">root@raspbian:~<span class="comment"># apt-cache search iostat</span></span><br><span class="line">dstat - versatile resource statistics tool</span><br><span class="line">ganglia-modules-linux - Ganglia extra modules <span class="keyword">for</span> Linux (IO, filesystems, multicpu)</span><br><span class="line">ifstat - InterFace STATistics Monitoring</span><br><span class="line">nicstat - <span class="built_in">print</span> network traffic statistics</span><br><span class="line">pcp-import-iostat2pcp - Tool <span class="keyword">for</span> importing data from iostat into PCP archive logs</span><br><span class="line">r-cran-epi - GNU R epidemiological analysis</span><br><span class="line">r-cran-epibasix - GNU R Elementary Epidemiological Functions</span><br><span class="line">r-cran-kmi - GNU R Kaplan-Meier Multiple Imputation</span><br><span class="line">r-cran-rms - GNU R regression modeling strategies by Frank Harrell</span><br><span class="line">sysstat - system performance tools <span class="keyword">for</span> Linux</span><br><span class="line"></span><br><span class="line"><span class="comment"># 挑一个吧</span></span><br><span class="line">root@raspbian:~<span class="comment"># apt-get install sysstat</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="iostat"><a href="#iostat" class="headerlink" title="iostat"></a>iostat</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># iostat</span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"><span class="comment">#cpu使用情况</span></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.75    0.00    0.45    0.09    0.00   98.71</span><br><span class="line"><span class="comment">#磁盘使用情况</span></span><br><span class="line">Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">mmcblk0           2.71       136.86        24.05    1074327     188817</span><br></pre></td></tr></table></figure>
-
-<p>-c:显示cpu使用情况</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2秒5次列出cpu情况</span></span><br><span class="line">root@raspbian:~<span class="comment"># iostat -c 2 5</span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.75    0.00    0.44    0.08    0.00   98.73</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.37    0.00    0.25    0.00    0.00   99.38</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.13    0.00    0.13    0.00    0.00   99.75</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.25    0.00    0.12    0.00    0.00   99.62</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.12    0.00    0.38    0.00    0.00   99.50</span><br></pre></td></tr></table></figure>
-
-<p>-d:磁盘使用情况</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2秒3次</span></span><br><span class="line">root@raspbian:~<span class="comment"># iostat -d 2 3</span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"></span><br><span class="line">Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">mmcblk0           2.53       124.41        22.50    1074327     194285</span><br><span class="line"></span><br><span class="line">Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">mmcblk0           3.00         0.00        16.00          0         32</span><br><span class="line"></span><br><span class="line">Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">mmcblk0           1.00         0.00        36.00          0         72</span><br></pre></td></tr></table></figure>
-
-<p>-x:指定磁盘设备名称</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定/dev/mmcblk0磁盘设备2秒3次</span></span><br><span class="line">root@raspbian:~<span class="comment"># iostat -dx /dev/mmcblk0 2 3</span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"></span><br><span class="line">Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util</span><br><span class="line">mmcblk0          1.45    1.00    118.12     21.71     0.77     1.31  34.61  56.73    5.45   10.22   0.02    81.67    21.76   2.42   0.59</span><br><span class="line"></span><br><span class="line">Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util</span><br><span class="line">mmcblk0          0.00    0.00      0.00      0.00     0.00     0.00   0.00   0.00    0.00    0.00   0.00     0.00     0.00   0.00   0.00</span><br><span class="line"></span><br><span class="line">Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util</span><br><span class="line">mmcblk0          0.00    7.50      0.00     34.00     0.00     1.00   0.00  11.76    0.00    7.00   0.05     0.00     4.53   0.80   0.60</span><br></pre></td></tr></table></figure>
-
-<h1 id="sar"><a href="#sar" class="headerlink" title="sar"></a>sar</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># sar -u 2 5 </span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"></span><br><span class="line">10:32:27 AM     CPU     %user     %<span class="built_in">nice</span>   %system   %iowait    %steal     %idle</span><br><span class="line">10:32:29 AM     all      1.38      0.00      1.00      0.00      0.00     97.62</span><br><span class="line">10:32:31 AM     all      7.50      0.00      1.38      0.00      0.00     91.12</span><br><span class="line">10:32:33 AM     all      0.25      0.00      0.87      0.00      0.00     98.88</span><br><span class="line">10:32:35 AM     all      0.25      0.00      0.00      0.00      0.00     99.75</span><br><span class="line">10:32:37 AM     all      0.50      0.00      0.13      0.00      0.00     99.37</span><br><span class="line">Average:        all      1.97      0.00      0.67      0.00      0.00     97.35</span><br></pre></td></tr></table></figure>
-
-<h1 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h1><p>查看端口服务，-i查看对应端口服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># lsof -i:22</span></span><br><span class="line">COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME</span><br><span class="line">sshd      834 root    3u  IPv4  26704      0t0  TCP *:ssh (LISTEN)</span><br><span class="line">sshd      834 root    4u  IPv6  26706      0t0  TCP *:ssh (LISTEN)</span><br><span class="line">BT-Panel 1147 root   13u  IPv4  43447      0t0  TCP raspbian:11716-&gt;raspbian:ssh (ESTABLISHED)</span><br><span class="line">sshd     4694 root    3u  IPv4  42753      0t0  TCP raspbian:ssh-&gt;raspbian:11716 (ESTABLISHED)</span><br></pre></td></tr></table></figure>
-
-<h1 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># netstat </span></span><br><span class="line">Active Internet connections (w/o servers)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State      </span><br><span class="line">tcp        0      6 10.71.10.25:8101        10.68.65.140:5937       ESTABLISHED</span><br><span class="line">tcp        0    176 raspbian:ssh            raspbian:11716          ESTABLISHED</span><br><span class="line">tcp      160      0 raspbian:11716          raspbian:ssh            ESTABLISHED</span><br><span class="line">Active UNIX domain sockets (w/o servers)</span><br><span class="line">Proto RefCnt Flags       Type       State         I-Node   Path</span><br><span class="line">unix  2      [ ]         DGRAM                    43560    /run/user/0/systemd/notify</span><br><span class="line">unix  3      [ ]         DGRAM                    15265    /run/systemd/notify</span><br><span class="line">unix  16     [ ]         DGRAM                    15276    /run/systemd/journal/dev-log</span><br><span class="line">unix  2      [ ]         DGRAM                    15282    /run/systemd/journal/syslog</span><br><span class="line">unix  7      [ ]         DGRAM                    15291    /run/systemd/journal/socket</span><br><span class="line">unix  2      [ ]         DGRAM                    24174    @00001</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22269    </span><br><span class="line">unix  2      [ ]         DGRAM                    27827    </span><br><span class="line">unix  2      [ ]         DGRAM                    22165    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21099    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22163    </span><br><span class="line">unix  2      [ ]         DGRAM                    22143    </span><br><span class="line">unix  2      [ ]         DGRAM                    22139    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22433    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22432    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     19284    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26018    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26017    </span><br><span class="line">unix  2      [ ]         DGRAM                    25873    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25871    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25870    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18705    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     27250    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25862    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     30216    /run/containerd/containerd.sock.ttrpc</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     32039    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18236    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     29646    /run/containerd/containerd.sock.ttrpc</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20201    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     32038    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20289    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     29570    /run/containerd/s/efda43ab145a8b986f0fd3455c3b2956d5def686d2807c67031ad6563f9958db</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     31928    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     24063    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20541    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     27836    </span><br><span class="line">unix  2      [ ]         DGRAM                    16406    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20777    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     43564    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21400    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20542    </span><br><span class="line">unix  2      [ ]         DGRAM                    14168    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21401    </span><br><span class="line">unix  2      [ ]         DGRAM                    18426    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     44613    /run/systemd/journal/stdout</span><br><span class="line">unix  2      [ ]         DGRAM                    18148    </span><br><span class="line">unix  2      [ ]         DGRAM                    43546    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     24181    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18312    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18430    </span><br><span class="line">unix  2      [ ]         DGRAM                    41797    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     28070    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18313    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21097    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     17383    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         DGRAM                    15267    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25700    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     43538    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     17927    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25701    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     41806    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18147    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     16734    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20214    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         DGRAM                    15266    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     14309    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         DGRAM                    43561    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     27733    </span><br><span class="line">unix  2      [ ]         DGRAM                    16736    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26790    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         DGRAM                    16739    </span><br><span class="line">unix  2      [ ]         DGRAM                    43549    </span><br><span class="line">unix  2      [ ]         STREAM     CONNECTED     41786    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25802    </span><br><span class="line">unix  3      [ ]         DGRAM                    16740    </span><br><span class="line">unix  3      [ ]         DGRAM                    43562    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26994    /run/systemd/journal/stdout</span><br><span class="line">unix  2      [ ]         DGRAM                    20539    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20421    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21092    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18951    </span><br><span class="line">unix  2      [ ]         DGRAM                    23682    </span><br><span class="line">unix  2      [ ]         DGRAM                    20376    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26990    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21100    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18774    </span><br><span class="line">unix  2      [ ]         DGRAM                    23957    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26995    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21091    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22616    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21096    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18237    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25678    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21101    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     29575    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21083    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20213    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     24486    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20428    </span><br><span class="line">unix  2      [ ]         DGRAM                    21055    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     28819    /run/containerd/containerd.sock</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21098    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21056    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18933    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     23569    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21035    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21095    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22801    /run/systemd/journal/stdout</span><br><span class="line">unix  2      [ ]         DGRAM                    21054    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21093    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     19104    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     28821    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21034    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21094    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     28525    /run/containerd/containerd.sock</span><br><span class="line">unix  2      [ ]         DGRAM                    19014    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20929    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     23753    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     31073    /run/containerd/s/f173b4c37ec27fe764ea6843063c75576d07f7ac21d51986b75d8e816f41033e</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18929    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     24056    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26698    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20778    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18853    </span><br><span class="line">unix  2      [ ]         DGRAM                    23961    </span><br><span class="line">unix  2      [ ]         DGRAM                    18992    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20853 </span><br></pre></td></tr></table></figure>
-
-<h1 id="top、htop"><a href="#top、htop" class="headerlink" title="top、htop"></a>top、htop</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># top</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># htop</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="last"><a href="#last" class="headerlink" title="last"></a>last</h1><p>last可用查看用户登录系统的记录，包括用户名、登录的远程名称或者ip地址以及登录时间。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># last</span></span><br><span class="line">root     pts/0        127.0.0.1        Sun Sep  4 09:43   still logged <span class="keyword">in</span></span><br><span class="line">root     pts/0        127.0.0.1        Sun Sep  4 09:16 - 09:36  (00:20)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00   still running</span><br><span class="line">root     pts/0        10.8.3.28        Sat Sep  3 10:07 - 10:07  (00:00)</span><br><span class="line">root     pts/0        127.0.0.1        Sat Sep  3 09:13 - 09:15  (00:01)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00   still running</span><br><span class="line">root     pts/0        10.8.3.28        Fri Sep  2 13:17 - crash (-19237+05:17)</span><br><span class="line">root     pts/1        127.0.0.1        Thu Sep  1 10:42 - 10:51  (00:08)</span><br><span class="line">root     pts/0        10.8.3.28        Thu Sep  1 10:10 - 13:45  (03:35)</span><br><span class="line">root     pts/1        10.71.22.140     Thu Sep  1 08:55 - 09:33  (00:38)</span><br><span class="line">root     pts/1        10.71.22.140     Thu Sep  1 08:40 - 08:54  (00:14)</span><br><span class="line">root     pts/0        10.71.22.140     Thu Sep  1 08:38 - 09:33  (00:55)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00   still running</span><br><span class="line">root     pts/0        10.8.3.28        Wed Aug 31 23:58 - crash (-19235+15:58)</span><br><span class="line">root     pts/1        10.8.3.28        Wed Aug 31 23:13 - crash (-19235+15:13)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:11 - 23:50  (00:38)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:06 - 23:11  (00:04)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:03 - 23:06  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:02 - 23:02  (00:00)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:00 - 23:02  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 22:57 - 22:58  (00:01)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 22:54 - 22:56  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 22:31 - 22:52  (00:21)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:28 - 14:29  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:28 - 14:28  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:19 - 14:19  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:19 - 14:19  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:16 - 14:19  (00:02)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00   still running</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:14 - down   (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:13 - 14:14  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:10 - 14:13  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 22:26 - 14:10  (15:43)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 20:46 - 22:26  (01:39)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 20:42 - 20:45  (00:02)</span><br><span class="line">root     pts/2        10.67.44.114     Tue Aug 30 20:11 - 20:13  (00:01)</span><br><span class="line">root     pts/2        127.0.0.1        Tue Aug 30 20:09 - 20:10  (00:01)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 18:33 - 20:31  (01:58)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 17:31 - 18:33  (01:01)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 16:49 - 16:58  (00:09)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 15:57 - 16:27  (00:30)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 14:56 - 15:06  (00:10)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 14:48 - 14:51  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 14:36 - 14:44  (00:08)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 14:21 - 14:24  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 13:34 - 14:20  (00:45)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 13:13 - 13:14  (00:00)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 12:43 - 13:13  (00:29)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 12:31 - 12:39  (00:08)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 14:14 (19235+06:14)</span><br><span class="line">root     pts/1        127.0.0.1        Tue Aug 30 12:12 - down   (00:17)</span><br><span class="line">root     pts/1        127.0.0.1        Tue Aug 30 12:12 - 12:12  (00:00)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 12:10 - down   (00:19)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 12:30 (19234+04:30)</span><br><span class="line">root     pts/0        127.0.0.1        Mon Aug 29 08:57 - 10:01  (01:04)</span><br><span class="line">root     pts/0        127.0.0.1        Mon Aug 29 08:49 - 08:57  (00:08)</span><br><span class="line">root     pts/0        127.0.0.1        Mon Aug 29 08:16 - 08:17  (00:01)</span><br><span class="line">root     pts/0        127.0.0.1        Mon Aug 29 08:16 - 08:16  (00:00)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 12:30 (19234+04:30)</span><br><span class="line">root     pts/0        10.8.3.28        Sun Aug 28 21:53 - 22:10  (00:17)</span><br><span class="line">root     pts/0        10.8.3.28        Sun Aug 28 20:17 - 21:44  (01:27)</span><br><span class="line">root     pts/0        10.8.3.28        Sun Aug 28 20:12 - 20:12  (00:00)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 12:30 (19234+04:30)</span><br><span class="line">root     pts/0        192.168.1.100    Sun Aug 28 13:27 - crash (-19232+05:27)</span><br><span class="line">pi       pts/0        192.168.1.100    Sun Aug 28 01:10 - 01:15  (00:04)</span><br><span class="line">root     pts/1        127.0.0.1        Sun Aug 28 00:45 - 00:45  (00:00)</span><br><span class="line">root     pts/1        127.0.0.1        Sun Aug 28 00:45 - 00:45  (00:00)</span><br><span class="line">pi       pts/0        192.168.1.100    Sun Aug 28 00:30 - 01:09  (00:38)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 12:30 (19234+04:30)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 18:13 (17941+10:13)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 18:12 (17941+10:12)</span><br><span class="line"></span><br><span class="line">wtmp begins Thu Jan  1 08:00:03 1970</span><br></pre></td></tr></table></figure>
-
-<h1 id="ulimit"><a href="#ulimit" class="headerlink" title="ulimit"></a>ulimit</h1><blockquote>
-<p>Too many open files是Linux系统中常见的错误，从字面意思上看就是说程序打开的文件数过多，不过这里的files不单是文件的意思，也包括打开的通讯链接(比如socket)，正在监听的端口等等，所以有时候也可以叫做句柄(handle)，这个错误通常也可以叫做句柄数超出系统限制。引起的原因就是进程在某个时刻打开了超过系统限制的文件数量以及通讯链接数。</p>
-</blockquote>
-<p>通过命令ulimit -a可以查看当前系统设置的最大句柄数是多少</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">core file size          (blocks, -c) 0</span><br><span class="line">data seg size           (kbytes, -d) unlimited</span><br><span class="line">scheduling priority             (-e) 0</span><br><span class="line">file size               (blocks, -f) unlimited</span><br><span class="line">pending signals                 (-i) 31767</span><br><span class="line">max locked memory       (kbytes, -l) 64</span><br><span class="line">max memory size         (kbytes, -m) unlimited</span><br><span class="line">open files                      (-n) 1024</span><br><span class="line">pipe size            (512 bytes, -p) 8</span><br><span class="line">POSIX message queues     (bytes, -q) 819200</span><br><span class="line">real-time priority              (-r) 0</span><br><span class="line">stack size              (kbytes, -s) 8192</span><br><span class="line">cpu time               (seconds, -t) unlimited</span><br><span class="line">max user processes              (-u) 31767</span><br><span class="line">virtual memory          (kbytes, -v) unlimited</span><br><span class="line">file locks                      (-x) unlimited</span><br></pre></td></tr></table></figure>
-
-<p>可以看到，open files的配置是1024，可以通过如下命令将open files增加</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ulimit</span> -n 65535</span><br></pre></td></tr></table></figure>
-
-<p>这种修改方式可以临时把文件打开数量增加到65535，但是系统重启后这个配置会失效。</p>
-<p>还有一种方式是修改系统的配置文件，以Ubuntu为例，配置文件默认在</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/security/limits.conf</span><br></pre></td></tr></table></figure>
-
-<p>在这个配置文件中增加</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* soft nofile 65535</span><br><span class="line">* hard nofile 65535</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -1587,20 +1737,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
