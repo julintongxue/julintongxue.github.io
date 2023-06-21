@@ -1588,7 +1588,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-10 16:49:00" itemprop="dateModified" datetime="2023-06-10T16:49:00+08:00">2023-06-10</time>
+                <time title="修改时间：2023-06-10 16:58:30" itemprop="dateModified" datetime="2023-06-10T16:58:30+08:00">2023-06-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1991,6 +1991,7 @@
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230610164453696.png" alt="image-20230610164453696"></p>
 <p><strong>用FM收音机接收107.9MHZ信号，可以听到文件声音</strong></p>
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230610164817.jpg" alt="微信图片_20230610164817"></p>
+<h4 id="增强播放效果"><a href="#增强播放效果" class="headerlink" title="增强播放效果"></a>增强播放效果</h4><p><strong>在树莓派 GPIO 4(物理引脚编号为7)接上一根长 20m 的杜邦线作为发射天线来增强 FM 信号,然后使用 FM(调频)收音机收听,在 1m 范围内音质很清晰，在3m 范围内仍然可以听得见,超过 3m 信号会很弱。</strong></p>
 <h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><h4 id="一、简介一下iptables"><a href="#一、简介一下iptables" class="headerlink" title="一、简介一下iptables"></a>一、简介一下iptables</h4><p><strong>iptables命令中ACCEPT（允许流量通过）、LOG（记录日志信息）、REJECT（拒绝流量通过）、DROP（拒绝流量通过）。允许动作和记录日志工作都比较好理解，着重需要讲解的是这两条拒绝动作的不同点，其中REJECT和DROP的动作操作都是把数据包拒绝，DROP是直接把数据包抛弃不响应，而REJECT会拒绝后再回复一条“您的信息我已收到，但被扔掉了”，让对方清晰的看到数据被拒绝的响应。</strong></p>
 <h4 id="四表五链"><a href="#四表五链" class="headerlink" title="四表五链"></a>四表五链</h4><h5 id="命令解释"><a href="#命令解释" class="headerlink" title="命令解释"></a>命令解释</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许192.168.1.0/24这个IP段的流量流进服务器的80端口</span></span><br><span class="line">iptables -I INPUT -s 192.168.1.0/24 -p tcp --dport 80 -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只允许本机22端口被192.168.1.0/24网段访问，其他流量均被拒绝。我们输入命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.1.0/24 -p tcp --dport 22 -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拒绝所有人访问本机4444到5555端口，输入命令：</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 4444:5555 -j REJECT</span><br><span class="line">iptables -A INPUT -p udp --dport 4444:5555 -j REJECT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除INPUT链中的第2条策略，首先我们看一下防火墙策略中的第二条策略是什么“iptables -L”，然后输入命令删除第2条策略：</span></span><br><span class="line">iptables -D INPUT 2</span><br></pre></td></tr></table></figure>
 
