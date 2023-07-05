@@ -5,129 +5,129 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 6.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/blog/css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"julintongxue.github.io","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"julintongxue.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="[toc] Raspberry玩法和心得入门&#x2F;萌新篇安装树莓派基地系统买回来一块树莓派4b裸板，首先得给它刷上系统。那么选官方的树莓派系统呢？还是选一个干净的ubuntu系统呢？嘿嘿，我们都不选，我们使用树莓派爱好者基地编译好的树莓派基地系统。里面集成了各种功能强大的图像化面板。 优化&#x2F;关闭多余服务安装宝塔服务宝塔面板下载，免费全能的服务器运维软件 (bt.cn) 进阶&amp;#x2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Raspberry玩法和心得">
-<meta property="og:url" content="https://julintongxue.github.io/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/index.html">
+<meta property="og:url" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/index.html">
 <meta property="og:site_name" content="orangeの博客">
 <meta property="og:description" content="[toc] Raspberry玩法和心得入门&#x2F;萌新篇安装树莓派基地系统买回来一块树莓派4b裸板，首先得给它刷上系统。那么选官方的树莓派系统呢？还是选一个干净的ubuntu系统呢？嘿嘿，我们都不选，我们使用树莓派爱好者基地编译好的树莓派基地系统。里面集成了各种功能强大的图像化面板。 优化&#x2F;关闭多余服务安装宝塔服务宝塔面板下载，免费全能的服务器运维软件 (bt.cn) 进阶&amp;#x2">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20220830135622620.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230205943.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230244687.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185458839.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185626671.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185652951.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111118092.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113335192.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111444649.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111500058.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111533209.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113423508.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217112021350.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113447754.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113513324.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113613574.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217120355525.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121055428.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121345778.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121804146.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121841038.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113613574.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217122052848.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217123031830.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217123149553.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217122542979.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145515476.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145856307.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145933639.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150044259.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150123098.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150153176.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150303388.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150521647.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150550571.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150605561.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150639242.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151023930.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151106422.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151213363.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202947555.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151636309.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328201940861.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202239098.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202522867.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182120848.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182250444.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182535583.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182649678.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183121714.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183224283.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183338376.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183615463.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183815397.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183910155.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183920184.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184044294.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184141529.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184202042.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328163059348.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328163207688.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429233559391.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234002039.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234447247.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234927301.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429235048919.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230610164626929.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230610164453696.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230610164817.jpg">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230607011823.jpg">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230607015948428.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145322917.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145655757.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145512096.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145901666.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145927673.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152044419.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152209456.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152254228.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152331011.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152719331.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152753361.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152913031.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152644711.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153030562.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153203212.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153328881.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508154432995.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160434284.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508155738554.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160220572.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160209860.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20220830135622620.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230205943.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230244687.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185458839.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185626671.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185652951.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111118092.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113335192.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111444649.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111500058.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111533209.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113423508.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217112021350.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113447754.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113513324.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113613574.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217120355525.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121055428.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121345778.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121804146.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121841038.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113613574.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217122052848.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217123031830.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217123149553.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217122542979.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145515476.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145856307.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145933639.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150044259.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150123098.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150153176.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150303388.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150521647.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150550571.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150605561.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150639242.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151023930.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151106422.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151213363.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202947555.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151636309.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328201940861.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202239098.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202522867.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182120848.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182250444.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182535583.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182649678.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183121714.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183224283.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183338376.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183615463.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183815397.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183910155.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183920184.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184044294.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184141529.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184202042.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328163059348.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328163207688.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429233559391.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234002039.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234447247.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234927301.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429235048919.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230610164626929.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230610164453696.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230610164817.jpg">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230607011823.jpg">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230607015948428.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145322917.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145655757.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145512096.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145901666.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145927673.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152044419.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152209456.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152254228.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152331011.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152719331.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152753361.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152913031.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152644711.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153030562.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153203212.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153328881.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508154432995.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160434284.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508155738554.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160220572.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160209860.png">
 <meta property="article:published_time" content="2022-11-22T16:22:19.000Z">
 <meta property="article:modified_time" content="2023-07-01T15:16:43.808Z">
 <meta property="article:author" content="涩橙子">
 <meta property="article:tag" content="树莓派">
 <meta property="article:tag" content="单片机">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://julintongxue.github.io/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20220830135622620.png">
+<meta name="twitter:image" content="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20220830135622620.png">
 
-<link rel="canonical" href="https://julintongxue.github.io/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/">
+<link rel="canonical" href="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/">
 
 
 <script id="page-configurations">
@@ -189,7 +189,7 @@
 
   <div class="site-meta">
 
-    <a href="/blog/" class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <h1 class="site-title">orangeの博客</h1>
       <span class="logo-line-after"><i></i></span>
@@ -209,47 +209,47 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">32</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">32</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
 
-    <a href="/blog/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
 
   </li>
         <li class="menu-item menu-item-追番">
 
-    <a href="/blog/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>追番</a>
+    <a href="/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>追番</a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
 
-    <a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
 
-    <a href="/blog/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
 
   </li>
   </ul>
@@ -280,10 +280,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/head.jpg">
+      <meta itemprop="image" content="/images/head.jpg">
       <meta itemprop="name" content="涩橙子">
       <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
     </span>
@@ -318,7 +318,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
+                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
                 </span>
             </span>
 
@@ -331,8 +331,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -418,12 +418,12 @@
 <p><strong>启动博客服务</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在orange目录里面，执行后去4000端口查看博客生成</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20220830135622620.png" alt="image-20220830135622620"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20220830135622620.png" alt="image-20220830135622620"></p>
 <h3 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h3><h4 id="临时获得访问GitHub"><a href="#临时获得访问GitHub" class="headerlink" title="临时获得访问GitHub"></a>临时获得访问GitHub</h4><p><strong>很多时候，我们使用终端去克隆下载GitHub的东西的时候，发现会被拒绝的现象出现，这个原因是我们国家的GFW在发挥着不可或缺的作用，那么Github在世界是有大量的CDN节点的，我们可以利用这个特性，让我们的终端临时性重新获得下载东西的能力。</strong></p>
 <p><strong>首先，访问<a target="_blank" rel="noopener" href="https://tool.lu/ip/">tool.lu</a>把域名的ip解析出来</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230205943.png" alt="image-20230125230205943"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230205943.png" alt="image-20230125230205943"></p>
 <p><strong>然后修改Linux系统的<code>/etc/hosts</code>文件</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230244687.png" alt="image-20230125230244687"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230244687.png" alt="image-20230125230244687"></p>
 <p><strong>那么终端就能临时性的访问Github的能力了。</strong></p>
 <h4 id="终端代理访问GitHub"><a href="#终端代理访问GitHub" class="headerlink" title="终端代理访问GitHub"></a>终端代理访问GitHub</h4><p><strong>如果你们设计了本地代理软件的话，可以把局域网共享打开然后让树莓派也获得访问GitHub能力，这样终端下载国外的deb包速度也是很快的(因为我不习惯换国内源，国内源删太多东西了，有些资源包说没有的时候比下的慢更难受)</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">proxy_on</span></span>() &#123;</span><br><span class="line">    <span class="built_in">export</span> http_proxy=http://your_ip:your_port</span><br><span class="line">    <span class="built_in">export</span> https_proxy=<span class="variable">$http_proxy</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;终端代理已开启。&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">proxy_off</span></span>()&#123;</span><br><span class="line">    <span class="built_in">unset</span> http_proxy https_proxy</span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;终端代理已关闭。&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -465,30 +465,30 @@
 <p><strong>安装</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./install</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185458839.png" alt="image-20230216185458839"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185458839.png" alt="image-20230216185458839"></p>
 <p><strong>敲下安装命令可以看到一个非常好看的安装界面，不要吐槽，这在linux算是貂蝉西施那样的尤物了。我们按下两下空格，等待安装包下载。。。</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185626671.png" alt="image-20230216185626671"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185626671.png" alt="image-20230216185626671"></p>
 <p><strong>下面是安装路径和启动用户（pi），我们按下空格确认，这样我就知道程序运行在哪里，运行程序的用户是谁了。</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185652951.png" alt="image-20230216185652951"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185652951.png" alt="image-20230216185652951"></p>
 <p><strong>选择种子。。。</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111118092.png" alt="image-20230217111118092"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111118092.png" alt="image-20230217111118092"></p>
 <p><strong>选择服务器是什么版本的我选择fabric的。。。因为我只会fabric，你们如果不会直接默认paper（人家优化好说不定。。。）</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113335192.png" alt="image-20230217113335192"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113335192.png" alt="image-20230217113335192"></p>
 <p><strong>模式选择生存模式</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111444649.png" alt="image-20230217111444649"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111444649.png" alt="image-20230217111444649"></p>
 <p><strong>同意一下协议</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111500058.png" alt="image-20230217111500058"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111500058.png" alt="image-20230217111500058"></p>
 <p><strong>它想写点东西进你的boot</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111533209.png" alt="image-20230217111533209"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111533209.png" alt="image-20230217111533209"></p>
 <p><strong>意思是。。。把你的树莓派超频到1.9Ghz，吃掉你的树莓派内存4398MB~5319MB，要记得你这我的世界的版本是1.16.5</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113423508.png" alt="image-20230217113423508"></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217112021350.png" alt="image-20230217112021350"></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113447754.png" alt="image-20230217113447754"></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113513324.png" alt="image-20230217113513324"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113423508.png" alt="image-20230217113423508"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217112021350.png" alt="image-20230217112021350"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113447754.png" alt="image-20230217113447754"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113513324.png" alt="image-20230217113513324"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htop</span><br></pre></td></tr></table></figure>
 
 <p><strong>可以看出mc吃内存和占用cpu很高</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113613574.png" alt="image-20230217113613574"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113613574.png" alt="image-20230217113613574"></p>
 <p>切换用户</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - pi</span><br></pre></td></tr></table></figure>
 
@@ -499,11 +499,11 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim server.properties</span><br></pre></td></tr></table></figure>
 
 <p><strong>改成false</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217120355525.png" alt="image-20230217120355525"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217120355525.png" alt="image-20230217120355525"></p>
 <p><strong>我们来看一下这个MC目录里面的结构</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121055428.png" alt="image-20230217121055428"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121055428.png" alt="image-20230217121055428"></p>
 <p><strong>里面有个叫server的执行文件，我们可以修改里面给java赋予的内存，可以把最小值改到1G即（1024M）</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121345778.png" alt="image-20230217121345778"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121345778.png" alt="image-20230217121345778"></p>
 <p><strong>我一般喜欢把能降低的都降低。。。尽量压缩使用内存留给更多后续服务</strong></p>
 <p><strong>然后执行停止命令</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./stop</span><br></pre></td></tr></table></figure>
@@ -514,63 +514,63 @@
 <p><strong>然后</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./server</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121804146.png" alt="image-20230217121804146"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121804146.png" alt="image-20230217121804146"></p>
 <p><strong>等待到100%就可以使用启动器进入我的世界了</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121841038.png" alt="image-20230217121841038"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121841038.png" alt="image-20230217121841038"></p>
 <p><strong>我们按住<code>ctrl+a</code>然后<code>ctrl+d</code>就能把这个sscreen程序运行的mc服务常驻后台</strong></p>
 <p><strong>我们再看看<code>htop</code>，先后对比</strong></p>
 <p><strong>修改server之前</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113613574.png" alt="image-20230217113613574"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113613574.png" alt="image-20230217113613574"></p>
 <p><strong>修改server之后</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217122052848.png" alt="image-20230217122052848"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217122052848.png" alt="image-20230217122052848"></p>
 <p><strong>Mem内存的使用状况已经降低，我们可以为后续加mod留出更大的空间</strong></p>
 <p><strong>查看服务器ip</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip add</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217123031830.png" alt="image-20230217123031830"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217123031830.png" alt="image-20230217123031830"></p>
 <p><strong>由上面，可以知道我们MC服务器ip是内网地址192.168.0.107，那么我本机也是在内网的可以直接连接。</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217123149553.png" alt="image-20230217123149553"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217123149553.png" alt="image-20230217123149553"></p>
 <p><strong>启动器打开，进MC，左上角FPS达到惊人的98</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217122542979.png" alt="image-20230217122542979"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217122542979.png" alt="image-20230217122542979"></p>
 <h5 id="启动器"><a href="#启动器" class="headerlink" title="启动器"></a>启动器</h5><p><strong>我们刚刚安装好HMCL后，打开应该都是这个样子</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145515476.png" alt="image-20230321145515476"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145515476.png" alt="image-20230321145515476"></p>
 <p><strong>我们首先登录账号，如果有微软正版账号也可以用正版登录，这里选择离线模式和微软账号都没有任何区别，这里用离线模式登录。</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145856307.png" alt="image-20230321145856307"></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145933639.png" alt="image-20230321145933639"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145856307.png" alt="image-20230321145856307"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145933639.png" alt="image-20230321145933639"></p>
 <p><strong>然后，回到最初界面，可以看到有个用户了。</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150044259.png" alt="image-20230321150044259"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150044259.png" alt="image-20230321150044259"></p>
 <p><strong>接下来，我们选择我的世界版本。</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150123098.png" alt="image-20230321150123098"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150123098.png" alt="image-20230321150123098"></p>
 <p><strong>点击安装新游戏版本</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150153176.png" alt="image-20230321150153176"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150153176.png" alt="image-20230321150153176"></p>
 <p><strong>我们服务器安装的就是1.16.5fabric版本</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150303388.png" alt="image-20230321150303388"></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150521647.png" alt="image-20230321150521647"></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150550571.png" alt="image-20230321150550571"></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150605561.png" alt="image-20230321150605561"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150303388.png" alt="image-20230321150303388"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150521647.png" alt="image-20230321150521647"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150550571.png" alt="image-20230321150550571"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150605561.png" alt="image-20230321150605561"></p>
 <p><strong>我们还是遵循选新不选旧原则</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150639242.png" alt="image-20230321150639242"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150639242.png" alt="image-20230321150639242"></p>
 <p><strong>本体+fabric+fabric API确认无误之后然后点击安装</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151023930.png" alt="image-20230321151023930"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151023930.png" alt="image-20230321151023930"></p>
 <p><strong>点击安装，静待安装成功</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151106422.png" alt="image-20230321151106422"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151106422.png" alt="image-20230321151106422"></p>
 <p><strong>安装成功，回到最初界面，发现图标变了。</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151213363.png" alt="image-20230321151213363"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151213363.png" alt="image-20230321151213363"></p>
 <p><strong>点击游戏开始玩原汁原味的MC 1.16.5吧！！！</strong></p>
 <h5 id="加装光影"><a href="#加装光影" class="headerlink" title="加装光影"></a>加装光影</h5><p><strong>光影只会占本地端电脑的性能，不关linux服务器的事，所以光影只需放在本地即可</strong></p>
 <p><strong>然后，在本地电脑端找到<code>.minecraft</code>–&gt;<code>shaderpacks</code>放入下载好的光影压缩包</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202947555.png" alt="image-20230328202947555"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202947555.png" alt="image-20230328202947555"></p>
 <p><strong>然后在游戏加载光影压缩包即可</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151636309.png" alt="image-20230321151636309"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151636309.png" alt="image-20230321151636309"></p>
 <h5 id="材质包"><a href="#材质包" class="headerlink" title="材质包"></a>材质包</h5><h5 id="加装mods"><a href="#加装mods" class="headerlink" title="加装mods"></a>加装mods</h5><p><strong>MOD它是一个英语的缩写，它的全称应该是modification，这个其实是修改的意思，不过中文给音译过来变成了“模组”，所以MOD其实就是游戏模组，作用就是对原本的游戏内容再加入一些新的东西，让我的世界这款游戏，更加的多样化。</strong></p>
 <p><strong>这里有个要点，就是服务器加mod，本地不加mod是无法调用mod的。反之，本地加了mod，服务器没有加mod也是用不了的。必须要两端都加mod才能成功使用mod。</strong></p>
 <p><strong>首先，在你linux服务器上面找到你mc的服务文件夹，然后<code>cd</code>进去，然后<code>ls</code>一下就能看到<code>mods</code>文件夹了</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328201940861.png" alt="image-20230328201940861"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328201940861.png" alt="image-20230328201940861"></p>
 <p><strong>在网上找到喜欢的mod，然后下载相对应版本的mod放进去mods文件夹中</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202239098.png" alt="image-20230328202239098"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202239098.png" alt="image-20230328202239098"></p>
 <p><strong>就是这样啦！什么模组菜单啦！一键整理啦！创世神啦！</strong></p>
 <p><strong>然后，在本地电脑端也要找到<code>.minecraft</code>–&gt;<code>mods</code>放入和服务器端一样的<code>mod</code></strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202522867.png" alt="image-20230328202522867"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202522867.png" alt="image-20230328202522867"></p>
 <p><strong>打开游戏就会自动和服务器同步载入mod啦</strong></p>
 <h3 id="ZeroTier"><a href="#ZeroTier" class="headerlink" title="ZeroTier"></a>ZeroTier</h3><h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p><strong>由于树莓派基地系统自带了docker，我们只需要将docker服务启动即可，为了docker能够更好完成和为我们设备提供优质服务，这里建议将docker设置为开机自启。</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看docker状态</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl status docker.service</span></span><br><span class="line"><span class="comment"># 开机自启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl enable docker.service</span></span><br><span class="line"><span class="comment"># 关闭开机自启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl disable docker.service</span></span><br><span class="line"><span class="comment"># 关闭docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl stop docker.service</span></span><br><span class="line"><span class="comment"># 开启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl start docker.service</span></span><br><span class="line"><span class="comment"># 关闭再开启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl restart docker.service</span></span><br></pre></td></tr></table></figure>
@@ -628,28 +628,28 @@
 <p><strong>在浏览器中输入<code>option ipaddr </code>项目中的 IP 进入 Luci 控制面板，若<code>option ipaddr </code>的参数为 <code>192.168.1.100</code>，则可以在浏览器输入 <code>http://192.168.1.100</code>进入控制面板。</strong></p>
 <p><strong>用户名：<code>root</code></strong></p>
 <p>**密码：<code>password</code> **</p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182120848.png" alt="image-20221222182120848"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182120848.png" alt="image-20221222182120848"></p>
 <p><strong>登录进去后可以看到树莓派的基础信息、cpu架构、cpu温度等信息</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182250444.png" alt="image-20221222182250444"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182250444.png" alt="image-20221222182250444"></p>
 <p><strong>fq的功能配置：左边的列表选择<code>服务</code>–&gt;<code>PassWall</code>,可以看到这个界面。</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182535583.png" alt="image-20221222182535583"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182535583.png" alt="image-20221222182535583"></p>
 <p><strong>首先，打开里面的主开关</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182649678.png" alt="image-20221222182649678"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182649678.png" alt="image-20221222182649678"></p>
 <p><strong>复制fq节点的订阅地址到节点订阅选项</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183121714.png" alt="image-20221222183121714"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183121714.png" alt="image-20221222183121714"></p>
 <p><strong>设置完成之后点击手动订阅可以看到相应日志</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183224283.png" alt="image-20221222183224283"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183224283.png" alt="image-20221222183224283"></p>
 <p><strong>回到节点列表就可以看到大量节点出现</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183338376.png" alt="image-20221222183338376"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183338376.png" alt="image-20221222183338376"></p>
 <p><strong>我一般喜欢开放固定端口代理流量，这样我就可以通过<code>ip+端口</code>使用代理服务器</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183615463.png" alt="image-20221222183615463"></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183815397.png" alt="image-20221222183815397"></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183910155.png" alt="image-20221222183910155"></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183920184.png" alt="image-20221222183920184"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183615463.png" alt="image-20221222183615463"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183815397.png" alt="image-20221222183815397"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183910155.png" alt="image-20221222183910155"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183920184.png" alt="image-20221222183920184"></p>
 <p><strong>清理完成刷新一下，fq服务就可以使用了。win系统有代理功能的，首次fq可以先在win系统里面设置，然后打开谷歌浏览器安装代理插件。</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184044294.png" alt="image-20221222184044294"></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184141529.png" alt="image-20221222184141529"></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184202042.png" alt="image-20221222184202042"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184044294.png" alt="image-20221222184044294"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184141529.png" alt="image-20221222184141529"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184202042.png" alt="image-20221222184202042"></p>
 <p><strong>这样可以很好的切换，而且只有浏览器能够fq，想要电脑全局fq就在代理里面设置<code>ip+端口</code>即可。记住win的代理和浏览器的插件只能开一个，别环路了。。。</strong></p>
 <p><strong>docker版的openwrt还有其他的很多功能，可以自己私下去探索，这里就不再多说了，各自努力吧！</strong></p>
 <h4 id="aria2"><a href="#aria2" class="headerlink" title="aria2"></a>aria2</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name aria2-pro \</span><br><span class="line">    --restart unless-stopped \</span><br><span class="line">    --log-opt max-size=1m \</span><br><span class="line">    -e PUID=<span class="variable">$UID</span> \</span><br><span class="line">    -e PGID=<span class="variable">$GID</span> \</span><br><span class="line">    -e UMASK_SET=022 \</span><br><span class="line">    -e RPC_SECRET=orange \        <span class="comment"># 这个自定义，一定要记住</span></span><br><span class="line">    -e RPC_PORT=6800 \</span><br><span class="line">    -p 6800:6800 \</span><br><span class="line">    -e LISTEN_PORT=6888 \</span><br><span class="line">    -p 6888:6888 \</span><br><span class="line">    -p 6888:6888/udp \</span><br><span class="line">    -v <span class="variable">$PWD</span>/aria2-config:/config \</span><br><span class="line">    -v <span class="variable">$PWD</span>/aria2-downloads:/downloads \</span><br><span class="line">    p3terx/aria2-pro</span><br></pre></td></tr></table></figure>
@@ -664,24 +664,24 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --restart=always --name mariadb01 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -v /data/mariadb/mysql.conf.d/mysql.cnf:/etc/mysql/mysql.conf.d/mysql.cnf -v /data/mariadb/data:/var/lib/mysql -d mariadb</span><br></pre></td></tr></table></figure>
 
 <p><strong>那么再教你个好玩的，使用Navicat连接数据库爽的一批</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328163059348.png" alt="image-20230328163059348"></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328163207688.png" alt="image-20230328163207688"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328163059348.png" alt="image-20230328163059348"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328163207688.png" alt="image-20230328163207688"></p>
 <h4 id="wordpress"><a href="#wordpress" class="headerlink" title="wordpress"></a>wordpress</h4><h3 id="双网卡内外网优先级设置"><a href="#双网卡内外网优先级设置" class="headerlink" title="双网卡内外网优先级设置"></a>双网卡内外网优先级设置</h3><p><strong>根据自己的需要，有时候树莓派需要两张网卡，一张用于访问外网（wlan0），另一种用于连接内网（eth0）。</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429233559391.png" alt="image-20230429233559391"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429233559391.png" alt="image-20230429233559391"></p>
 <p><strong>我们可以看到这里连接了两个网卡，分别是wlan0和eth0，在我们学数通知识的时候，我们老师会教我们网络的知识，直连的跃点数是会比连接wifi的是要更小的（普遍情况下是这样，不要和我杠，杠的要不你别学）</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234002039.png" alt="image-20230429234002039"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234002039.png" alt="image-20230429234002039"></p>
 <p><strong>这里，我设计的网络是eth0是面向内网的，对我的nas起到稳定的网络传输和安全性；而wlan0是连接了我的热点，这里我ping了一下8.8.8.8，发现是完全ping不同的。</strong></p>
 <p><strong>我们再查看了网络优先级方面，发现eth0的网络优先级是比eth0高的（即eth0的网络跃点数metric比wlan0的跃点数metric要小）</strong></p>
 <p><strong>我们可以使用以下命令查看跃点数</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@raspberrypi:~<span class="comment"># ip route show</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234447247.png" alt="image-20230429234447247"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234447247.png" alt="image-20230429234447247"></p>
 <p><strong>一个100一个600，看得很清楚吧。这里我把wlan0跃点数调到99，192.168.137.1是路由器网关地址</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@raspberrypi:~<span class="comment"># sudo ip route add default via 192.168.137.1 dev wlan0 proto dhcp metric 99</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234927301.png" alt="image-20230429234927301"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234927301.png" alt="image-20230429234927301"></p>
 <p><strong>wlan0这个网卡优先级马上就第一了，那么不出意外的话，这个网络就能通了</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429235048919.png" alt="image-20230429235048919"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429235048919.png" alt="image-20230429235048919"></p>
 <p><strong>上面讲的这个咧，是临时解决办法，要是想一劳永逸呢还是要把<code>IPV4_ROUTE_METRIC=99</code>这个写入到网卡配置文件中,但是。。。很不巧树莓派貌似没有。。。除非你用的不是树莓派官方的</strong></p>
 <p><strong>那么我们也有另外的处理办法，把<code>sudo ip route add default via 192.168.137.1 dev wlan0 proto dhcp metric 99</code>这个命令写入一个文本里面，然后添加入<code>contab</code>里面，命令如下：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@raspberrypi:/usr/bin<span class="comment"># /usr/bin</span></span><br><span class="line">root@raspberrypi:/usr/bin<span class="comment"># vim network_metric</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line">ip route add default via 192.168.137.1 dev wlan0 proto dhcp metric 99</span><br><span class="line"></span><br><span class="line">root@raspberrypi:/usr/bin<span class="comment"># chmod +x network_metric </span></span><br></pre></td></tr></table></figure>
@@ -706,13 +706,13 @@
 <p><strong>下面是不指定发射信号播放666.wav文件</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~/PiFmRds/src<span class="comment"># pwd</span></span><br><span class="line">/root/PiFmRds/src</span><br><span class="line">root@ubuntu:~/PiFmRds/src<span class="comment"># sudo ./pi_fm_rds</span></span><br><span class="line">root@ubuntu:~/PiFmRds/src<span class="comment"># sudo ./pi_fm_rds</span></span><br><span class="line">Using mbox device /dev/vcio.</span><br><span class="line">Allocating physical memory: size = 3403776     mem_ref = 4     bus_addr = fe8bb000     virt_addr = 0xffff94ea1000</span><br><span class="line">ppm corr is 0.0000, divider is 1644.7368 (1644 + 3018*2^-12) [nominal 1096.4912].</span><br><span class="line">PI: 1234, PS: &lt;Varying&gt;.</span><br><span class="line">RT: <span class="string">&quot;PiFmRds: live FM-RDS transmission from the RaspberryPi&quot;</span></span><br><span class="line">Starting to transmit on 107.9 MHz.</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230610164626929.png" alt="image-20230610164626929"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230610164626929.png" alt="image-20230610164626929"></p>
 <p><strong>然后新建一个shell窗口，执行播放文件</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~/PiFmRds/src<span class="comment"># sudo ./pi_fm_rds -audio 666.wav </span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230610164453696.png" alt="image-20230610164453696"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230610164453696.png" alt="image-20230610164453696"></p>
 <p><strong>用FM收音机接收107.9MHZ信号，可以听到文件声音</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230610164817.jpg" alt="微信图片_20230610164817"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230610164817.jpg" alt="微信图片_20230610164817"></p>
 <h4 id="增强播放效果"><a href="#增强播放效果" class="headerlink" title="增强播放效果"></a>增强播放效果</h4><p><strong>在树莓派 GPIO 4(物理引脚编号为7)接上一根长 20m 的杜邦线作为发射天线来增强 FM 信号,然后使用 FM(调频)收音机收听,在 1m 范围内音质很清晰，在3m 范围内仍然可以听得见,超过 3m 信号会很弱。</strong></p>
 <h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><h4 id="一、简介一下iptables"><a href="#一、简介一下iptables" class="headerlink" title="一、简介一下iptables"></a>一、简介一下iptables</h4><p><strong>iptables命令中ACCEPT（允许流量通过）、LOG（记录日志信息）、REJECT（拒绝流量通过）、DROP（拒绝流量通过）。允许动作和记录日志工作都比较好理解，着重需要讲解的是这两条拒绝动作的不同点，其中REJECT和DROP的动作操作都是把数据包拒绝，DROP是直接把数据包抛弃不响应，而REJECT会拒绝后再回复一条“您的信息我已收到，但被扔掉了”，让对方清晰的看到数据被拒绝的响应。</strong></p>
 <h4 id="四表五链"><a href="#四表五链" class="headerlink" title="四表五链"></a>四表五链</h4><h5 id="命令解释"><a href="#命令解释" class="headerlink" title="命令解释"></a>命令解释</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许192.168.1.0/24这个IP段的流量流进服务器的80端口</span></span><br><span class="line">iptables -I INPUT -s 192.168.1.0/24 -p tcp --dport 80 -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只允许本机22端口被192.168.1.0/24网段访问，其他流量均被拒绝。我们输入命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.1.0/24 -p tcp --dport 22 -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拒绝所有人访问本机4444到5555端口，输入命令：</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 4444:5555 -j REJECT</span><br><span class="line">iptables -A INPUT -p udp --dport 4444:5555 -j REJECT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除INPUT链中的第2条策略，首先我们看一下防火墙策略中的第二条策略是什么“iptables -L”，然后输入命令删除第2条策略：</span></span><br><span class="line">iptables -D INPUT 2</span><br></pre></td></tr></table></figure>
@@ -759,11 +759,11 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart smbd.service</span><br></pre></td></tr></table></figure>
 
 <p><strong>这里由于华为手机有隐私保护，不能截图，所以我已经登录账号密码进来了</strong></p>
-<img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/微信图片_20230607011823.jpg" alt="微信图片_20230607011823" style="zoom:50%;">
+<img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/微信图片_20230607011823.jpg" alt="微信图片_20230607011823" style="zoom:50%;">
 
 <p><strong>咳咳，都配了认证，那么我们是不是可以端口映射一下</strong></p>
 <p><strong>把445映射出去即可</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230607015948428.png" alt="image-20230607015948428"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230607015948428.png" alt="image-20230607015948428"></p>
 <p><strong>手机和win电脑都验证过了，完全没问题。</strong></p>
 <h4 id="NFS"><a href="#NFS" class="headerlink" title="NFS"></a>NFS</h4><p><strong>安装rpcbind</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install rpcbind</span><br></pre></td></tr></table></figure>
@@ -771,61 +771,61 @@
 <p><strong>查看rpcbind.socket状态</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status rpcbind.socket</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145322917.png" alt="image-20230508145322917"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145322917.png" alt="image-20230508145322917"></p>
 <p><strong>可以看出rpcbind.socket一直在监听端口</strong></p>
 <p><strong>安装nfs</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nfs-kernel-server</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145655757.png" alt="image-20230508145655757"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145655757.png" alt="image-20230508145655757"></p>
 <p><strong>查看rpcbind.socket状态</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status rpcbind.service</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145512096.png" alt="image-20230508145512096"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145512096.png" alt="image-20230508145512096"></p>
 <p><strong>从上面安装好看nfs再查看rpcbind.service可以发现，nfs没开启服务，rpcbind.service也不会自动开启</strong></p>
 <p><strong>这次，我们开启nfs再查看nfs和rpcbind.service的服务状态</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nfs-kernel-server.service</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status nfs-kernel-server.service</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145901666.png" alt="image-20230508145901666"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145901666.png" alt="image-20230508145901666"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status rpcbind.service</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145927673.png" alt="image-20230508145927673"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145927673.png" alt="image-20230508145927673"></p>
 <p><strong>可以看出，nfs服务启动后，rpcbind.socket检测到端口被激活从而开启了rpcbind.service服务</strong></p>
 <p><strong>编辑&#x2F;etc&#x2F;exports</strong></p>
 <p><strong>后面的权限我先不加，这里默认是只读</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data *</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152044419.png" alt="image-20230508152044419"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152044419.png" alt="image-20230508152044419"></p>
 <p><strong>重新加载配置(不需要重启服务)</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exportfs -r</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152209456.png" alt="image-20230508152209456"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152209456.png" alt="image-20230508152209456"></p>
 <p><strong>查看默认权限</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exportfs -v</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152254228.png" alt="image-20230508152254228"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152254228.png" alt="image-20230508152254228"></p>
 <p><strong>显示NFS服务器的共享信息</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">showmount -e</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152331011.png" alt="image-20230508152331011"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152331011.png" alt="image-20230508152331011"></p>
 <p><strong>win10挂载nfs共享目录</strong></p>
 <p><strong>先打开控制面板，找到程序</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152719331.png" alt="image-20230508152719331"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152719331.png" alt="image-20230508152719331"></p>
 <p><strong>点击启用或者关闭windows功能</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152753361.png" alt="image-20230508152753361"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152753361.png" alt="image-20230508152753361"></p>
 <p><strong>把nfs服务全选上</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152913031.png" alt="image-20230508152913031"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152913031.png" alt="image-20230508152913031"></p>
 <p><strong>然后确认退出，打开此电脑找到映射网络驱动器</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152644711.png" alt="image-20230508152644711"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152644711.png" alt="image-20230508152644711"></p>
 <p><strong>按照<code>\\ip\共享目录名字</code>这样的格式</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153030562.png" alt="image-20230508153030562"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153030562.png" alt="image-20230508153030562"></p>
 <p><strong>然后就能看到共享的文件了</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153203212.png" alt="image-20230508153203212"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153203212.png" alt="image-20230508153203212"></p>
 <p><strong>由于上面在&#x2F;etc&#x2F;exports里没有添加权限使用仅有下载功能，硬盘的大小还不能完全支配</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153328881.png" alt="image-20230508153328881"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153328881.png" alt="image-20230508153328881"></p>
 <p><strong>卸载挂载。。。懂？</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508154432995.png" alt="image-20230508154432995"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508154432995.png" alt="image-20230508154432995"></p>
 <p><strong>linux挂载nfs共享目录</strong></p>
 <p><strong>很简单。。。知道怎么挂载磁盘吧。。。就是这样</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount ip:/data /服务器的本地文件夹</span><br></pre></td></tr></table></figure>
@@ -840,16 +840,16 @@
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exportfs -r</span><br><span class="line">exportfs -v</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160434284.png" alt="image-20230508160434284"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160434284.png" alt="image-20230508160434284"></p>
 <p><strong>拉个文件进去，它说哒咩！！！</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508155738554.png" alt="image-20230508155738554"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508155738554.png" alt="image-20230508155738554"></p>
 <p><strong>这怎么回事捏，我可是win10的主人，居然没有权限访问？</strong></p>
 <p><strong>好吧！虽然是win10的主人，但是linux层面上你只是一个来宾，所以还要在文件夹授予其他用户权限</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> o+rw /data/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160220572.png" alt="image-20230508160220572"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160220572.png" alt="image-20230508160220572"></p>
 <p><strong>嘿嘿！给了权限就可以上传了</strong></p>
-<p><img src="/blog/blog/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160209860.png" alt="image-20230508160209860"></p>
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160209860.png" alt="image-20230508160209860"></p>
 <table>
 <thead>
 <tr>
@@ -915,8 +915,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag"># 树莓派</a>
-              <a href="/blog/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag"># 单片机</a>
+              <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag"># 树莓派</a>
+              <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag"># 单片机</a>
           </div>
 
         
@@ -925,11 +925,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/" rel="prev" title="版本切换工具篇">
+    <a href="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/" rel="prev" title="版本切换工具篇">
       <i class="fa fa-chevron-left"></i> 版本切换工具篇
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/" rel="next" title="VSCODE编程">
+    <a href="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/" rel="next" title="VSCODE编程">
       VSCODE编程 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -1002,27 +1002,27 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="涩橙子"
-      src="/blog/images/head.jpg">
+      src="/images/head.jpg">
   <p class="site-author-name" itemprop="name">涩橙子</p>
   <div class="site-description" itemprop="description">自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/blog/archives/">
+          <a href="/archives/">
         
           <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/blog/categories/">
+            <a href="/categories/">
           
         <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/blog/tags/">
+            <a href="/tags/">
           
         <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span></a>
@@ -1031,7 +1031,7 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="/blog/julintongxue@gmail.com" title="E-Mail → julintongxue@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <a href="/julintongxue@gmail.com" title="E-Mail → julintongxue@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
 
@@ -1100,22 +1100,22 @@
 
   
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script size="300" alpha="0.6" zIndex="-1" src="/blog/lib/canvas-ribbon/canvas-ribbon.js"></script>
-  <script src="/blog/lib/anime.min.js"></script>
-  <script src="/blog/lib/pjax/pjax.min.js"></script>
-  <script src="/blog/lib/velocity/velocity.min.js"></script>
-  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/blog/js/utils.js"></script>
+<script src="/js/utils.js"></script>
 
-<script src="/blog/js/motion.js"></script>
-
-
-<script src="/blog/js/schemes/muse.js"></script>
+<script src="/js/motion.js"></script>
 
 
-<script src="/blog/js/next-boot.js"></script>
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
 
   <script>
 var pjax = new Pjax({
@@ -1231,7 +1231,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 
     </div>
 
-<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
 
 

@@ -5,41 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 6.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/blog/css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"julintongxue.github.io","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"julintongxue.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="[toc] ssh反代问题问题一 问题一.我有A和B两台服务器，一台在学校ip是10.71.10.25,另外一台在印度ip是124.156.xx.xx，现在我想构建ssh反向代理，让我的服务器A能被外网ssh连接，防止我不在校园也能控制服务器A。 1234567891011121314151617181920212223242526272829303132# 服务器A设置root@raspbian">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssh反向代理">
-<meta property="og:url" content="https://julintongxue.github.io/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/index.html">
+<meta property="og:url" content="https://julintongxue.github.io/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/index.html">
 <meta property="og:site_name" content="orangeの博客">
 <meta property="og:description" content="[toc] ssh反代问题问题一 问题一.我有A和B两台服务器，一台在学校ip是10.71.10.25,另外一台在印度ip是124.156.xx.xx，现在我想构建ssh反向代理，让我的服务器A能被外网ssh连接，防止我不在校园也能控制服务器A。 1234567891011121314151617181920212223242526272829303132# 服务器A设置root@raspbian">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113156680.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113218786.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617125728813.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617130523176.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617130544082.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113156680.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113218786.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617125728813.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617130523176.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617130544082.png">
 <meta property="article:published_time" content="2022-08-09T12:38:52.000Z">
 <meta property="article:modified_time" content="2023-05-01T11:12:08.107Z">
 <meta property="article:author" content="涩橙子">
 <meta property="article:tag" content="SSH">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://julintongxue.github.io/blog/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113156680.png">
+<meta name="twitter:image" content="https://julintongxue.github.io/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113156680.png">
 
-<link rel="canonical" href="https://julintongxue.github.io/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
+<link rel="canonical" href="https://julintongxue.github.io/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
 
 
 <script id="page-configurations">
@@ -101,7 +101,7 @@
 
   <div class="site-meta">
 
-    <a href="/blog/" class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <h1 class="site-title">orangeの博客</h1>
       <span class="logo-line-after"><i></i></span>
@@ -121,47 +121,47 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">32</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">32</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
 
-    <a href="/blog/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
 
   </li>
         <li class="menu-item menu-item-追番">
 
-    <a href="/blog/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>追番</a>
+    <a href="/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>追番</a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
 
-    <a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
 
-    <a href="/blog/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
 
   </li>
   </ul>
@@ -192,10 +192,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/head.jpg">
+      <meta itemprop="image" content="/images/head.jpg">
       <meta itemprop="name" content="涩橙子">
       <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
     </span>
@@ -230,7 +230,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
+                  <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
                 </span>
             </span>
 
@@ -243,8 +243,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -285,21 +285,21 @@
 
 <h3 id="情况二：-连不上，但是一直尝试连接，没有报错"><a href="#情况二：-连不上，但是一直尝试连接，没有报错" class="headerlink" title="情况二：(连不上，但是一直尝试连接，没有报错)"></a><strong>情况二：(连不上，但是一直尝试连接，没有报错)</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-0-17-centos ~]<span class="comment"># ssh localhost -p 8101</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">^C</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113156680.png" alt="image-20220531113156680"></p>
+<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113156680.png" alt="image-20220531113156680"></p>
 <h3 id="情况三：-直接连接不上，服务器B发出连接不了报错"><a href="#情况三：-直接连接不上，服务器B发出连接不了报错" class="headerlink" title="情况三：(直接连接不上，服务器B发出连接不了报错)"></a><strong>情况三：(直接连接不上，服务器B发出连接不了报错)</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务器B</span></span><br><span class="line">[root@VM-0-17-centos ~]<span class="comment"># ssh localhost -p 8101</span></span><br><span class="line">ssh_exchange_identification: <span class="built_in">read</span>: Connection reset by peer</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113218786.png" alt="image-20220531113218786"></p>
+<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113218786.png" alt="image-20220531113218786"></p>
 <h3 id="现在状态"><a href="#现在状态" class="headerlink" title="现在状态"></a>现在状态</h3><p><code>截至时间2022-6-17中午12：52分，服务器A重启后，服务器B也没办法连接上</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line">服务器A的crontab日志信息如下</span><br><span class="line">root@raspbian:~<span class="comment"># cat /var/log/cron.log</span></span><br><span class="line">Jun 17 00:05:01 raspbian CRON[15444]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:15:01 raspbian CRON[16476]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:17:01 raspbian CRON[16674]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 00:20:01 raspbian CRON[16978]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 00:25:01 raspbian CRON[17516]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:35:01 raspbian CRON[18539]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:40:01 raspbian CRON[19040]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 00:45:01 raspbian CRON[19582]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:55:01 raspbian CRON[20582]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:00:01 raspbian CRON[21079]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 01:05:01 raspbian CRON[21620]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:15:01 raspbian CRON[22651]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:17:01 raspbian CRON[22848]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 01:20:01 raspbian CRON[23155]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 01:25:01 raspbian CRON[23693]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:35:01 raspbian CRON[24713]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:40:01 raspbian CRON[25215]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 01:45:01 raspbian CRON[25754]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:55:01 raspbian CRON[26772]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:00:01 raspbian CRON[27260]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 02:05:01 raspbian CRON[27812]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:15:01 raspbian CRON[28827]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:17:01 raspbian CRON[29025]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 02:20:01 raspbian CRON[29336]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 02:25:01 raspbian CRON[29877]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:35:01 raspbian CRON[30899]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:40:01 raspbian CRON[31405]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 02:45:01 raspbian CRON[31941]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:55:01 raspbian CRON[533]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:00:01 raspbian CRON[1085]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 03:05:01 raspbian CRON[1675]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:15:01 raspbian CRON[2693]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:17:01 raspbian CRON[2906]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 03:20:01 raspbian CRON[3229]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 03:25:01 raspbian CRON[3784]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:35:01 raspbian CRON[4811]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:40:01 raspbian CRON[5313]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 03:45:01 raspbian CRON[5858]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:55:01 raspbian CRON[6922]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:00:01 raspbian CRON[7425]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 04:05:01 raspbian CRON[7974]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:15:01 raspbian CRON[8973]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:17:01 raspbian CRON[9173]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 04:20:01 raspbian CRON[9480]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 04:25:01 raspbian CRON[10021]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:35:01 raspbian CRON[11045]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:40:02 raspbian CRON[11545]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 04:45:01 raspbian CRON[12093]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:55:01 raspbian CRON[13117]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:00:01 raspbian CRON[13619]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 05:05:01 raspbian CRON[14155]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:15:01 raspbian CRON[15165]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:17:01 raspbian CRON[15366]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 05:20:01 raspbian CRON[15672]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 05:25:01 raspbian CRON[16215]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:35:01 raspbian CRON[17250]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:40:01 raspbian CRON[17746]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 05:45:01 raspbian CRON[18285]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:55:01 raspbian CRON[19301]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:00:01 raspbian CRON[19800]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 06:05:01 raspbian CRON[22560]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:15:01 raspbian CRON[23560]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:17:01 raspbian CRON[23760]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 06:20:01 raspbian CRON[24067]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 06:25:01 raspbian CRON[24615]: (root) CMD (<span class="built_in">test</span> -x /usr/sbin/anacron || ( <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.daily ))</span><br><span class="line">Jun 17 06:25:01 raspbian CRON[24616]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:25:02 raspbian cracklib: no dictionary update necessary.</span><br><span class="line">Jun 17 06:35:01 raspbian CRON[25732]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:40:01 raspbian CRON[26237]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 06:45:01 raspbian CRON[26777]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:55:01 raspbian CRON[27789]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 07:00:01 raspbian CRON[28292]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 07:05:01 raspbian CRON[28833]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:17:02 raspbian cron[412]: (CRON) INFO (pidfile fd = 3)</span><br><span class="line">Jun 17 06:17:02 raspbian cron[412]: (CRON) INFO (Running @reboot <span class="built_in">jobs</span>)</span><br><span class="line">Jun 17 06:17:03 raspbian CRON[569]: (root) CMD (mount --<span class="built_in">bind</span> /configuration /www/wwwroot/orange/mount_disk/)</span><br><span class="line">Jun 17 06:17:03 raspbian CRON[570]: (root) CMD (/configuration/script/ssh_reverse_proxy_daemon.sh)</span><br><span class="line">Jun 17 06:17:03 raspbian CRON[572]: (root) CMD (/configuration/script/ssh_reverse_proxy.sh )</span><br><span class="line">Jun 17 07:56:17 raspbian CRON[5396]: (root) CMD (<span class="built_in">test</span> -x /usr/sbin/anacron || ( <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.daily ))</span><br><span class="line">Jun 17 07:56:17 raspbian cracklib: no dictionary update necessary.</span><br><span class="line">Jun 17 08:00:01 raspbian CRON[7985]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 08:05:01 raspbian CRON[8241]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:15:01 raspbian CRON[8717]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:17:01 raspbian CRON[8839]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 08:20:01 raspbian CRON[8995]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 08:25:01 raspbian CRON[9252]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:35:01 raspbian CRON[9750]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:40:01 raspbian CRON[10002]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 08:45:01 raspbian CRON[10263]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:55:01 raspbian CRON[10760]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:00:01 raspbian CRON[11020]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 09:05:01 raspbian CRON[11280]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:15:01 raspbian CRON[11749]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:17:01 raspbian CRON[11863]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 09:20:01 raspbian CRON[12055]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 09:25:01 raspbian CRON[12401]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:35:01 raspbian CRON[12917]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:40:01 raspbian CRON[13202]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 09:45:01 raspbian CRON[13470]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:47:36 raspbian cron[409]: (CRON) INFO (pidfile fd = 3)</span><br><span class="line">Jun 17 09:47:36 raspbian cron[409]: (CRON) INFO (Running @reboot <span class="built_in">jobs</span>)</span><br><span class="line">Jun 17 09:47:37 raspbian CRON[571]: (root) CMD (/configuration/script/ssh_reverse_proxy_daemon.sh)</span><br><span class="line">Jun 17 09:47:37 raspbian CRON[574]: (root) CMD (mount --<span class="built_in">bind</span> /configuration /www/wwwroot/orange/mount_disk/)</span><br><span class="line">Jun 17 09:47:37 raspbian CRON[575]: (root) CMD (/configuration/script/ssh_reverse_proxy.sh )</span><br><span class="line">Jun 17 09:55:01 raspbian CRON[7749]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:00:01 raspbian CRON[8058]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 10:05:01 raspbian CRON[8425]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:15:01 raspbian CRON[8920]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:17:01 raspbian CRON[9018]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 10:20:01 raspbian CRON[9186]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 10:25:01 raspbian CRON[9438]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:35:01 raspbian CRON[9927]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:40:01 raspbian CRON[10189]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 10:45:01 raspbian CRON[10449]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:55:01 raspbian CRON[10928]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:00:01 raspbian CRON[11180]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 11:05:01 raspbian CRON[11439]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:15:01 raspbian CRON[12987]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:17:01 raspbian CRON[13086]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 11:20:01 raspbian CRON[13246]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 11:25:01 raspbian CRON[13507]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:35:01 raspbian CRON[13994]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:40:01 raspbian CRON[14264]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 11:45:01 raspbian CRON[14596]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:55:01 raspbian CRON[15063]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:00:01 raspbian CRON[15319]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 12:05:01 raspbian CRON[15572]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:15:01 raspbian CRON[16062]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:17:01 raspbian CRON[16156]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 12:20:01 raspbian CRON[16328]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 12:25:01 raspbian CRON[16584]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:35:01 raspbian CRON[17183]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:40:01 raspbian CRON[17629]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 12:43:45 raspbian cron[379]: (CRON) INFO (pidfile fd = 3)</span><br><span class="line">Jun 17 12:43:45 raspbian cron[379]: (CRON) INFO (Running @reboot <span class="built_in">jobs</span>)</span><br><span class="line">Jun 17 12:43:45 raspbian CRON[518]: (root) CMD (/configuration/script/ssh_reverse_proxy.sh )</span><br><span class="line">Jun 17 12:43:45 raspbian CRON[519]: (root) CMD (/configuration/script/ssh_reverse_proxy_daemon.sh)</span><br><span class="line">Jun 17 12:43:45 raspbian CRON[520]: (root) CMD (mount --<span class="built_in">bind</span> /configuration /www/wwwroot/orange/mount_disk/)   <span class="comment">#这是我的一个挂载命令，不构成影响。</span></span><br><span class="line">Jun 17 12:45:03 raspbian CRON[7329]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
 <p><code>检查服务器B防火墙</code></p>
-<p><img src="/blog/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617125728813.png" alt="image-20220617125728813"></p>
+<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617125728813.png" alt="image-20220617125728813"></p>
 <p>A服务器</p>
-<p><img src="/blog/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617130523176.png" alt="image-20220617130523176"></p>
+<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617130523176.png" alt="image-20220617130523176"></p>
 <p>B服务器</p>
-<p><img src="/blog/blog/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617130544082.png" alt="image-20220617130544082"></p>
+<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617130544082.png" alt="image-20220617130544082"></p>
 <h4 id="猜想"><a href="#猜想" class="headerlink" title="猜想"></a>猜想</h4><p>1.我的朋友说可能是网络问题，毕竟是国外的服务器，连接过去可能出现丢包。</p>
 <p>我的解释是ssh反代基于tcp&#x2F;ip连接，还是比较可靠的，如果是丢包的话它也会继续发送重连，而且服务器B没有被<code>GFW</code>封杀，我也可以ssh到B服务器上面，理论上我应该是可以反代成功的。</p>
 <p>2.我曾经换过内核，令服务器B能够开启bbr极限压缩带宽的使用，我不清楚这个是否构成失败原因。</p>
@@ -312,7 +312,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/SSH/" rel="tag"># SSH</a>
+              <a href="/tags/SSH/" rel="tag"># SSH</a>
           </div>
 
         
@@ -321,11 +321,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/" rel="prev" title="单片机开发和学习">
+    <a href="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/" rel="prev" title="单片机开发和学习">
       <i class="fa fa-chevron-left"></i> 单片机开发和学习
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/" rel="next" title="系统毁灭者MBR">
+    <a href="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/" rel="next" title="系统毁灭者MBR">
       系统毁灭者MBR <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -398,27 +398,27 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="涩橙子"
-      src="/blog/images/head.jpg">
+      src="/images/head.jpg">
   <p class="site-author-name" itemprop="name">涩橙子</p>
   <div class="site-description" itemprop="description">自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/blog/archives/">
+          <a href="/archives/">
         
           <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/blog/categories/">
+            <a href="/categories/">
           
         <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/blog/tags/">
+            <a href="/tags/">
           
         <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span></a>
@@ -427,7 +427,7 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="/blog/julintongxue@gmail.com" title="E-Mail → julintongxue@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <a href="/julintongxue@gmail.com" title="E-Mail → julintongxue@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
 
@@ -496,22 +496,22 @@
 
   
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script size="300" alpha="0.6" zIndex="-1" src="/blog/lib/canvas-ribbon/canvas-ribbon.js"></script>
-  <script src="/blog/lib/anime.min.js"></script>
-  <script src="/blog/lib/pjax/pjax.min.js"></script>
-  <script src="/blog/lib/velocity/velocity.min.js"></script>
-  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/blog/js/utils.js"></script>
+<script src="/js/utils.js"></script>
 
-<script src="/blog/js/motion.js"></script>
-
-
-<script src="/blog/js/schemes/muse.js"></script>
+<script src="/js/motion.js"></script>
 
 
-<script src="/blog/js/next-boot.js"></script>
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
 
   <script>
 var pjax = new Pjax({
@@ -627,7 +627,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 
     </div>
 
-<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
 
 

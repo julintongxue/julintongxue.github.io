@@ -5,71 +5,71 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 6.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/blog/css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"julintongxue.github.io","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"julintongxue.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="[toc] 简介目前，互联网资源的普及，已经可以让每人搭建独立搭一个个人博客了；这边就教大家怎么搭建Hexo并配置。大家可以参考Hexo官方文档配合使用。 前提Windows端安装：  Node.js Git  在我们的日常开发中经常会遇到这种情况：手上有好几个项目，每个项目的需求不同，进而不同项目必须依赖不同版的 NodeJS 运行环境。如果没有一个合适的工具，这个问题将非常棘手。所以nvm应运">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建我的hexo博客">
-<meta property="og:url" content="https://julintongxue.github.io/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:url" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="orangeの博客">
 <meta property="og:description" content="[toc] 简介目前，互联网资源的普及，已经可以让每人搭建独立搭一个个人博客了；这边就教大家怎么搭建Hexo并配置。大家可以参考Hexo官方文档配合使用。 前提Windows端安装：  Node.js Git  在我们的日常开发中经常会遇到这种情况：手上有好几个项目，每个项目的需求不同，进而不同项目必须依赖不同版的 NodeJS 运行环境。如果没有一个合适的工具，这个问题将非常棘手。所以nvm应运">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710000533630.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710000654131.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20221127134846193.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230308210424315.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710001705412.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/Snipaste_2022-11-28_14-01-24.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002047715.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002225007.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002353777.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710004601578.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230308210045396.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230308210149994.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233249939.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233151967.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233936892.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234306097.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234335015.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234923191.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234953614.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235020234.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235512404.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235652501.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220711001206320.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220711000855560.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230401005302966.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230401130703259.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013508753.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013542955.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013913294.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014025801.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014108237.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014223400.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014302436.png">
-<meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014433543.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710000533630.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710000654131.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20221127134846193.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230308210424315.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710001705412.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/Snipaste_2022-11-28_14-01-24.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002047715.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002225007.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002353777.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710004601578.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230308210045396.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230308210149994.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233249939.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233151967.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233936892.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234306097.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234335015.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234923191.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234953614.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235020234.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235512404.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235652501.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220711001206320.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220711000855560.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230401005302966.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230401130703259.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013508753.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013542955.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013913294.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014025801.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014108237.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014223400.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014302436.png">
+<meta property="og:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014433543.png">
 <meta property="article:published_time" content="2022-07-09T15:05:14.000Z">
 <meta property="article:modified_time" content="2023-04-12T17:44:35.434Z">
 <meta property="article:author" content="涩橙子">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://julintongxue.github.io/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710000533630.png">
+<meta name="twitter:image" content="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710000533630.png">
 
-<link rel="canonical" href="https://julintongxue.github.io/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/">
+<link rel="canonical" href="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/">
 
 
 <script id="page-configurations">
@@ -131,7 +131,7 @@
 
   <div class="site-meta">
 
-    <a href="/blog/" class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <h1 class="site-title">orangeの博客</h1>
       <span class="logo-line-after"><i></i></span>
@@ -151,47 +151,47 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">32</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">32</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
 
-    <a href="/blog/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
 
   </li>
         <li class="menu-item menu-item-追番">
 
-    <a href="/blog/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>追番</a>
+    <a href="/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>追番</a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
 
-    <a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
 
-    <a href="/blog/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
 
   </li>
   </ul>
@@ -222,10 +222,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/head.jpg">
+      <meta itemprop="image" content="/images/head.jpg">
       <meta itemprop="name" content="涩橙子">
       <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
     </span>
@@ -260,7 +260,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
                 </span>
             </span>
 
@@ -273,8 +273,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -314,11 +314,11 @@
 <p><strong>而我们传统的安装<code> NodeJS</code>的方法很容易出现错误，而且配置起来也特别麻烦，所以我们采用<code>nvm</code>这个项目管理工具来配合我们安装博客会更加的丝滑而且几乎没有报错的可能，读者也可以根据自己喜欢的版本无缝切换。</strong></p>
 <p><strong>Windows下配置<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows">NVM</a>：</strong></p>
 <h2 id="安装NVM"><a href="#安装NVM" class="headerlink" title="安装NVM"></a>安装NVM</h2><p><strong>进入NVM-Windows项目发布地址：</strong> <a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a> <strong>，选择最新发行版本<code>nvm-setup.zip</code>下载：</strong></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710000533630.png" alt="image-20220710000533630"></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710000654131.png" alt="image-20220710000654131"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710000533630.png" alt="image-20220710000533630"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710000654131.png" alt="image-20220710000654131"></p>
 <p><strong>安装完成后，</strong></p>
 <p>在搜索栏查找<code>poweshell</code>,选中<code>x86</code>的<code>powershell</code>鼠标右击选择<code>以管理员身份运行</code>。</p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20221127134846193.png" alt="image-20221127134846193"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20221127134846193.png" alt="image-20221127134846193"></p>
 <p><strong>在<code>Powershell</code>下，输入<code>NVM</code>，即可发现安装完成：</strong></p>
 <h2 id="配置国内源"><a href="#配置国内源" class="headerlink" title="配置国内源"></a>配置国内源</h2><p><strong>中国大陆这边连接<code>Node.js</code>和<code>NPM</code>官方服务器有点困难，甚至不单单是下载慢了，有时候直接无法下载使用。所以我们换<code>NVM</code>和<code>Node.js</code>成国内源：</strong></p>
 <p><strong>到你<code>NVM</code>安装路径，（我的默认安装在：C:\Users\orange\AppData\Roaming\nvm，那么你如果是默认安装的话，里面的orange要改成你自己的用户名）打开<code>setting.txt</code>文件（如果没有，则创建即可），更改：</strong></p>
@@ -334,26 +334,26 @@
 <li><strong>node_mirror：node.js的下载源，这里使用的是淘宝源</strong></li>
 <li><strong>npm_mirror：npm的下载源，这里使用的是淘宝源</strong></li>
 </ul>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230308210424315.png" alt="image-20230308210424315"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230308210424315.png" alt="image-20230308210424315"></p>
 <h1 id="管理与安装Node-js"><a href="#管理与安装Node-js" class="headerlink" title="管理与安装Node.js"></a>管理与安装Node.js</h1><h2 id="查看已经版本"><a href="#查看已经版本" class="headerlink" title="查看已经版本"></a>查看已经版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm list</span><br></pre></td></tr></table></figure>
 
 <p><strong>查看已经安装的版本：</strong></p>
 <p><strong>这里我已经安装了16.15.1版本的node.js,如果你是刚刚安装好的，那么这里将是空白一片</strong></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710001705412.png" alt="image-20220710001705412"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710001705412.png" alt="image-20220710001705412"></p>
 <p>如图：</p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/Snipaste_2022-11-28_14-01-24.png" alt="Snipaste_2022-11-28_14-01-24"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/Snipaste_2022-11-28_14-01-24.png" alt="Snipaste_2022-11-28_14-01-24"></p>
 <h2 id="查看可安装版本"><a href="#查看可安装版本" class="headerlink" title="查看可安装版本"></a>查看可安装版本</h2><p><strong>如何查看通过NVM安装的Node.js版本呢？</strong><br><strong>你可以直接使用NVM命令：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows</span></span><br><span class="line">nvm list available</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002047715.png" alt="image-20220710002047715"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002047715.png" alt="image-20220710002047715"></p>
 <h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p><strong>我们安装16.15.1版本node.js：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 16.15.1</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002225007.png" alt="image-20220710002225007"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002225007.png" alt="image-20220710002225007"></p>
 <h2 id="激活Node-js版本"><a href="#激活Node-js版本" class="headerlink" title="激活Node.js版本"></a>激活Node.js版本</h2><p><strong>我们安装好Node.js以后，需要激活它</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use 16.15.1</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002353777.png" alt="image-20220710002353777"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710002353777.png" alt="image-20220710002353777"></p>
 <p><strong>然后我们发现出现这堆乱码，其实是因为我们没有用管理员权限的<code>powershell</code>,用管理员的身份打开<code>powershell</code>再来一次即可生效。</strong></p>
 <h1 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h1><p><strong>很简单，无脑下一步！！！</strong></p>
 <p><a target="_blank" rel="noopener" href="https://git-scm.com/">Git的官网地址</a> <strong>给你们啦！！！</strong></p>
@@ -371,18 +371,18 @@
 <p><strong>安装好以后，测试一下：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710004601578.png" alt="image-20220710004601578"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710004601578.png" alt="image-20220710004601578"></p>
 <p><strong>没有出现未知命令，说明安装成功。可以接下来操作了。</strong></p>
 <p><strong>如果出现hexo : 无法加载文件 C:\Program Files\nodejs\hexo.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:&#x2F;go.micros oft.com&#x2F;fwlink&#x2F;?LinkID&#x3D;135170 中的 about_Execution_Policies。 所在位置 行:1 字符: 1。</strong></p>
 <p><strong>那是因为你用的是win11系统，你需要在<code>设置-&gt;隐私和安全性-&gt;开发者选项-&gt;允许本地powershell脚本在为签名的情况下运行</code></strong></p>
 <p><strong>如图：</strong></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230308210045396.png" alt="image-20230308210045396"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230308210045396.png" alt="image-20230308210045396"></p>
 <p><strong>应用之后，重新打开新的powershell，再次输入hexo即可。</strong></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230308210149994.png" alt="image-20230308210149994"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230308210149994.png" alt="image-20230308210149994"></p>
 <h2 id="创建Hexo"><a href="#创建Hexo" class="headerlink" title="创建Hexo"></a>创建Hexo</h2><p><strong>因为我们已经安装好Git，所以我们直接是由鼠标右键的<code>Git Bash Here</code>，然后在你喜欢的一个盘符里面创建一个文件夹并且命名。</strong></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233249939.png" alt="image-20220710233249939"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233249939.png" alt="image-20220710233249939"></p>
 <p><strong>这里我在D盘创建了个orange的目录，以后我就在里面书写我的博客了，这个目录的文件非常重要，要记得备份哦。。。。。。</strong></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233151967.png" alt="image-20220710233151967"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233151967.png" alt="image-20220710233151967"></p>
 <p><strong>刚刚我们已经切换到<code>orange</code>目录，后续操作均在<code>orange</code>目录内进行。确保：</strong></p>
 <ul>
 <li><strong>Windows用户确保<code>cmd</code>或<code>powershell</code>运行目录在刚刚创建的的<code>orange</code>文件夹内；</strong></li>
@@ -391,7 +391,7 @@
 <h3 id="在目录内初始化博客"><a href="#在目录内初始化博客" class="headerlink" title="在目录内初始化博客"></a>在目录内初始化博客</h3><p><strong>初始化orange目录：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进目录之后，在Git bash里面输入下面目录初始化</span></span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233936892.png" alt="image-20220710233936892"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710233936892.png" alt="image-20220710233936892"></p>
 <p><strong>输入命令后，它会自动爬取hexo的初始化目录，在国内网络是非常不好的，如果出错需要删除目录内容重新执行命令直到成功。</strong></p>
 <h2 id="构建Hexo"><a href="#构建Hexo" class="headerlink" title="构建Hexo"></a>构建Hexo</h2><p><strong>初始化Hexo后，其实Hexo就可以使用了；构建Hexo：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
@@ -400,17 +400,17 @@
 <h2 id="启动Hexo内建服务器"><a href="#启动Hexo内建服务器" class="headerlink" title="启动Hexo内建服务器"></a>启动Hexo内建服务器</h2><p><strong>其实，整个<code>public</code>文件就是一个博客了，但是我们还要部署<code>Nginx</code>等网络环境或者使用<code>HBuilderX</code>等根据，启动Web服务器才能用浏览器本地IP(即：<code>127.0.0.1</code>或<code>localhost</code>)加端口进行访问；为了减少麻烦，可以使用Hexo内建服务器：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234306097.png" alt="image-20220710234306097"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234306097.png" alt="image-20220710234306097"></p>
 <p><strong>我们可以去<code>127.0.0.1:4000</code>网址看看初始化页面的样子</strong></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234335015.png" alt="image-20220710234335015"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234335015.png" alt="image-20220710234335015"></p>
 <h1 id="部署Hexo到远程平台"><a href="#部署Hexo到远程平台" class="headerlink" title="部署Hexo到远程平台"></a>部署Hexo到远程平台</h1><p><strong>上述操作，我们已经把<code>Hexo</code>部署在本地；接下来，我们来看看怎么部署到远程平台，部署到远程平台后，公网用户就可以访问了（也就是可以让你小伙伴通过浏览器访问到你的博客）。</strong></p>
 <h2 id="部署Hexo到GitHub"><a href="#部署Hexo到GitHub" class="headerlink" title="部署Hexo到GitHub"></a>部署Hexo到GitHub</h2><h3 id="GitHub创建仓库"><a href="#GitHub创建仓库" class="headerlink" title="GitHub创建仓库"></a>GitHub创建仓库</h3><p><strong>到Github上创建仓库</strong></p>
 <p><strong>注意：为了能通过 &lt;你的 GitHub 用户名&gt;.github.io 域名访问，你的仓库（repository） 应该直接命名为:</strong><br><strong>&lt;你的 GitHub 用户名&gt;.github.io</strong></p>
 <p><strong>比如：你的用户名叫：Demo；</strong><br><strong>那么，你就创建一个仓库叫：Demo.github.io</strong></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234923191.png" alt="image-20220710234923191"></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234953614.png" alt="image-20220710234953614"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234923191.png" alt="image-20220710234923191"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710234953614.png" alt="image-20220710234953614"></p>
 <p><strong>GitHub现在新的仓库，分支为main，而Hexo默认用master分支。所以创建好后进入仓库，看看是什么分支：</strong></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235020234.png" alt="image-20220710235020234"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235020234.png" alt="image-20220710235020234"></p>
 <p><strong>我的博客已经推送过一次了，现在是<code>master</code>，接下来先安装博客里面的git，让我们的博客拥有推送的能力</strong></p>
 <h3 id="本地安装hexo-deployer-git"><a href="#本地安装hexo-deployer-git" class="headerlink" title="本地安装hexo-deployer-git"></a>本地安装hexo-deployer-git</h3><p><strong>在博客目录内，使用命令窗口&#x2F;终端输入：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#注意这些插件是安装在博客目录内的，所以是跟随博客内容一起走的</span></span><br><span class="line"><span class="comment">#这个插件是提供上传git能力</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
@@ -418,8 +418,8 @@
 <h3 id="修改博客主配置文件"><a href="#修改博客主配置文件" class="headerlink" title="修改博客主配置文件"></a>修改博客主配置文件</h3><p><strong>打开博客目录下的<code>_config.yml</code>文件，编辑（这边的可以用记事本），type后的’ ‘,填’git’，然后补上其他内容：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下面这个网址是我的github的一个链接</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:julintongxue/julintongxue.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235512404.png" alt="image-20220710235512404"></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235652501.png" alt="image-20220710235652501"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235512404.png" alt="image-20220710235512404"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220710235652501.png" alt="image-20220710235652501"></p>
 <p><strong>复制HTTPS或者SSH都可以，除了网址你填自己的之外，其他的要和我的符合一致哦</strong></p>
 <h2 id="博客推送"><a href="#博客推送" class="headerlink" title="博客推送"></a>博客推送</h2><p><strong>在博客目录下命令窗口&#x2F;终端输入</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email <span class="string">&quot;your_email&quot;</span></span><br><span class="line">git config --global user.name <span class="string">&quot;your_name&quot;</span></span><br><span class="line"><span class="comment"># hexo d就是推送博客到指定的地方(本博客推送的地方是Github)</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
@@ -427,42 +427,42 @@
 <p><strong>会弹出一个github的登陆框，登录上你自己的github即可</strong></p>
 <p><strong>然后你访问</strong></p>
 <p><strong><code>&lt;你的 GitHub 用户名&gt;.github.io</code>这个网址就出现你的hexo网站了，你的博客生涯正式开始。。。</strong></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220711001206320.png" alt="image-20220711001206320"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220711001206320.png" alt="image-20220711001206320"></p>
 <p><strong>配一下ssh公钥验证，这样每次推送就不用次次登录一次Github账号密码</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your_email&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>一路下一步之后，找到你c盘下的用户，找到一个.ssh的隐藏文件夹，在里面有个<code>id_rsa.pub</code>文件，把里面内容复制到github的账户设置里面的ssh验证</strong></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220711000855560.png" alt="image-20220711000855560"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20220711000855560.png" alt="image-20220711000855560"></p>
 <p><strong>因为github在国外，有些时候推送会出现ssl出错，其实就是网络差，我们在Git Bash里面输入下面这行命令，不验证ssl：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.sslVerify <span class="string">&quot;false&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="博客美化"><a href="#博客美化" class="headerlink" title="博客美化"></a>博客美化</h1><p><strong>很显然，刚刚装好的博客，丑的一批，啥都没有，那么怎么把这个丑丑的博客改造成为下图那样干净、整洁还有二次元味道捏<del>(￣▽￣)</del></strong>*</p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230401005302966.png" alt="image-20230401005302966"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230401005302966.png" alt="image-20230401005302966"></p>
 <h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p><strong>更换主题</strong></p>
 <p><strong>在博客根目录下，打开git bash，然后克隆代码</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next-reloaded</span><br></pre></td></tr></table></figure>
 
 <p><strong>然后修改博客根目录下的全局配置文件<code>_config.yml</code>将<code>theme</code>后面的字母改为<code>your_theme_name</code>,即<code>next-reloaded</code></strong></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230401130703259.png" alt="image-20230401130703259"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230401130703259.png" alt="image-20230401130703259"></p>
 <h2 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h2><h2 id="主题菜单"><a href="#主题菜单" class="headerlink" title="主题菜单"></a>主题菜单</h2><h2 id="隐藏网页底部"><a href="#隐藏网页底部" class="headerlink" title="隐藏网页底部"></a>隐藏网页底部</h2><h2 id="网易云音乐外链"><a href="#网易云音乐外链" class="headerlink" title="网易云音乐外链"></a>网易云音乐外链</h2><h2 id="看板娘-初音未来"><a href="#看板娘-初音未来" class="headerlink" title="看板娘-初音未来"></a>看板娘-初音未来</h2><h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><p>在安装配置node时，cmd检查node没问题</p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013508753.png" alt="image-20230413013508753"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013508753.png" alt="image-20230413013508753"></p>
 <p> 但是检查npm就出现<code>npm WARN config global </code>–global<code>, </code>–local<code>are deprecated. Use</code>–location&#x3D;global<code> instead.</code></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013542955.png" alt="image-20230413013542955"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013542955.png" alt="image-20230413013542955"></p>
 <p>我们就要来到nvm的路径找到里面的v16.15.1的node的文件夹<code>C:\Users\orange\AppData\Roaming\nvm\v16.15.1</code></p>
 <p>我们需要修改两个文件<code>npm</code>和<code>npm.cmd</code></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013913294.png" alt="image-20230413013913294"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413013913294.png" alt="image-20230413013913294"></p>
 <p>将npm文件的<strong>第23行</strong>，修改成下图样式，命令如下，可以直接粘贴</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prefix --location=global</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014025801.png" alt="image-20230413014025801"></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014108237.png" alt="image-20230413014108237"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014025801.png" alt="image-20230413014025801"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014108237.png" alt="image-20230413014108237"></p>
 <p>将npm.cmd文件的第12行，修改成下图样式，命令如下，可以直接粘贴，修改完保存。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prefix --location=global</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014223400.png" alt="image-20230413014223400"></p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014302436.png" alt="image-20230413014302436"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014223400.png" alt="image-20230413014223400"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014302436.png" alt="image-20230413014302436"></p>
 <p>那么，我们再次打开cmd，执行一下命令再看看还有没报错</p>
-<p><img src="/blog/blog/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014433543.png" alt="image-20230413014433543"></p>
+<p><img src="/2022/07/09/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230413014433543.png" alt="image-20230413014433543"></p>
 
     </div>
 
@@ -472,8 +472,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/Hexo/" rel="tag"># Hexo</a>
-              <a href="/blog/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"># 博客</a>
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"># 博客</a>
           </div>
 
         
@@ -482,11 +482,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2022/05/01/Blackarch/" rel="prev" title="Blackarch">
+    <a href="/2022/05/01/Blackarch/" rel="prev" title="Blackarch">
       <i class="fa fa-chevron-left"></i> Blackarch
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/2022/07/13/nginx%E6%9A%91%E5%81%87%E5%AE%9E%E8%AE%AD/" rel="next" title="nginx暑假实训">
+    <a href="/2022/07/13/nginx%E6%9A%91%E5%81%87%E5%AE%9E%E8%AE%AD/" rel="next" title="nginx暑假实训">
       nginx暑假实训 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -559,27 +559,27 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="涩橙子"
-      src="/blog/images/head.jpg">
+      src="/images/head.jpg">
   <p class="site-author-name" itemprop="name">涩橙子</p>
   <div class="site-description" itemprop="description">自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/blog/archives/">
+          <a href="/archives/">
         
           <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/blog/categories/">
+            <a href="/categories/">
           
         <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/blog/tags/">
+            <a href="/tags/">
           
         <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span></a>
@@ -588,7 +588,7 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="/blog/julintongxue@gmail.com" title="E-Mail → julintongxue@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <a href="/julintongxue@gmail.com" title="E-Mail → julintongxue@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
 
@@ -657,22 +657,22 @@
 
   
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script size="300" alpha="0.6" zIndex="-1" src="/blog/lib/canvas-ribbon/canvas-ribbon.js"></script>
-  <script src="/blog/lib/anime.min.js"></script>
-  <script src="/blog/lib/pjax/pjax.min.js"></script>
-  <script src="/blog/lib/velocity/velocity.min.js"></script>
-  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/blog/js/utils.js"></script>
+<script src="/js/utils.js"></script>
 
-<script src="/blog/js/motion.js"></script>
-
-
-<script src="/blog/js/schemes/muse.js"></script>
+<script src="/js/motion.js"></script>
 
 
-<script src="/blog/js/next-boot.js"></script>
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
 
   <script>
 var pjax = new Pjax({
@@ -788,7 +788,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 
     </div>
 
-<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
 
 
