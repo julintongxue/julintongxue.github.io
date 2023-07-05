@@ -2110,7 +2110,6 @@
     <title>python爬虫</title>
     <url>/blog/2022/07/17/python%E7%88%AC%E8%99%AB/</url>
     <content><![CDATA[<p>[toc]</p>
-<p><a href="1.txt">1.txt</a></p>
 <h1 id="python爬虫"><a href="#python爬虫" class="headerlink" title="python爬虫"></a>python爬虫</h1><h3 id="python需要安装的库"><a href="#python需要安装的库" class="headerlink" title="python需要安装的库"></a>python需要安装的库</h3><h4 id="pymysql"><a href="#pymysql" class="headerlink" title="pymysql"></a>pymysql</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">连接mysql的库</span><br></pre></td></tr></table></figure>
 
 <h4 id="pyecharts"><a href="#pyecharts" class="headerlink" title="pyecharts"></a>pyecharts</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">用于生成 Echarts 图表的类库</span><br></pre></td></tr></table></figure>
