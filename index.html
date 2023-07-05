@@ -122,7 +122,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">39</span></a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -182,6 +182,109 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/blog/2023/07/06/hexo%E5%8D%9A%E5%AE%A2%E6%8E%A2%E5%9D%91%E4%B9%8B%E6%97%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2023/07/06/hexo%E5%8D%9A%E5%AE%A2%E6%8E%A2%E5%9D%91%E4%B9%8B%E6%97%85/" class="post-title-link" itemprop="url">hexo博客探坑之旅</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-07-06 00:17:59 / 修改时间：00:28:33" itemprop="dateCreated datePublished" datetime="2023-07-06T00:17:59+08:00">2023-07-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2023/07/06/hexo%E5%8D%9A%E5%AE%A2%E6%8E%A2%E5%9D%91%E4%B9%8B%E6%97%85/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2023/07/06/hexo%E5%8D%9A%E5%AE%A2%E6%8E%A2%E5%9D%91%E4%B9%8B%E6%97%85/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>391</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h3 id="Hexo-博客中出现关于-LF-will-be-replaced-by-CRLF-问题出现的原因以及解决方式"><a href="#Hexo-博客中出现关于-LF-will-be-replaced-by-CRLF-问题出现的原因以及解决方式" class="headerlink" title="Hexo 博客中出现关于 LF will be replaced by CRLF 问题出现的原因以及解决方式"></a>Hexo 博客中出现关于 LF will be replaced by CRLF 问题出现的原因以及解决方式</h3><h4 id="出现的原因："><a href="#出现的原因：" class="headerlink" title="出现的原因："></a>出现的原因：</h4><ul>
+<li><strong>windows中的换行符为 CRLF，而在Linux下的换行符为LF，所以在执行<code>git add .</code> 时出现警告提示，而且这个警告会阻止hexo博客的推送，导致出现博客一系列问题</strong></li>
+<li><strong>CRLF和LF是两种不同的换行格式，git工作区默认为CRLF来作为换行符，</strong><br><strong>所以当我们项目文件里有用的地方使用LF作为换行符，这个时候我们再继续<code>hexo d/(git add .)</code>执行推送或者<code>git commit</code>的时候就会弹出警告，当最终push到远程仓库的时候git会统一格式全部转化为用CRLF作为换行符</strong> </li>
+<li><strong>你是Windows程序员，且正在开发仅运行在Windows上的项目，可以设置false取消此功能，把回车符记录在库中：</strong></li>
+</ul>
+<h4 id="解决方式："><a href="#解决方式：" class="headerlink" title="解决方式："></a>解决方式：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.autocrlf <span class="literal">false</span>  </span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/blog/2023/07/03/hexo%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD%E6%96%B9%E6%A1%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -207,6 +310,22 @@
               <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2023-07-03 11:37:10" itemprop="dateCreated datePublished" datetime="2023-07-03T11:37:10+08:00">2023-07-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-06 00:28:55" itemprop="dateModified" datetime="2023-07-06T00:28:55+08:00">2023-07-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+                </span>
             </span>
 
           
@@ -1163,131 +1282,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/" class="post-title-link" itemprop="url">Arch linux如何美化GRUB</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-08 08:35:19" itemprop="dateCreated datePublished" datetime="2023-04-08T08:35:19+08:00">2023-04-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-19 19:53:19" itemprop="dateModified" datetime="2023-04-19T19:53:19+08:00">2023-04-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>402</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Archlinux如何美化GRUB"><a href="#Archlinux如何美化GRUB" class="headerlink" title="Archlinux如何美化GRUB"></a>Archlinux如何美化GRUB</h1><p>玩了这么久的Arch,每次换主题都是在桌面、软件这些地方，朋友来用你电脑才能看到你美轮美奂的桌面，那么怎么让你朋友一开机能知道你是一个资深二次元呢？答案很简单，给我们的Archlinux的GRUB换个衣服就能做到。</p>
-<p>我们可以来到下面这个网站寻找自己喜欢的GRUB主题:</p>
-<p><a target="_blank" rel="noopener" href="https://www.pling.com/browse?cat=109&ord=latest">PLING</a></p>
-<p>本次使用的主题是<a target="_blank" rel="noopener" href="https://www.pling.com/p/1526503/">The Quintessential Quintuplets GRUB Theme</a></p>
-<p>首先，把安装包下载下来。</p>
-<p><img src="/blog/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408203651056.png" alt="image-20230408203651056"></p>
-<p>将压缩包解压</p>
-<p><img src="/blog/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408203806670.png" alt="image-20230408203806670"></p>
-<p>解压之后，我们需要进去目录里面，要进去多次，直到能看到图片为止</p>
-<p><img src="/blog/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408203854175.png" alt="image-20230408203854175"></p>
-<p><img src="/blog/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408204047142.png" alt="image-20230408204047142"></p>
-<p><img src="/blog/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408210306115.png" alt="image-20230408210306115"></p>
-<p>然后把这个文件夹内容全部拷贝到</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r . /usr/share/grub/themes/Nino/</span><br></pre></td></tr></table></figure>
-
-<p>然后编辑</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/grub</span><br></pre></td></tr></table></figure>
-
-<p>添加下面这行参数</p>
-<p><img src="/blog/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408210607247.png" alt="image-20230408210607247"></p>
-<p>最后，重新生成一次grub.cfg</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
-
-<p>重启之后，就能看到新装扮的GRUB了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1363,7 +1357,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
