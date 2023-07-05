@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/17/python%E7%88%AC%E8%99%AB/python%E7%88%AC%E8%99%AB/image-20230705184918035.png">
 <meta property="og:image" content="https://julintongxue.github.io/blog/blog/2022/07/17/python%E7%88%AC%E8%99%AB/python%E7%88%AC%E8%99%AB/image-20230705193933569.png">
 <meta property="article:published_time" content="2022-07-17T10:44:18.000Z">
-<meta property="article:modified_time" content="2023-07-05T13:25:21.479Z">
+<meta property="article:modified_time" content="2023-07-05T15:59:35.587Z">
 <meta property="article:author" content="涩橙子">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">39</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -233,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-05 21:25:21" itemprop="dateModified" datetime="2023-07-05T21:25:21+08:00">2023-07-05</time>
+                <time title="修改时间：2023-07-05 23:59:35" itemprop="dateModified" datetime="2023-07-05T23:59:35+08:00">2023-07-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,7 +265,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>8.6k</span>
+              <span>8.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -400,6 +400,12 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">演示Python pymysql库的基础操作</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">from pymysql import Connection</span><br><span class="line"></span><br><span class="line"># 构建到MySQL数据库的链接</span><br><span class="line">conn = Connection(</span><br><span class="line">    host=&quot;192.168.0.104&quot;,  # 主机名（IP）</span><br><span class="line">    port=3306,             # 端口</span><br><span class="line">    user=&quot;root&quot;,           # 账户</span><br><span class="line">    password=&quot;Asimov&quot;,     # 密码</span><br><span class="line">    autocommit=True        # 设置自动提交</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 执行非查询性质SQL</span><br><span class="line">cursor = conn.cursor()      # 获取到游标对象</span><br><span class="line"># 选择数据库</span><br><span class="line">conn.select_db(&quot;test&quot;)</span><br><span class="line"># 执行sql插入数据</span><br><span class="line">cursor.execute(&quot;insert into test_pymysql values(10001, &#x27;周杰轮&#x27;, 31)&quot;)</span><br><span class="line"># 事务确认(前面有autocommit=True设置自动提交参数所以不需要事务处理)</span><br><span class="line"># conn.commit()</span><br><span class="line"># 关闭链接</span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
 
 
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE py_sql CHARSET utf8;</span><br><span class="line">USE py_sql;</span><br><span class="line">CREATE table orders(</span><br><span class="line">	order_date <span class="built_in">date</span>,</span><br><span class="line">	order_id VARCHAR(255),</span><br><span class="line">	money INT,</span><br><span class="line">	province VARCHAR(10)</span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -503,7 +509,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

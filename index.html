@@ -122,7 +122,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">39</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -437,135 +437,6 @@
 
       
           
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/blog/2023/05/30/python%E7%88%AC%E8%99%AB/1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2023/05/30/python%E7%88%AC%E8%99%AB/1/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-05-30 18:02:53 / 修改时间：18:05:12" itemprop="dateCreated datePublished" datetime="2023-05-30T18:02:53+08:00">2023-05-30</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2023/05/30/python%E7%88%AC%E8%99%AB/1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2023/05/30/python%E7%88%AC%E8%99%AB/1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="FTP主动模式与FTP被动模式所需的端口"><a href="#FTP主动模式与FTP被动模式所需的端口" class="headerlink" title="FTP主动模式与FTP被动模式所需的端口"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/LiuChang-blog/p/11973797.html">FTP主动模式与FTP被动模式所需的端口</a></h1><p>FTP是仅基于TCP的服务，不支持UDP。 与众不同的是FTP使用2个端口，一个数据端口和一个命令端口（也可叫做控制端口）。通常来说这两个端口是21（命令端口）和20（数据端口）。但FTP工作方式的不同，数据端口并不总是20。这就是主动与被动FTP的最大不同之处。</p>
-<p>（一）主动FTP</p>
-<p>主动方式的FTP是这样的：客户端从一个任意的非特权端口N（N&gt;1024）连接到FTP服务器的命令端口，也就是21端口。然后客户端开始 监听端口N+1，并发送FTP命令“port N+1”到FTP服务器。接着服务器会从它自己的数据端口（20）连接到客户端指定的数据端口（N+1）。</p>
-<p>针对FTP服务器前面的防火墙来说，必须允许以下通讯才能支持主动方式FTP：</p>
-<p>\1. 任何大于1024的端口到FTP服务器的21端口。（客户端初始化的连接）</p>
-<p>\2. FTP服务器的21端口到大于1024的端口。 （服务器响应客户端的控制端口）</p>
-<p>\3. FTP服务器的20端口到大于1024的端口。（服务器端初始化数据连接到客户端的数据端口）</p>
-<p>\4. 大于1024端口到FTP服务器的20端口（客户端发送ACK响应到服务器的数据端口）</p>
-<p>（二）被动FTP</p>
-<p>为了解决服务器发起到客户的连接的问题，人们开发了一种不同的FTP连接方式。这就是所谓的被动方式，或者叫做PASV，当客户端通知服务器它处于 被动模式时才启用。</p>
-<p>在被动方式FTP中，命令连接和数据连接都由客户端发起，这样就可以解决从服务器到客户端的数据端口的入方向连接被防火墙过滤掉的问题。</p>
-<p>当开启一个 FTP连接时，客户端打开两个任意的非特权本地端口（N &gt; 1024和N+1）。第一个端口连接服务器的21端口，但与主动方式的FTP不同，客户端不会提交PORT命令并允许服务器来回连它的数据端口，而是提交 PASV命令。这样做的结果是服务器会开启一个任意的非特权端口（P &gt; 1024），并发送PORT P命令给客户端。然后客户端发起从本地端口N+1到服务器的端口P的连接用来传送数据。</p>
-<p>对于服务器端的防火墙来说，必须允许下面的通讯才能支持被动方式的FTP:</p>
-<p>\1. 从任何大于1024的端口到服务器的21端口 （客户端初始化的连接）</p>
-<p>\2. 服务器的21端口到任何大于1024的端口 （服务器响应到客户端的控制端口的连接）</p>
-<p>\3. 从任何大于1024端口到服务器的大于1024端口 （客户端初始化数据连接到服务器指定的任意端口）</p>
-<p>\4. 服务器的大于1024端口到远程的大于1024的端口（服务器发送ACK响应和数据到客户端的数据端口）</p>
-<p>以上关于主动和被动FTP的解释，可以简单概括为以下两点：</p>
-<p>1、主动FTP：</p>
-<p>命令连接：客户端 &gt;1024端口 -&gt; 服务器 21端口</p>
-<p>数据连接：客户端 &gt;1024端口 1024端口 -&gt; 服务器 21端口</p>
-<p>数据连接：客户端 &gt;1024端口 -&gt; 服务器 &gt;1024端口</p>
-<p>（三） 主动与被动FTP优缺点：</p>
-<p>主动FTP对FTP服务器的管理有利，但对客户端的管理不利。因为FTP服务器企图与客户端的高位随机端口建立连接，而这个端口很有可能被客户端的 防火墙阻塞掉。被动FTP对FTP客户端的管理有利，但对服务器端的管理不利。因为客户端要与服务器端建立两个连接，其中一个连到一个高位随机端口，而这 个端口很有可能被服务器端的防火墙阻塞掉。</p>
-<p>幸运的是，有折衷的办法。既然FTP服务器的管理员需要他们的服务器有最多的客户连接，那么必须得支持被动FTP。我们可以通过为FTP服务器指定 一个有 限的端口范围来减小服务器高位端口的暴露。这样，不在这个范围的任何端口会被服务器的防火墙阻塞。虽然这没有消除所有针对服务器的危险，但它大大减少了危 险。</p>
-<p>简而言之：</p>
-<p>主动模式（PORT）和被动模式（PASV）。主动模式是从服务器端向客户端发起连接；被动模式是客户端向服务器端发起连接。两者的共同点是都使用21端口进行用户验证及管理，差别在于传送数据的方式不同，PORT模式的FTP服务器数据端口固定在20，而PASV模式则在1025-65535之间 随机</p>
-<p>FTP主动模式与被动模式的解决与原理</p>
-<p>FTP是File Transfer Protocol（文件传输协议）的缩写，用来在两台计算机之间互相传送文件。相比于HTTP，FTP协议要复杂得多。复杂的原因，是因为FTP协议要用 到两个TCP连接，一个是命令链路，用来在FTP客户端与服务器之间传递命令；另一个是数据链路，用来上传或下载数据。</p>
-<p>FTP协议有两种工作方式：PORT方式和PASV方式，中文意思为主动式和被动式。</p>
-<p>PORT（主动）方式的连接过程是：客户端向服务器的FTP端口（默认是21）发送连接请求，服务器接受连接，建立一条命令链路。当需要传送数据 时，客户端在命令链路上用PORT命令告诉服务器：“我打开了XXXX端口，你过来连接我”。于是服务器从20端口向客户端的XXXX端口发送连接请求， 建立一条数据链路来传送数据。</p>
-<p>PASV（被动）方式的连接过程是：客户端向服务器的FTP端口（默认是21）发送连接请求，服务器接受连接，建立一条命令链路。当需要传送数据 时，服务器在命令链路上用PASV命令告诉客户端：“我打开了XXXX端口，你过来连接我”。于是客户端向服务器的XXXX端口发送连接请求，建立一条数 据链路来传送数据。</p>
-<p>概括：<br>-——————————————————————————-<br>主动模式：服务器向客户端敲门，然后客户端开门<br>被动模式：客户端向服务器敲门，然后服务器开门<br>所以，如果你是如果通过代理上网的话，就不能用主动模式，因为服务器敲的是上网代理服务器的门，而不是敲客户端的门<br>而且有时候，客户端也不是轻易就开门的，因为有防火墙阻挡，除非客户端开放大于1024的高端端口</p>
-<p>-——————————————————————————-</p>
-<p>要用主动模式来下载，请您把下载工具的被动模式（PASV）都不要打勾，用主动模式来下载就OK了,如果在出错，那就被动主动相互转换一下</p>
-<p>常见的FTP客户端软件的PASV方式的关闭方法</p>
-<p>大部分FTP客户端默认使用PASV方式,PASV模式的意式是被动模式。 在大部分FTP客户端的设置里，常见到的字眼都是“PASV”或“被动模式”。</p>
-<p>IE： 工具 -&gt; Internet选项 -&gt; 高级 -&gt; “使用被动FTP”（需要IE6.0以上才支持）。</p>
-<p>CuteFTP： Edit -&gt; Setting -&gt; Connection -&gt; Firewall -&gt; “PASV Mode”<br>或 File -&gt; Site Manager，在左边选中站点 -&gt; Edit -&gt; “Use PASV mode”</p>
-<p>FlashGet： 工具 -&gt; 选项 -&gt; 代理服务器 -&gt; 直接连接 -&gt; 编辑 -&gt; “PASV模式”</p>
-<p>FlashFXP： 选项 -&gt; 参数选择 -&gt; 代理&#x2F;防火墙&#x2F;标识 -&gt; “使用被动模式”<br>或 站点管理 -&gt; 对应站点 -&gt; 选项 -&gt; “使用被动模式”<br>或 快速连接 -&gt; 切换 -&gt; “使用被动模式”</p>
-<p>LeapFTP： Option -&gt;Preferences -&gt; General-&gt;Proxy-&gt;Use Pasv Mode</p>
-<p>从上面可以看出，两种方式的命令链路连接方法是一样的，而数据链路的建立方法就完全不同。而FTP的复杂性就在于此。</p>
-
       
     </div>
 
@@ -1292,6 +1163,131 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/" class="post-title-link" itemprop="url">Arch linux如何美化GRUB</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-08 08:35:19" itemprop="dateCreated datePublished" datetime="2023-04-08T08:35:19+08:00">2023-04-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-19 19:53:19" itemprop="dateModified" datetime="2023-04-19T19:53:19+08:00">2023-04-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>402</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Archlinux如何美化GRUB"><a href="#Archlinux如何美化GRUB" class="headerlink" title="Archlinux如何美化GRUB"></a>Archlinux如何美化GRUB</h1><p>玩了这么久的Arch,每次换主题都是在桌面、软件这些地方，朋友来用你电脑才能看到你美轮美奂的桌面，那么怎么让你朋友一开机能知道你是一个资深二次元呢？答案很简单，给我们的Archlinux的GRUB换个衣服就能做到。</p>
+<p>我们可以来到下面这个网站寻找自己喜欢的GRUB主题:</p>
+<p><a target="_blank" rel="noopener" href="https://www.pling.com/browse?cat=109&ord=latest">PLING</a></p>
+<p>本次使用的主题是<a target="_blank" rel="noopener" href="https://www.pling.com/p/1526503/">The Quintessential Quintuplets GRUB Theme</a></p>
+<p>首先，把安装包下载下来。</p>
+<p><img src="/blog/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408203651056.png" alt="image-20230408203651056"></p>
+<p>将压缩包解压</p>
+<p><img src="/blog/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408203806670.png" alt="image-20230408203806670"></p>
+<p>解压之后，我们需要进去目录里面，要进去多次，直到能看到图片为止</p>
+<p><img src="/blog/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408203854175.png" alt="image-20230408203854175"></p>
+<p><img src="/blog/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408204047142.png" alt="image-20230408204047142"></p>
+<p><img src="/blog/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408210306115.png" alt="image-20230408210306115"></p>
+<p>然后把这个文件夹内容全部拷贝到</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r . /usr/share/grub/themes/Nino/</span><br></pre></td></tr></table></figure>
+
+<p>然后编辑</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/grub</span><br></pre></td></tr></table></figure>
+
+<p>添加下面这行参数</p>
+<p><img src="/blog/blog/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408210607247.png" alt="image-20230408210607247"></p>
+<p>最后，重新生成一次grub.cfg</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<p>重启之后，就能看到新装扮的GRUB了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1367,7 +1363,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
