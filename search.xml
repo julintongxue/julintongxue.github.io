@@ -1893,8 +1893,10 @@
 <li><strong>CRLF和LF是两种不同的换行格式，git工作区默认为CRLF来作为换行符，</strong><br><strong>所以当我们项目文件里有用的地方使用LF作为换行符，这个时候我们再继续<code>hexo d/(git add .)</code>执行推送或者<code>git commit</code>的时候就会弹出警告，当最终push到远程仓库的时候git会统一格式全部转化为用CRLF作为换行符</strong> </li>
 <li><strong>你是Windows程序员，且正在开发仅运行在Windows上的项目，可以设置false取消此功能，把回车符记录在库中：</strong></li>
 </ul>
+<p><img src="/2023/07/06/hexo%E5%8D%9A%E5%AE%A2%E6%8E%A2%E5%9D%91%E4%B9%8B%E6%97%85/image-20230706181305450.png" alt="image-20230706181305450"></p>
 <h4 id="解决方式："><a href="#解决方式：" class="headerlink" title="解决方式："></a>解决方式：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global core.autocrlf <span class="literal">false</span>  </span><br></pre></td></tr></table></figure>
 
+<p><img src="/2023/07/06/hexo%E5%8D%9A%E5%AE%A2%E6%8E%A2%E5%9D%91%E4%B9%8B%E6%97%85/image-20230706181332379.png" alt="image-20230706181332379"></p>
 ]]></content>
       <categories>
         <category>博客</category>
