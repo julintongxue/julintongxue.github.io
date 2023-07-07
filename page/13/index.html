@@ -123,7 +123,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">41</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">32</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">33</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -196,6 +196,331 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/17/HCIA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/17/HCIA/" class="post-title-link" itemprop="url">HCIA</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-17 16:52:12" itemprop="dateCreated datePublished" datetime="2022-07-17T16:52:12+08:00">2022-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-06-13 00:19:47" itemprop="dateModified" datetime="2023-06-13T00:19:47+08:00">2023-06-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/" itemprop="url" rel="index"><span itemprop="name">路由交换</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/17/HCIA/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/17/HCIA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="HCIA"><a href="#HCIA" class="headerlink" title="HCIA"></a>HCIA</h1><p>[toc]</p>
+<h2 id="子网计算"><a href="#子网计算" class="headerlink" title="子网计算"></a>子网计算</h2><p><img src="/2022/07/17/HCIA/image-20230214194022895.png" alt="image-20230214194022895"></p>
+<p><img src="/2022/07/17/HCIA/image-20230214194423029.png" alt="image-20230214194423029"></p>
+<h3 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">4个部门 4个子网</span><br><span class="line">每个部门最多到50台主机 每个子网至少容纳50个主机地址</span><br><span class="line">借两位  主机数=62台</span><br><span class="line">192.168.100.0/24-&gt;26</span><br><span class="line"></span><br><span class="line">0        1~62        63</span><br><span class="line">64       65~126      127</span><br><span class="line">128      129~190     192</span><br><span class="line">192      193~254     255</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/17/HCIA/image-20230215000603724.png" alt="image-20230215000603724"></p>
+<p>块（Block） &#x3D; 2^主机数位&#x3D;256-感兴趣掩码数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">如果生产部主机100台，销售部有50台，财务部有25台，客服部有12台，应该如何划分子网呢？</span><br><span class="line"></span><br><span class="line">生产部100台，至少保留7位主机位，最多借1位</span><br><span class="line"></span><br><span class="line">块=128</span><br><span class="line">生产部可以在下面两个子网二选一，假设选了子网1，那么子网1就不能参与下面其他部门的分割，只能使用子网2去分割。</span><br><span class="line"></span><br><span class="line">子网1：192.168.100.0/25</span><br><span class="line">子网2：192.168.100.128/25</span><br><span class="line"></span><br><span class="line">销售部50台，至少保留6位主机位，最多借两位</span><br><span class="line">块=64</span><br><span class="line"></span><br><span class="line">子网3：192.168.100.128/26</span><br><span class="line">子网4：192.168.100.192/26</span><br><span class="line"></span><br><span class="line">销售部25台，客服部有12台，至少保留5位主机位，最多借三位</span><br><span class="line">块=32</span><br><span class="line"></span><br><span class="line">子网5：192.168.100.192/27   销售部</span><br><span class="line">子网6：192.168.100.224/27   客服部</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>第1问：61.179.150.39&#x2F;28 子网号为多少，广播号为多少，可用IP地址范围是多少？</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">块=16</span><br><span class="line"></span><br><span class="line">？ X 块 = B &lt; 39</span><br><span class="line">? = 2 B = 32</span><br><span class="line">子网号32</span><br><span class="line">广播号47</span><br><span class="line">可用ip地址范围33 ~ 46</span><br></pre></td></tr></table></figure>
+
+<p><strong>第2问:19.224.17.0&#x2F;17 可不可以配置在路由器的接口上?如果可以，是为什么，不可以又是为什么?</strong> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">块=128</span><br><span class="line"></span><br><span class="line">子网地址19.224.0.0/17</span><br><span class="line">19.2240.0~19.224.127.255</span><br><span class="line">可以</span><br></pre></td></tr></table></figure>
+
+<p><strong>第3问:37.95.221.16&#x2F;5 和 41.222.221.16&#x2F;5 两个地址在不在同一个网段，能不能ping通?为什么?</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">块=8</span><br><span class="line">32.0.0.0/5 40.0.0.0/5 很明显不是同一个网段，ping不通</span><br></pre></td></tr></table></figure>
+
+<p><strong>第4问:给出第3问的IP地址 37.95.221.16的子网号和广播号</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">块=128</span><br><span class="line"></span><br><span class="line">子网号32.0.0.0/5</span><br><span class="line">广播号39.255.255.255/5</span><br><span class="line">可以</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="回环网卡设置过程"><a href="#回环网卡设置过程" class="headerlink" title="回环网卡设置过程"></a>回环网卡设置过程</h2><h3 id="一-安装过程"><a href="#一-安装过程" class="headerlink" title="一.安装过程"></a>一.安装过程</h3><p><strong>1.找到”开始”选项，鼠标右击找到”设备管理器”,然后随便在空白处单击鼠标一下。</strong></p>
+<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(4).png" alt="屏幕截图(4)"></p>
+<p><strong>2.鼠标单击菜单栏选项的”操作”选项，然后单击”添加过时硬件”，然后在”弹窗”选项单击”下一步”;在”你想向导做什么”选项里面选择”安装我手动从列表选择的硬件(高级)”，然后单击”下一步”;在”常见硬件类型”选择中选择”网络适配器”,然后单击”下一步”;然后在”厂商”选项中选择”Microsoft”,然后在”型号”选项中选择”Microsoft KM-TEST 环回适配器”，然后单击”下一步“，然后在单击一次”下一步”，系统就会按照选项按照网卡，等待”完成”选项出来后，单击”完成”选项即可完成配置。</strong></p>
+<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(5).png" alt="屏幕截图(5)"></p>
+<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(6).png" alt="屏幕截图(6)"></p>
+<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(7).png" alt="屏幕截图(7)"></p>
+<p><img src="/2022/07/17/HCIA/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(10).png" alt="屏幕截图(10)"></p>
+<h3 id="二-检查过程"><a href="#二-检查过程" class="headerlink" title="二.检查过程"></a>二.检查过程</h3><p><strong>1.然后可以在”更改适配器选项中”找到”以太网”这张回环网卡</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118203530057.png" alt="image-20220118203530057"></p>
+<p><strong>1.当然你也可以给这张网卡”重命名”,比如左上角那张”loop”网卡就是我上一次实验的回环网卡，接下来我会用”loop”网卡做实验（顺带说一句，回环网卡安装好后是必须要重启才能生效）</strong></p>
+<h3 id="三-ensp配置回环实验"><a href="#三-ensp配置回环实验" class="headerlink" title="三.ensp配置回环实验"></a>三.ensp配置回环实验</h3><p><strong>1.接下来我用这个拓扑来做一次</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118235018574-1658238267503.png" alt="image-20220118235018574"></p>
+<p><strong>2.首先，我们单拖一个云”Cloud”出来。然后”右击”鼠标选择”设置”。没开始配置前的设置是这样的，如下图:</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118205140449-1658238267503.png" alt="image-20220118205140449"></p>
+<p><strong>3.我们首先在端口创建那里找到绑定信息”UDP”，然后单击右边的”增加”选项。然后，配置表就出现一行配置，如下图:</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118205410999-1658238267504.png" alt="image-20220118205410999"></p>
+<p><strong>4.然后我们在端口创建那里找到绑定信息”loop”（我们创建的回环网卡，这里的回环网卡我更改了设备名，所以叫loop），然后单击右边的”增加”选项。然后，配置表就出现第二行配置，如下图:</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118205550165-1658238267504.png" alt="image-20220118205550165"></p>
+<p><img src="/2022/07/17/HCIA/image-20220118205753084-1658238267504.png" alt="image-20220118205753084"></p>
+<p><strong>5.然后我们看下方的”端口映射设置”，在”出”或者”入”端口设置里面选择一方的端口编号设置成为”2”,然后再勾选下方的”双向通道”，然后单击”增加”即可完成配置。</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118210211711-1658238267504.png" alt="image-20220118210211711"></p>
+<p><strong>6.设置回环网卡ip为”1.0.0.2”,打开”网络设配器选项”找到目标网卡改就行了</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118210811144-1658238267504.png" alt="image-20220118210811144"></p>
+<p><strong>7.给路由器刷入命令(记得开启路由器)</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118211028820-1658238267504.png" alt="image-20220118211028820"></p>
+<p><strong>8.xshell测试路由器ip”1.0.0.1”是否可以ping通</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20220118210928564-1658238267504.png" alt="image-20220118210928564"></p>
+<p>9.把服务命令刷入路由器，然后用xshell连接上去。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys AR1</span><br><span class="line">int g0/0/0</span><br><span class="line">ip add 1.0.0.1 24</span><br><span class="line">q</span><br><span class="line">telnet server <span class="built_in">enable</span></span><br><span class="line">user-interface vty 0 4</span><br><span class="line">authentication-mode aaa</span><br><span class="line">q</span><br><span class="line">aaa</span><br><span class="line">local-user julintongxue password cipher 123.com</span><br><span class="line">local-user julintongxue privilege level 15</span><br><span class="line">local-user julintongxue service-type telnet</span><br><span class="line">display this</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/17/HCIA/image-20220118235856933-1658238267504.png" alt="image-20220118235856933"></p>
+<p><img src="/2022/07/17/HCIA/image-20220118235920804-1658238267504.png" alt="image-20220118235920804"></p>
+<table>
+<thead>
+<tr>
+<th>认证 模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AAA</td>
+<td>登录时需要用户名和密码</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>登录时只需要密码</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dis telnet server status</span><br><span class="line">dis telnet server <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user-interface vty 0 4</td>
+<td>进入vty配置模式</td>
+</tr>
+<tr>
+<td>+ authentication-mode password&#x2F;aaa</td>
+<td>配置认证模式</td>
+</tr>
+<tr>
+<td>+ set authentication password cipher huawei</td>
+<td>配置认证密码huawei</td>
+</tr>
+<tr>
+<td>+ user privilege level 15</td>
+<td>配置用户级别为15</td>
+</tr>
+<tr>
+<td>user-interface maximum-vty 15</td>
+<td>配置最大vty会话数量</td>
+</tr>
+<tr>
+<td>aaa</td>
+<td>进入aaa配置模式</td>
+</tr>
+<tr>
+<td>+ local-user julintongxue password cipher huawei</td>
+<td>创建julintongxue用户和huawei密码</td>
+</tr>
+<tr>
+<td>+ local-user julintongxue privilege level 15</td>
+<td>创建用户级别</td>
+</tr>
+<tr>
+<td>+ local-user julintongxue service-type telnet</td>
+<td>创建用户可用服务</td>
+</tr>
+</tbody></table>
+<h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><h3 id="ospf综合实验"><a href="#ospf综合实验" class="headerlink" title="ospf综合实验"></a>ospf综合实验</h3><p><img src="/2022/07/17/HCIA/image-20230608003146657.png" alt="image-20230608003146657"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">sys </span><br><span class="line">sys AR1</span><br><span class="line">int g0/0/0</span><br><span class="line">ip add 192.168.0.1 24</span><br><span class="line">ospf 1 router-id 1.1.1.1</span><br><span class="line">area 0</span><br><span class="line">net 192.168.0.0 0.0.0.255</span><br><span class="line">int g0/0/0</span><br><span class="line">ospf dr-pri 200</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sys </span><br><span class="line">sys AR2</span><br><span class="line">int g0/0/0</span><br><span class="line">ip add 192.168.0.2 24</span><br><span class="line">ospf 1 router-id 2.2.2.2</span><br><span class="line">area 0</span><br><span class="line">net 192.168.0.0 0.0.0.255</span><br><span class="line">int g0/0/0</span><br><span class="line">ospf dr-pri 100</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sys </span><br><span class="line">sys AR3</span><br><span class="line">int g0/0/0</span><br><span class="line">ip add 192.168.0.3 24</span><br><span class="line">int s4/0/0</span><br><span class="line">ip add 34.0.0.3 8</span><br><span class="line">ospf authentication-mode md5 1 cipher julintongxue@gmail.com</span><br><span class="line">ospf 1 router-id 3.3.3.3</span><br><span class="line">area 0</span><br><span class="line">net 192.168.0.0 0.0.0.255</span><br><span class="line">net 34.0.0.0 0.255.255.255</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sys </span><br><span class="line">sys AR6</span><br><span class="line">int g0/0/0</span><br><span class="line">ip add 192.168.0.6 24</span><br><span class="line">ospf 1 router-id 6.6.6.6</span><br><span class="line">area 0</span><br><span class="line">net 192.168.0.0 0.0.0.255</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sys </span><br><span class="line">sys AR4</span><br><span class="line">int g0/0/1</span><br><span class="line">ip add 48.0.0.4 8</span><br><span class="line">ip route-static 0.0.0.0 0 48.0.0.8</span><br><span class="line">int s4/0/0</span><br><span class="line">ip add 34.0.0.4 8</span><br><span class="line">ospf authentication-mode md5 1 cipher julintongxue@gmail.com</span><br><span class="line">int lo 4</span><br><span class="line">ip add 4.4.4.4 32</span><br><span class="line">ospf 1 router-id 4.4.4.4</span><br><span class="line">default-route-advertise</span><br><span class="line">area 0</span><br><span class="line">net 4.4.4.4 0.0.0.0</span><br><span class="line">net 34.0.0.0 0.255.255.255</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sys </span><br><span class="line">sys AR5</span><br><span class="line">int g0/0/0</span><br><span class="line">ip add 48.0.0.8 8</span><br><span class="line">ip route-static 0.0.0.0 0 48.0.0.4</span><br><span class="line">int lo 5</span><br><span class="line">ip add 8.8.8.8 32</span><br></pre></td></tr></table></figure>
+
+<h3 id="VLAN“基础实验”"><a href="#VLAN“基础实验”" class="headerlink" title="VLAN“基础实验”"></a>VLAN“基础实验”</h3><p><img src="/2022/07/17/HCIA/image-20230613001021890.png" alt="image-20230613001021890"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys SW1</span><br><span class="line">vlan batch 10 20 100 200</span><br><span class="line">int g0/0/3</span><br><span class="line">p l t</span><br><span class="line">p t a v 10 20 100 200</span><br><span class="line">int g0/0/1</span><br><span class="line">p l h</span><br><span class="line">p h un v 10 100</span><br><span class="line">p h p v 10</span><br><span class="line">int g0/0/2</span><br><span class="line">p l h</span><br><span class="line">p h un v 20 200</span><br><span class="line">p h p v 20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sys</span><br><span class="line">sys SW2</span><br><span class="line">vlan batch 10 20 100 200</span><br><span class="line">int g0/0/1</span><br><span class="line">p l t</span><br><span class="line">p t a v 10 20 100 200</span><br><span class="line">int g0/0/2</span><br><span class="line">p l t</span><br><span class="line">p t a v 10 20 100 200</span><br><span class="line">int g0/0/3</span><br><span class="line">p l h</span><br><span class="line">p h un v 10 100</span><br><span class="line">p h p v 100</span><br><span class="line">int g0/0/4</span><br><span class="line">p l h</span><br><span class="line">p h un v 20 200</span><br><span class="line">p h p v 200</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sys</span><br><span class="line">sys SW3</span><br><span class="line">vlan batch 10 20 100 200</span><br><span class="line">int g0/0/4</span><br><span class="line">p l t</span><br><span class="line">p t a v 10 20 100 200</span><br><span class="line">int g0/0/1</span><br><span class="line">p l h</span><br><span class="line">p h un v 10 100</span><br><span class="line">p h p v 10</span><br><span class="line">int g0/0/2</span><br><span class="line">p l h</span><br><span class="line">p h un v 20 200</span><br><span class="line">p h p v 20</span><br></pre></td></tr></table></figure>
+
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="交换机划分VLAN配置"><a href="#交换机划分VLAN配置" class="headerlink" title="交换机划分VLAN配置"></a>交换机划分VLAN配置</h3><h4 id="一、实验目标"><a href="#一、实验目标" class="headerlink" title="一、实验目标"></a>一、实验目标</h4><p><strong>1、理解虚拟LAN(VLAN)基本配置；</strong></p>
+<p><strong>2、掌握一般交换机按端口划分VLAN的配置方法；</strong></p>
+<p><strong>3、掌握Tag VLAN配置方法。</strong></p>
+<h4 id="二、实验背景"><a href="#二、实验背景" class="headerlink" title="二、实验背景"></a>二、实验背景</h4><p><strong>某一公司内财务部、销售部的PC通过2台交换机实现通信；要求财务部和销售部的PC可以互通，但为了数据安全起见，销售部和财务部需要进行互相隔离，现要在交换机上做适当配置来实现这一目标。</strong></p>
+<h4 id="三、技术原理"><a href="#三、技术原理" class="headerlink" title="三、技术原理"></a>三、技术原理</h4><p>​	<strong>VLAN是指在一个物理网段内。进行逻辑的划分，划分成若干个虚拟局域网，VLAN做大的特性是不受物理位置的限制，可以进行灵活的划分。VLAN具备了一个物理网段所具备的特性。相同VLAN内的主机可以相互直接通信，不同VLAN间的主机之间互相访问必须经路由设备进行转发，广播数据包只可以在本VLAN内进行广播，不能传输到其他VLAN中。</strong></p>
+<p>​	<strong>Port VLAN是实现VLAN的方式之一，它利用交换机的端口进行VALN的划分，一个端口只能属于一个VLAN。</strong><br>​	<strong>Tag VLAN是基于交换机端口的另一种类型，主要用于是交换机的相同Vlan内的主机之间可以直接访问，同时对不同Vlan的主机进行隔离。Tag VLAN遵循IEEE802.1Q协议的标准，在使用配置了Tag VLAN的端口进行数据传输时，需要在数据帧内添加4个字节的802.1Q标签信息，用于标示该数据帧属于哪个VLAN,便于对端交换机接收到数据帧后进行准确的过滤。</strong></p>
+<h4 id="四、实验设备"><a href="#四、实验设备" class="headerlink" title="四、实验设备"></a>四、实验设备</h4><p><strong>PC1,PC2,PC3,PC4</strong></p>
+<p><strong>两台S5700交换机</strong></p>
+<h4 id="五、实验的步骤和结果"><a href="#五、实验的步骤和结果" class="headerlink" title="五、实验的步骤和结果"></a>五、实验的步骤和结果</h4><p><img src="/2022/07/17/HCIA/image-20221224163323380.png" alt="image-20221224163323380"></p>
+<p><strong>结果就是PC1ping通PC3，PC2ping通PC4，PC1和PC3都不能访问PC2和PC4</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20221224163549970.png" alt="image-20221224163549970"></p>
+<p><img src="/2022/07/17/HCIA/image-20221224163612934.png" alt="image-20221224163612934"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># LSW1配置：</span><br><span class="line">sys</span><br><span class="line">sys LSW1</span><br><span class="line">vlan b 10 20</span><br><span class="line">int g0/0/2</span><br><span class="line">p l a</span><br><span class="line">p d v 10</span><br><span class="line">q</span><br><span class="line">int g0/0/3</span><br><span class="line">p l a</span><br><span class="line">p d v 20</span><br><span class="line">q</span><br><span class="line">int g0/0/1</span><br><span class="line">p l t</span><br><span class="line">p t a v 10 20 </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># LSW2配置：</span><br><span class="line">sys</span><br><span class="line">sys LSW2</span><br><span class="line">vlan b 10 20</span><br><span class="line">int g0/0/2</span><br><span class="line">p l a</span><br><span class="line">p d v 10</span><br><span class="line">q</span><br><span class="line">int g0/0/3</span><br><span class="line">p l a</span><br><span class="line">p d v 20</span><br><span class="line">q</span><br><span class="line">int g0/0/1</span><br><span class="line">p l t</span><br><span class="line">p t a v 10 20 </span><br></pre></td></tr></table></figure>
+
+<p>PC1配置（所有的PC只需配ip和子网掩码即可）</p>
+<p><img src="/2022/07/17/HCIA/image-20221224164203896.png" alt="image-20221224164203896"></p>
+<h3 id="三层交换机基本配置"><a href="#三层交换机基本配置" class="headerlink" title="三层交换机基本配置"></a>三层交换机基本配置</h3><h4 id="一、实验目标-1"><a href="#一、实验目标-1" class="headerlink" title="一、实验目标"></a>一、实验目标</h4><p><strong>1、理解三层交换机的基本原理；</strong></p>
+<p><strong>2、掌握三层交换机物理端口开启路由功能的配置方法。</strong></p>
+<h4 id="二、实验背景-1"><a href="#二、实验背景-1" class="headerlink" title="二、实验背景"></a>二、实验背景</h4><p><strong>公司现有1台三层交换机，要求你进行测试，该交换机的三层功能是否工作正常。</strong></p>
+<h4 id="三、技术原理-1"><a href="#三、技术原理-1" class="headerlink" title="三、技术原理"></a>三、技术原理</h4><p>​	<strong>三层交换机是带有三层路由功能的交换机，也就是这台交换机的端口既有三层路由功能，也具有二层交换功能。三层交换机端口默认为二层口，如果需要启用三层功能就需要在此端口输入undo portswitch命令。如果切换二层交换机可以用portswitch命令。</strong></p>
+<h4 id="四、实验设备-1"><a href="#四、实验设备-1" class="headerlink" title="四、实验设备"></a>四、实验设备</h4><p><strong>PC1,PC2</strong></p>
+<p><strong>一台S5700交换机</strong></p>
+<h4 id="五、实验的步骤和结果-1"><a href="#五、实验的步骤和结果-1" class="headerlink" title="五、实验的步骤和结果"></a>五、实验的步骤和结果</h4><p><strong>讲一下我的设想，PC1和PC2处于不同网段，想要互访必须要经过路由，但是实验只有一个交换机，我们可以使用交换机的三层功能（即套一个路由器，这个路由器是虚拟的，这就是三层路由功能）</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20230104192525719.png" alt="image-20230104192525719"></p>
+<p>交换机配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW1</span><br><span class="line">vlan batch 10 20</span><br><span class="line">int g0/0/1</span><br><span class="line"> p l a</span><br><span class="line"> p d v 10</span><br><span class="line">int vlanif10</span><br><span class="line"> ip add 192.168.1.254 24</span><br><span class="line">int g0/0/2</span><br><span class="line"> p l a</span><br><span class="line"> p d v 20</span><br><span class="line">int vlanif20</span><br><span class="line"> ip add 192.168.2.254 24</span><br></pre></td></tr></table></figure>
+
+<p>PC配置</p>
+<p><img src="/2022/07/17/HCIA/image-20230104193842862.png" alt="image-20230104193842862"></p>
+<p><img src="/2022/07/17/HCIA/image-20230104193858032.png" alt="image-20230104193858032"></p>
+<h3 id="利用三层交换机实现VLAN间路由（有问题。。。）"><a href="#利用三层交换机实现VLAN间路由（有问题。。。）" class="headerlink" title="利用三层交换机实现VLAN间路由（有问题。。。）"></a>利用三层交换机实现VLAN间路由（有问题。。。）</h3><h4 id="一、实验目标-2"><a href="#一、实验目标-2" class="headerlink" title="一、实验目标"></a>一、实验目标</h4><p><strong>1、掌握交换机Tag VLAN的配置；<br>2、掌握三层交换机基本配置方法；<br>3、掌握三层交换机VLAN路由的配置方法；<br>4、通过三层交换机实现VLAN间相互通信。</strong></p>
+<h4 id="二、实验背景-2"><a href="#二、实验背景-2" class="headerlink" title="二、实验背景"></a>二、实验背景</h4><p><strong>某企业有两个主要部门，技术部和销售部，分处于不同的办公室，为了安全和便于管理对两个部门的主机进行了VLAN的划分，技术部和销售部分处于不同的VLAN，先由于业务的需求需要销售部和技术部的主机能够相互访问，获得相应的资源，两个部门的交换机通过一台三层交换机进行了连接。</strong></p>
+<h4 id="三、技术原理-2"><a href="#三、技术原理-2" class="headerlink" title="三、技术原理"></a>三、技术原理</h4><p>​	<strong>三层交换机具备网络层的功能，实现VLAN相互访问的原理是：利用三层交换机的路由功能，通过识别数据包的IP地址，查找路由表进行选路转发，三层交换机利用直连路由可以实现不同VLAN之间的相互访问。三层交换机给接口配置IP地址。采用SVI（交换虚拟接口）的方式实现VLAN间互连。SVI是指为交换机中的VLAN创建虚拟接口，并且配置IP地址。</strong></p>
+<h4 id="四、实验设备-2"><a href="#四、实验设备-2" class="headerlink" title="四、实验设备"></a>四、实验设备</h4><p><strong>PC1,PC2,PC3,PC4</strong></p>
+<p><strong>两台S5700交换机</strong></p>
+<h4 id="五、实验的步骤和结果-2"><a href="#五、实验的步骤和结果-2" class="headerlink" title="五、实验的步骤和结果"></a>五、实验的步骤和结果</h4><p><img src="/2022/07/17/HCIA/image-20230104211928090.png" alt="image-20230104211928090"></p>
+<p><strong>交换机LSW1配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW1</span><br><span class="line">vlan batch 10 20</span><br><span class="line">int g0/0/1</span><br><span class="line"> p l a</span><br><span class="line"> p d v 10</span><br><span class="line">int g0/0/2</span><br><span class="line"> p l a</span><br><span class="line"> p d v 20</span><br><span class="line">int g0/0/3</span><br><span class="line"> p l t</span><br><span class="line"> p t a v 10 20</span><br></pre></td></tr></table></figure>
+
+<p><strong>交换机LSW2配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW2</span><br><span class="line">vlan batch 10 20</span><br><span class="line">int g0/0/1</span><br><span class="line"> p l t</span><br><span class="line"> p t a v 10 20</span><br><span class="line">int g0/0/2</span><br><span class="line"> p l a</span><br><span class="line"> p d v 10</span><br><span class="line">int g0/0/3</span><br><span class="line"> p l a</span><br><span class="line"> p d v 20</span><br></pre></td></tr></table></figure>
+
+<p><strong>PC1配置</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20230104212214169.png" alt="image-20230104212214169"></p>
+<p><strong>PC2配置</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20230104212226789.png" alt="image-20230104212226789"></p>
+<p><strong>PC3配置</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20230104212237237.png" alt="image-20230104212237237"></p>
+<p><strong>PC4配置</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20230104212252180.png" alt="image-20230104212252180"></p>
+<p><strong>我发现这实验有问题的。。。可能是我技术不好，这个更改后的配置，更改前的配置如下：</strong></p>
+<p><strong>交换机LSW2配置（其他配置不变）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW2</span><br><span class="line">vlan batch 10 20</span><br><span class="line">int g0/0/1</span><br><span class="line"> p l t</span><br><span class="line"> p t a v 10 20</span><br><span class="line">int g0/0/2</span><br><span class="line"> p l a</span><br><span class="line"> p d v 10</span><br><span class="line">int g0/0/3</span><br><span class="line"> p l a</span><br><span class="line"> p d v 20</span><br><span class="line">int vlanif 10 </span><br><span class="line"> ip add 192.168.1.254 24</span><br><span class="line">int vlanif 20</span><br><span class="line"> ip add 192.168.2.254 24</span><br></pre></td></tr></table></figure>
+
+<p><strong>我开启了三层功能会发现vlan全部失效，vlan10可以访问vlan20了。。。无奈之下我只能把vlanif的配置去掉，所以上面的配置ping网关全部都是失联的。。。</strong></p>
+<h3 id="路由器综合路由配置"><a href="#路由器综合路由配置" class="headerlink" title="路由器综合路由配置"></a>路由器综合路由配置</h3><h4 id="一、实验目标-3"><a href="#一、实验目标-3" class="headerlink" title="一、实验目标"></a>一、实验目标</h4><p><strong>1.掌握中和路由器的配置方法；</strong></p>
+<p><strong>2.掌握查看通过路由重分布学习产生的路由；</strong></p>
+<p><strong>3.熟悉广域网线缆的链接方式。</strong></p>
+<h4 id="二、实验背景-3"><a href="#二、实验背景-3" class="headerlink" title="二、实验背景"></a>二、实验背景</h4><p><strong>假设某公司通过一台三层交换机连到公司出口路由器 R1上，路由器 R1再和公司外的另一台路由器 R2 连接。三层交换机与 R1 间运行 RIPV2 路由协议，R1与 R2 间运行 OSPF 路由协议。现要做适当配置，实现公司内部主机与公司外部主机之间的相互通信。</strong></p>
+<h4 id="三、技术原理-3"><a href="#三、技术原理-3" class="headerlink" title="三、技术原理"></a>三、技术原理</h4><p><strong>为了支持本设备能够运行多个路由协议进程，系统软件提供了路由信息从一个路由进程重分布到另一个路由进程的功能。比如你可以将 OSPF 路由域的路由重新分布后通高 RIP 路由域中，也可以将 RIP 路由域的路由重新分布后通告到OSPE 路由域中。路由的相互重分布可以在所有的 IP路由协议之间进行。要把路由从一个路由域分布到另一个路由域，并且进行控制路由重分布。</strong></p>
+<h4 id="四、实验设备-3"><a href="#四、实验设备-3" class="headerlink" title="四、实验设备"></a>四、实验设备</h4><p><strong>S5700交换机一台，AR2220路由器两台，PC两台</strong></p>
+<h4 id="五、实验的步骤和结果-3"><a href="#五、实验的步骤和结果-3" class="headerlink" title="五、实验的步骤和结果"></a>五、实验的步骤和结果</h4><p><img src="/2022/07/17/HCIA/image-20230104215057099.png" alt="image-20230104215057099"></p>
+<p><strong>交换机LSW1配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW1</span><br><span class="line">v b 10 20</span><br><span class="line">int g0/0/2</span><br><span class="line">p l a</span><br><span class="line">p d v 10</span><br><span class="line">int vlan 10</span><br><span class="line">ip add 192.168.1.1 24</span><br><span class="line">int g0/0/1</span><br><span class="line">p l a</span><br><span class="line">p d v 20</span><br><span class="line">int vlan 20</span><br><span class="line">ip add 192.168.2.1 24</span><br><span class="line">rip</span><br><span class="line">version 2</span><br><span class="line">undo summary </span><br><span class="line">network 192.168.1.0</span><br><span class="line">network 192.168.2.0</span><br></pre></td></tr></table></figure>
+
+<p><strong>AR1配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys AR1</span><br><span class="line">int g0/0/1</span><br><span class="line">ip add 192.168.2.2 24</span><br><span class="line">int g0/0/0</span><br><span class="line">ip add 192.168.3.1 24</span><br><span class="line">rip</span><br><span class="line">version 2</span><br><span class="line">undo summary </span><br><span class="line">network 192.168.2.0</span><br><span class="line">ospf 1 router-id 1.1.1.1</span><br><span class="line">area 0</span><br><span class="line">network 192.168.3.0 0.0.0.255</span><br></pre></td></tr></table></figure>
+
+<p><strong>AR1路由重分布配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rip</span><br><span class="line">import-route ospf</span><br><span class="line">q</span><br><span class="line">ospf 1</span><br><span class="line">import-route rip</span><br></pre></td></tr></table></figure>
+
+<p><strong>AR2配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys AR2</span><br><span class="line">int g0/0/1</span><br><span class="line">ip add 192.168.3.2 24</span><br><span class="line">int g0/0/0</span><br><span class="line">ip add 192.168.4.1 24</span><br><span class="line">ospf 1 router-id 2.2.2.2</span><br><span class="line">area 0</span><br><span class="line">network 192.168.3.0 0.0.0.255</span><br><span class="line">network 192.168.4.0 0.0.0.255</span><br></pre></td></tr></table></figure>
+
+<p><strong>PC配置</strong></p>
+<p><img src="/2022/07/17/HCIA/image-20230104215454559.png" alt="image-20230104215454559"></p>
+<p><img src="/2022/07/17/HCIA/image-20230104215509179.png" alt="image-20230104215509179"></p>
+<h3 id="单臂路由"><a href="#单臂路由" class="headerlink" title="单臂路由"></a>单臂路由</h3><h4 id="一、实验设备"><a href="#一、实验设备" class="headerlink" title="一、实验设备"></a>一、实验设备</h4><p><strong>PC1,PC2</strong></p>
+<p><strong>一台S5700交换机和一台AR2220交换机</strong></p>
+<h4 id="二、实验的步骤和结果"><a href="#二、实验的步骤和结果" class="headerlink" title="二、实验的步骤和结果"></a>二、实验的步骤和结果</h4><p><img src="/2022/07/17/HCIA/image-20230101193234867.png" alt="image-20230101193234867"></p>
+<p>交换机配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW1</span><br><span class="line">vlan batch 10 20</span><br><span class="line">int g0/0/1</span><br><span class="line"> p l a</span><br><span class="line"> p d v 10</span><br><span class="line">int g0/0/2</span><br><span class="line"> p l a</span><br><span class="line"> p d v 20</span><br><span class="line">int g0/0/3</span><br><span class="line"> p l t</span><br><span class="line"> p t a v 10 20</span><br></pre></td></tr></table></figure>
+
+<p>路由器配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys AR1</span><br><span class="line">int g0/0/0.10                  <span class="comment">#创建子接口</span></span><br><span class="line"> ip add 192.168.10.254 24      </span><br><span class="line"> dot1q termination vid 10      <span class="comment">#配置子接口终结的VLAN ID </span></span><br><span class="line"> arp broadcast <span class="built_in">enable</span>          <span class="comment">#开启子接口的arp广播功能</span></span><br><span class="line">int g0/0/0.20</span><br><span class="line"> ip add 192.168.20.254 24</span><br><span class="line"> dot1q termination vid 20</span><br><span class="line"> arp broadcast <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
+
+<p>PC配置</p>
+<p><img src="/2022/07/17/HCIA/image-20230101193316730.png" alt="image-20230101193316730"></p>
+<p><img src="/2022/07/17/HCIA/image-20230101193332409.png" alt="image-20230101193332409"></p>
+<h3 id="单臂路由转三层交换"><a href="#单臂路由转三层交换" class="headerlink" title="单臂路由转三层交换"></a>单臂路由转三层交换</h3><h4 id="一、实验设备-1"><a href="#一、实验设备-1" class="headerlink" title="一、实验设备"></a>一、实验设备</h4><p><strong>PC1,PC2</strong></p>
+<p><strong>一台S5700交换机</strong></p>
+<h4 id="二、实验的步骤和结果-1"><a href="#二、实验的步骤和结果-1" class="headerlink" title="二、实验的步骤和结果"></a>二、实验的步骤和结果</h4><p><img src="/2022/07/17/HCIA/image-20230101203109624.png" alt="image-20230101203109624"></p>
+<p>交换机配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br><span class="line">sys LSW1</span><br><span class="line">vlan batch 10 20</span><br><span class="line">int g0/0/1</span><br><span class="line"> p l a</span><br><span class="line"> p d v 10</span><br><span class="line">int g0/0/2</span><br><span class="line"> p l a</span><br><span class="line"> p d v 20</span><br><span class="line">int g0/0/3</span><br><span class="line"> p l t</span><br><span class="line"> p t a v 10 20</span><br><span class="line">int vlanif 10 </span><br><span class="line"> ip add 192.168.10.254 24</span><br><span class="line">int vlanif 20</span><br><span class="line"> ip add 192.168.20.254 24</span><br></pre></td></tr></table></figure>
+
+<p>PC配置</p>
+<p><img src="/2022/07/17/HCIA/image-20230101193316730.png" alt="image-20230101193316730"></p>
+<p><img src="/2022/07/17/HCIA/image-20230101193332409.png" alt="image-20230101193332409"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -610,120 +935,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/05/01/Blackarch/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/05/01/Blackarch/" class="post-title-link" itemprop="url">Blackarch</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-05-01 22:07:51" itemprop="dateCreated datePublished" datetime="2022-05-01T22:07:51+08:00">2022-05-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-01 22:10:41" itemprop="dateModified" datetime="2023-05-01T22:10:41+08:00">2023-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%94%BB%E9%98%B2/" itemprop="url" rel="index"><span itemprop="name">攻防</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/05/01/Blackarch/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/05/01/Blackarch/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>706</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h1 id="Blackarch"><a href="#Blackarch" class="headerlink" title="Blackarch"></a>Blackarch</h1><h3 id="netdiscover"><a href="#netdiscover" class="headerlink" title="netdiscover"></a>netdiscover</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S netdiscover</span><br></pre></td></tr></table></figure>
-
-<h4 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这会无休止一直广播ARP</span></span><br><span class="line">sudo netdiscover </span><br><span class="line"><span class="comment"># -i 设置网卡</span></span><br><span class="line">sudo netdiscover -i wlan0</span><br><span class="line"><span class="comment"># -r 设置ip段</span></span><br><span class="line">sudo netdiscover -i wlan0 -r 192.168.1.0/24</span><br></pre></td></tr></table></figure>
-
-<h3 id="arp-scan"><a href="#arp-scan" class="headerlink" title="arp-scan"></a>arp-scan</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我有blackarch的源，你懂的！！！</span></span><br><span class="line">[orange@orange ~]$ yay -Ss arp-scan</span><br><span class="line">aur/obs-time-warp-scan 0.1.6-3 (+0 0.00) </span><br><span class="line">    Time Warp Scan filter <span class="keyword">for</span> OBS Studio</span><br><span class="line">aur/arp-scan-git r304.af905ce-1 (+1 0.00) </span><br><span class="line">    The ARP Scanner</span><br><span class="line">blackarch/arp-scan 1.9.7-2 (337.6 KiB 1017.9 KiB) [blackarch blackarch-networking blackarch-scanner blackarch-fingerprint] </span><br><span class="line">    A tool that uses ARP to discover and fingerprint IP hosts on the <span class="built_in">local</span> network</span><br><span class="line">community/arp-scan 1.9.7-2 (337.6 KiB 1017.9 KiB) </span><br><span class="line">    A tool that uses ARP to discover and fingerprint IP hosts on the <span class="built_in">local</span> network</span><br><span class="line">[orange@orange ~]$ yay -S arp-scan</span><br></pre></td></tr></table></figure>
-
-<h4 id="简单使用-1"><a href="#简单使用-1" class="headerlink" title="简单使用"></a>简单使用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -l 使用本地网络段扫描</span></span><br><span class="line">sudo arp-scan -l</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="wireshark"><a href="#wireshark" class="headerlink" title="wireshark"></a>wireshark</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -799,7 +1010,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -812,7 +1023,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
