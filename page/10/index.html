@@ -123,7 +123,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">42</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -196,6 +196,395 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/" class="post-title-link" itemprop="url">系统毁灭者MBR</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-09 20:46:03" itemprop="dateCreated datePublished" datetime="2022-08-09T20:46:03+08:00">2022-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-05-01 19:10:51" itemprop="dateModified" datetime="2023-05-01T19:10:51+08:00">2023-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="安全控制"><a href="#安全控制" class="headerlink" title="安全控制"></a>安全控制</h1><h2 id="一-重置root密码"><a href="#一-重置root密码" class="headerlink" title="一.重置root密码"></a>一.重置root密码</h2><p><strong>Centos7 与之前的版本不同，当忘记 root 密码，并采用 GRUB2 为启动器时，将无法通过单用户模式重 置 root 密码</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.启动系统，并在GRUB2启动屏显时，按下 e 键进入编辑模式</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525143741425-16534607203081.png" alt="image-20220525143741425"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2.按e后，看到如下画面：</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525143824081-16534607221172.png" alt="image-20220525143824081"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.找到 linux16 开头的行，按 end 键跳转到最后，空格后，输入 rd.break</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525144314955.png" alt="image-20220525144314955"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 4.按 ctrl+x 进入紧急救援模式</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525144530907.png" alt="image-20220525144530907"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 5.重新挂载系统分区，输入</span></span><br><span class="line">mount -o remount,rw /sysroot</span><br><span class="line"><span class="comment"># 6.再输入</span></span><br><span class="line"><span class="built_in">chroot</span> /sysroot</span><br><span class="line"><span class="comment"># 改变根</span></span><br><span class="line"><span class="comment"># 7.当前目录变为根目录，即可更改密码</span></span><br><span class="line"><span class="built_in">echo</span> 123456 | passwd --stdin root</span><br><span class="line"><span class="comment"># 8.如果之前系统启用了 SElinux，则必须运行</span></span><br><span class="line"><span class="built_in">touch</span> /.autorelabel</span><br><span class="line">否则将无法正常启动系统</span><br><span class="line"><span class="comment"># 9.输入 exit 退出</span></span><br><span class="line"><span class="comment"># 10.输入 reboot 重新启动</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525145647885.png" alt="image-20220525145647885"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 登录测试，密码123456更新成功</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525150014292.png" alt="image-20220525150014292"></p>
+<h2 id="二-强密码修改安全性"><a href="#二-强密码修改安全性" class="headerlink" title="二.强密码修改安全性"></a>二.强密码修改安全性</h2><h3 id="矛与盾"><a href="#矛与盾" class="headerlink" title="矛与盾"></a>矛与盾</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><ul>
+<li><strong>为 GRUB2 菜单加上防编辑密码，以防止恶意者像如上一样修改 root 密码</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.用 grub2-mkpasswd-pbkdf2 命令生成加密口令</span></span><br><span class="line">[root@localhost ~]<span class="comment"># grub2-mkpasswd-pbkdf2 </span></span><br><span class="line">输入口令：                <span class="comment"># 不是root密码</span></span><br><span class="line">Reenter password: </span><br><span class="line">PBKDF2 <span class="built_in">hash</span> of your password is grub.pbkdf2.sha512.10000.D167D00E2EB2403C60A1F73D67E8E09ED1D0BD871ECC04D15AC815C9E1FCC178D4BC2B05FA4A1DEA67FBC1DD29CEF48EF662E1D5DB8C16AAB4F27FC353815FF5.43D49742A39635DE65BF5631802EB4041E38E65A05AB8AD6F498538873FA241599DE784CE0CF63E4E3FE68DC0FE635251A74EBC53C62239480AE558D68BA77D3</span><br></pre></td></tr></table></figure>
+
+<p><strong>然后</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># vim /etc/grub.d/00_header </span></span><br><span class="line"><span class="comment"># 在最后位置写入这个脚本命令</span></span><br><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">set superusers=&quot;root&quot;   # 这个是账号，可以随心填，但是要记住它和上面的密码</span></span><br><span class="line"><span class="string">password_pbkdf2 root grub.pbkdf2.sha512.10000.D167D00E2EB2403C60A1F73D67E8E09ED1D0BD871ECC04D15AC815C9E1FCC178D4BC2B05FA4A1DEA67FBC1DD29CEF48EF662E1D5DB8C16AAB4F27FC353815FF5.43D49742A39635DE65BF5631802EB4041E38E65A05AB8AD6F498538873FA241599DE784CE0CF63E4E3FE68DC0FE635251A74EBC53C62239480AE558D68BA77D3</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="重新生成grub2"><a href="#重新生成grub2" class="headerlink" title="重新生成grub2"></a>重新生成grub2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># grub2-mkconfig -o /boot/grub2/grub.cfg </span></span><br><span class="line">Generating grub configuration file ...</span><br><span class="line">Found linux image: /boot/vmlinuz-3.10.0-1160.66.1.el7.x86_64</span><br><span class="line">Found initrd image: /boot/initramfs-3.10.0-1160.66.1.el7.x86_64.img</span><br><span class="line">Found linux image: /boot/vmlinuz-3.10.0-1160.el7.x86_64</span><br><span class="line">Found initrd image: /boot/initramfs-3.10.0-1160.el7.x86_64.img</span><br><span class="line">Found linux image: /boot/vmlinuz-0-rescue-dbecb3d028cd4f5db6753a52b01ffd86</span><br><span class="line">Found initrd image: /boot/initramfs-0-rescue-dbecb3d028cd4f5db6753a52b01ffd86.img</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># vim /boot/grub2/grub.cfg</span></span><br><span class="line"><span class="built_in">set</span> superusers=<span class="string">&quot;root&quot;</span></span><br><span class="line">password_pbkdf2 root grub.pbkdf2.sha512.10000.D167D00E2EB2403C60A1F73D67E8E09ED1D0BD871ECC04D15AC815C9E1FCC178D4BC2B05FA4A1DEA67FBC1DD29CEF48EF662E1D5DB8C16AAB4F27FC353815FF5.43D49742A39635DE65BF5631802EB4041E38E65A05AB8AD6F498538873FA241599DE784CE0CF63E4E3FE68DC0FE635251A74EBC53C62239480AE558D68BA77D3</span><br><span class="line"><span class="comment">### END /etc/grub.d/00_header # 在这个文件上面写入以上参数，也可以达到一样效果。。。我是傻x</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="进入grub2"><a href="#进入grub2" class="headerlink" title="进入grub2"></a>进入grub2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 再次进入 GRUB2 页面，发现需要输入账户名与密码</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525155917825.png" alt="image-20220525155917825"></p>
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525155936054.png" alt="image-20220525155936054"></p>
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525160014769.png" alt="image-20220525160014769"></p>
+<h2 id="三-破坏MBR"><a href="#三-破坏MBR" class="headerlink" title="三.破坏MBR"></a>三.破坏MBR</h2><ul>
+<li><p><strong>MBR</strong></p>
+<ul>
+<li><strong>master boot record</strong> </li>
+<li><strong>主引导记录，也叫主引导扇区</strong> </li>
+<li><strong>硬盘的 0 柱面，0 磁头，1 扇区称为主引导扇区</strong> </li>
+<li><strong>其中 446 Byte 是 bootloader，64 Byte 是 partition table，剩下的 2 Byte 是 magic number</strong> </li>
+<li><strong>一般破坏的是bootloader</strong></li>
+</ul>
+<hr>
+<p><strong>Linux是文件型的操作系统，所有的信息和数据都以文件形式保存于系统中，但是并不是所有的数据，主 引导记录就不是以文件的形式保存，无法进行备份，只能通过 dd 命令备份</strong></p>
+</li>
+<li><p><strong>先进行备份，再破坏</strong></p>
+<ul>
+<li><strong>使用 dd 命令，将 sda 的 MBR 进行备份</strong> </li>
+<li><strong>用 zero设备生成 446 字节的 “0” 写入 MBR</strong> </li>
+<li><strong>重启后发现系统已坏</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># fdisk -l</span></span><br><span class="line"></span><br><span class="line">磁盘 /dev/sda：107.4 GB, 107374182400 字节，209715200 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line">磁盘标签类型：dos</span><br><span class="line">磁盘标识符：0x000b88c2</span><br><span class="line"></span><br><span class="line">   设备 Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *        2048     2099199     1048576   83  Linux</span><br><span class="line">/dev/sda2         2099200   209715199   103808000   8e  Linux LVM</span><br><span class="line"></span><br><span class="line">磁盘 /dev/mapper/centos-root：53.7 GB, 53687091200 字节，104857600 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">磁盘 /dev/mapper/centos-swap：4160 MB, 4160749568 字节，8126464 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">磁盘 /dev/mapper/centos-home：48.4 GB, 48444211200 字节，94617600 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line"></span><br><span class="line">[root@localhost ~]<span class="comment"># dd if=/dev/sda of=/root/mbr.bak count=1 bs=512</span></span><br><span class="line">记录了1+0 的读入</span><br><span class="line">记录了1+0 的写出</span><br><span class="line">512字节(512 B)已复制，0.000344858 秒，1.5 MB/秒</span><br><span class="line">[root@localhost ~]<span class="comment"># dd if=/dev/zero of=/dev/sda count=1 bs=446</span></span><br><span class="line">记录了1+0 的读入</span><br><span class="line">记录了1+0 的写出</span><br><span class="line">446字节(446 B)已复制，0.000186601 秒，2.4 MB/秒</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>if&#x3D;&#x2F;dev&#x2F;sda</strong> <ul>
+<li><strong>interface 输入接口</strong></li>
+</ul>
+</li>
+<li><strong>of&#x3D;&#x2F;root&#x2F;mbr.bak</strong> <ul>
+<li><strong>outerface 输出接口</strong></li>
+</ul>
+</li>
+<li><strong>count&#x3D;1</strong> <ul>
+<li><strong>写一块</strong></li>
+</ul>
+</li>
+<li><strong>bs&#x3D;512</strong> <ul>
+<li><strong>将整个扇区选中</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>Unix&#x2F;Linux将每一个设备都当成一个文件，放在&#x2F;dev目录</strong> </p>
+<ul>
+<li><p><strong>这些文件有的对应着一个真实存在的物理设备</strong> </p>
+</li>
+<li><p><strong>有的则代表一个虚拟设备，提供一些特定的功能</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>&#x2F;dev&#x2F;null</strong> </p>
+<ul>
+<li><p><strong>“空”设备，也有人称它为黑洞</strong> </p>
+</li>
+<li><p><strong>任何输入到这个“设备”的数据都将被直接丢弃</strong> </p>
+</li>
+<li><p><strong>最常用的用法是把不需要的输出重定向到这个文件</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>&#x2F;dev&#x2F;zero</strong> </p>
+<ul>
+<li><p><strong>“零”设备，可以无限的提供空字符（0x00，ASCII代码NUL）</strong> </p>
+</li>
+<li><p><strong>常用来生成一个特定大小的文件</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># dd if=/dev/zero of=/swapfile bs=1M count=4096 status=progress #创建4G的交换空间 大小根据需要自定</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>这也是我喜欢用交换文件而不是交换分区的一个特点之一_方便</strong></p>
+<h2 id="四-修复MBR"><a href="#四-修复MBR" class="headerlink" title="四.修复MBR"></a>四.修复MBR</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># reboot</span></span><br><span class="line"><span class="comment"># 重启后，发现无法正常启动 </span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525174104226.png" alt="image-20220525174104226"></p>
+<ul>
+<li><strong>连接光盘，重启后进入系统安装光盘，在光盘引导界面选择 Troubleshooting</strong></li>
+</ul>
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525190633165.png" alt="image-20220525190633165"></p>
+<ul>
+<li><strong>选择救援模式 Rescue a Centos system</strong></li>
+</ul>
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525190612467.png" alt="image-20220525190612467"></p>
+<ul>
+<li><strong>输入1，选择Continue，以 rw 模式挂载分区</strong></li>
+</ul>
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525190742957.png" alt="image-20220525190742957"></p>
+<ul>
+<li>回车，进入救援模式</li>
+</ul>
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525190905564.png" alt="image-20220525190905564"></p>
+<ul>
+<li><strong>grub2-install 命令重建 Bootloader，随后 sync 写入硬盘，reboot 重启系统</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sh-4.2<span class="comment"># chroot /mnt/sysimage</span></span><br><span class="line">sh-4.2<span class="comment"># grub2-install /dev/sda</span></span><br><span class="line">sh-4.2<span class="comment"># sync</span></span><br><span class="line">sh-4.2<span class="comment"># exit</span></span><br><span class="line">sh-4.2<span class="comment"># reboot</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>重启后，可正常进入开机引导</strong></li>
+</ul>
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525191143114.png" alt="image-20220525191143114"></p>
+<h2 id="五-修复GRUB"><a href="#五-修复GRUB" class="headerlink" title="五. 修复GRUB"></a>五. 修复GRUB</h2><p>**若grub配置文件丢失，开机会直接进入 grub 界面，显示为 grub&gt; **</p>
+<p><strong>由于 grub2 的文件极其复杂，所以一定要做好备份</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># fdisk -l</span></span><br><span class="line"></span><br><span class="line">磁盘 /dev/sda：107.4 GB, 107374182400 字节，209715200 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line">磁盘标签类型：dos</span><br><span class="line">磁盘标识符：0x00000000</span><br><span class="line"></span><br><span class="line">   设备 Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *        2048     2099199     1048576   83  Linux</span><br><span class="line">/dev/sda2         2099200   209715199   103808000   8e  Linux LVM</span><br><span class="line"></span><br><span class="line">磁盘 /dev/mapper/centos-root：53.7 GB, 53687091200 字节，104857600 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">磁盘 /dev/mapper/centos-swap：4160 MB, 4160749568 字节，8126464 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">磁盘 /dev/mapper/centos-home：48.4 GB, 48444211200 字节，94617600 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line"></span><br><span class="line">[root@localhost ~]<span class="comment"># lsblk</span></span><br><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0  100G  0 disk </span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">└─sda2            8:2    0   99G  0 part </span><br><span class="line">  ├─centos-root 253:0    0   50G  0 lvm  /</span><br><span class="line">  ├─centos-swap 253:1    0  3.9G  0 lvm  [SWAP]</span><br><span class="line">  └─centos-home 253:2    0 45.1G  0 lvm  /home</span><br><span class="line">sr0              11:0    1  4.4G  0 rom  /run/media/root/CentOS 7 x86_64</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先备份，再破坏</span></span><br><span class="line">[root@localhost ~]<span class="comment"># mkdir grub2.bak</span></span><br><span class="line">[root@localhost ~]<span class="comment"># chmod 600 grub2.bak/</span></span><br><span class="line">[root@localhost ~]<span class="comment"># cp -rp /boot/grub2/* ./grub2.bak/</span></span><br><span class="line">[root@localhost ~]<span class="comment"># ls grub2.bak/</span></span><br><span class="line">device.map fonts grub.cfg grubenv i386-pc locale</span><br><span class="line"><span class="comment"># 破坏</span></span><br><span class="line">[root@localhost ~]<span class="comment"># rm /boot/grub2/grub.cfg</span></span><br><span class="line"><span class="built_in">rm</span>：是否删除普通文件 <span class="string">&quot;/boot/grub2/grub.cfg&quot;</span>？y</span><br><span class="line">[root@localhost ~]<span class="comment"># reboot</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525191903755.png" alt="image-20220525191903755"></p>
+<ul>
+<li><strong>重启后，进入 “ grub&gt; ” 状态，输入以下命令设置启动参数</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">grub&gt; insmod xfs</span><br><span class="line"><span class="comment"># 第0块磁盘的第1个分区</span></span><br><span class="line">grub&gt; <span class="built_in">set</span> root=<span class="string">&#x27;hd0,1&#x27;</span></span><br><span class="line"><span class="comment"># 内核文件</span></span><br><span class="line"><span class="comment"># mapper是逻辑卷组</span></span><br><span class="line">grub&gt; linux16 /vmlinuz-3.10.0-229.el7.x86_64</span><br><span class="line">root=/dev/mapper/centos-root</span><br><span class="line">grub&gt; initrd16 /initramfs-3.10.0-229.el7.x86_64.img</span><br><span class="line">grub&gt; boot</span><br></pre></td></tr></table></figure>
+
+<p><strong>恢复grub</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># cp ./grub2.bak/grub.cfg /boot/grub2/</span></span><br><span class="line">[root@localhost ~]<span class="comment"># reboot</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" class="post-title-link" itemprop="url">ssh反向代理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-09 20:38:52" itemprop="dateCreated datePublished" datetime="2022-08-09T20:38:52+08:00">2022-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-05-01 19:12:08" itemprop="dateModified" datetime="2023-05-01T19:12:08+08:00">2023-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>22k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>20 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="ssh反代问题"><a href="#ssh反代问题" class="headerlink" title="ssh反代问题"></a>ssh反代问题</h1><h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h2><p> 问题一.我有A和B两台服务器，一台在学校ip是<code>10.71.10.25</code>,另外一台在印度ip是<code>124.156.xx.xx</code>，现在我想构建ssh反向代理，让我的服务器A能被外网ssh连接，防止我不在校园也能控制服务器A。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务器A设置</span></span><br><span class="line">root@raspbian:/configuration/script<span class="comment"># vim ssh_reverse_proxy.sh </span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line">ssh -fN -R 8101:localhost:22 root@124.156.xx.xx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 监控程序脚本</span></span><br><span class="line">root@raspbian:/configuration/script<span class="comment"># vim ssh_reverse_proxy_daemon.sh </span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span>;<span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">	Flag=`ps -ef | grep <span class="string">&quot;8101&quot;</span> | grep -v <span class="string">&quot;grep&quot;</span>`</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$Flag</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line"></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;restart ssh server&quot;</span> </span><br><span class="line">		bash /configuration/script/ssh_reverse_proxy.sh</span><br><span class="line">		<span class="comment"># ssh -fN -R 8101:localhost:22 root@124.156.xx.xx</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">sleep</span> 100</span><br><span class="line"></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加入reboot开机自启计划</span></span><br><span class="line">root@raspbian:/configuration/script<span class="comment"># crontab -e</span></span><br><span class="line">@reboot /configuration/script/ssh_reverse_proxy.sh</span><br><span class="line">@reboot /configuration/script/ssh_reverse_proxy_daemon.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 两台服务器相互交换公钥到对方的/.ssh/authorized_keys，并且把自己的公钥加入到自己的/.ssh/authorized_keys</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>服务器互联目前不需要密码</strong><br><strong>脚本程序一切正常，但是服务器A只有重启后的几分钟内能够用服务器B连接，时间长点的话，比如：30分钟后，会发现服务器B一直连接不上</strong></p>
+<p><strong>附图(一下三种情况都是在A服务器发出脚本，并且正常运行的到的)：</strong></p>
+<h3 id="情况一：-连得上"><a href="#情况一：-连得上" class="headerlink" title="情况一：(连得上)"></a><strong>情况一：(连得上)</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">服务器A</span><br><span class="line">root@raspbian:/configuration/script<span class="comment"># ps -ef | grep 8101 | grep -v &quot;grep&quot;</span></span><br><span class="line">root     21390     1  0 11:27 ?        00:00:00 ssh -fN -R 8101:localhost:22 root@124.156.xx.xx</span><br><span class="line"></span><br><span class="line">服务器B</span><br><span class="line">[root@VM-0-17-centos ~]<span class="comment"># ip a</span></span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 52:54:00:46:11:0d brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 10.0.0.17/20 brd 10.0.15.255 scope global eth0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::5054:ff:fe46:110d/64 scope <span class="built_in">link</span> </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">[root@VM-0-17-centos ~]<span class="comment"># ssh localhost -p 8101</span></span><br><span class="line">Linux raspbian 5.10.78-Release-OPENFANS+20211111-v8 <span class="comment">#1 SMP PREEMPT Thu Nov 11 15:43:52 CST 2021 aarch64</span></span><br><span class="line"></span><br><span class="line">This system Debian Pi Aarch64 <span class="keyword">for</span> Raspberry Pi 3B/3B+/3A+/4B,</span><br><span class="line">Created by OPENFANS.ORG &amp; PIFAN.ORG .</span><br><span class="line"></span><br><span class="line">Your can visit our official site:</span><br><span class="line">http://www.openfans.org &amp; http://www.pifan.org</span><br><span class="line"></span><br><span class="line">Project address:</span><br><span class="line">https://github.com/openfans-community-offical/Debian-Pi-Aarch64</span><br><span class="line"></span><br><span class="line">It is strictly prohibited <span class="keyword">for</span> any commercial use</span><br><span class="line">without permission!</span><br><span class="line"></span><br><span class="line">Especially some disgusting Taobao merchants,</span><br><span class="line">congratulations to being warned!</span><br><span class="line"></span><br><span class="line">Activate the web console with: systemctl <span class="built_in">enable</span> --now cockpit.socket</span><br><span class="line"></span><br><span class="line">You have new mail.</span><br><span class="line">Last login: Tue May 31 11:10:02 2022 from 10.71.5.50</span><br><span class="line"></span><br><span class="line">   .~~.   .~~.         ___                __                      ___  _ </span><br><span class="line">   <span class="string">&#x27;. \ &#x27;</span> <span class="string">&#x27; / .&#x27;</span>      / _ \___  ___ ___  / /  ___  ___ ___ _ __  / _ \(_)</span><br><span class="line">    .~ .~~~..~.      / , _/ _ `(_-&lt;/ _ \/ _ \/ -_) __/ __/ // / / ___/ / </span><br><span class="line">   : .~.<span class="string">&#x27;~&#x27;</span>.~. :    /_/|_|\_,_/___/ .__/_.__/\__/_/ /_/  \_, / /_/  /_/  </span><br><span class="line">  ~ (   ) (   ) ~                /_/                    /___/          </span><br><span class="line"> ( : <span class="string">&#x27;~&#x27;</span>.~.<span class="string">&#x27;~&#x27;</span> : )  </span><br><span class="line">  ~ .~ (   ) ~. ~     Copyright (c) 2017-2022, OPENFANS.ORG &amp; PIFAN.ORG</span><br><span class="line">   (  : <span class="string">&#x27;~&#x27;</span> :  )      Linux Version 5.10.78-Release-OPENFANS+2021111</span><br><span class="line">    <span class="string">&#x27;~ .~~~. ~&#x27;</span>       Compiled <span class="comment">#1 SMP PREEMPT Thu Nov 11 15:43:52 CST 2021</span></span><br><span class="line">        <span class="string">&#x27;~&#x27;</span>           Four ARM  Processors, 7.9GB RAM</span><br><span class="line">                      432.00 Bogomips Total</span><br><span class="line">root@raspbian:~<span class="comment"># ip a</span></span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether e4:5f:01:3d:b7:4f brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 10.71.10.159/24 brd 10.71.10.255 scope global dynamic noprefixroute eth0</span><br><span class="line">       valid_lft 133302sec preferred_lft 133302sec</span><br><span class="line">    inet6 fe80::c2b7:8023:6697:581f/64 scope <span class="built_in">link</span> noprefixroute </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">3: wlan0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq state DOWN group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether e4:5f:01:3d:b7:50 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">4: macvlan@eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 1a:55:9c:25:a7:5b brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 10.71.10.25/24 brd 10.71.10.255 scope global macvlan</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::1855:9cff:fe25:a75b/64 scope <span class="built_in">link</span> </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">5: docker0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default </span><br><span class="line">    <span class="built_in">link</span>/ether 02:42:5b:34:04:4f brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::42:5bff:fe34:44f/64 scope <span class="built_in">link</span> </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">6: br-6f69248df895: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN group default </span><br><span class="line">    <span class="built_in">link</span>/ether 02:42:f3:c1:54:d1 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 172.18.0.1/16 brd 172.18.255.255 scope global br-6f69248df895</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">9: vetha11c56c@if8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue master docker0 state UP group default </span><br><span class="line">    <span class="built_in">link</span>/ether 42:0f:dc:8a:33:57 brd ff:ff:ff:ff:ff:ff link-netnsid 0</span><br><span class="line">    inet6 fe80::400f:dcff:fe8a:3357/64 scope <span class="built_in">link</span> </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line"><span class="comment"># 已经连上</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="情况二：-连不上，但是一直尝试连接，没有报错"><a href="#情况二：-连不上，但是一直尝试连接，没有报错" class="headerlink" title="情况二：(连不上，但是一直尝试连接，没有报错)"></a><strong>情况二：(连不上，但是一直尝试连接，没有报错)</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-0-17-centos ~]<span class="comment"># ssh localhost -p 8101</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">^C</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113156680.png" alt="image-20220531113156680"></p>
+<h3 id="情况三：-直接连接不上，服务器B发出连接不了报错"><a href="#情况三：-直接连接不上，服务器B发出连接不了报错" class="headerlink" title="情况三：(直接连接不上，服务器B发出连接不了报错)"></a><strong>情况三：(直接连接不上，服务器B发出连接不了报错)</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务器B</span></span><br><span class="line">[root@VM-0-17-centos ~]<span class="comment"># ssh localhost -p 8101</span></span><br><span class="line">ssh_exchange_identification: <span class="built_in">read</span>: Connection reset by peer</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220531113218786.png" alt="image-20220531113218786"></p>
+<h3 id="现在状态"><a href="#现在状态" class="headerlink" title="现在状态"></a>现在状态</h3><p><code>截至时间2022-6-17中午12：52分，服务器A重启后，服务器B也没办法连接上</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line">服务器A的crontab日志信息如下</span><br><span class="line">root@raspbian:~<span class="comment"># cat /var/log/cron.log</span></span><br><span class="line">Jun 17 00:05:01 raspbian CRON[15444]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:15:01 raspbian CRON[16476]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:17:01 raspbian CRON[16674]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 00:20:01 raspbian CRON[16978]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 00:25:01 raspbian CRON[17516]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:35:01 raspbian CRON[18539]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:40:01 raspbian CRON[19040]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 00:45:01 raspbian CRON[19582]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 00:55:01 raspbian CRON[20582]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:00:01 raspbian CRON[21079]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 01:05:01 raspbian CRON[21620]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:15:01 raspbian CRON[22651]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:17:01 raspbian CRON[22848]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 01:20:01 raspbian CRON[23155]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 01:25:01 raspbian CRON[23693]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:35:01 raspbian CRON[24713]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:40:01 raspbian CRON[25215]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 01:45:01 raspbian CRON[25754]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 01:55:01 raspbian CRON[26772]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:00:01 raspbian CRON[27260]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 02:05:01 raspbian CRON[27812]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:15:01 raspbian CRON[28827]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:17:01 raspbian CRON[29025]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 02:20:01 raspbian CRON[29336]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 02:25:01 raspbian CRON[29877]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:35:01 raspbian CRON[30899]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:40:01 raspbian CRON[31405]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 02:45:01 raspbian CRON[31941]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 02:55:01 raspbian CRON[533]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:00:01 raspbian CRON[1085]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 03:05:01 raspbian CRON[1675]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:15:01 raspbian CRON[2693]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:17:01 raspbian CRON[2906]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 03:20:01 raspbian CRON[3229]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 03:25:01 raspbian CRON[3784]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:35:01 raspbian CRON[4811]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:40:01 raspbian CRON[5313]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 03:45:01 raspbian CRON[5858]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 03:55:01 raspbian CRON[6922]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:00:01 raspbian CRON[7425]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 04:05:01 raspbian CRON[7974]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:15:01 raspbian CRON[8973]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:17:01 raspbian CRON[9173]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 04:20:01 raspbian CRON[9480]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 04:25:01 raspbian CRON[10021]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:35:01 raspbian CRON[11045]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:40:02 raspbian CRON[11545]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 04:45:01 raspbian CRON[12093]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 04:55:01 raspbian CRON[13117]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:00:01 raspbian CRON[13619]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 05:05:01 raspbian CRON[14155]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:15:01 raspbian CRON[15165]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:17:01 raspbian CRON[15366]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 05:20:01 raspbian CRON[15672]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 05:25:01 raspbian CRON[16215]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:35:01 raspbian CRON[17250]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:40:01 raspbian CRON[17746]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 05:45:01 raspbian CRON[18285]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 05:55:01 raspbian CRON[19301]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:00:01 raspbian CRON[19800]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 06:05:01 raspbian CRON[22560]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:15:01 raspbian CRON[23560]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:17:01 raspbian CRON[23760]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 06:20:01 raspbian CRON[24067]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 06:25:01 raspbian CRON[24615]: (root) CMD (<span class="built_in">test</span> -x /usr/sbin/anacron || ( <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.daily ))</span><br><span class="line">Jun 17 06:25:01 raspbian CRON[24616]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:25:02 raspbian cracklib: no dictionary update necessary.</span><br><span class="line">Jun 17 06:35:01 raspbian CRON[25732]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:40:01 raspbian CRON[26237]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 06:45:01 raspbian CRON[26777]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:55:01 raspbian CRON[27789]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 07:00:01 raspbian CRON[28292]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 07:05:01 raspbian CRON[28833]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 06:17:02 raspbian cron[412]: (CRON) INFO (pidfile fd = 3)</span><br><span class="line">Jun 17 06:17:02 raspbian cron[412]: (CRON) INFO (Running @reboot <span class="built_in">jobs</span>)</span><br><span class="line">Jun 17 06:17:03 raspbian CRON[569]: (root) CMD (mount --<span class="built_in">bind</span> /configuration /www/wwwroot/orange/mount_disk/)</span><br><span class="line">Jun 17 06:17:03 raspbian CRON[570]: (root) CMD (/configuration/script/ssh_reverse_proxy_daemon.sh)</span><br><span class="line">Jun 17 06:17:03 raspbian CRON[572]: (root) CMD (/configuration/script/ssh_reverse_proxy.sh )</span><br><span class="line">Jun 17 07:56:17 raspbian CRON[5396]: (root) CMD (<span class="built_in">test</span> -x /usr/sbin/anacron || ( <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.daily ))</span><br><span class="line">Jun 17 07:56:17 raspbian cracklib: no dictionary update necessary.</span><br><span class="line">Jun 17 08:00:01 raspbian CRON[7985]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 08:05:01 raspbian CRON[8241]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:15:01 raspbian CRON[8717]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:17:01 raspbian CRON[8839]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 08:20:01 raspbian CRON[8995]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 08:25:01 raspbian CRON[9252]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:35:01 raspbian CRON[9750]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:40:01 raspbian CRON[10002]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 08:45:01 raspbian CRON[10263]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 08:55:01 raspbian CRON[10760]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:00:01 raspbian CRON[11020]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 09:05:01 raspbian CRON[11280]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:15:01 raspbian CRON[11749]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:17:01 raspbian CRON[11863]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 09:20:01 raspbian CRON[12055]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 09:25:01 raspbian CRON[12401]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:35:01 raspbian CRON[12917]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:40:01 raspbian CRON[13202]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 09:45:01 raspbian CRON[13470]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 09:47:36 raspbian cron[409]: (CRON) INFO (pidfile fd = 3)</span><br><span class="line">Jun 17 09:47:36 raspbian cron[409]: (CRON) INFO (Running @reboot <span class="built_in">jobs</span>)</span><br><span class="line">Jun 17 09:47:37 raspbian CRON[571]: (root) CMD (/configuration/script/ssh_reverse_proxy_daemon.sh)</span><br><span class="line">Jun 17 09:47:37 raspbian CRON[574]: (root) CMD (mount --<span class="built_in">bind</span> /configuration /www/wwwroot/orange/mount_disk/)</span><br><span class="line">Jun 17 09:47:37 raspbian CRON[575]: (root) CMD (/configuration/script/ssh_reverse_proxy.sh )</span><br><span class="line">Jun 17 09:55:01 raspbian CRON[7749]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:00:01 raspbian CRON[8058]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 10:05:01 raspbian CRON[8425]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:15:01 raspbian CRON[8920]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:17:01 raspbian CRON[9018]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 10:20:01 raspbian CRON[9186]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 10:25:01 raspbian CRON[9438]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:35:01 raspbian CRON[9927]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:40:01 raspbian CRON[10189]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 10:45:01 raspbian CRON[10449]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 10:55:01 raspbian CRON[10928]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:00:01 raspbian CRON[11180]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 11:05:01 raspbian CRON[11439]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:15:01 raspbian CRON[12987]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:17:01 raspbian CRON[13086]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 11:20:01 raspbian CRON[13246]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 11:25:01 raspbian CRON[13507]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:35:01 raspbian CRON[13994]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:40:01 raspbian CRON[14264]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 11:45:01 raspbian CRON[14596]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 11:55:01 raspbian CRON[15063]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:00:01 raspbian CRON[15319]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 12:05:01 raspbian CRON[15572]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:15:01 raspbian CRON[16062]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:17:01 raspbian CRON[16156]: (root) CMD (   <span class="built_in">cd</span> / &amp;&amp; run-parts --report /etc/cron.hourly)</span><br><span class="line">Jun 17 12:20:01 raspbian CRON[16328]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 12:25:01 raspbian CRON[16584]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:35:01 raspbian CRON[17183]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line">Jun 17 12:40:01 raspbian CRON[17629]: (smmsp) CMD (<span class="built_in">test</span> -x /etc/init.d/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/share/sendmail/sendmail &amp;&amp; <span class="built_in">test</span> -x /usr/lib/sm.bin/sendmail &amp;&amp; /usr/share/sendmail/sendmail cron-msp)</span><br><span class="line">Jun 17 12:43:45 raspbian cron[379]: (CRON) INFO (pidfile fd = 3)</span><br><span class="line">Jun 17 12:43:45 raspbian cron[379]: (CRON) INFO (Running @reboot <span class="built_in">jobs</span>)</span><br><span class="line">Jun 17 12:43:45 raspbian CRON[518]: (root) CMD (/configuration/script/ssh_reverse_proxy.sh )</span><br><span class="line">Jun 17 12:43:45 raspbian CRON[519]: (root) CMD (/configuration/script/ssh_reverse_proxy_daemon.sh)</span><br><span class="line">Jun 17 12:43:45 raspbian CRON[520]: (root) CMD (mount --<span class="built_in">bind</span> /configuration /www/wwwroot/orange/mount_disk/)   <span class="comment">#这是我的一个挂载命令，不构成影响。</span></span><br><span class="line">Jun 17 12:45:03 raspbian CRON[7329]: (root) CMD (<span class="built_in">command</span> -v debian-sa1 &gt; /dev/null &amp;&amp; debian-sa1 1 1)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>检查服务器B防火墙</code></p>
+<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617125728813.png" alt="image-20220617125728813"></p>
+<p>A服务器</p>
+<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617130523176.png" alt="image-20220617130523176"></p>
+<p>B服务器</p>
+<p><img src="/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/image-20220617130544082.png" alt="image-20220617130544082"></p>
+<h4 id="猜想"><a href="#猜想" class="headerlink" title="猜想"></a>猜想</h4><p>1.我的朋友说可能是网络问题，毕竟是国外的服务器，连接过去可能出现丢包。</p>
+<p>我的解释是ssh反代基于tcp&#x2F;ip连接，还是比较可靠的，如果是丢包的话它也会继续发送重连，而且服务器B没有被<code>GFW</code>封杀，我也可以ssh到B服务器上面，理论上我应该是可以反代成功的。</p>
+<p>2.我曾经换过内核，令服务器B能够开启bbr极限压缩带宽的使用，我不清楚这个是否构成失败原因。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -363,475 +752,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/22/Arch-Linux-%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85(%E9%9D%9E%E5%8E%9F%E5%88%9B)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/22/Arch-Linux-%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85(%E9%9D%9E%E5%8E%9F%E5%88%9B)/" class="post-title-link" itemprop="url">Arch Linux 基础安装(非原创)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-07-22 00:22:19" itemprop="dateCreated datePublished" datetime="2022-07-22T00:22:19+08:00">2022-07-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-19 19:48:35" itemprop="dateModified" datetime="2023-04-19T19:48:35+08:00">2023-04-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/07/22/Arch-Linux-%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85(%E9%9D%9E%E5%8E%9F%E5%88%9B)/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/22/Arch-Linux-%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85(%E9%9D%9E%E5%8E%9F%E5%88%9B)/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h1 id="Arch-Linux-基础安装"><a href="#Arch-Linux-基础安装" class="headerlink" title="Arch Linux 基础安装"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/basic_install?id=arch-linux-%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85">Arch Linux 基础安装</a></h1><p>本节从安装最基础的无图形化 ArchLinux 系统开始。<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Installation_guide">官方安装指南</a></p>
-<h2 id="1-禁用-reflector"><a href="#1-禁用-reflector" class="headerlink" title="1.禁用 reflector"></a>1.禁用 reflector</h2><p>2020 年新版 archliveiso 加入了 reflector 服务，它会自己更新 mirrorlist。在特定情况下，它会误删某些有用的源信息。这里启动后的第一件事就是将其禁用。也许它是一个好用的工具，但是很明显，它并不适合在安装的时候面向新手启用，尤其在中国。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop reflector.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-再次确保是否为-UEFI-模式"><a href="#2-再次确保是否为-UEFI-模式" class="headerlink" title="2.再次确保是否为 UEFI 模式"></a>2.再次确保是否为 UEFI 模式</h2><p>在一系列的信息刷屏后，可以看到已经以 root 登陆安装系统了，此时可以执行的命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> /sys/firmware/efi/efivars</span><br></pre></td></tr></table></figure>
-
-<p>若输出了一堆东西，即 efi 变量，则说明已在 UEFI 模式。否则请确认你的启动方式是否为 UEFI。</p>
-<h2 id="3-连接网络"><a href="#3-连接网络" class="headerlink" title="3.连接网络"></a>3.连接网络</h2><h3 id="无线连接"><a href="#无线连接" class="headerlink" title="无线连接:"></a>无线连接:</h3><p>无线连接使用 iwctl 进行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iwctl                           <span class="comment">#进入交互式命令行</span></span><br><span class="line">device list                     <span class="comment">#列出设备名，比如无线网卡看到叫 wlan0</span></span><br><span class="line">station wlan0 scan              <span class="comment">#扫描网络</span></span><br><span class="line">station wlan0 get-networks      <span class="comment">#列出网络 比如想连接CMCC-5AQ7这个无线</span></span><br><span class="line">station wlan0 connect CMCC-5AQ7 <span class="comment">#进行连接 输入密码即可</span></span><br><span class="line"><span class="built_in">exit</span>                            <span class="comment">#成功后exit退出</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="有线连接"><a href="#有线连接" class="headerlink" title="有线连接"></a>有线连接</h3><p>正常来说，只要插上一个已经联网的路由器分出的网线(DHCP)，直接就能联网。</p>
-<p>可以等待几秒等网络建立链接后再进行下步测试网络的操作。</p>
-<h2 id="4-测试网络"><a href="#4-测试网络" class="headerlink" title="4.测试网络"></a>4.测试网络</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.gnu.org</span><br></pre></td></tr></table></figure>
-
-<p>稍等片刻，若能看到数据返回，即说明已经联网，ctrl+c 终止退出当前命令。如果还是无法连接，使用 <code>ip link set xxx up</code> 命令确认你已经激活了对应的网卡，再重新继续网络链接与测试。若看到类似<code>Operation not possible due to RF-kill</code>的报错，继续尝试<code>rfkill unblock wifi</code>来解锁无线网卡。[<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Network_configuration/Wireless#Check_the_driver_status">1]</a></p>
-<h2 id="5-更新系统时钟"><a href="#5-更新系统时钟" class="headerlink" title="5.更新系统时钟"></a>5.更新系统时钟</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-ntp <span class="literal">true</span>    <span class="comment">#将系统时间与网络时间进行同步</span></span><br><span class="line">timedatectl status          <span class="comment">#检查服务状态</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="6-更换国内镜像源加快下载速度"><a href="#6-更换国内镜像源加快下载速度" class="headerlink" title="6.更换国内镜像源加快下载速度"></a>6.更换国内镜像源加快下载速度</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pacman.d/mirrorlist    <span class="comment">#不会vim的同学，此处注意视频中的vim操作步骤</span></span><br></pre></td></tr></table></figure>
-
-<p>放在最上面的是会使用的更新源,把中科大 ustc 的或者清华的放在最上面。</p>
-<h2 id="7-分区"><a href="#7-分区" class="headerlink" title="7.分区"></a>7.分区</h2><p>这里总共设置三个分区，可以满足绝大多数人的需求。此步骤会清除磁盘中全部内容，请事先确认。</p>
-<ul>
-<li>EFI 分区： <code>/efi</code> 800M</li>
-<li>根目录： <code>/</code> 100G</li>
-<li>用户主目录： <code>/home</code> 剩余全部 越大越好</li>
-</ul>
-<blockquote>
-<p>这里根目录的大小仅为参考，一般来说个人日常使用的 linux 分配 100G 已经够用了。根目录最小建议不小于 50G，根目录过小会造成无法更新系统软件包等问题。</p>
-</blockquote>
-<p>首先将磁盘转换为 gpt 类型</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lsblk                       <span class="comment">#显示分区情况</span></span><br><span class="line">parted /dev/sdx             <span class="comment">#执行parted，进行磁盘类型变更</span></span><br><span class="line">(parted)mktable             <span class="comment">#输入mktable</span></span><br><span class="line">New disk label <span class="built_in">type</span>? gpt    <span class="comment">#输入gpt 将磁盘类型转换为gpt 如磁盘有数据会警告，输入yes即可</span></span><br><span class="line">quit                        <span class="comment">#最后quit退出parted命令行交互</span></span><br></pre></td></tr></table></figure>
-
-<p>接下来使用 cfdisk 命令对磁盘分区</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cfdisk /dev/sdx <span class="comment">#来执行分区操作,分配各个分区大小，类型</span></span><br><span class="line">fdisk -l <span class="comment">#复查磁盘情况</span></span><br></pre></td></tr></table></figure>
-
-<p>cfdisk 分区的详细操作见视频中的操作。一般建议将 EFI 分区设置为磁盘的第一个分区，据说有些主板如果不将 EFI 设置为第一个分区，可能有不兼容的问题。</p>
-<h2 id="8-格式化"><a href="#8-格式化" class="headerlink" title="8.格式化"></a>8.格式化</h2><p>这里的 sdax 只是例子，具体根据你的实际情况来，请注意视频中的操作。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#磁盘若有数据会问 &#x27;proceed any way?&#x27; y回车 即可</span></span><br><span class="line">mkfs.ext4  /dev/sdax            <span class="comment">#格式化根目录和home目录的两个分区</span></span><br><span class="line">mkfs.vfat  /dev/sdax            <span class="comment">#格式化efi分区</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="9-挂载"><a href="#9-挂载" class="headerlink" title="9.挂载"></a>9.挂载</h2><p>在挂载时，挂载是有顺序的，需要从根目录开始挂载<br>这里的 sdax 只是例子，具体根据你的实际情况来，请注意视频中的操作。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sdax  /mnt</span><br><span class="line"><span class="built_in">mkdir</span> /mnt/home</span><br><span class="line">mount /dev/sdax /mnt/home</span><br><span class="line"><span class="built_in">mkdir</span> /mnt/efi</span><br><span class="line">mount /dev/sdax /mnt/efi</span><br></pre></td></tr></table></figure>
-
-<h2 id="10-安装系统基础包"><a href="#10-安装系统基础包" class="headerlink" title="10.安装系统基础包"></a>10.安装系统基础包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware  <span class="comment">#base-devel在AUR包的安装是必须的</span></span><br></pre></td></tr></table></figure>
-
-<p>功能性软件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt dhcpcd iwd vim sudo bash-completion   <span class="comment">#一个有线所需 一个无线所需 一个编辑器  一个提权工具 一个补全工具 iwd也需要dhcpcd</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="11-生成-fstab-文件"><a href="#11-生成-fstab-文件" class="headerlink" title="11.生成 fstab 文件"></a>11.生成 fstab 文件</h2><p>fstab 用来定义磁盘分区</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
-
-<p>复查一下 &#x2F;mnt&#x2F;etc&#x2F;fstab 确保没有错误</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
-
-<h2 id="12-change-root"><a href="#12-change-root" class="headerlink" title="12.change root"></a>12.change root</h2><p>把环境切换到新系统的&#x2F;mnt 下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure>
-
-<h2 id="13-设置主机名与时区"><a href="#13-设置主机名与时区" class="headerlink" title="13.设置主机名与时区"></a>13.设置主机名与时区</h2><p>首先在<code>/etc/hostname</code>设置主机名</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br></pre></td></tr></table></figure>
-
-<p>加入你想为主机取的主机名，这里比如叫 myarch。</p>
-<p>接下来在<code>/etc/hosts</code>设置与其匹配的条目。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>hosts</span><br></pre></td></tr></table></figure>
-
-<p>加入如下内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1   localhost</span><br><span class="line">::1         localhost</span><br><span class="line">127.0.1.1   myarch.localdomain    myarch</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>某些情况下如不设置主机名，在 KDE 下可能会存在网络情况变更时无法启动 GUI 应用的问题，在终端中出现形如<code>No protocol specified qt.qpa.xcb: could not connect to display</code>的错误，这种情况较为少见。相关参考链接:[<a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?id=241338">1]</a>，[<a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?id=243674">2]</a></p>
-</blockquote>
-<hr>
-<p>随后设置时区，在&#x2F;etc&#x2F;localtime 下用&#x2F;usr 中合适的时区创建符号连接。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
-
-<h2 id="14-硬件时间设置"><a href="#14-硬件时间设置" class="headerlink" title="14.硬件时间设置"></a>14.硬件时间设置</h2><p>将系统时间同步到硬件时间</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure>
-
-<h2 id="15-设置-Locale"><a href="#15-设置-Locale" class="headerlink" title="15.设置 Locale"></a>15.设置 Locale</h2><p>Locale 决定了软件使用的语言、书写习惯和字符集。</p>
-<p>编辑 &#x2F;etc&#x2F;locale.gen，去掉 en_US.UTF-8 行以及 zh_CN.UTF-8 的注释符号（#）。</p>
-<p>然后使用如下命令生成 locale。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale-gen</span><br></pre></td></tr></table></figure>
-
-<p>向 &#x2F;etc&#x2F;locale.conf 输入内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;LANG=en_US.UTF-8&#x27;</span>  &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="16-为-root-用户设置密码"><a href="#16-为-root-用户设置密码" class="headerlink" title="16.为 root 用户设置密码"></a>16.为 root 用户设置密码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
-
-<h2 id="17-安装微码"><a href="#17-安装微码" class="headerlink" title="17.安装微码"></a>17.安装微码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -S intel-ucode   <span class="comment">#Intel</span></span><br><span class="line">pacman -S amd-ucode     <span class="comment">#AMD</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="18-安装引导程序"><a href="#18-安装引导程序" class="headerlink" title="18.安装引导程序"></a>18.安装引导程序</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -S grub efibootmgr   <span class="comment">#grub是启动引导器，efibootmgr被 grub 脚本用来将启动项写入 NVRAM。</span></span><br><span class="line">grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB <span class="comment">#取名为GRUB 并将grubx64.efi安装到之前的指定位置</span></span><br></pre></td></tr></table></figure>
-
-<p>接下来编辑&#x2F;etc&#x2F;default&#x2F;grub 文件，去掉<code>GRUB_CMDLINE_LINUX_DEFAULT</code>一行中最后的 quiet 参数，同时把 log level 的数值从 3 改成 5。这样是为了后续如果出现系统错误，方便排错。同时加入 nowatchdog 参数，这可以显著提高开关机速度。不会 vim 的同学注意视频中的操作。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/grub</span><br></pre></td></tr></table></figure>
-
-<p>最后生成 GRUB 所需的配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在某些主板安装完成后，你会发现没有启动条目。这是因为某些主板的 UEFI 固件在显示 UEFI NVRAM 引导条目之前，需要在特定的位置存放可引导文件，不支持自定义存放 efi 文件(如微星 Z170-A Gaming PRO)。解决方案是在默认启动路径下安装 GRUB。重新插入安装优盘，挂载目录，chroot 到&#x2F;mnt，然后你可以直接把已经生成好的 efi 文件移动到默认目录下，如下代码所示。只有安装完成后你的主板不出现启动条目才需要尝试如下命令，正常安装无需执行。<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/GRUB#Default/fallback_boot_path">官方参考文档</a></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /efi/EFI/BOOT</span><br><span class="line"><span class="built_in">mv</span> /efi/EFI/GRUB/grubx64.efi /efi/EFI/BOOT/BOOTX64.EFI</span><br></pre></td></tr></table></figure>
-
-<h2 id="19-完成安装"><a href="#19-完成安装" class="headerlink" title="19.完成安装"></a>19.完成安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span>                <span class="comment"># 退回安装环境#</span></span><br><span class="line">umount -R  /mnt     <span class="comment"># 卸载新分区</span></span><br><span class="line">reboot              <span class="comment"># 重启</span></span><br></pre></td></tr></table></figure>
-
-<p>注意，重启前要先拔掉优盘，否则你重启后还是进安装程序而不是安装好的系统。重启后，开启 dhcp 服务，即可连接网络</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start dhcpcd  <span class="comment">#立即启动dhcp</span></span><br><span class="line">ping www.gnu.org      <span class="comment">#测试网络连接</span></span><br></pre></td></tr></table></figure>
-
-<p>若为无线链接，则还需要启动 iwd 才可以使用 iwctl 连接网络</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start iwd <span class="comment">#立即启动iwd</span></span><br><span class="line">iwctl               <span class="comment">#和之前的方式一样，连接无线网络</span></span><br></pre></td></tr></table></figure>
-
-<p>到此为止，一个基础的，无 UI 界面的 Arch Linux 已经安装完成了。紧接着下一节，我们来安装图形界面。</p>
-<blockquote>
-<p>archlinux 在 2021 年 4 月在安装镜像中内置了一个<a target="_blank" rel="noopener" href="https://archlinux.org/packages/extra/any/archinstall/">安装脚本</a>，其就是类似一个一键安装脚本，提供一些选项，即可快速安装。其和所有一键安装脚本类似，提供自动化，且不灵活的安装过程。缺陷为：只提供有限的文件系统格式、只可限定在一个磁盘、不能指定源、只提供有限的桌面选择、自动分区不可手动干预、输入错误直接崩溃退出、仅支持 UEFI 等。不建议使用这种安装脚本，除了以上各种原因，初学者也无法在这种安装过程中学到任何东西。如果你因为任何原因需要快速启动一个基础的 archlinux 环境，那么可以尝试此脚本。</p>
-</blockquote>
-<h1 id="桌面环境与常用应用"><a href="#桌面环境与常用应用" class="headerlink" title="桌面环境与常用应用"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E4%B8%8E%E5%B8%B8%E7%94%A8%E5%BA%94%E7%94%A8">桌面环境与常用应用</a></h1><p>官方文档: <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/General_recommendations">安装后的工作</a><br>本节只介绍最基本的，能使系统真正意义上可用所需的组件<br>相关视频链接： <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Fv411H7x2">安装 KDE 与常用软件</a> 视频文字结合效果更好<br>注: 文档中带有 AUR 角标的软件代表是用户自行打包的第三方软件<a target="_blank" rel="noopener" href="https://aur.archlinux.org/">AUR</a>，不在 Arch 官方支持范围内，可能会出现更新不及时、无法安装、使用出错等各种问题。如果不是实在没有官方支持的同类软件，则不建议使用。</p>
-<h2 id="1-确保系统为最新"><a href="#1-确保系统为最新" class="headerlink" title="1.确保系统为最新"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_1%E7%A1%AE%E4%BF%9D%E7%B3%BB%E7%BB%9F%E4%B8%BA%E6%9C%80%E6%96%B0">1.确保系统为最新</a></h2><p>如果你在做完上一节的内容后，重启并放置过一段时间，那需要先按照上节末尾处的方式重新连接网络，然后更新系统。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syyu    <span class="comment">#升级系统中全部包</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-准备非-root-用户"><a href="#2-准备非-root-用户" class="headerlink" title="2.准备非 root 用户"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_2%E5%87%86%E5%A4%87%E9%9D%9E-root-%E7%94%A8%E6%88%B7">2.准备非 root 用户</a></h2><p>添加用户，比如新增加的用户叫 testuser</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -G wheel -s /bin/bash testuser  <span class="comment">#wheel附加组可sudo进行提权 -m同时创建用户家目录</span></span><br></pre></td></tr></table></figure>
-
-<p>设置新用户 testuser 的密码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd testuser</span><br></pre></td></tr></table></figure>
-
-<p>编辑 sudo 文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EDITOR=vim visudo</span><br></pre></td></tr></table></figure>
-
-<p>找到这样的一行,把前面的注释符号#去掉，<code>:wq</code>保存并退出即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#%wheel ALL=(ALL) ALL</span></span><br></pre></td></tr></table></figure>
-
-<p>这里稍微解释一下 %wheel 代表是 wheel 组，百分号是前缀<br>ALL&#x3D; 代表在所有主机上都生效(如果把同样的<code>sudoers</code>文件下发到了多个主机上)<br>(ALL) 代表可以成为任意目标用户<br>ALL 代表可以执行任意命令<br>一个更详细的例子:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%mailadmin   snow,rain=(root) /usr/sbin/postfix, /usr/sbin/postsuper, /usr/bin/doveadm</span><br><span class="line">nobody       ALL=(root) NOPASSWD: /usr/sbin/rndc reload</span><br></pre></td></tr></table></figure>
-
-<p>组 mailadmin 可以作为 root 用户，执行一些邮件服务器控制命令。可以在 “snow” 和 “rain”这两台主机上执行<br>用户 nobody 可以以 root 用户执行<code>rndc reload</code>命令。可以在所有主机上执行。同时可以不输入密码。(正常来说 sudo 都是要求输入调用方的密码的)</p>
-<h2 id="3-安装-KDE-Plasma-桌面环境"><a href="#3-安装-KDE-Plasma-桌面环境" class="headerlink" title="3.安装 KDE Plasma 桌面环境"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_3%E5%AE%89%E8%A3%85-kde-plasma-%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83">3.安装 KDE Plasma 桌面环境</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S plasma-meta konsole dolphin  <span class="comment">#安装plasma-meta元软件包以及终端和文件管理器</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="4-配置-greeter-sddm"><a href="#4-配置-greeter-sddm" class="headerlink" title="4.配置 greeter sddm"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_4%E9%85%8D%E7%BD%AE-greeter-sddm">4.配置 greeter sddm</a></h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> sddm</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-设置交换文件-swap"><a href="#5-设置交换文件-swap" class="headerlink" title="5.设置交换文件 swap"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_5%E8%AE%BE%E7%BD%AE%E4%BA%A4%E6%8D%A2%E6%96%87%E4%BB%B6-swap">5.设置交换文件 swap</a></h2><p>在桌面环境中，交换分区或文件用来实现休眠(hibernate)的功能，即将当前环境保存在磁盘的交换文件或分区部分。除此之外，某些特定软件需要 swap 才可以正确运行。交换文件与分区性能相同，且交换文件更为灵活，可随时变更大小，增加与删除。[<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Swap#Swap_file">1]</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=/swapfile bs=1M count=16384 status=progress <span class="comment">#创建16G的交换空间 大小根据需要自定</span></span><br><span class="line"><span class="built_in">chmod</span> 600 /swapfile <span class="comment">#设置正确的权限</span></span><br><span class="line">mkswap /swapfile <span class="comment">#格式化swap文件</span></span><br><span class="line">swapon /swapfile <span class="comment">#启用swap文件</span></span><br></pre></td></tr></table></figure>
-
-<p>最后，向&#x2F;etc&#x2F;fstab 中追加如下内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/swapfile none swap defaults 0 0</span><br></pre></td></tr></table></figure>
-
-<p>KDE 自身提供开箱即用的睡眠功能(suspend)，即将系统挂起到内存，消耗少量的电量。休眠(hibernate)会将系统挂起到交换分区或文件，几乎不消耗电量。sleep 睡眠功能已可满足绝大多数人的需求，如果你一定需要休眠功能，可以参考<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate">官方文档</a>设置休眠相关步骤。</p>
-<h2 id="6-开启-32-位支持库与-ArchLinuxCN-支持库"><a href="#6-开启-32-位支持库与-ArchLinuxCN-支持库" class="headerlink" title="6.开启 32 位支持库与 ArchLinuxCN 支持库"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_6%E5%BC%80%E5%90%AF-32-%E4%BD%8D%E6%94%AF%E6%8C%81%E5%BA%93%E4%B8%8E-archlinuxcn-%E6%94%AF%E6%8C%81%E5%BA%93">6.开启 32 位支持库与 ArchLinuxCN 支持库</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pacman.conf</span><br></pre></td></tr></table></figure>
-
-<p>去掉[multilib]一节中两行的注释，来开启 32 位库支持。<br>在文档结尾处加入下面的文字，来开启 ArchLinuxCN 源。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
-
-<p>上面服务器的地址是中科大的，也可用下面清华的。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/archlinuxcn/mirrorlist-repo#arch-linux-cn-community-repo-mirrors-list">此处</a>为 archlinuxcn 全部仓库地址 可以根据自己实际情况另行选择。</p>
-<p>最后:wq 保存退出，刷新 pacman 数据库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syyu</span><br></pre></td></tr></table></figure>
-
-<p>重启电脑，即可看到欢迎界面，输入新用户的密码即可登录桌面</p>
-<h2 id="7-安装基础功能包"><a href="#7-安装基础功能包" class="headerlink" title="7.安装基础功能包"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_7%E5%AE%89%E8%A3%85%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD%E5%8C%85">7.安装基础功能包</a></h2><p>进入桌面后，搜索 konsole。它是 KDE 桌面环境默认的命令行终端。</p>
-<p>首先先进行桌面环境中的网络设置：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">disable</span> iwd                                                  <span class="comment">#确保iwd开机处于关闭状态，其无线连接会与NetworkManager冲突</span></span><br><span class="line">sudo systemctl stop iwd                                                     <span class="comment">#同上，立即关闭iwd</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> --now NetworkManager                                  <span class="comment">#确保先启动NetworkManager，并进行网络连接 若iwd已经与NetworkManager冲突 则执行完上一步重启一下电脑即可。</span></span><br></pre></td></tr></table></figure>
-
-<p>接下来安装一些基础功能包。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S ntfs-3g                                                      <span class="comment">#识别NTFS格式的硬盘</span></span><br><span class="line">sudo pacman -S adobe-source-han-serif-cn-fonts wqy-zenhei                   <span class="comment">#安装几个开源中文字体 一般装上文泉驿就能解决大多wine应用中文方块的问题</span></span><br><span class="line">sudo pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts-extra             <span class="comment">#安装谷歌开源字体及表情</span></span><br><span class="line">sudo pacman -S firefox chromium                                             <span class="comment">#安装常用的火狐、谷歌浏览器</span></span><br><span class="line">sudo pacman -S ark                                                          <span class="comment">#与dolphin同用右键解压 注意可同时安装可选解压支持项</span></span><br><span class="line">sudo pacman -S packagekit-qt5 packagekit appstream-qt appstream             <span class="comment">#确保Discover(软件中心）可用 需重启</span></span><br><span class="line">sudo pacman -S gwenview                                                     <span class="comment">#图片查看器</span></span><br><span class="line">sudo pacman -S steam                                                        <span class="comment">#稍后看完显卡驱动再使用 专有软件</span></span><br></pre></td></tr></table></figure>
-
-<p>最后要安装 archlinuxcn 源的相关步骤。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S archlinuxcn-keyring                                          <span class="comment">#cn源中的签名(archlinuxcn-keyring在archLinuxCn)</span></span><br><span class="line">sudo pacman -S yay                                                          <span class="comment">#yay命令可以让用户安装AUR中的软件(yay在archLinuxCn)</span></span><br></pre></td></tr></table></figure>
-
-<p>若安装 archlinuxcn-keyring 时报错，是由于密钥环的问题，可先按照<a target="_blank" rel="noopener" href="https://www.archlinuxcn.org/gnupg-2-1-and-the-pacman-keyring/">此链接</a>执行其中的命令，再安装 archlinuxcn-keyring</p>
-<h2 id="8-设置系统为中文"><a href="#8-设置系统为中文" class="headerlink" title="8.设置系统为中文"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_8%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E4%B8%BA%E4%B8%AD%E6%96%87">8.设置系统为中文</a></h2><p>打开 <em>System Settings</em> &gt; <em>Regional Settings</em> &gt; <em>Language</em> -&gt; <em>Add languages</em> 中选择中文加入，再拖拽到第一位，Apply。</p>
-<p>再将<em>System Settings</em> &gt; <em>Regional Settings</em> &gt; <em>Formats</em> 中的值设为<code>中文-简体中文(zh_CN)</code></p>
-<p>最后重新登陆即可。</p>
-<blockquote>
-<p>很多人会错误的更改 <em>System Settings</em> &gt; <em>Regional Settings</em> &gt; <em>Formats</em> 中的值为中文蒙古(mn_CN)，默认，或者其他值，这会导致系统中一半英文一般中文。这里的值要保持默认的 en_US 或 zh_CN,或者改为你在 locale.gen 中添加的任意一种语言。</p>
-</blockquote>
-<h2 id="9-安装输入法"><a href="#9-安装输入法" class="headerlink" title="9.安装输入法"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_9%E5%AE%89%E8%A3%85%E8%BE%93%E5%85%A5%E6%B3%95">9.安装输入法</a></h2><p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Fcitx5_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Fcitx5 官方文档</a><br>中文及日文输入法均体验良好。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx5-im <span class="comment">#基础包组</span></span><br><span class="line">sudo pacman -S fcitx5-chinese-addons <span class="comment">#官方中文输入引擎</span></span><br><span class="line">sudo pacman -S fcitx5-anthy <span class="comment">#日文输入引擎</span></span><br><span class="line">sudo pacman -S fcitx5-pinyin-moegirl <span class="comment">#萌娘百科词库 二刺猿必备(ArchLinuxCn)</span></span><br><span class="line">sudo pacman -S fcitx5-material-color <span class="comment">#主题</span></span><br></pre></td></tr></table></figure>
-
-<p>设置环境变量 编辑文件 <code>sudo vim /etc/environment</code> 加入以下内容。konsole 以及 dophin 都需要这些环境变量，倒是 chrome 和 firefox 都不需要就可以输入中文</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br><span class="line">SDL_IM_MODULE=fcitx</span><br></pre></td></tr></table></figure>
-
-<p>打开 <em>系统设置</em> &gt; <em>区域设置</em> &gt; _输入法_，先点击<code>运行Fcitx</code>即可，拼音为默认添加项。如你还需要更多输入法如五笔，则再点击<code>添加输入法</code>，找到简体中文下的五笔 ，点击添加即可加入五笔输入法。</p>
-<p>接下来点击 <em>拼音</em> 右侧的配置按钮，点选<code>云拼音</code>和<code>在程序中显示预编辑文本</code> 最后应用。</p>
-<p>回到输入法设置，点击<code>配置附加组件</code>，找到 <em>经典用户界面</em> 在主题里选择一个你喜欢的颜色 最后应用。</p>
-<p>注销，重新登陆，就可以发现已经可以在各个软件中输入中文了</p>
-<h2 id="10-配置系统默认编辑器"><a href="#10-配置系统默认编辑器" class="headerlink" title="10.配置系统默认编辑器"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_10%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E7%BC%96%E8%BE%91%E5%99%A8">10.配置系统默认编辑器</a></h2><p>默认情况下，Arch Linux 在一些终端编辑场景使用 vi 编辑器，但是我们使用 vim。如果不做一个额外配置，在 git 等场景下，在终端调用编辑器会出错。编辑~&#x2F;.bashrc 文件，加入如下内容，将 vim 设置为默认 EDITOR</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> EDITOR=<span class="string">&#x27;vim&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="11-启动蓝牙-若有"><a href="#11-启动蓝牙-若有" class="headerlink" title="11.启动蓝牙(若有)"></a><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/rookie/DE&App?id=_11%E5%90%AF%E5%8A%A8%E8%93%9D%E7%89%99%E8%8B%A5%E6%9C%89">11.启动蓝牙(若有)</a></h2><p>如果你有蓝牙设备，需要启用蓝牙服务。随后在系统设置中进行添加设备与连接即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> --now bluetooth</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/19/MYSQL-5-7-16-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/19/MYSQL-5-7-16-install/" class="post-title-link" itemprop="url">MYSQL_5.7.16_install</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-07-19 20:37:24" itemprop="dateCreated datePublished" datetime="2022-07-19T20:37:24+08:00">2022-07-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-01 19:09:55" itemprop="dateModified" datetime="2023-05-01T19:09:55+08:00">2023-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/07/19/MYSQL-5-7-16-install/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/19/MYSQL-5-7-16-install/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h1 id="一-MYSQL"><a href="#一-MYSQL" class="headerlink" title="一.MYSQL"></a>一.MYSQL</h1><h3 id="1-MYSQL简介"><a href="#1-MYSQL简介" class="headerlink" title="1.MYSQL简介"></a><strong>1.MYSQL简介</strong></h3><p>​		MYSQL 是一种开源的关系型数据库产品，具有开放式的架构。MYSQL最初由瑞典MYSQL AB 公司研发，后被SUN 公司收购，最后被Oracle公司收购。</p>
-<p>​		MYSQL 数据库是传统的关系型数据库，其开放式的架构使得用户有更多的选择。当下大多数互联网公司也比较热衷选择开源代码架构的产品。MYSQL 数据库在不断的更新和迭代发展，其功能也越来越强大，性能越爱越好，支持的平台越来越广。在实际工作中，MYSQL也是使用最多的是数据库。</p>
-<h3 id="2-MYSQL版本"><a href="#2-MYSQL版本" class="headerlink" title="2.MYSQL版本"></a><strong>2.MYSQL版本</strong></h3><p>​		MYSQL有众多版本，如下所示：</p>
-<p>(1)Alpha版本：一般在软件开发公司内部运行，不对外公开。</p>
-<p>(2)Beta版本：完成功能开发和所有测试工作后的产品，不会存在较大的功能或者性能Bug。</p>
-<p>(3)PC版本：属于正式发布前的一个版本，也是最终测试版本，进一步收集Bug或者不足之处，然后进行修复和完善。</p>
-<p>(4)GA版本：软件产品正式发布的版本，也是生产环境使用的版本。</p>
-<h3 id="3-MYSQL的安装方式"><a href="#3-MYSQL的安装方式" class="headerlink" title="3.MYSQL的安装方式"></a><strong>3.MYSQL的安装方式</strong></h3><p>（1）常见的编译安装方式（适用于MYSQL 5.5前的版本）。</p>
-<p>（2）二进制包安装的方式。</p>
-<p>（3）RPM包的安装方式。</p>
-<p>（4）Cmake方式安装（适用于MYSQL 5.5后的版本）。</p>
-<h1 id="二-MYSQL-的安装与部署（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）"><a href="#二-MYSQL-的安装与部署（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）" class="headerlink" title="二.MYSQL 的安装与部署（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）"></a><strong>二.MYSQL 的安装与部署</strong>（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）</h1><h3 id="1-MYSQL安装包的下载网站"><a href="#1-MYSQL安装包的下载网站" class="headerlink" title="1.MYSQL安装包的下载网站"></a><strong>1.MYSQL安装包的下载网站</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://downloads.mysql.com/archives/community/</span><br></pre></td></tr></table></figure>
-
-<p>在里面下载一个Linux的 <strong>mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</strong> 二进制安装包</p>
-<h3 id="2-安装依赖包软件"><a href="#2-安装依赖包软件" class="headerlink" title="2.安装依赖包软件"></a><strong>2.安装依赖包软件</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># yum -y install zlib-devel gcc-c++ ncurses ncurses-devel libaio libaio-devel libncurses*</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-用xshell上传-mysql-5-7-16-linux-glibc2-5-x86-64-tar-gz到服务器上"><a href="#3-用xshell上传-mysql-5-7-16-linux-glibc2-5-x86-64-tar-gz到服务器上" class="headerlink" title="*3.用xshell上传 mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz到服务器上*"></a>*<em>3.用xshell上传 <em>mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</em>到服务器上</em>*</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># yum -y install lrzsz     #安装lrzsz 方便两设备上传下载东西</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(25).png"></p>
-<p>安装好 <strong>lrzsz</strong> 后即可时使用 <strong>rz</strong> 命令上传文件到服务器，使用 <strong>sz</strong> 命令下载文件到客户端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># rz</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(26).png"></p>
-<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(27).png"></p>
-<p>上传完成后可以用 <strong>ls</strong> 命令来看到 <strong>mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</strong> 二进制安装包</p>
-<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(28).png"></p>
-<h3 id="4-安装MYSQL"><a href="#4-安装MYSQL" class="headerlink" title="4.安装MYSQL"></a><strong>4.安装MYSQL</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># useradd mysql -s /sbin/nologin -M      #创建一个mysql的账号，并且定义它不能登录shell，-M参数：不要自动建立用户的主目录（意味这mysql这个用户没有家）</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># mkdir -p /mysql/data           #创建一个递归目录，-p参数：没有的目录自动创建</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># chown -R mysql.mysql /mysql/   #递归更改目录的属主和属组为mysql，-R参数：递归地更改指定文件夹的所有权，但不更改链接指向目录</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># tar zxf mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz -C /usr/local/     #指定解压 mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz 到/usr/local/ 目录下</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># ln -s /usr/local/mysql-5.7.16-linux-glibc2.5-x86_64 /usr/local/mysql    #说真的。。。看到这个我tm笑死，建立软连接干嘛，怕那么点字母？</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># cd /usr/local/mysql/      </span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># cp support-files/my-default.cnf /etc/my.cnf    #修改/etc/my.cnf 里面的数据就好，my-default.cnf 这个压根不用管。。。配置文件都转移到/etc/目录下面了</span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># cp support-files/mysql.server /etc/init.d/mysqld</span></span><br><span class="line"><span class="comment"># init.d目录包含许多系统各种服务的启动和停止脚本(/etc/init.d里的shell脚本能够响应start，stop，restart，reload命令来管理某个具体的应用)。</span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># chmod +x /etc/init.d/mysqld    #添加执行权限，x参数：执行权限</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="5-MYSQL初始化"><a href="#5-MYSQL初始化" class="headerlink" title="5.MYSQL初始化"></a><strong>5.MYSQL初始化</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># ./bin/mysqld --initialize --basedir=/usr/local/mysql --datadir=/mysql/data/ --user=mysql      #初始化并且规定服务安装目录、	MYSQL服务数据存储目录、规定使用者是 mysql</span></span><br></pre></td></tr></table></figure>
-
-<p>初始化完成后会出现一段密码，把它保存下来，后面登录数据库需要用到它</p>
-<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(29)_%E7%88%B1%E5%A5%87%E8%89%BA.jpg"></p>
-<p>后面这样一串就是密码： <strong>&gt;rqiYpmT9Sh_</strong>   (注意：这里别把空格弄进去了，空格在密码也算一个位置的，密码是自动生成的，每台设备都不一样，别抄我的密码进去了，这样都弄错。。。小心我锤爆你狗头doge）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># egrep -v &quot;^#|^$&quot; /etc/my.cnf    #其实刚刚看到这串鬼东西的时候，我人都傻了，我只学过grep这个命令，egrep这是什么鬼东西，后来从度娘那边查到egrep == grep -e ，秒懂！！！（废话一堆，这句话意思就是，过滤掉 my.cnf 文本里面的注释和空格，剩下的东西全部显现在屏幕上）</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看出<strong>my.cnf</strong> 里面就两行配置信息</p>
-<p>那么我们直接进去加点料，定义一些配置信息，让我们装逼装的更加彻底</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># vim /etc/my.cnf</span></span><br></pre></td></tr></table></figure>
-
-<p>进去就会看到这样的 <strong>冥场面</strong> </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For advice on how to change settings please see</span></span><br><span class="line"><span class="comment"># http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html</span></span><br><span class="line"><span class="comment"># *** DO NOT EDIT THIS FILE. It&#x27;s a template which will be copied to the</span></span><br><span class="line"><span class="comment"># *** default location during install, and will be replaced if you</span></span><br><span class="line"><span class="comment"># *** upgrade to a newer version of MySQL.</span></span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove leading # and set to the amount of RAM for the most important data</span></span><br><span class="line"><span class="comment"># cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.</span></span><br><span class="line"><span class="comment"># innodb_buffer_pool_size = 128M</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove leading # to turn on a very important data integrity option: logging</span></span><br><span class="line"><span class="comment"># changes to the binary log between backups.</span></span><br><span class="line"><span class="comment"># log_bin</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># These are commonly set, remove the # and set as required.</span></span><br><span class="line"><span class="comment"># basedir = .....</span></span><br><span class="line"><span class="comment"># datadir = .....</span></span><br><span class="line"><span class="comment"># port = .....</span></span><br><span class="line"><span class="comment"># server_id = .....</span></span><br><span class="line"><span class="comment"># socket = .....</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove leading # to set options mainly useful for reporting servers.</span></span><br><span class="line"><span class="comment"># The server defaults are faster for transactions and fast SELECTs.</span></span><br><span class="line"><span class="comment"># Adjust sizes as needed, experiment to find the optimal values.</span></span><br><span class="line"><span class="comment"># join_buffer_size = 128M</span></span><br><span class="line"><span class="comment"># sort_buffer_size = 2M</span></span><br><span class="line"><span class="comment"># read_rnd_buffer_size = 2M </span></span><br><span class="line"></span><br><span class="line">sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line">~                                                                                                                                                                          </span><br><span class="line">~ </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>对于我这个英语小白来说简直绝望</strong></p>
-<p><strong>在里面写入这段配置信息，注意不要重复了</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">port = 3306</span><br><span class="line">socket = /mysql/mysql.sock</span><br><span class="line">[mysqld]</span><br><span class="line">basedir = /usr/local/mysql</span><br><span class="line">datadir = /mysql/data/</span><br><span class="line">port = 3306</span><br><span class="line">server_id = 1</span><br><span class="line">socket = /mysql/mysql.sock</span><br><span class="line">sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line">[mysqld_safe]</span><br><span class="line">log-error = /mysql/mysql.log</span><br><span class="line">pid-file = /mysql/mysql.pid</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="6-开启MYSQL服务"><a href="#6-开启MYSQL服务" class="headerlink" title="6.开启MYSQL服务"></a><strong>6.开启MYSQL服务</strong></h3><p>开启这个服务之后，然后就能看到唯一看得懂的英文 <strong>SUCCESS</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># /etc/init.d/mysqld start</span></span><br><span class="line">Starting MySQL.. SUCCESS! </span><br></pre></td></tr></table></figure>
-
-<p>可以使用这段代码来监听端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># lsof -i :3306</span></span><br><span class="line">COMMAND   PID  USER   FD   TYPE DEVICE SIZE/OFF NODE NAME</span><br><span class="line">mysqld  11932 mysql   23u  IPv6 150481      0t0  TCP *:mysql (LISTEN)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="7-配置环境变量"><a href="#7-配置环境变量" class="headerlink" title="7.配置环境变量"></a><strong>7.配置环境变量</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># echo &#x27;export PATH=$PATH:/usr/local/mysql/bin&#x27; &gt;&gt; /etc/profile</span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># source /etc/profile</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="8-登录数据库"><a href="#8-登录数据库" class="headerlink" title="8.登录数据库"></a><strong>8.登录数据库</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># mysql -uroot -p      </span></span><br><span class="line">Enter password:     <span class="comment">#别告诉我你没有保存密码哦，小心狗头！！！</span></span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection <span class="built_in">id</span> is 2</span><br><span class="line">Server version: 5.7.16</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; </span><br><span class="line">mysql&gt; </span><br><span class="line">mysql&gt; </span><br></pre></td></tr></table></figure>
-
-<h3 id="9-修改密码"><a href="#9-修改密码" class="headerlink" title="9.修改密码"></a><strong>9.修改密码</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;1234567890&#x27;</span>;    <span class="comment">#密码改成1234567890</span></span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line">mysql&gt; <span class="built_in">exit</span>       <span class="comment">#退出数据库</span></span><br><span class="line">Bye</span><br><span class="line">[root@kejulin ~]<span class="comment">#</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># mysql -uroot -p1234567890</span></span><br><span class="line">mysql: [Warning] Using a password on the <span class="built_in">command</span> line interface can be insecure.</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection <span class="built_in">id</span> is 3</span><br><span class="line">Server version: 5.7.16 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="三-结尾"><a href="#三-结尾" class="headerlink" title="三.结尾"></a><strong>三.结尾</strong></h1><p>虽然，CSDN 和 百度 等搜索工具里面查到的MYSQL很坑，但是作为一个先行者，我可以很负责任的说能善于用任何工具来解决自己问题对于日后的排错非常有帮助。</p>
-<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210614171041.png"></p>
-<p>遇到的困难都可以自己尝试去解决的。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -907,7 +827,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
