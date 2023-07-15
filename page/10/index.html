@@ -118,12 +118,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">42</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">43</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">34</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">36</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -196,6 +196,160 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/09/04/linux%E5%B0%8F%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/04/linux%E5%B0%8F%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">linux小知识</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-09-04 11:37:06" itemprop="dateCreated datePublished" datetime="2022-09-04T11:37:06+08:00">2022-09-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-05-08 21:55:26" itemprop="dateModified" datetime="2023-05-08T21:55:26+08:00">2023-05-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux%E5%B0%8F%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">Linux小知识</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/09/04/linux%E5%B0%8F%E7%9F%A5%E8%AF%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/09/04/linux%E5%B0%8F%E7%9F%A5%E8%AF%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>13k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>12 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="free"><a href="#free" class="headerlink" title="free"></a>free</h1><p>检测系统内存<code>Mem</code>和交换空间<code>swap</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># free -h</span></span><br><span class="line">              total        used        free      shared  buff/cache   available</span><br><span class="line">Mem:          7.7Gi       405Mi       6.8Gi        17Mi       481Mi       7.1Gi</span><br><span class="line">Swap:         1.0Gi          0B       1.0Gi</span><br></pre></td></tr></table></figure>
+
+<p>total:内存总大小</p>
+<p>used:已用</p>
+<p>free:空闲</p>
+<p>available:可用</p>
+<p>swap:交换</p>
+<h1 id="hdparm"><a href="#hdparm" class="headerlink" title="hdparm"></a>hdparm</h1><p>检查磁盘性能，指定-t选项检查磁盘（评估硬盘的读取效率(不经过磁盘cache)），指定-T 平估硬盘快取的读取效率</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># hdparm -t /dev/mmcblk0</span></span><br><span class="line"></span><br><span class="line">/dev/mmcblk0:</span><br><span class="line"> HDIO_DRIVE_CMD(identify) failed: Invalid argument</span><br><span class="line"> Timing buffered disk reads: 132 MB <span class="keyword">in</span>  3.02 seconds =  43.65 MB/sec</span><br><span class="line"></span><br><span class="line">root@raspbian:~<span class="comment"># hdparm -tT /dev/mmcblk0</span></span><br><span class="line"></span><br><span class="line">/dev/mmcblk0:</span><br><span class="line"> Timing cached reads:   1914 MB <span class="keyword">in</span>  2.00 seconds = 958.37 MB/sec</span><br><span class="line"> HDIO_DRIVE_CMD(identify) failed: Invalid argument</span><br><span class="line"> Timing buffered disk reads: 132 MB <span class="keyword">in</span>  3.03 seconds =  43.63 MB/sec</span><br></pre></td></tr></table></figure>
+
+<h1 id="查找命令在哪个软件包"><a href="#查找命令在哪个软件包" class="headerlink" title="查找命令在哪个软件包"></a>查找命令在哪个软件包</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 比如说我需要iostat</span></span><br><span class="line">root@raspbian:~<span class="comment"># apt-cache search iostat</span></span><br><span class="line">dstat - versatile resource statistics tool</span><br><span class="line">ganglia-modules-linux - Ganglia extra modules <span class="keyword">for</span> Linux (IO, filesystems, multicpu)</span><br><span class="line">ifstat - InterFace STATistics Monitoring</span><br><span class="line">nicstat - <span class="built_in">print</span> network traffic statistics</span><br><span class="line">pcp-import-iostat2pcp - Tool <span class="keyword">for</span> importing data from iostat into PCP archive logs</span><br><span class="line">r-cran-epi - GNU R epidemiological analysis</span><br><span class="line">r-cran-epibasix - GNU R Elementary Epidemiological Functions</span><br><span class="line">r-cran-kmi - GNU R Kaplan-Meier Multiple Imputation</span><br><span class="line">r-cran-rms - GNU R regression modeling strategies by Frank Harrell</span><br><span class="line">sysstat - system performance tools <span class="keyword">for</span> Linux</span><br><span class="line"></span><br><span class="line"><span class="comment"># 挑一个吧</span></span><br><span class="line">root@raspbian:~<span class="comment"># apt-get install sysstat</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="iostat"><a href="#iostat" class="headerlink" title="iostat"></a>iostat</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># iostat</span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"><span class="comment">#cpu使用情况</span></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.75    0.00    0.45    0.09    0.00   98.71</span><br><span class="line"><span class="comment">#磁盘使用情况</span></span><br><span class="line">Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">mmcblk0           2.71       136.86        24.05    1074327     188817</span><br></pre></td></tr></table></figure>
+
+<p>-c:显示cpu使用情况</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2秒5次列出cpu情况</span></span><br><span class="line">root@raspbian:~<span class="comment"># iostat -c 2 5</span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.75    0.00    0.44    0.08    0.00   98.73</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.37    0.00    0.25    0.00    0.00   99.38</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.13    0.00    0.13    0.00    0.00   99.75</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.25    0.00    0.12    0.00    0.00   99.62</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.12    0.00    0.38    0.00    0.00   99.50</span><br></pre></td></tr></table></figure>
+
+<p>-d:磁盘使用情况</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2秒3次</span></span><br><span class="line">root@raspbian:~<span class="comment"># iostat -d 2 3</span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"></span><br><span class="line">Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">mmcblk0           2.53       124.41        22.50    1074327     194285</span><br><span class="line"></span><br><span class="line">Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">mmcblk0           3.00         0.00        16.00          0         32</span><br><span class="line"></span><br><span class="line">Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">mmcblk0           1.00         0.00        36.00          0         72</span><br></pre></td></tr></table></figure>
+
+<p>-x:指定磁盘设备名称</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定/dev/mmcblk0磁盘设备2秒3次</span></span><br><span class="line">root@raspbian:~<span class="comment"># iostat -dx /dev/mmcblk0 2 3</span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"></span><br><span class="line">Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util</span><br><span class="line">mmcblk0          1.45    1.00    118.12     21.71     0.77     1.31  34.61  56.73    5.45   10.22   0.02    81.67    21.76   2.42   0.59</span><br><span class="line"></span><br><span class="line">Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util</span><br><span class="line">mmcblk0          0.00    0.00      0.00      0.00     0.00     0.00   0.00   0.00    0.00    0.00   0.00     0.00     0.00   0.00   0.00</span><br><span class="line"></span><br><span class="line">Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util</span><br><span class="line">mmcblk0          0.00    7.50      0.00     34.00     0.00     1.00   0.00  11.76    0.00    7.00   0.05     0.00     4.53   0.80   0.60</span><br></pre></td></tr></table></figure>
+
+<h1 id="sar"><a href="#sar" class="headerlink" title="sar"></a>sar</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># sar -u 2 5 </span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"></span><br><span class="line">10:32:27 AM     CPU     %user     %<span class="built_in">nice</span>   %system   %iowait    %steal     %idle</span><br><span class="line">10:32:29 AM     all      1.38      0.00      1.00      0.00      0.00     97.62</span><br><span class="line">10:32:31 AM     all      7.50      0.00      1.38      0.00      0.00     91.12</span><br><span class="line">10:32:33 AM     all      0.25      0.00      0.87      0.00      0.00     98.88</span><br><span class="line">10:32:35 AM     all      0.25      0.00      0.00      0.00      0.00     99.75</span><br><span class="line">10:32:37 AM     all      0.50      0.00      0.13      0.00      0.00     99.37</span><br><span class="line">Average:        all      1.97      0.00      0.67      0.00      0.00     97.35</span><br></pre></td></tr></table></figure>
+
+<h1 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h1><p>查看端口服务，-i查看对应端口服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># lsof -i:22</span></span><br><span class="line">COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME</span><br><span class="line">sshd      834 root    3u  IPv4  26704      0t0  TCP *:ssh (LISTEN)</span><br><span class="line">sshd      834 root    4u  IPv6  26706      0t0  TCP *:ssh (LISTEN)</span><br><span class="line">BT-Panel 1147 root   13u  IPv4  43447      0t0  TCP raspbian:11716-&gt;raspbian:ssh (ESTABLISHED)</span><br><span class="line">sshd     4694 root    3u  IPv4  42753      0t0  TCP raspbian:ssh-&gt;raspbian:11716 (ESTABLISHED)</span><br></pre></td></tr></table></figure>
+
+<h1 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># netstat </span></span><br><span class="line">Active Internet connections (w/o servers)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State      </span><br><span class="line">tcp        0      6 10.71.10.25:8101        10.68.65.140:5937       ESTABLISHED</span><br><span class="line">tcp        0    176 raspbian:ssh            raspbian:11716          ESTABLISHED</span><br><span class="line">tcp      160      0 raspbian:11716          raspbian:ssh            ESTABLISHED</span><br><span class="line">Active UNIX domain sockets (w/o servers)</span><br><span class="line">Proto RefCnt Flags       Type       State         I-Node   Path</span><br><span class="line">unix  2      [ ]         DGRAM                    43560    /run/user/0/systemd/notify</span><br><span class="line">unix  3      [ ]         DGRAM                    15265    /run/systemd/notify</span><br><span class="line">unix  16     [ ]         DGRAM                    15276    /run/systemd/journal/dev-log</span><br><span class="line">unix  2      [ ]         DGRAM                    15282    /run/systemd/journal/syslog</span><br><span class="line">unix  7      [ ]         DGRAM                    15291    /run/systemd/journal/socket</span><br><span class="line">unix  2      [ ]         DGRAM                    24174    @00001</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22269    </span><br><span class="line">unix  2      [ ]         DGRAM                    27827    </span><br><span class="line">unix  2      [ ]         DGRAM                    22165    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21099    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22163    </span><br><span class="line">unix  2      [ ]         DGRAM                    22143    </span><br><span class="line">unix  2      [ ]         DGRAM                    22139    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22433    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22432    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     19284    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26018    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26017    </span><br><span class="line">unix  2      [ ]         DGRAM                    25873    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25871    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25870    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18705    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     27250    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25862    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     30216    /run/containerd/containerd.sock.ttrpc</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     32039    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18236    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     29646    /run/containerd/containerd.sock.ttrpc</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20201    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     32038    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20289    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     29570    /run/containerd/s/efda43ab145a8b986f0fd3455c3b2956d5def686d2807c67031ad6563f9958db</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     31928    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     24063    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20541    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     27836    </span><br><span class="line">unix  2      [ ]         DGRAM                    16406    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20777    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     43564    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21400    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20542    </span><br><span class="line">unix  2      [ ]         DGRAM                    14168    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21401    </span><br><span class="line">unix  2      [ ]         DGRAM                    18426    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     44613    /run/systemd/journal/stdout</span><br><span class="line">unix  2      [ ]         DGRAM                    18148    </span><br><span class="line">unix  2      [ ]         DGRAM                    43546    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     24181    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18312    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18430    </span><br><span class="line">unix  2      [ ]         DGRAM                    41797    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     28070    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18313    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21097    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     17383    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         DGRAM                    15267    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25700    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     43538    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     17927    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25701    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     41806    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18147    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     16734    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20214    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         DGRAM                    15266    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     14309    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         DGRAM                    43561    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     27733    </span><br><span class="line">unix  2      [ ]         DGRAM                    16736    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26790    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         DGRAM                    16739    </span><br><span class="line">unix  2      [ ]         DGRAM                    43549    </span><br><span class="line">unix  2      [ ]         STREAM     CONNECTED     41786    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25802    </span><br><span class="line">unix  3      [ ]         DGRAM                    16740    </span><br><span class="line">unix  3      [ ]         DGRAM                    43562    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26994    /run/systemd/journal/stdout</span><br><span class="line">unix  2      [ ]         DGRAM                    20539    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20421    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21092    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18951    </span><br><span class="line">unix  2      [ ]         DGRAM                    23682    </span><br><span class="line">unix  2      [ ]         DGRAM                    20376    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26990    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21100    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18774    </span><br><span class="line">unix  2      [ ]         DGRAM                    23957    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26995    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21091    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22616    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21096    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18237    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25678    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21101    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     29575    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21083    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20213    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     24486    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20428    </span><br><span class="line">unix  2      [ ]         DGRAM                    21055    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     28819    /run/containerd/containerd.sock</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21098    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21056    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18933    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     23569    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21035    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21095    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22801    /run/systemd/journal/stdout</span><br><span class="line">unix  2      [ ]         DGRAM                    21054    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21093    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     19104    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     28821    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21034    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21094    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     28525    /run/containerd/containerd.sock</span><br><span class="line">unix  2      [ ]         DGRAM                    19014    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20929    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     23753    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     31073    /run/containerd/s/f173b4c37ec27fe764ea6843063c75576d07f7ac21d51986b75d8e816f41033e</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18929    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     24056    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26698    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20778    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18853    </span><br><span class="line">unix  2      [ ]         DGRAM                    23961    </span><br><span class="line">unix  2      [ ]         DGRAM                    18992    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20853 </span><br></pre></td></tr></table></figure>
+
+<h1 id="top、htop"><a href="#top、htop" class="headerlink" title="top、htop"></a>top、htop</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># top</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># htop</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="last"><a href="#last" class="headerlink" title="last"></a>last</h1><p>last可用查看用户登录系统的记录，包括用户名、登录的远程名称或者ip地址以及登录时间。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># last</span></span><br><span class="line">root     pts/0        127.0.0.1        Sun Sep  4 09:43   still logged <span class="keyword">in</span></span><br><span class="line">root     pts/0        127.0.0.1        Sun Sep  4 09:16 - 09:36  (00:20)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00   still running</span><br><span class="line">root     pts/0        10.8.3.28        Sat Sep  3 10:07 - 10:07  (00:00)</span><br><span class="line">root     pts/0        127.0.0.1        Sat Sep  3 09:13 - 09:15  (00:01)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00   still running</span><br><span class="line">root     pts/0        10.8.3.28        Fri Sep  2 13:17 - crash (-19237+05:17)</span><br><span class="line">root     pts/1        127.0.0.1        Thu Sep  1 10:42 - 10:51  (00:08)</span><br><span class="line">root     pts/0        10.8.3.28        Thu Sep  1 10:10 - 13:45  (03:35)</span><br><span class="line">root     pts/1        10.71.22.140     Thu Sep  1 08:55 - 09:33  (00:38)</span><br><span class="line">root     pts/1        10.71.22.140     Thu Sep  1 08:40 - 08:54  (00:14)</span><br><span class="line">root     pts/0        10.71.22.140     Thu Sep  1 08:38 - 09:33  (00:55)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00   still running</span><br><span class="line">root     pts/0        10.8.3.28        Wed Aug 31 23:58 - crash (-19235+15:58)</span><br><span class="line">root     pts/1        10.8.3.28        Wed Aug 31 23:13 - crash (-19235+15:13)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:11 - 23:50  (00:38)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:06 - 23:11  (00:04)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:03 - 23:06  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:02 - 23:02  (00:00)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:00 - 23:02  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 22:57 - 22:58  (00:01)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 22:54 - 22:56  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 22:31 - 22:52  (00:21)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:28 - 14:29  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:28 - 14:28  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:19 - 14:19  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:19 - 14:19  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:16 - 14:19  (00:02)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00   still running</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:14 - down   (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:13 - 14:14  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:10 - 14:13  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 22:26 - 14:10  (15:43)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 20:46 - 22:26  (01:39)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 20:42 - 20:45  (00:02)</span><br><span class="line">root     pts/2        10.67.44.114     Tue Aug 30 20:11 - 20:13  (00:01)</span><br><span class="line">root     pts/2        127.0.0.1        Tue Aug 30 20:09 - 20:10  (00:01)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 18:33 - 20:31  (01:58)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 17:31 - 18:33  (01:01)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 16:49 - 16:58  (00:09)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 15:57 - 16:27  (00:30)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 14:56 - 15:06  (00:10)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 14:48 - 14:51  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 14:36 - 14:44  (00:08)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 14:21 - 14:24  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 13:34 - 14:20  (00:45)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 13:13 - 13:14  (00:00)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 12:43 - 13:13  (00:29)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 12:31 - 12:39  (00:08)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 14:14 (19235+06:14)</span><br><span class="line">root     pts/1        127.0.0.1        Tue Aug 30 12:12 - down   (00:17)</span><br><span class="line">root     pts/1        127.0.0.1        Tue Aug 30 12:12 - 12:12  (00:00)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 12:10 - down   (00:19)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 12:30 (19234+04:30)</span><br><span class="line">root     pts/0        127.0.0.1        Mon Aug 29 08:57 - 10:01  (01:04)</span><br><span class="line">root     pts/0        127.0.0.1        Mon Aug 29 08:49 - 08:57  (00:08)</span><br><span class="line">root     pts/0        127.0.0.1        Mon Aug 29 08:16 - 08:17  (00:01)</span><br><span class="line">root     pts/0        127.0.0.1        Mon Aug 29 08:16 - 08:16  (00:00)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 12:30 (19234+04:30)</span><br><span class="line">root     pts/0        10.8.3.28        Sun Aug 28 21:53 - 22:10  (00:17)</span><br><span class="line">root     pts/0        10.8.3.28        Sun Aug 28 20:17 - 21:44  (01:27)</span><br><span class="line">root     pts/0        10.8.3.28        Sun Aug 28 20:12 - 20:12  (00:00)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 12:30 (19234+04:30)</span><br><span class="line">root     pts/0        192.168.1.100    Sun Aug 28 13:27 - crash (-19232+05:27)</span><br><span class="line">pi       pts/0        192.168.1.100    Sun Aug 28 01:10 - 01:15  (00:04)</span><br><span class="line">root     pts/1        127.0.0.1        Sun Aug 28 00:45 - 00:45  (00:00)</span><br><span class="line">root     pts/1        127.0.0.1        Sun Aug 28 00:45 - 00:45  (00:00)</span><br><span class="line">pi       pts/0        192.168.1.100    Sun Aug 28 00:30 - 01:09  (00:38)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 12:30 (19234+04:30)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 18:13 (17941+10:13)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 18:12 (17941+10:12)</span><br><span class="line"></span><br><span class="line">wtmp begins Thu Jan  1 08:00:03 1970</span><br></pre></td></tr></table></figure>
+
+<h1 id="ulimit"><a href="#ulimit" class="headerlink" title="ulimit"></a>ulimit</h1><blockquote>
+<p>Too many open files是Linux系统中常见的错误，从字面意思上看就是说程序打开的文件数过多，不过这里的files不单是文件的意思，也包括打开的通讯链接(比如socket)，正在监听的端口等等，所以有时候也可以叫做句柄(handle)，这个错误通常也可以叫做句柄数超出系统限制。引起的原因就是进程在某个时刻打开了超过系统限制的文件数量以及通讯链接数。</p>
+</blockquote>
+<p>通过命令ulimit -a可以查看当前系统设置的最大句柄数是多少</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">core file size          (blocks, -c) 0</span><br><span class="line">data seg size           (kbytes, -d) unlimited</span><br><span class="line">scheduling priority             (-e) 0</span><br><span class="line">file size               (blocks, -f) unlimited</span><br><span class="line">pending signals                 (-i) 31767</span><br><span class="line">max locked memory       (kbytes, -l) 64</span><br><span class="line">max memory size         (kbytes, -m) unlimited</span><br><span class="line">open files                      (-n) 1024</span><br><span class="line">pipe size            (512 bytes, -p) 8</span><br><span class="line">POSIX message queues     (bytes, -q) 819200</span><br><span class="line">real-time priority              (-r) 0</span><br><span class="line">stack size              (kbytes, -s) 8192</span><br><span class="line">cpu time               (seconds, -t) unlimited</span><br><span class="line">max user processes              (-u) 31767</span><br><span class="line">virtual memory          (kbytes, -v) unlimited</span><br><span class="line">file locks                      (-x) unlimited</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，open files的配置是1024，可以通过如下命令将open files增加</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ulimit</span> -n 65535</span><br></pre></td></tr></table></figure>
+
+<p>这种修改方式可以临时把文件打开数量增加到65535，但是系统重启后这个配置会失效。</p>
+<p>还有一种方式是修改系统的配置文件，以Ubuntu为例，配置文件默认在</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/security/limits.conf</span><br></pre></td></tr></table></figure>
+
+<p>在这个配置文件中增加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* soft nofile 65535</span><br><span class="line">* hard nofile 65535</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -585,177 +739,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">单片机开发和学习</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-07-28 22:04:50" itemprop="dateCreated datePublished" datetime="2022-07-28T22:04:50+08:00">2022-07-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-19 19:36:43" itemprop="dateModified" datetime="2023-04-19T19:36:43+08:00">2023-04-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h2 id="单片机吹水"><a href="#单片机吹水" class="headerlink" title="单片机吹水"></a>单片机吹水</h2><p><strong>1.学习哪种单片机</strong></p>
-<p><strong>51、AVR、MSP430、STM8、STM32、DSP、linux、FPGA</strong></p>
-<p><strong>2.学习单片机的最佳办法</strong></p>
-<ul>
-<li><strong>鹦鹉学舌</strong></li>
-<li><strong>照葫芦画瓢</strong></li>
-<li><strong>他山之石，可以攻玉</strong></li>
-<li><strong>理论和实践相结合，温故而知新</strong></li>
-</ul>
-<p><strong>3.学习单片机的准备工作</strong></p>
-<ul>
-<li><strong>要有信心、恒心和耐心</strong></li>
-<li><strong>完善的配套流程</strong></li>
-<li><strong>计算机一台</strong></li>
-<li><strong>51开发板一块</strong></li>
-</ul>
-<h2 id="芯片学习"><a href="#芯片学习" class="headerlink" title="芯片学习"></a>芯片学习</h2><p><strong>51单片机是对所有兼容Intel8031指令系统的单片机的统称，这一系列的单片机的始祖是Intel的8031单片机，后来随着flash ROM技术的发展，8031单片机取得了长足的进展成为了应用最广泛的8bit单片机之一，他的代表型号就是ATMEL公司的AT89系列。</strong></p>
-<h2 id="安装单片机开发环境"><a href="#安装单片机开发环境" class="headerlink" title="安装单片机开发环境"></a>安装单片机开发环境</h2><h3 id="安装keil"><a href="#安装keil" class="headerlink" title="安装keil"></a>安装keil</h3><h4 id="KEIL-C51-软件获取"><a href="#KEIL-C51-软件获取" class="headerlink" title="KEIL C51 软件获取"></a>KEIL C51 软件获取</h4><p>要在电脑上成功安装 KEIL C51，首先必须要有安装包，我们可以通过万能的百度，搜索关键字“KEIL C51 下载”，上面会有很多下载渠道，也可以在KEIL的官网上下载： <a target="_blank" rel="noopener" href="https://www.keil.com/download/product/%EF%BC%8C%E6%89%93%E5%BC%80%E7%95%8C%E9%9D%A2%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%89%80%E7%A4%BA%E3%80%82">https://www.keil.com/download/product/，打开界面如下图所示。</a></p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728220612959.png" alt="image-20220728220612959"></p>
-<p>不过我们资料内已经给大家提供了下载好的软件，在资料“<strong>\5–开发工具\1-KEILC51 软件</strong>”内，直接使用即可，省去了查找下载的时间。我们使用KEIL C51 是 9.01 版本， 如果后面出了更高的版本选择性升级即可，不过也没有必要使用最新的，用习惯了一个软件就行。 使用我们提供下载好的软件包，其内部含有如下图所示文件。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728220739858.png" alt="image-20220728220739858"></p>
-<p><strong>C51V901.exe：是 KEIL C51 软件的安装文件。</strong> </p>
-<p><strong>keygen_new2032.zip：KEIL C51 破解软件</strong>，在 KEIL C51 不破解的情况下只能编译 2K 大小文件，如果工程超过 2K，编译即会报错，因此需要破解。有的电脑系统会误认为该文件是病毒文件，所以这里把它压缩存放。</p>
-<h4 id="KEIL-C51-软件安装"><a href="#KEIL-C51-软件安装" class="headerlink" title="KEIL C51 软件安装"></a>KEIL C51 软件安装</h4><p>软件包下载完成之后，我们双击 C51V901.exe 这个应用程序，弹出如下所示对话框。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728223545240.png" alt="image-20220728223545240"></p>
-<p>点击 Next 按钮。 弹出如下对话框。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728223846155.png" alt="image-20220728223846155"></p>
-<p>在红框 2 中勾选上，点击 Next 按钮。弹出如下对话框。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728224107252.png" alt="image-20220728224107252"></p>
-<p>点击红框 4 选择软件安装的路径，我们这里在 磁盘盘内新建一个文件夹，命名为 KEILC51，将其安装到该文件夹内，方便软件的管理。**特别要注意： **</p>
-<p>**（1）软件安装保存路径不能出现中文或者特殊字符，否则会出现很多奇怪的错误，到时候很难找问题。 **</p>
-<p><strong>（2）不要将 KEIL5 软件和 KEIL4 或者 51 的 KEIL 安装在一个文件夹内。</strong>然后点击 Next。弹出如下对话框。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225157414.png" alt="image-20220728225157414"></p>
-<p>在红色框 6 和 7 中我们随便输入一些东西， 我们这里输入数字11，当然也可以输入空格， 但是一定要输入， 否则红色框 8 就一直是灰色状态，输入完成后点击 Next， 弹出如下对话框。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225336184.png" alt="image-20220728225336184"></p>
-<p>说明 KEIL C51 软件正在安装，只要等一段时间即可，安装完成以后会出现如下界面。</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225539980.png" alt="image-20220728225539980"></p>
-<p>点击 Finish 按钮完成 KEIL C51 软件的安装过程。KEIL C51 安装完成后在电脑桌面上一般会有一个快捷方式，如下所示：</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728225655136.png" alt="image-20220728225655136"></p>
-<h4 id="KEIL-C51-软件破解"><a href="#KEIL-C51-软件破解" class="headerlink" title="KEIL C51 软件破解"></a>KEIL C51 软件破解</h4><p>上一节我们已经安装好了 KEIL C51 编程软件，可以使用它来编译51 单片机一些代码量小于 2K 的工程。但是有时候我们开发的项目可能比较大，程序代码超过了 2K，编译后会报错，因此就需要破解 KEIL C51。下面就来介绍下如何破解。 </p>
-<p>（1）首先打开 KEIL C51 软件，点击 File&#x2F;License Management,复制红色框 3 中的 CID。 操作步骤如下：</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728231058888.png" alt="image-20220728231058888"></p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220728235716845.png" alt="image-20220728235716845"></p>
-<p>然后我们打开之前下载的 KEIL C51 软件包，里面还有一个keygen 压缩文件，该压缩文件内含有 keygen_new2032.exe 文件，此文件用于破解。因此需要解压，解压后电脑会误认为该文件为病毒文件，会隔离掉，因此我们需要在弹出病毒隔离窗口时点击找回文件即可。</p>
-<p>以管理员模式打开此破解软件 keygen_new2032.exe，将刚才从KEIL C51中复制的 CID 码粘贴到下面红色框 4 中，并且在红色框 5 选择C51，然后点击红色框 6，生成破解码，将此破解码即红色框 7 内容复制到KEIL C51 软件内LIC框中，点击 Add LIC 即可破解，如果破解成功则会显示。操作步骤如下：</p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220729002023233.png" alt="image-20220729002023233"></p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20220729003425413.png" alt="image-20220729003425413"></p>
-<p>如 果 破 解 失 败 ， 请 确 认 是 否 使 用 管 理 员 模 式打开KEIL C51 软件和keygen_new2032.exe 破解工具。管理员模式打开方式：选择右键：RunAsAdministrator ,中文系统应该是“以管理员权限运行”，然后就可以正常加licence 了。建议所有用户，都以管理员身份运行，以避免重复破解。至此，我们就将 KEIL C51 软件安装和破解成功。后面就可以使用该软件来编写我们的 51 单片机程序。</p>
-<h3 id="实验课程-创建模板"><a href="#实验课程-创建模板" class="headerlink" title="实验课程_创建模板"></a>实验课程_创建模板</h3><h3 id="实验课程-使用PZ-ISP"><a href="#实验课程-使用PZ-ISP" class="headerlink" title="实验课程_使用PZ-ISP"></a>实验课程_使用PZ-ISP</h3><p><strong>如果我们使用的是STC89C516RD+的处理器，选择带RC的芯片类型，也就是说带RD的就选择带RC的芯片类型，如果不带RD的处理器选择不带RC的芯片类型</strong></p>
-<p><img src="/2022/07/28/%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E5%92%8C%E5%AD%A6%E4%B9%A0/image-20230419163408643.png" alt="image-20230419163408643"></p>
-<h3 id="实验课程-点亮LED灯"><a href="#实验课程-点亮LED灯" class="headerlink" title="实验课程_点亮LED灯"></a>实验课程_点亮LED灯</h3><h4 id="点亮一个LED-D1"><a href="#点亮一个LED-D1" class="headerlink" title="点亮一个LED_D1"></a>点亮一个LED_D1</h4><p>LED灯的端口有四组，分别是P0,P1,P2,P3</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">sbit LED1 = P2^<span class="number">0</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	LED1 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="点亮一个LED-D1-闪烁"><a href="#点亮一个LED-D1-闪烁" class="headerlink" title="点亮一个LED_D1_闪烁"></a>点亮一个LED_D1_闪烁</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> u16;	<span class="comment">//使用typedef来为用户自定义的数据类型取一个新的名字</span></span><br><span class="line">sbit LED1 = P2^<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay_10us</span><span class="params">(u16 ten_us)</span>     <span class="comment">//当传2入ten_us=1时，大约延时10us</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(ten_us--);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">	LED1 = <span class="number">0</span>;	<span class="comment">//点亮</span></span><br><span class="line">	delay_10us(<span class="number">50000</span>);<span class="comment">//大约450ms</span></span><br><span class="line">	LED1 = <span class="number">1</span>;	<span class="comment">//熄灭    </span></span><br><span class="line">	delay_10us(<span class="number">50000</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="点亮一个LED-D1-流水灯"><a href="#点亮一个LED-D1-流水灯" class="headerlink" title="点亮一个LED_D1_流水灯"></a>点亮一个LED_D1_流水灯</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LED_PORT P2		<span class="comment">//使用宏定义将P2端口定义	</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> u8;	</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> u16;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay_10us</span><span class="params">(u16 ten_us)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(ten_us--);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	u8 i =<span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			LED_PORT=~(<span class="number">0x01</span>&lt;&lt;i);</span><br><span class="line">			delay_10us(<span class="number">50000</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="点亮一个LED-D1-库函数实现-流水灯"><a href="#点亮一个LED-D1-库函数实现-流水灯" class="headerlink" title="点亮一个LED_D1_库函数实现_流水灯"></a>点亮一个LED_D1_库函数实现_流水灯</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg52.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;intrins.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LED_PORT P2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> u8;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> u16;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay_10us</span><span class="params">(u16 ten_us)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(ten_us--);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;	</span><br><span class="line">	u8 i =<span class="number">0</span>;</span><br><span class="line">	LED_PORT=~<span class="number">0x01</span>;</span><br><span class="line">	delay_10us(<span class="number">50000</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">7</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			LED_PORT=_crol_(LED_PORT,<span class="number">1</span>);</span><br><span class="line">			delay_10us(<span class="number">50000</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">7</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			LED_PORT=_cror_(LED_PORT,<span class="number">1</span>);</span><br><span class="line">			delay_10us(<span class="number">50000</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="02实验课程-蜂鸣器"><a href="#02实验课程-蜂鸣器" class="headerlink" title="02实验课程_蜂鸣器"></a>02实验课程_蜂鸣器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;reg52.h&gt;</span></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">typedef unsigned char u8;	</span><br><span class="line">typedef unsigned int u16;</span><br><span class="line"></span><br><span class="line">sbit BEEP=P2^5;</span><br><span class="line"></span><br><span class="line">void delay_10us(u16 ten_us)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(ten_us--);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void <span class="function"><span class="title">main</span></span>()</span><br><span class="line">&#123;	</span><br><span class="line">	u16 i =2000; //蜂鸣器发声时间</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">while</span>(1)</span><br><span class="line">	&#123;</span><br><span class="line">		  <span class="keyword">while</span>(i--)</span><br><span class="line">		  &#123;</span><br><span class="line">		  BEEP=!BEEP;</span><br><span class="line">		  delay_10us(100);</span><br><span class="line"></span><br><span class="line">//		  BEEP=0;</span><br><span class="line">//		  delay_10us(50);</span><br><span class="line">//		  BEEP=1;</span><br><span class="line">//		  delay_10us(150);</span><br><span class="line">		  &#125;</span><br><span class="line">		  i = 0;</span><br><span class="line">		  BEEP = 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="03实验课程-数码管"><a href="#03实验课程-数码管" class="headerlink" title="03实验课程_数码管"></a>03实验课程_数码管</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -827,20 +814,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

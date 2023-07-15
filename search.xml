@@ -4299,4 +4299,18 @@
         <tag>博客</tag>
       </tags>
   </entry>
+  <entry>
+    <title>archlinuxのkvm虚拟化</title>
+    <url>/2023/07/15/archlinux%E3%81%AEkvm%E8%99%9A%E6%8B%9F%E5%8C%96/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>虚拟化</category>
+      </categories>
+      <tags>
+        <tag>Arch</tag>
+        <tag>Archlinux</tag>
+        <tag>KVM</tag>
+        <tag>qume</tag>
+      </tags>
+  </entry>
 </search>
