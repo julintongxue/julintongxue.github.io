@@ -2689,6 +2689,17 @@
 </ul>
 <p>设置成为<code>enable</code></p>
 <p><img src="/2023/01/07/%E5%A5%BD%E7%8E%A9%E7%9A%84%E9%BB%91%E7%A7%91%E6%8A%80/image-20230211225934696.png" alt="image-20230211225934696"></p>
+<h1 id="由于法律原因，IDM无法下裁此受保护的数据"><a href="#由于法律原因，IDM无法下裁此受保护的数据" class="headerlink" title="由于法律原因，IDM无法下裁此受保护的数据"></a>由于法律原因，IDM无法下裁此受保护的数据</h1><p><strong>自从迅雷收费并对免费会员不提供加速后，新一代下载工具IDM（Internet Download Manager）越来越火。并且，由于它自带的资源嗅探器非常强大，用来下载网页中的流媒体视频变得更加方便，IDM的视频和音频探测功能涵盖了日常所见的大多数网站，在浏览这些网页的时候，只需要点一下资源嗅探器的悬浮按钮就可以下载对应的音视频资源。</strong></p>
+<p><strong>但是，越来越多的人发现，idm有些视频无法下载。就像迅雷屏蔽版权资源一样，显示<code>由于法律原因，IDM无法下裁此受保护的数据</code>。并且IDM因为没有相应的技术来判断你受否有购买授权，所以，即便是你购买了授权，这些内容也是不能使用IDM下载的。如下图：</strong></p>
+<p><img src="/2023/01/07/%E5%A5%BD%E7%8E%A9%E7%9A%84%E9%BB%91%E7%A7%91%E6%8A%80/image-20230718122525316.png" alt="image-20230718122525316"></p>
+<p><strong>由于IDM嗅探到的视频大多都是m3u8资源，所以，可以通过IDM嗅探到的m3u8地址来另辟蹊径解决部分视频无法下载的问题。具体操作为：在弹出上述窗口导致无法下载后，我们返回到刚才播放视频的网页。此时idm悬浮窗会再次出现。然后复制下载的m3u8视频链接，将其导入<code>N_m3u8DL-CLI</code>下载即可</strong></p>
+<p><img src="/2023/01/07/%E5%A5%BD%E7%8E%A9%E7%9A%84%E9%BB%91%E7%A7%91%E6%8A%80/image-20230718122851569.png" alt="image-20230718122851569"></p>
+<h2 id="下载N-m3u8DL-CLI工具"><a href="#下载N-m3u8DL-CLI工具" class="headerlink" title="下载N_m3u8DL-CLI工具"></a>下载N_m3u8DL-CLI工具</h2><p><a href="https://github.com/nilaoda/N_m3u8DL-CLI/releases">N_m3u8DL-CLI</a></p>
+<p><img src="/2023/01/07/%E5%A5%BD%E7%8E%A9%E7%9A%84%E9%BB%91%E7%A7%91%E6%8A%80/image-20230718124012148.png" alt="image-20230718124012148"></p>
+<p><strong>下载带有with_ffmpeg的版本，下载后，解压出来，运行文件夹内的<code>N_m3u8DL-CLI.exe</code>，出现黑色窗口后点击鼠标右键会自动粘贴刚才复制的m3u8地址，点击回车即可开始下载。</strong></p>
+<p><img src="/2023/01/07/%E5%A5%BD%E7%8E%A9%E7%9A%84%E9%BB%91%E7%A7%91%E6%8A%80/image-20230718123843492.png" alt="image-20230718123843492"></p>
+<p><strong>或者使用带图形化界面的<code>N_m3u8DL-CLI-SimpleG.exe</code></strong></p>
+<p><img src="/2023/01/07/%E5%A5%BD%E7%8E%A9%E7%9A%84%E9%BB%91%E7%A7%91%E6%8A%80/image-20230718123717678.png" alt="image-20230718123717678"></p>
 ]]></content>
       <categories>
         <category>黑科技</category>
@@ -4303,7 +4314,7 @@
       </tags>
   </entry>
   <entry>
-    <title>archlinuxのkvm虚拟化</title>
+    <title>archlinuxのkvm虚拟化(搁浅)</title>
     <url>/2023/07/15/archlinux%E3%81%AEkvm%E8%99%9A%E6%8B%9F%E5%8C%96/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。">
   <script id="hbeData" type="hbeData" data-hmacdigest="c1cdca2901fadaf95b0682a66e6c39d6e211aae6cdcaab93a19abd0c99b5f0b1">63612e356b8da2492e34c83596341841fbe9d524ed17a248958e317ec34ed40766a7fb58087138a2638a07dd63315887568c79ba507fc54113547c9b91e3f111b9a194ecf344d7dac9b800e183a68ee2a0ef8ea9acceff4b58367abf7f86996d97001e6228c52fd7d6716b8abe2404b6fb9bbb197d64aae04683c8f18d4e2ee205e1831900c8316a2a7633d2822820d0ec7997189b5b7ac3dee871eb8ea54d69fbbf9c6e5fb97b402c383804f8b69fe09cc6e28acc0f513b483ece814e46a1f370b91ffc113e708f1b42289398ee4b8dfe9cc66ff796d44b0f20e97e2f33eaef023125af1d18587c79ae240912d3298a160ddae1ac474d9bb6f4c296caa1be53fddcd91b5effb831e2253021d345f51a83bdb3cfbf2ecc918622c652bab6b9e621945fbc9b4aeffd29d220915cfd5955cca0b134cfbfa218e3caa6fa5b0a022db310dd14ce13d5b27a91df5d2fd4bea87c9775f71bc0b0ac05e0ae85a1d5a63d538b242a22e223ab1e3c63dd1cf09c503730098611563e84b30d6e294bc901fe6fc29df3da95d7ff6986a0ccad78b5344ab20eeaa099d07be9aafa54172ede7fbfabb6e164076da201be2a63a56fe4678f9b989c1ab2658be71917ee7f899204193717f9b0bf640119bfc7fe406cffd48df9353f7a099a81cc3f42ec36f49ed4a0eb9e9bd70570a642cb3d39eabb2a69e4591ea3e0f0bebfdeb3e1cd91b866c5a9d8c647672bc7eba18b70ec9bd3f05925a8605550b8a611874e1f1fcc7b34ac165e20fe7b11ae22c34a37463d6baec60d24aeb81f2864038f6eb135b81e8f2fb5dc2a1916a3a50d33a038a7948e481f85be5dea30a8a40abdfc373b49983d808cd815835a5fc2d36081ae5b70af97da66e61d71388f20478eafd8607edba0ba56ff90c2649dbd0aa0172e5af8ed9e2847cd5f785ec0eba1d56df9837978e20c9670b796d46d4385a4f77ee63986f22e0a583fc2628ae68a2a15a36ed8caedf0703eb344e767cc48f0530978dd1622b7e49de86e34b00804d9787f2ef076c3ab72a2b81843d2f13fa4113d999a95f574ca96686d47fc567f6c95156e8c476ee0ed38fb5a6616f795f0fe1170cb6b033ac77fa99914452749b9fbb902d278aee7feaa889d98a8963d327c262ed99f99f3eb8d29c5af9c4114dfcffa57517922dcddfe3cdcce9d20a557c344fd9fa91eb346a5bb288de38c7a6fa5f102cf5033ecf59dedf0d64291398f22331cc10119e8745476916d652625f37e0302110d66fd05ada81448cc66657fccf5a85fd89c392371d9f70ff0d22da2973c207d943e493c7d763ef571c6254dddcff0f7d8b204c33abce0b7448637316171d11151916603a77992239bbcdae850dc8963f98fd58c8790b499f41c539b2295575f1e3ac3849be99542b1269a6df2deb87e81ea856fe00e347c6936130224c361b70d23078d70104eac62c6efc01f2141f3534a42434e48f89e3420883825c1c30f970b79df4bb22d0454817c44fda1091fd0a44315f4be4c9bbe39bacf82d8e74442d0805ee723840c12231df528bea19aa0905709f2ae53960ee7e22a539c691d808736f8d20fa41f141f52773aa8b1cdb461c1b353e543e011671af35de341477df6a9feff70e2ca4c6d9f9b400c39c069566e49c822d55839c526bf443919b45cace216f95531af4e6a03b34025e1e9e28a90725e531a01890a55a60af0295cb4bb78a653a2fab30f15eb8e6bd30853dbc5a65fda02e0a8f0d542fbb2a7f3683b2a607163da5140cb300719f080dc8bf72e3cfd1776d25449651928746a7545e2b7913727c419dacf72afbdd631fe8979fc7bbf06a7c77da4daa9b576ecbaf43df2f59fb11e0a59d93445d2efb28e4f9c65f44fe63d4bc623b6783f60856d72119336bb9edc46ad6ca7d9a6089c65b892a9bba94c378926f463860a31f1e16a2eeec1a613d0bd69895a6ea89a2929408291252374f45a0b0fb2378b0383f89c19a84af2196527e9c17d8d80a2f0b5972a1ee03daae15a643fb3ff59ea66a967829f633b176ee4d1a3e2d46869fcfb6304eef900e0437f676a779e6f47304bc03416aec8f8d061480d6aa10d7e3834c84b0f1c7b4e844506d0c15de94be3fe317fc76c0dbadfda1199d2ce33917c3ead4628ec19a5de1a406adaa20bd1356ae30c8fa47a2fb2d2dc7a4849daee65d402da319034b80c06eb60765da0a074011decabf24322e24f1613b764aa9cda73c85c5e1b542c662e66682eeafcd68e2e4feb61b30cf3f0c8d44d55938535b83a3551e4e566a070c86dc49280b9fc023b2259ebf43e987fb615c6b62e4e0cf535983f9d8d1d5400bea785c9859f45682f163dde6ca8d486a10767887e639efbef6851f2eb49d9bad1e5f77eb8316f63e09a834a30448cb23706d6d7becd3ee3381a3e2f97761ddd0a690f7a74b60264434241ed586eb3e212e55620a2480aa7cc38533ceba614cc6c2856a6bcfdb14feeffbb3da2dd7155eb1eb158579b0c403921eab85f006f7aedf2e75955b0252e6c0f4d63eb9603a7d7b8ee03dd23dc0b64e6ef65797e5528306aa5ee51a618f52e3037d207d9a6c6e01b4710a6bf4e4afad63728f92dec2a9c9d59cdd81a33a18b275a9d110c5c894a3a97f8600ecc0af3119c8e8beea5c409107b6b74e2b0e0384f10ec33356339c281c49066e4237379752fd98b7ad05b3f38d750d61372488589012f9c732458669293911871853c1c5eddd9b9fc227ba06751dc89e5e686384ef3bebaa0ea3778b3cdf637b49f72ad280160467de151c92b7a5de665367137507bd7b7295edbe9b9aaa22b75879b83983de22ff36cb2d6d64ac6ad01390196a2247363cf1458234f8c095176c8a169acbd4e1c341002f07639e3e95763eee0695d132e715722fa1d12c979098d595239bb2bc04881db78c97876f7b5baadbcb12790a9f9fce5c7306ead4de6724f5360cfe3e0e17870300617f35161c0e2621073cb31a3cd02ad7edc039faf2aff6cdca9e3401ecaaef49299f6c1a773ddfa368aecd87124057540c438b15c606eceb1b53fc03472291f92c843ce955143b5a5ef119404dc0ebbce74f47bc4ef64ca12d91a3ba140e665a477ed6d524fb50ef77c1e82054011cf2ed730cf279a5dd11c5770d6425bdf3f88a4f43ebb66f717f97c89ebc191df4c1e2f447fed9e2e63497c5bfe6d7b1d4b941fe8731d0681ab8f89b33d0e9580573cdf3be6c787bb0c24db0e38b5b3aa7c36a30bf60909bf85a6d7add11188e11549c19473ea3ed55e851fa87f8492c5619317cae148b95c95a450dcd65c314873708109872b04a2f4fb469558a82b4043ec510462cd9cd573cd7e2e25dcc7a3794facd8616621f493177386679509d1f4ce49ab4213802578cb61053f03df4482e5787f34600a1a322ab0fdf7a4c4f39f5a86e6b8ae9260ebd38b2d77b23621b82473bbaf57fa8f10506bf438696cef15db46f5293d827a7d671020467eff14b97826b531efebba28eeccbc9d0f0fe0048cbb930b53c705461de0799d1a1a46551069f71f8338b4b636d57de414acb59c9d387646ddd46ef8741ae462653fab5393ef48cd358715511c6af5538cb91e410382a4ccad26d8a3f4bbae55227b0e57cb9d3799d9f9df342c1098a86c48f96b498aff98ebe6dbaed8503ba4a5e2dbf348043ea7b3fd038431a9618abe1ef46834c0fc436ebd8923c79be4b07c611427c149b1ab83fdd0a0b11b8f1339e2980648f91fc1f570cd45d203e4a2cdf14c9c7269f76ca2bcc5a0ea42a1b21afccd6820b8fe4607821bb7482bb61507779f48a7226854aab966d9287ec19b01b03cc427a37bae14b7b7db4c972a63213453a2a1620d54b5f32e68ac065a9938598e511eb454e43d5b32720273c778bfdb7e4d8b8dd2fcb23fcc4a560b8df6d5b7e724c911586c91d47b07059b986cd61843eec10c47fa8d4aa12b7481967dfa749958bcade5c3b42708f6b38dd37ed7ab27977a2509aa5a174b91e0c229cb9d8bccfb3ec3b5bbe129303bc15f9f8af4014fcb1bcbf03d844224cfe02d5e9fab4343b9ffade4ce45cfec96e04b541ccd32bc0c2889e997ae9dd1d7b748c348968e0d381a5bdf866b572ba2e7778e1840a4f936d8f6e4252e3baf9b56dc38010546df7ba85b94ace011df1e3ae6892b0c7525e822aa6d1c5c919f599175a6815c1fc2b137d2cf0893d3077bb5ae6852f77aed479a9c9fb3d97fea09b632c7246bd103846a2b4c6c0a0fcf16ed4a6e4afcb8ef5f88511dc73c886f4b3164b62569bfc31eaee5ce59ec6e39941336b8e1ac60b683fd35c96f656a3c94799f6649294c62e847d9031c0864954c395900b6fd093447c989d33523ed4aa472c8509c4a00820cd92d31f29348dd65a6f04e6a94af01993f9e9c3289829023434fea2a</script>
@@ -4318,13 +4329,58 @@
 </div>
 <script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
-        <category>虚拟化</category>
+        <category>KVM</category>
       </categories>
       <tags>
         <tag>Arch</tag>
         <tag>Archlinux</tag>
-        <tag>KVM</tag>
-        <tag>qume</tag>
+        <tag>虚拟化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hyper-V虚拟化之VGPU显卡直通(搁浅)</title>
+    <url>/2023/07/18/Hyper-V%E8%99%9A%E6%8B%9F%E5%8C%96%E4%B9%8BVGPU%E6%98%BE%E5%8D%A1%E7%9B%B4%E9%80%9A/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。">
+  <script id="hbeData" type="hbeData" data-hmacdigest="13e22af4d0a3e0d77c1468f1bd1d105184341f56648227df52094c0e34a5d08f">63612e356b8da2492e34c835963418410512da5924977d303e4f05ad1de34089</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，这里需要密码。</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Hyper-V</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>虚拟化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>萌新ffmpeg笔记(搁浅)</title>
+    <url>/2023/07/18/%E8%90%8C%E6%96%B0ffmpeg%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。">
+  <script id="hbeData" type="hbeData" data-hmacdigest="13e22af4d0a3e0d77c1468f1bd1d105184341f56648227df52094c0e34a5d08f">63612e356b8da2492e34c835963418410512da5924977d303e4f05ad1de34089</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，这里需要密码。</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>ffmpeg</tag>
       </tags>
   </entry>
 </search>
