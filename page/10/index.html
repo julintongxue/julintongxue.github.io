@@ -231,7 +231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-14 17:36:03" itemprop="dateModified" datetime="2023-07-14T17:36:03+08:00">2023-07-14</time>
+                <time title="修改时间：2023-07-25 23:26:11" itemprop="dateModified" datetime="2023-07-25T23:26:11+08:00">2023-07-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -270,7 +270,7 @@
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>13 分钟</span>
+              <span>14 分钟</span>
             </span>
 
         </div>
@@ -614,7 +614,13 @@
 <p><strong>那么再教你个好玩的，使用Navicat连接数据库爽的一批</strong></p>
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328163059348.png" alt="image-20230328163059348"></p>
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328163207688.png" alt="image-20230328163207688"></p>
-<h4 id="wordpress"><a href="#wordpress" class="headerlink" title="wordpress"></a>wordpress</h4><h3 id="双网卡内外网优先级设置"><a href="#双网卡内外网优先级设置" class="headerlink" title="双网卡内外网优先级设置"></a>双网卡内外网优先级设置</h3><p><strong>根据自己的需要，有时候树莓派需要两张网卡，一张用于访问外网（wlan0），另一种用于连接内网（eth0）。</strong></p>
+<h4 id="wordpress"><a href="#wordpress" class="headerlink" title="wordpress"></a>wordpress</h4><h4 id="httpbin"><a href="#httpbin" class="headerlink" title="httpbin"></a>httpbin</h4><p><strong>现在越来越多的测试人员除了功能测试外，都已开始接触并进行接口测试。在学习接口测试时，尤其对于测试新手来说，接口测试工具上怎样填写请求地址、方法、请求参数等，还是多多少少有些困难，而且往往找不到合适的调试与请求的接口服务地址而无从练手。那么本地化部署<code>httpbin</code>就能满足你对接口调试的需求啦</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull kong/httpbin</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart always -p 8080:80 --name httpbin kong/httpbin:latest</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230725232514912.png" alt="image-20230725232514912"></p>
+<h3 id="双网卡内外网优先级设置"><a href="#双网卡内外网优先级设置" class="headerlink" title="双网卡内外网优先级设置"></a>双网卡内外网优先级设置</h3><p><strong>根据自己的需要，有时候树莓派需要两张网卡，一张用于访问外网（wlan0），另一种用于连接内网（eth0）。</strong></p>
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429233559391.png" alt="image-20230429233559391"></p>
 <p><strong>我们可以看到这里连接了两个网卡，分别是wlan0和eth0，在我们学数通知识的时候，我们老师会教我们网络的知识，直连的跃点数是会比连接wifi的是要更小的（普遍情况下是这样，不要和我杠，杠的要不你别学）</strong></p>
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234002039.png" alt="image-20230429234002039"></p>
