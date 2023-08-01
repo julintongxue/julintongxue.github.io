@@ -1630,7 +1630,7 @@
 <p><strong>上面讲的这个咧，是临时解决办法，要是想一劳永逸呢还是要把<code>IPV4_ROUTE_METRIC=99</code>这个写入到网卡配置文件中,但是。。。很不巧树莓派貌似没有。。。除非你用的不是树莓派官方的</strong></p>
 <p><strong>那么我们也有另外的处理办法，把<code>sudo ip route add default via 192.168.137.1 dev wlan0 proto dhcp metric 99</code>这个命令写入一个文本里面，然后添加入<code>contab</code>里面，命令如下：</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@raspberrypi:/usr/bin<span class="comment"># /usr/bin</span></span><br><span class="line">root@raspberrypi:/usr/bin<span class="comment"># vim network_metric</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line">ip route add default via 192.168.137.1 dev wlan0 proto dhcp metric 99</span><br><span class="line"></span><br><span class="line">root@raspberrypi:/usr/bin<span class="comment"># chmod +x network_metric </span></span><br></pre></td></tr></table></figure>
-
+<p><strong>这里是设置开机执行文件</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@raspberrypi:/usr/bin<span class="comment"># crontab -e</span></span><br><span class="line">@reboot bash /usr/bin/network_metric</span><br></pre></td></tr></table></figure>
 
 <h3 id="树莓派跑win98"><a href="#树莓派跑win98" class="headerlink" title="树莓派跑win98"></a>树莓派跑win98</h3><p><strong>看到这个标题是不是很疯狂？确实。。。真离谱</strong></p>
