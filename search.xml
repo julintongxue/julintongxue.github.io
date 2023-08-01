@@ -1616,7 +1616,7 @@
 <p><strong>我们可以看到这里连接了两个网卡，分别是wlan0和eth0，在我们学数通知识的时候，我们老师会教我们网络的知识，直连的跃点数是会比连接wifi的是要更小的（普遍情况下是这样，不要和我杠，杠的要不你别学）</strong></p>
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234002039.png" alt="image-20230429234002039"></p>
 <p><strong>这里，我设计的网络是eth0是面向内网的，对我的nas起到稳定的网络传输和安全性；而wlan0是连接了我的热点，这里我ping了一下8.8.8.8，发现是完全ping不同的。</strong></p>
-<p><strong>我们再查看了网络优先级方面，发现eth0的网络优先级是比eth0高的（即eth0的网络跃点数metric比wlan0的跃点数metric要小）</strong></p>
+<p><strong>我们再查看了网络优先级方面，发现eth0的网络优先级是比wlan0高的（即eth0的网络跃点数metric比wlan0的跃点数metric要小）</strong></p>
 <p><strong>我们可以使用以下命令查看跃点数</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@raspberrypi:~<span class="comment"># ip route show</span></span><br></pre></td></tr></table></figure>
 
