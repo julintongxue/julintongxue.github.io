@@ -1511,7 +1511,8 @@
 <p><strong>设置完成之后重启电脑，再次打开MC的F3就能看到帧率暴涨了</strong></p>
 <p><strong>按<code>F3</code>可以看到这个图，左边的<code>144FPS</code>夜晚状态，中间的<code>GPU</code>占用<code>10%</code>，右边的<code>CPUI5-12450H</code>,但是下方多了个3050显卡</strong></p>
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230712001320008.png" alt="image-20230712001320008"></p>
-<h3 id="ZeroTier"><a href="#ZeroTier" class="headerlink" title="ZeroTier"></a>ZeroTier</h3><h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p><strong>由于树莓派基地系统自带了docker，我们只需要将docker服务启动即可，为了docker能够更好完成和为我们设备提供优质服务，这里建议将docker设置为开机自启。</strong></p>
+<h3 id="ZeroTier"><a href="#ZeroTier" class="headerlink" title="ZeroTier"></a>ZeroTier</h3><h3 id="pi-apps"><a href="#pi-apps" class="headerlink" title="pi-apps"></a>pi-apps</h3><p><a href="https://github.com/Botspot/pi-apps">https://github.com/Botspot/pi-apps</a></p>
+<h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p><strong>由于树莓派基地系统自带了docker，我们只需要将docker服务启动即可，为了docker能够更好完成和为我们设备提供优质服务，这里建议将docker设置为开机自启。</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看docker状态</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl status docker.service</span></span><br><span class="line"><span class="comment"># 开机自启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl enable docker.service</span></span><br><span class="line"><span class="comment"># 关闭开机自启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl disable docker.service</span></span><br><span class="line"><span class="comment"># 关闭docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl stop docker.service</span></span><br><span class="line"><span class="comment"># 开启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl start docker.service</span></span><br><span class="line"><span class="comment"># 关闭再开启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl restart docker.service</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>怎么说咧！想要玩得起docker，有个地方是我们不得不去的，那就是docker的官方宝藏之地——<a href="https://hub.docker.com/">Dockerhub</a>,里面有世界各地说话又好听、技术又高的大佬，他们写好的容器则上传到了dockerhub，这些容器就是一个小型的服务或者说是应用。这些应用可以独立或者混合其他容器一起使用。我们后面会讲到部署一个<code>wordpress博客</code>然后用到<code>mariadb数据库容器</code>的案例。再此之前，我们还是先老老实实去b站学习有关docker的各种课程，学习好docker对我们后面学习其他的容器化有很大帮助，而docker里面的网络内容则会贯穿整个进阶篇章。</strong></p>
@@ -4466,6 +4467,77 @@
       <tags>
         <tag>linux</tag>
         <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows10使用wsl</title>
+    <url>/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h2 id="开启wsl"><a href="#开启wsl" class="headerlink" title="开启wsl"></a>开启wsl</h2><p><img src="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/image-20230801191507728.png" alt="image-20230801191507728"></p>
+<h2 id="设置wsl版本为2"><a href="#设置wsl版本为2" class="headerlink" title="设置wsl版本为2"></a>设置wsl版本为2</h2><p><img src="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/image-20230801192923260.png" alt="image-20230801192923260"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wsl --set-default-version 2</span><br></pre></td></tr></table></figure>
+
+<h2 id="更新wsl"><a href="#更新wsl" class="headerlink" title="更新wsl"></a>更新wsl</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wsl --update</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/image-20230801194227663.png" alt="image-20230801194227663"></p>
+<h2 id="查看wsl版本"><a href="#查看wsl版本" class="headerlink" title="查看wsl版本"></a>查看wsl版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wsl --status</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装ubuntu"><a href="#安装ubuntu" class="headerlink" title="安装ubuntu"></a>安装ubuntu</h2><p><img src="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/image-20230801194614331.png" alt="image-20230801194614331"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>树莓派vnc远程桌面</title>
+    <url>/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h2 id="开启-VNC-服务"><a href="#开启-VNC-服务" class="headerlink" title="开启 VNC 服务"></a>开启 VNC 服务</h2><p>在命令行输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010356098.png" alt="image-20230802010356098"></p>
+<p>选择<code>Interface Options</code>，然后回车</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010448952.png" alt="image-20230802010448952"></p>
+<p>然后选择<code>VNC</code>，然后回车，再选择<code>Yes</code>开启</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010515821.png" alt="image-20230802010515821"></p>
+<p>弹出下面这话即开启成功</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010600332.png" alt="image-20230802010600332"></p>
+<h2 id="设置分辨率"><a href="#设置分辨率" class="headerlink" title="设置分辨率"></a>设置分辨率</h2><p>还是在命令行输入之后那个界面</p>
+<p>选择<code>Display Options</code>选项</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010837297.png" alt="image-20230802010837297"></p>
+<p>然后选择<code>D5 VNC Resolution...</code>，然后回车，再选择<code>合适的分辨率（1920*1080）</code>，然后回车即可</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010924329.png" alt="image-20230802010924329"></p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011043166.png" alt="image-20230802011043166"></p>
+<p>弹出下图直接回车即可</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011121714.png" alt="image-20230802011121714"></p>
+<p>设置完成记得<code>finish</code>，树莓派会自动<code>reboot</code>,那么接下来VNC就看到<code>1920*1080</code>的远程桌面了</p>
+<h2 id="VNC-远程桌面"><a href="#VNC-远程桌面" class="headerlink" title="VNC 远程桌面"></a>VNC 远程桌面</h2><p>下载<code>win版</code>VNC就可以远程树莓派了</p>
+<p><a href="https://www.realvnc.com/en/connect/download/viewer/">VNC官网</a></p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011420613.png" alt="image-20230802011420613"></p>
+<p>下载好后点击安装，没有中文的，这才是正宗VNC，有中文的要警惕病毒</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011505719.png" alt="image-20230802011505719"></p>
+<p>安装好后直接打开，然后输入<code>ip</code>，然后回车,再选择<code>Continue</code>选项</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011748589.png" alt="image-20230802011748589"></p>
+<p>然后就弹出需要账号和密码，输入自己设置的管理员账号和密码或者用(官方的用户名是 pi，密码是 raspberry)</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011847484.png" alt="image-20230802011847484"></p>
+<p>ok之后就看到远程的树莓派桌面了</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802094938075.png" alt="image-20230802094938075"></p>
+]]></content>
+      <categories>
+        <category>娱乐单片机</category>
+      </categories>
+      <tags>
+        <tag>树莓派</tag>
+        <tag>单片机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>树莓派采集电脑HDMI视频画面</title>
+    <url>/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%87%87%E9%9B%86%E7%94%B5%E8%84%91HDMI%E8%A7%86%E9%A2%91%E7%94%BB%E9%9D%A2/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>娱乐单片机</category>
+      </categories>
+      <tags>
+        <tag>树莓派</tag>
+        <tag>单片机</tag>
       </tags>
   </entry>
 </search>
