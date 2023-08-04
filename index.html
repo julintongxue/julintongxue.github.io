@@ -123,7 +123,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">49</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">50</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -196,6 +196,191 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/" class="post-title-link" itemprop="url">树莓派命令行连接蓝牙设备</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-08-04 09:38:09 / 修改时间：19:24:22" itemprop="dateCreated datePublished" datetime="2023-08-04T09:38:09+08:00">2023-08-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h2 id="安装和早期准备"><a href="#安装和早期准备" class="headerlink" title="安装和早期准备"></a>安装和早期准备</h2><p>树莓派通常来说自带了蓝牙软件，但总有例外是吧</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install bluez*</span><br></pre></td></tr></table></figure>
+
+<p>现在，使用以下systemctl命令启用<code>bluetooth.service</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth.service</span><br></pre></td></tr></table></figure>
+
+<p>以上是后台启用蓝牙服务。但它需要重新启动您的系统。如果不想重启，也可以执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start bluetooth.service</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：确保内核模块<code>btusb</code>已加载到系统中。内核模块相当于Windows操作系统中的驱动程序。如果未加载，则使用加载</p>
+<p>查看内核加载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep btusb</span><br></pre></td></tr></table></figure>
+
+<p>使用加载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modprobe btusb</span><br></pre></td></tr></table></figure>
+
+<h2 id="进入Bluetoothctl的交互模式"><a href="#进入Bluetoothctl的交互模式" class="headerlink" title="进入Bluetoothctl的交互模式"></a>进入Bluetoothctl的交互模式</h2><p>与 <code>nmtui</code>一样，<code>bluetoothctl</code>的交互模式在首次连接时更容易使用。与<code>nmcli</code>一样，非交互模式非常适合脚本编写。如果要进入交互模式，请使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo bluetoothctl</span><br></pre></td></tr></table></figure>
+
+<p>完成所有步骤后，您可以退出使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># quit</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="在-Linux-中打开蓝牙"><a href="#在-Linux-中打开蓝牙" class="headerlink" title="在 Linux 中打开蓝牙"></a>在 Linux 中打开蓝牙</h2><p>要打开蓝牙，请在蓝牙交互模式使用开机命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># power on</span></span><br></pre></td></tr></table></figure>
+
+<p>在我的系统中，我得到以下输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Agent registered</span><br><span class="line">[CHG] Controller E4:5F:01:9D:17:85 Pairable: <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+
+<p>同样，要关闭它，可以使用该<code>power off</code>命令。</p>
+<h2 id="扫描可用的蓝牙设备"><a href="#扫描可用的蓝牙设备" class="headerlink" title="扫描可用的蓝牙设备"></a>扫描可用的蓝牙设备</h2><p>首先列出可用的设备</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># devices</span></span><br></pre></td></tr></table></figure>
+
+<p>如果在输出中找不到您的设备，请使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># scan on</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/image-20230804102708724.png" alt="image-20230804102708724"></p>
+<p>如果您希望其他设备可以发现您的 Linux 计算机，请使用下面给出的命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># discoverable on</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="连接到您的蓝牙设备"><a href="#连接到您的蓝牙设备" class="headerlink" title="连接到您的蓝牙设备"></a>连接到您的蓝牙设备</h2><p>我们可以通过两种方式做到这一点：<br>1.配对，然后连接。<br>2.信任然后连接。我发现它更简单，不那么令人困惑，而且它适用于所有类型的设备。</p>
+<h3 id="配对并连接"><a href="#配对并连接" class="headerlink" title="配对并连接"></a>配对并连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># pair 50:E6:66:A4:B3:F3</span></span><br></pre></td></tr></table></figure>
+
+<p>现在使用连接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># connect 50:E6:66:A4:B3:F3</span></span><br></pre></td></tr></table></figure>
+
+<p>现在，您可能会收到接受连接的提示。</p>
+<h3 id="信任和联系"><a href="#信任和联系" class="headerlink" title="信任和联系"></a>信任和联系</h3><p>首先，您需要使用以下方法信任您的设备：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># trust 50:E6:66:A4:B3:F3</span></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[CHG] Device 50:E6:66:A4:B3:F3 Trusted: <span class="built_in">yes</span></span><br><span class="line">Changing 50:E6:66:A4:B3:F3 trust succeeded</span><br></pre></td></tr></table></figure>
+
+<p>现在，<code>bluetoothctl</code>会将您设备的地址保存在您的计算机上。将来，您将不再需要信任该设备。即使系统重新启动，这种节省也会保留下来。现在，您可以使用以下方式连接设备：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># connect 50:E6:66:A4:B3:F3</span></span><br></pre></td></tr></table></figure>
+
+<p>现在，您可能会收到接受连接的提示。它甚至可能要求您匹配密钥&#x2F;密码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Request confirmation</span><br><span class="line">[agent] Confirm passkey 000000 (<span class="built_in">yes</span>/no): <span class="built_in">yes</span></span><br><span class="line">[CHG] Device 50:E6:66:A4:B3:F3 Paired: <span class="built_in">yes</span></span><br><span class="line">Connection successful</span><br></pre></td></tr></table></figure>
+
+<h2 id="在非交互模式下使用-bluetoothctl-编写脚本"><a href="#在非交互模式下使用-bluetoothctl-编写脚本" class="headerlink" title="在非交互模式下使用 bluetoothctl 编写脚本"></a>在非交互模式下使用 bluetoothctl 编写脚本</h2><p>我们也可以通过在前面添加bluetoothctl以非交互模式执行上述命令。例如，开机命令变为</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">bluetoothctl</span> power <span class="literal">on</span></span><br></pre></td></tr></table></figure>
+
+<p>因此，如果您想使用单个命令连接到蓝牙设备，请使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bluetoothctl power on &amp;&amp; bluetoothctl connect 50:E6:66:A4:B3:F3</span><br></pre></td></tr></table></figure>
+
+<p>注意：如上所述，在执行上述命令之前，不要忘记信任您的设备 <code>50:E6:66:A4:B3:F3 </code>我们设备一生中只需要执行一次。</p>
+<p>脚本编写是我喜欢 Linux 的原因之一,您可以将一个命令与另一个命令合并并提高您的工作效率。</p>
+<p>从我当前使用上述命令和nmcli命令与计算机共享智能手机的互联网可以看出这一点。它的网络速度也是相当快的同时，蓝牙比Wi-Fi消耗的电能少得多。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bluetoothctl power on &amp;&amp; bluetoothctl connect 54:0D:F9:F4:B8:E4 &amp;&amp; nmcli connection up <span class="string">&#x27;橙皮\ Network&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/image-20230804191138807.png" alt="image-20230804191138807"></p>
+<p><img src="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/image-20230804191203645.png" alt="image-20230804191203645"></p>
+<p><img src="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/image-20230804191217621.png" alt="image-20230804191217621"></p>
+<p>然后，使用<code>ip a</code>命令之后可以看到这个网卡</p>
+<p><img src="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/image-20230804191254468.png" alt="image-20230804191254468"></p>
+<h2 id="断开-x2F-取消信任蓝牙命令"><a href="#断开-x2F-取消信任蓝牙命令" class="headerlink" title="断开&#x2F;取消信任蓝牙命令"></a>断开&#x2F;取消信任蓝牙命令</h2><p>当我们使用<strong>devices</strong>命令时，我们得到了一个设备列表。如果出于隐私原因您想要从列表中删除您的设备，请在交互模式下使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># remove 54:0D:F9:F4:B8:E4</span></span><br></pre></td></tr></table></figure>
+
+<p>如果您不再希望您的设备再被信任，请使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># untrust 54:0D:F9:F4:B8:E4</span></span><br></pre></td></tr></table></figure>
+
+<p>要断开连接，有多种方法：</p>
+<ul>
+<li><p>切换蓝牙设备和&#x2F;或计算机上的蓝牙开关。</p>
+</li>
+<li><p>从终端使用<code>bluetoothctl power off</code>命令。</p>
+</li>
+<li><p>使用标准方法<code>bluetoothctl disconnect 54:0D:F9:F4:B8:E4</code></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -417,103 +602,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/" class="post-title-link" itemprop="url">windows10使用wsl</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-08-01 19:14:50 / 修改时间：19:55:38" itemprop="dateCreated datePublished" datetime="2023-08-01T19:14:50+08:00">2023-08-01</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>89</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h2 id="开启wsl"><a href="#开启wsl" class="headerlink" title="开启wsl"></a>开启wsl</h2><p><img src="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/image-20230801191507728.png" alt="image-20230801191507728"></p>
-<h2 id="设置wsl版本为2"><a href="#设置wsl版本为2" class="headerlink" title="设置wsl版本为2"></a>设置wsl版本为2</h2><p><img src="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/image-20230801192923260.png" alt="image-20230801192923260"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-default-version 2</span><br></pre></td></tr></table></figure>
-
-<h2 id="更新wsl"><a href="#更新wsl" class="headerlink" title="更新wsl"></a>更新wsl</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --update</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/image-20230801194227663.png" alt="image-20230801194227663"></p>
-<h2 id="查看wsl版本"><a href="#查看wsl版本" class="headerlink" title="查看wsl版本"></a>查看wsl版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --status</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装ubuntu"><a href="#安装ubuntu" class="headerlink" title="安装ubuntu"></a>安装ubuntu</h2><p><img src="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/image-20230801194614331.png" alt="image-20230801194614331"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -589,7 +677,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
