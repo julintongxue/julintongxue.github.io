@@ -3217,7 +3217,7 @@
 </li>
 <li><p><strong>从终端使用<code>bluetoothctl power off</code>命令。</strong></p>
 </li>
-<li><p>**使用标准方法<code>bluetoothctl disconnect 54:0D:F9:F4:B8:E4**</code></p>
+<li><p><strong>使用标准方法<code>bluetoothctl disconnect 54:0D:F9:F4:B8:E4</code>即可</strong></p>
 </li>
 </ul>
 ]]></content>
