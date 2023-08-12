@@ -4736,7 +4736,7 @@
 <p><img src="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/image-20230813005505461.png" alt="image-20230813005505461"></p>
 <img src="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/微信图片_20230813002548-1691857577096.jpg" alt="微信图片_20230813002548" style="zoom:50%;">
 
-<p><strong>这里默认是wifi4的<code>802.11</code>，不知道为啥我强制选择<code>802.11n</code>或者<code>802.11ac</code>都是wifi4的<code>802.11</code>可能这就是bug或者没完善吧！</strong></p>
+<p><strong>这里默认是wifi4的<code>802.11n</code>，不知道为啥我强制选择<code>802.11n</code>或者<code>802.11ac</code>都是wifi4的<code>802.11n</code>而且是2.4Ghz的，无论远近都不自适应跳转5Ghz，可能这就是bug或者没完善吧！</strong></p>
 ]]></content>
       <categories>
         <category>娱乐单片机</category>
