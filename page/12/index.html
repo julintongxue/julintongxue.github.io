@@ -123,7 +123,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">51</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">52</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -196,6 +196,158 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/" class="post-title-link" itemprop="url">版本切换工具篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-23 00:22:19" itemprop="dateCreated datePublished" datetime="2022-11-23T00:22:19+08:00">2022-11-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-06-11 02:27:42" itemprop="dateModified" datetime="2023-06-11T02:27:42+08:00">2023-06-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="版本切换工具篇"><a href="#版本切换工具篇" class="headerlink" title="版本切换工具篇"></a>版本切换工具篇</h1><h2 id="JENV管理JDK"><a href="#JENV管理JDK" class="headerlink" title="JENV管理JDK"></a>JENV管理JDK</h2><p><strong>jdk全称”Java Development Kit“，指的是Java语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序的开发。jdk是java开发的核心，包括了JRE（Java运行环境）运行时类库、JVM（Java虚拟机）。</strong></p>
+<p><strong>一般，我们需要用到基于Java虚拟机的操作服务时，需要有JDK的环境，这样的Java有两个特点（Write once, run anywhere）：</strong></p>
+<ul>
+<li><strong>易于移植：只需要有Java的虚拟机（JDK）环境，即可运行Java程序。</strong></li>
+<li><strong>需要平台有Java虚拟机支持：Java程序有所限制，需要有Java环境支持</strong></li>
+</ul>
+<p><strong>大部分程序开发者，或者普通用户，都有了解过JDK的配置。但是：</strong></p>
+<ul>
+<li><strong>Linux服务器上怎么配置JDK呢？</strong></li>
+<li><strong>能否实现多版本JDK同时配置安装呢？</strong></li>
+</ul>
+<p><strong>本次教程，就在Linux（ubuntu系统）上安装多版本JDK，并使用Jenv管理JDK。</strong></p>
+<h3 id="安装思路"><a href="#安装思路" class="headerlink" title="安装思路"></a>安装思路</h3><h4 id="常规（传统）安装"><a href="#常规（传统）安装" class="headerlink" title="常规（传统）安装"></a>常规（传统）安装</h4><p><strong>我们通常安装JDK是：</strong></p>
+<ul>
+<li><strong>Centos系统使用<code>yum</code>包管理器安装&#x2F;Ubuntu使用<code>apt</code>包管理器安装，然后直接使用。</strong></li>
+<li><strong>上传源码包、解压源码包、在环境变量文件中追加<code>JAVA_HOME</code>然后<code>source</code>重载配置后使用。</strong></li>
+</ul>
+<h4 id="前卫安装"><a href="#前卫安装" class="headerlink" title="前卫安装"></a>前卫安装</h4><p><strong>在前面常规（传统）安装的前提下，追加<code>Jenv</code>的配置，实现JDK的切换：</strong></p>
+<p><strong>确定使用OpenJDK和JDK的版本之后，使用<a target="_blank" rel="noopener" href="https://www.azul.com/downloads/?package=jdk#download-openjdk">ZuluJDK（一个OpenJDK的发行版本）</a></strong></p>
+<h5 id="安装JDK8"><a href="#安装JDK8" class="headerlink" title="安装JDK8"></a>安装JDK8</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># wget 下载源码包</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># wget https://cdn.azul.com/zulu/bin/zulu8.66.0.15-ca-jdk8.0.352-linux_x64.tar.gz</span></span><br><span class="line"><span class="comment"># 创建源码包保存目录</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># mkdir /JDK</span></span><br><span class="line"><span class="comment"># 解压源码包至保存目录</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># tar -xzvf zulu8.66.0.15-ca-jdk8.0.352-linux_x64.tar.gz -C /JDK/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置JAVA_HOME</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># vim .bashrc</span></span><br><span class="line"><span class="comment"># JAVA环境变量配置</span></span><br><span class="line">JAVA_HOME=/JDK/jdk8</span><br><span class="line">CLASSPATH=<span class="variable">$JAVA_HOME</span>/lib/</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin/</span><br><span class="line"><span class="built_in">export</span> PATH JAVA_HOME CLASSSPATH</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重载配置</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># source ~/.bashrc </span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看版本（JDK1.8就是JDK8）</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># java -version</span></span><br><span class="line">openjdk version <span class="string">&quot;1.8.0_352&quot;</span></span><br><span class="line">OpenJDK Runtime Environment (Zulu 8.66.0.15-CA-linux64) (build 1.8.0_352-b08)</span><br><span class="line">OpenJDK 64-Bit Server VM (Zulu 8.66.0.15-CA-linux64) (build 25.352-b08, mixed mode)</span><br></pre></td></tr></table></figure>
+
+<h3 id="多版本JDK管理"><a href="#多版本JDK管理" class="headerlink" title="多版本JDK管理"></a>多版本JDK管理</h3><h4 id="安装JENV"><a href="#安装JENV" class="headerlink" title="安装JENV"></a>安装JENV</h4><p><a target="_blank" rel="noopener" href="https://www.jenv.be/">Jenv项目地址</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用git下载jenv源码到用户目录下的.jenv文件夹</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># git clone https://github.com/jenv/jenv.git ~/.jenv</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># vim .bashrc</span></span><br><span class="line"><span class="comment"># Jenv配置环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$HOME</span>/.jenv/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(jenv init -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重载配置(会出现“jenv has been updated, process to refresh plugin links”这句话，说明配置成功)</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># source ~/.bashrc </span></span><br></pre></td></tr></table></figure>
+
+<p><strong>现在jenv就可以使用了：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv help</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="切换JDK"><a href="#切换JDK" class="headerlink" title="切换JDK"></a>切换JDK</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前安装的JDK版本</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 局部JDK11</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv local 11</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局JDK11</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv global 11</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="管理JDK"><a href="#管理JDK" class="headerlink" title="管理JDK"></a>管理JDK</h4><p><strong>有时候，jenv的add扫描，扫描的内容过多怎么办呢？比如，我只添加了JDK8、JDK11,怎么会有这么多版本JDK：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br><span class="line">* system (<span class="built_in">set</span> by /root/.jenv/version)</span><br><span class="line">  11</span><br><span class="line">  11.0</span><br><span class="line">  11.0.17</span><br><span class="line">  1.8.0.352</span><br><span class="line">  1.8</span><br><span class="line">  1.8.0.352</span><br><span class="line">  zulu64-1.8.0.352</span><br></pre></td></tr></table></figure>
+
+<p><strong>这个时候也很简单，使用remove命令即可：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv remove zulu64-1.8.0.352</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv remove 1.8</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br><span class="line">  system</span><br><span class="line">  11.0.17</span><br><span class="line">* 1.8.0.352 (<span class="built_in">set</span> by /root/.jenv/version)</span><br></pre></td></tr></table></figure>
+
+<h2 id="NVM管理Node-js"><a href="#NVM管理Node-js" class="headerlink" title="NVM管理Node.js"></a>NVM管理Node.js</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1481,268 +1633,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/" class="post-title-link" itemprop="url">系统毁灭者MBR</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-08-09 20:46:03" itemprop="dateCreated datePublished" datetime="2022-08-09T20:46:03+08:00">2022-08-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 18:30:21" itemprop="dateModified" datetime="2023-07-24T18:30:21+08:00">2023-07-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h1 id="安全控制"><a href="#安全控制" class="headerlink" title="安全控制"></a>安全控制</h1><h2 id="一-重置root密码"><a href="#一-重置root密码" class="headerlink" title="一.重置root密码"></a>一.重置root密码</h2><p><strong>Centos7 与之前的版本不同，当忘记 root 密码，并采用 GRUB2 为启动器时，将无法通过单用户模式重 置 root 密码</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.启动系统，并在GRUB2启动屏显时，按下 e 键进入编辑模式</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525143741425-16534607203081.png" alt="image-20220525143741425"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2.按e后，看到如下画面：</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525143824081-16534607221172.png" alt="image-20220525143824081"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3.找到 linux16 开头的行，按 end 键跳转到最后，空格后，输入 rd.break</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525144314955.png" alt="image-20220525144314955"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 4.按 ctrl+x 进入紧急救援模式</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525144530907.png" alt="image-20220525144530907"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 5.重新挂载系统分区，输入</span></span><br><span class="line">mount -o remount,rw /sysroot</span><br><span class="line"><span class="comment"># 6.再输入</span></span><br><span class="line"><span class="built_in">chroot</span> /sysroot</span><br><span class="line"><span class="comment"># 改变根</span></span><br><span class="line"><span class="comment"># 7.当前目录变为根目录，即可更改密码</span></span><br><span class="line"><span class="built_in">echo</span> 123456 | passwd --stdin root</span><br><span class="line"><span class="comment"># 8.如果之前系统启用了 SElinux，则必须运行</span></span><br><span class="line"><span class="built_in">touch</span> /.autorelabel</span><br><span class="line">否则将无法正常启动系统</span><br><span class="line"><span class="comment"># 9.输入 exit 退出</span></span><br><span class="line"><span class="comment"># 10.输入 reboot 重新启动</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525145647885.png" alt="image-20220525145647885"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 登录测试，密码123456更新成功</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525150014292.png" alt="image-20220525150014292"></p>
-<h2 id="二-强密码修改安全性"><a href="#二-强密码修改安全性" class="headerlink" title="二.强密码修改安全性"></a>二.强密码修改安全性</h2><h3 id="矛与盾"><a href="#矛与盾" class="headerlink" title="矛与盾"></a>矛与盾</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><ul>
-<li><strong>为 GRUB2 菜单加上防编辑密码，以防止恶意者像如上一样修改 root 密码</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.用 grub2-mkpasswd-pbkdf2 命令生成加密口令</span></span><br><span class="line">[root@localhost ~]<span class="comment"># grub2-mkpasswd-pbkdf2 </span></span><br><span class="line">输入口令：                <span class="comment"># 不是root密码</span></span><br><span class="line">Reenter password: </span><br><span class="line">PBKDF2 <span class="built_in">hash</span> of your password is grub.pbkdf2.sha512.10000.D167D00E2EB2403C60A1F73D67E8E09ED1D0BD871ECC04D15AC815C9E1FCC178D4BC2B05FA4A1DEA67FBC1DD29CEF48EF662E1D5DB8C16AAB4F27FC353815FF5.43D49742A39635DE65BF5631802EB4041E38E65A05AB8AD6F498538873FA241599DE784CE0CF63E4E3FE68DC0FE635251A74EBC53C62239480AE558D68BA77D3</span><br></pre></td></tr></table></figure>
-
-<p><strong>然后</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># vim /etc/grub.d/00_header </span></span><br><span class="line"><span class="comment"># 在最后位置写入这个脚本命令</span></span><br><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">set superusers=&quot;root&quot;   # 这个是账号，可以随心填，但是要记住它和上面的密码</span></span><br><span class="line"><span class="string">password_pbkdf2 root grub.pbkdf2.sha512.10000.D167D00E2EB2403C60A1F73D67E8E09ED1D0BD871ECC04D15AC815C9E1FCC178D4BC2B05FA4A1DEA67FBC1DD29CEF48EF662E1D5DB8C16AAB4F27FC353815FF5.43D49742A39635DE65BF5631802EB4041E38E65A05AB8AD6F498538873FA241599DE784CE0CF63E4E3FE68DC0FE635251A74EBC53C62239480AE558D68BA77D3</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="重新生成grub2"><a href="#重新生成grub2" class="headerlink" title="重新生成grub2"></a>重新生成grub2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># grub2-mkconfig -o /boot/grub2/grub.cfg </span></span><br><span class="line">Generating grub configuration file ...</span><br><span class="line">Found linux image: /boot/vmlinuz-3.10.0-1160.66.1.el7.x86_64</span><br><span class="line">Found initrd image: /boot/initramfs-3.10.0-1160.66.1.el7.x86_64.img</span><br><span class="line">Found linux image: /boot/vmlinuz-3.10.0-1160.el7.x86_64</span><br><span class="line">Found initrd image: /boot/initramfs-3.10.0-1160.el7.x86_64.img</span><br><span class="line">Found linux image: /boot/vmlinuz-0-rescue-dbecb3d028cd4f5db6753a52b01ffd86</span><br><span class="line">Found initrd image: /boot/initramfs-0-rescue-dbecb3d028cd4f5db6753a52b01ffd86.img</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># vim /boot/grub2/grub.cfg</span></span><br><span class="line"><span class="built_in">set</span> superusers=<span class="string">&quot;root&quot;</span></span><br><span class="line">password_pbkdf2 root grub.pbkdf2.sha512.10000.D167D00E2EB2403C60A1F73D67E8E09ED1D0BD871ECC04D15AC815C9E1FCC178D4BC2B05FA4A1DEA67FBC1DD29CEF48EF662E1D5DB8C16AAB4F27FC353815FF5.43D49742A39635DE65BF5631802EB4041E38E65A05AB8AD6F498538873FA241599DE784CE0CF63E4E3FE68DC0FE635251A74EBC53C62239480AE558D68BA77D3</span><br><span class="line"><span class="comment">### END /etc/grub.d/00_header # 在这个文件上面写入以上参数，也可以达到一样效果。。。我是傻x</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="进入grub2"><a href="#进入grub2" class="headerlink" title="进入grub2"></a>进入grub2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 再次进入 GRUB2 页面，发现需要输入账户名与密码</span></span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525155917825.png" alt="image-20220525155917825"></p>
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525155936054.png" alt="image-20220525155936054"></p>
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525160014769.png" alt="image-20220525160014769"></p>
-<h2 id="三-破坏MBR"><a href="#三-破坏MBR" class="headerlink" title="三.破坏MBR"></a>三.破坏MBR</h2><ul>
-<li><p><strong>MBR</strong></p>
-<ul>
-<li><strong>master boot record</strong> </li>
-<li><strong>主引导记录，也叫主引导扇区</strong> </li>
-<li><strong>硬盘的 0 柱面，0 磁头，1 扇区称为主引导扇区</strong> </li>
-<li><strong>其中 446 Byte 是 bootloader，64 Byte 是 partition table，剩下的 2 Byte 是 magic number</strong> </li>
-<li><strong>一般破坏的是bootloader</strong></li>
-</ul>
-<hr>
-<p><strong>Linux是文件型的操作系统，所有的信息和数据都以文件形式保存于系统中，但是并不是所有的数据，主 引导记录就不是以文件的形式保存，无法进行备份，只能通过 dd 命令备份</strong></p>
-</li>
-<li><p><strong>先进行备份，再破坏</strong></p>
-<ul>
-<li><strong>使用 dd 命令，将 sda 的 MBR 进行备份</strong> </li>
-<li><strong>用 zero设备生成 446 字节的 “0” 写入 MBR</strong> </li>
-<li><strong>重启后发现系统已坏</strong></li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># fdisk -l</span></span><br><span class="line"></span><br><span class="line">磁盘 /dev/sda：107.4 GB, 107374182400 字节，209715200 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line">磁盘标签类型：dos</span><br><span class="line">磁盘标识符：0x000b88c2</span><br><span class="line"></span><br><span class="line">   设备 Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *        2048     2099199     1048576   83  Linux</span><br><span class="line">/dev/sda2         2099200   209715199   103808000   8e  Linux LVM</span><br><span class="line"></span><br><span class="line">磁盘 /dev/mapper/centos-root：53.7 GB, 53687091200 字节，104857600 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">磁盘 /dev/mapper/centos-swap：4160 MB, 4160749568 字节，8126464 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">磁盘 /dev/mapper/centos-home：48.4 GB, 48444211200 字节，94617600 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line"></span><br><span class="line">[root@localhost ~]<span class="comment"># dd if=/dev/sda of=/root/mbr.bak count=1 bs=512</span></span><br><span class="line">记录了1+0 的读入</span><br><span class="line">记录了1+0 的写出</span><br><span class="line">512字节(512 B)已复制，0.000344858 秒，1.5 MB/秒</span><br><span class="line">[root@localhost ~]<span class="comment"># dd if=/dev/zero of=/dev/sda count=1 bs=446</span></span><br><span class="line">记录了1+0 的读入</span><br><span class="line">记录了1+0 的写出</span><br><span class="line">446字节(446 B)已复制，0.000186601 秒，2.4 MB/秒</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>if&#x3D;&#x2F;dev&#x2F;sda</strong> <ul>
-<li><strong>interface 输入接口</strong></li>
-</ul>
-</li>
-<li><strong>of&#x3D;&#x2F;root&#x2F;mbr.bak</strong> <ul>
-<li><strong>outerface 输出接口</strong></li>
-</ul>
-</li>
-<li><strong>count&#x3D;1</strong> <ul>
-<li><strong>写一块</strong></li>
-</ul>
-</li>
-<li><strong>bs&#x3D;512</strong> <ul>
-<li><strong>将整个扇区选中</strong></li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li><p><strong>Unix&#x2F;Linux将每一个设备都当成一个文件，放在&#x2F;dev目录</strong> </p>
-<ul>
-<li><p><strong>这些文件有的对应着一个真实存在的物理设备</strong> </p>
-</li>
-<li><p><strong>有的则代表一个虚拟设备，提供一些特定的功能</strong></p>
-</li>
-</ul>
-</li>
-<li><p><strong>&#x2F;dev&#x2F;null</strong> </p>
-<ul>
-<li><p><strong>“空”设备，也有人称它为黑洞</strong> </p>
-</li>
-<li><p><strong>任何输入到这个“设备”的数据都将被直接丢弃</strong> </p>
-</li>
-<li><p><strong>最常用的用法是把不需要的输出重定向到这个文件</strong></p>
-</li>
-</ul>
-</li>
-<li><p><strong>&#x2F;dev&#x2F;zero</strong> </p>
-<ul>
-<li><p><strong>“零”设备，可以无限的提供空字符（0x00，ASCII代码NUL）</strong> </p>
-</li>
-<li><p><strong>常用来生成一个特定大小的文件</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># dd if=/dev/zero of=/swapfile bs=1M count=4096 status=progress #创建4G的交换空间 大小根据需要自定</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>这也是我喜欢用交换文件而不是交换分区的一个特点之一_方便</strong></p>
-<h2 id="四-修复MBR"><a href="#四-修复MBR" class="headerlink" title="四.修复MBR"></a>四.修复MBR</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># reboot</span></span><br><span class="line"><span class="comment"># 重启后，发现无法正常启动 </span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525174104226.png" alt="image-20220525174104226"></p>
-<ul>
-<li><strong>连接光盘，重启后进入系统安装光盘，在光盘引导界面选择 Troubleshooting</strong></li>
-</ul>
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525190633165.png" alt="image-20220525190633165"></p>
-<ul>
-<li><strong>选择救援模式 Rescue a Centos system</strong></li>
-</ul>
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525190612467.png" alt="image-20220525190612467"></p>
-<ul>
-<li><strong>输入1，选择Continue，以 rw 模式挂载分区</strong></li>
-</ul>
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525190742957.png" alt="image-20220525190742957"></p>
-<ul>
-<li>回车，进入救援模式</li>
-</ul>
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525190905564.png" alt="image-20220525190905564"></p>
-<ul>
-<li><strong>grub2-install 命令重建 Bootloader，随后 sync 写入硬盘，reboot 重启系统</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sh-4.2<span class="comment"># chroot /mnt/sysimage</span></span><br><span class="line">sh-4.2<span class="comment"># grub2-install /dev/sda</span></span><br><span class="line">sh-4.2<span class="comment"># sync</span></span><br><span class="line">sh-4.2<span class="comment"># exit</span></span><br><span class="line">sh-4.2<span class="comment"># reboot</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>重启后，可正常进入开机引导</strong></li>
-</ul>
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525191143114.png" alt="image-20220525191143114"></p>
-<h2 id="五-修复GRUB"><a href="#五-修复GRUB" class="headerlink" title="五. 修复GRUB"></a>五. 修复GRUB</h2><p>**若grub配置文件丢失，开机会直接进入 grub 界面，显示为 grub&gt; **</p>
-<p><strong>由于 grub2 的文件极其复杂，所以一定要做好备份</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># fdisk -l</span></span><br><span class="line"></span><br><span class="line">磁盘 /dev/sda：107.4 GB, 107374182400 字节，209715200 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line">磁盘标签类型：dos</span><br><span class="line">磁盘标识符：0x00000000</span><br><span class="line"></span><br><span class="line">   设备 Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *        2048     2099199     1048576   83  Linux</span><br><span class="line">/dev/sda2         2099200   209715199   103808000   8e  Linux LVM</span><br><span class="line"></span><br><span class="line">磁盘 /dev/mapper/centos-root：53.7 GB, 53687091200 字节，104857600 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">磁盘 /dev/mapper/centos-swap：4160 MB, 4160749568 字节，8126464 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">磁盘 /dev/mapper/centos-home：48.4 GB, 48444211200 字节，94617600 个扇区</span><br><span class="line">Units = 扇区 of 1 * 512 = 512 bytes</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line"></span><br><span class="line">[root@localhost ~]<span class="comment"># lsblk</span></span><br><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0  100G  0 disk </span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">└─sda2            8:2    0   99G  0 part </span><br><span class="line">  ├─centos-root 253:0    0   50G  0 lvm  /</span><br><span class="line">  ├─centos-swap 253:1    0  3.9G  0 lvm  [SWAP]</span><br><span class="line">  └─centos-home 253:2    0 45.1G  0 lvm  /home</span><br><span class="line">sr0              11:0    1  4.4G  0 rom  /run/media/root/CentOS 7 x86_64</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先备份，再破坏</span></span><br><span class="line">[root@localhost ~]<span class="comment"># mkdir grub2.bak</span></span><br><span class="line">[root@localhost ~]<span class="comment"># chmod 600 grub2.bak/</span></span><br><span class="line">[root@localhost ~]<span class="comment"># cp -rp /boot/grub2/* ./grub2.bak/</span></span><br><span class="line">[root@localhost ~]<span class="comment"># ls grub2.bak/</span></span><br><span class="line">device.map fonts grub.cfg grubenv i386-pc locale</span><br><span class="line"><span class="comment"># 破坏</span></span><br><span class="line">[root@localhost ~]<span class="comment"># rm /boot/grub2/grub.cfg</span></span><br><span class="line"><span class="built_in">rm</span>：是否删除普通文件 <span class="string">&quot;/boot/grub2/grub.cfg&quot;</span>？y</span><br><span class="line">[root@localhost ~]<span class="comment"># reboot</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/08/09/%E7%B3%BB%E7%BB%9F%E6%AF%81%E7%81%AD%E8%80%85MBR/image-20220525191903755.png" alt="image-20220525191903755"></p>
-<ul>
-<li><strong>重启后，进入 “ grub&gt; ” 状态，输入以下命令设置启动参数</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">grub&gt; insmod xfs</span><br><span class="line"><span class="comment"># 第0块磁盘的第1个分区</span></span><br><span class="line">grub&gt; <span class="built_in">set</span> root=<span class="string">&#x27;hd0,1&#x27;</span></span><br><span class="line"><span class="comment"># 内核文件</span></span><br><span class="line"><span class="comment"># mapper是逻辑卷组</span></span><br><span class="line">grub&gt; linux16 /vmlinuz-3.10.0-229.el7.x86_64</span><br><span class="line">root=/dev/mapper/centos-root</span><br><span class="line">grub&gt; initrd16 /initramfs-3.10.0-229.el7.x86_64.img</span><br><span class="line">grub&gt; boot</span><br></pre></td></tr></table></figure>
-
-<p><strong>恢复grub</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># cp ./grub2.bak/grub.cfg /boot/grub2/</span></span><br><span class="line">[root@localhost ~]<span class="comment"># reboot</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1814,7 +1708,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
