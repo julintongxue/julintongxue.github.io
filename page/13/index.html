@@ -231,7 +231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-08 09:03:14" itemprop="dateModified" datetime="2023-06-08T09:03:14+08:00">2023-06-08</time>
+                <time title="修改时间：2023-09-27 17:44:17" itemprop="dateModified" datetime="2023-09-27T17:44:17+08:00">2023-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -270,7 +270,7 @@
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>47 分钟</span>
+              <span>48 分钟</span>
             </span>
 
         </div>
@@ -442,6 +442,35 @@
 <p>输入你要隐藏的账户名称，如果还要添加其它账户，可以再次新建DWORD值即可。现在你可以重启一次电脑看看，账户是不是已经隐藏了。</p>
 <p><img src="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/Snipaste_2022-07-21_22-01-47.png" alt="Snipaste_2022-07-21_22-01-47"></p>
 <p>再狗一点，我们把隐藏账号做成影子账号</p>
+<h3 id="dos一下ensp的交换机"><a href="#dos一下ensp的交换机" class="headerlink" title="dos一下ensp的交换机"></a>dos一下ensp的交换机</h3><p><strong>本次实验有两台设备，Kali Linux(攻击机) ip:192.168.110.132、Windows 10(靶机) ip:192.168.110.133、Windows 10(靶机)的ensp里面的PC1 ip:192.168.110.130、PC2 ip:192.168.110.131</strong></p>
+<p><strong>注意：实验前确认靶机的防火墙已经被关闭</strong></p>
+<p><strong>在kali linux(攻击机)上事先安装好<code>dsniff</code>,因为下面要用到dsniff里面的<code>macof</code>泛洪来填满交换机小小的内存,使交换机无法让<code>PC1</code>和<code>PC2</code>收发信息</strong></p>
+<p><strong>Windows 10(靶机)要提前安装好<code>ensp</code></strong></p>
+<p><strong>kali安装dsniff</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install dsniff</span><br></pre></td></tr></table></figure>
+
+<p><strong>安装完成之后，让所有的机子关闭，在<code>虚拟网络编辑器</code>里面创建<code>VMnet2</code>的<code>仅主机模式</code>并且修改子网IP在<code>192.168.110.0</code>即可。</strong></p>
+<p><img src="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/image-20230927163830934.png" alt="image-20230927163830934"></p>
+<p><strong>然后Kali Linux(攻击机)、Windows 10(靶机)都接入<code>VMnet2</code>里</strong></p>
+<p><img src="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/image-20230927164240231.png" alt="image-20230927164240231"></p>
+<p>启动kali和Windows 10(靶机),Windows 10(靶机)打开<code>ensp</code>，按照下图这样设计</p>
+<p><img src="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/image-20230927170102580.png" alt="image-20230927170102580"></p>
+<p><strong>然后，这个小云朵要桥接到Windows 10(靶机)的真实网卡接口</strong></p>
+<p><img src="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/image-20230927170221445.png" alt="image-20230927170221445"></p>
+<p>让<code>PC1</code>和<code>PC2</code>直接<code>dhcp</code>算了</p>
+<p><img src="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/image-20230927170705164.png" alt="image-20230927170705164"></p>
+<p><strong>让PC1一直 <code>ping</code> PC2,然后看一眼交换机的<code>mac</code>表</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 192.168.110.131 -t</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/image-20230927170856902.png" alt="image-20230927170856902"></p>
+<p><strong>这个时候，直接开启kali的最高权限输入<code>macof</code>就可以看到断网现象</strong></p>
+<p><strong>下图是交换机被塞得满满的图</strong></p>
+<p><img src="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/image-20230927173759044.png" alt="image-20230927173759044"></p>
+<p><strong>交换机直接宕机图</strong></p>
+<p><img src="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/image-20230927173936063.png" alt="image-20230927173936063"></p>
+<p><strong>这个图是模拟器有问题，正确的应该是PC1ping不通PC2，然后一段时间后交换机重启又可以ping通，然后又挂。。。</strong></p>
+<p><strong>我这个图线路都全挂了还能ping通就极度离谱</strong></p>
+<p><img src="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/image-20230927174200188.png" alt="image-20230927174200188"></p>
 <h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="DVWA"><a href="#DVWA" class="headerlink" title="DVWA"></a>DVWA</h3><h4 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h4><h5 id="安装phpstudy"><a href="#安装phpstudy" class="headerlink" title="安装phpstudy"></a>安装phpstudy</h5><h5 id="下载DVWA源码"><a href="#下载DVWA源码" class="headerlink" title="下载DVWA源码"></a>下载DVWA源码</h5><h5 id="安装需要的依赖库"><a href="#安装需要的依赖库" class="headerlink" title="安装需要的依赖库"></a>安装需要的依赖库</h5><h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><p>1.这里把<code>DVWA</code>源码解压到<code>phpstudy</code>的<code>WWW</code>目录中，然后修改DVWA的配置文件目录config里面的<code>config.inc.php.dist</code>,将其重命名为<code>config.inc.php</code>。</p>
 <p>2.编辑<code>config.inc.php</code>文件 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># phpstudy的默认用户和密码都是root，所以只需要修改这个即可。</span></span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">&#x27;db_user&#x27;</span> ]     = <span class="string">&#x27;root&#x27;</span>;       </span><br><span class="line"><span class="variable">$_DVWA</span>[ <span class="string">&#x27;db_password&#x27;</span> ] = <span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure>
