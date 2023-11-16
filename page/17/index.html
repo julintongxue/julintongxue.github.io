@@ -487,7 +487,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-16 16:47:53" itemprop="dateModified" datetime="2023-11-16T16:47:53+08:00">2023-11-16</time>
+                <time title="修改时间：2023-11-16 16:59:27" itemprop="dateModified" datetime="2023-11-16T16:59:27+08:00">2023-11-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -638,16 +638,18 @@
 
 <h3 id="七-虚拟化"><a href="#七-虚拟化" class="headerlink" title="七.虚拟化"></a>七.虚拟化</h3><h4 id="1-KVM"><a href="#1-KVM" class="headerlink" title="1.KVM"></a>1.KVM</h4><h5 id="环境检查"><a href="#环境检查" class="headerlink" title="环境检查"></a>环境检查</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查硬件是否支持虚拟化</span></span><br><span class="line">LC_ALL=C lscpu | grep Virtualization</span><br><span class="line"><span class="comment"># 检查内核是否已经包含了支持虚拟化所必须的模块</span></span><br><span class="line">zgrep CONFIG_KVM /proc/config.gz</span><br><span class="line"><span class="comment"># 确定模块是否已经加载</span></span><br><span class="line">lsmod | grep kvm</span><br><span class="line"><span class="comment"># 这里输出中需要包含 virtio</span></span><br><span class="line">lsmod | grep virtio</span><br><span class="line"><span class="comment"># 没有 virtio 时执行</span></span><br><span class="line">sudo modprobe virtio</span><br></pre></td></tr></table></figure>
 
-<h5 id="安装KVM"><a href="#安装KVM" class="headerlink" title="安装KVM"></a>安装KVM</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  pacman -S qemu libvirt ovmf virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231116_163347-1700124808962.png" alt="Screenshot_20231116_163347"><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231116_163419.png" alt="Screenshot_20231116_163419"><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231116_163438.png" alt="Screenshot_20231116_163438"></p>
+<h5 id="安装KVM"><a href="#安装KVM" class="headerlink" title="安装KVM"></a>安装KVM</h5><p><strong>执行下列命令安装必要软件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  pacman -S qemu libvirt ovmf virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>qemu QEMU 软件，提供 qemu-img 等命令</li>
-<li>libvirt 提供管理虚拟机、存储、网络的功能</li>
-<li>virt-manager, 图形化的管理界面</li>
-<li>virt-viewer是虚拟机查看器，它是一个显示虚拟化客户机的图形界面的工具</li>
-<li>dnsmasq DHCP DNS 服务，用于 default NAT 网络</li>
-<li>bridge-utils 桥接网络管理，用于桥接网络</li>
-<li>openbsd-netcat 用于通过 SSH 管理</li>
+<li><strong>qemu QEMU 软件，提供 qemu-img 等命令</strong></li>
+<li><strong>libvirt 提供管理虚拟机、存储、网络的功能</strong></li>
+<li><strong>virt-manager, 图形化的管理界面</strong></li>
+<li><strong>virt-viewer是虚拟机查看器，它是一个显示虚拟化客户机的图形界面的工具</strong></li>
+<li><strong>dnsmasq DHCP DNS 服务，用于 default NAT 网络</strong></li>
+<li><strong>bridge-utils 桥接网络管理，用于桥接网络</strong></li>
+<li><strong>openbsd-netcat 用于通过 SSH 管理</strong></li>
 </ul>
 <h5 id="重置虚拟机配置"><a href="#重置虚拟机配置" class="headerlink" title="重置虚拟机配置"></a>重置虚拟机配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S --noconfirm --needed libguestfs</span><br></pre></td></tr></table></figure>
 
@@ -655,17 +657,18 @@
 
 <h5 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> libvirtd.service</span><br><span class="line">sudo systemctl start libvirtd.service</span><br></pre></td></tr></table></figure>
 
-<h5 id="添加权限组"><a href="#添加权限组" class="headerlink" title="添加权限组"></a>添加权限组</h5><p>修改<code>libvirtd.conf</code>文件</p>
+<h5 id="添加权限组"><a href="#添加权限组" class="headerlink" title="添加权限组"></a>添加权限组</h5><p><strong>修改<code>libvirtd.conf</code>文件</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/libvirt/libvirtd.conf</span><br><span class="line"><span class="comment"># 将UNIX域套接字组所有权设置为libvirt（第85行）：</span></span><br><span class="line">unix_sock_group = <span class="string">&quot;libvirt&quot;</span></span><br><span class="line"><span class="comment"># 设置R/W套接字的UNIX套接字权限（第108行）：</span></span><br><span class="line">unix_sock_rw_perms = <span class="string">&quot;0770&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>保存退出，执行下面命令：</p>
+<p><strong>保存退出，执行下面命令：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将你的用户帐户添加到libvirt组：</span></span><br><span class="line">sudo usermod -a -G libvirt $(<span class="built_in">whoami</span>)</span><br><span class="line"><span class="comment"># newgrp 命令使当前普通用户登入到这个群组</span></span><br><span class="line">newgrp libvirt</span><br><span class="line"><span class="comment"># 重启libvirt守护进程：</span></span><br><span class="line">sudo systemctl restart libvirtd.service</span><br></pre></td></tr></table></figure>
 
-<h5 id="开启嵌套虚拟化"><a href="#开启嵌套虚拟化" class="headerlink" title="开启嵌套虚拟化"></a>开启嵌套虚拟化</h5><p>嵌套虚拟化功能使你可以在KVM虚拟机中运行虚拟机，我的CPU是intel的，启用内核模块为kvm_intel，如果是amd的需要改为kvm_amd：</p>
+<h5 id="开启嵌套虚拟化"><a href="#开启嵌套虚拟化" class="headerlink" title="开启嵌套虚拟化"></a>开启嵌套虚拟化</h5><p><strong>嵌套虚拟化功能使你可以在KVM虚拟机中运行虚拟机，我的CPU是<code>intel</code>的，启用内核模块为<code>kvm_intel</code>，如果是<code>amd</code>的需要改为<code>kvm_amd</code>：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe -r kvm_intel</span><br><span class="line">sudo modprobe kvm_intel nested=1</span><br><span class="line">要使此配置持久，请运行：</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;options kvm-intel nested=1&quot;</span> | sudo <span class="built_in">tee</span> /etc/modprobe.d/kvm-intel.conf</span><br><span class="line">确认嵌套虚拟化设置为是：</span><br><span class="line">systool -m kvm_intel -v | grep nested</span><br><span class="line">nested              = <span class="string">&quot;Y&quot;</span></span><br><span class="line">nested_early_check  = <span class="string">&quot;N&quot;</span></span><br><span class="line"><span class="built_in">cat</span> /sys/module/kvm_intel/parameters/nested </span><br><span class="line">Y</span><br></pre></td></tr></table></figure>
 
-
-
+<h5 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h5><p><strong>直接打开<code>virt-manager</code>点点点就行了，这就不用我教了吧！</strong></p>
+<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231116_165156.png" alt="Screenshot_20231116_165156"></p>
+<p><strong>这个KVM篇章就是用上面这个虚拟机写的，命令、图片传输只能通过nas传，后续使用<code>VMwareWorkstation</code>就能通过自带的<code>tool</code>加强Linux主机和虚拟机的联系。</strong></p>
 <h4 id="2-VMwareWorkstation-篇"><a href="#2-VMwareWorkstation-篇" class="headerlink" title="2.VMwareWorkstation 篇"></a>2.VMwareWorkstation 篇</h4><h4 id="3-VirtualBox篇"><a href="#3-VirtualBox篇" class="headerlink" title="3.VirtualBox篇"></a>3.VirtualBox篇</h4><h4 id="4-docker-篇-初级"><a href="#4-docker-篇-初级" class="headerlink" title="4.docker 篇(初级)"></a>4.docker 篇(初级)</h4><h5 id="一-安装docker"><a href="#一-安装docker" class="headerlink" title="一.安装docker"></a>一.安装docker</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S docker</span><br></pre></td></tr></table></figure>
 
 <p>启动docker</p>
