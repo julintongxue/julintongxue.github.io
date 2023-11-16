@@ -1096,7 +1096,7 @@
 <p>注销，重新登陆，就可以发现已经可以在各个软件中输入中文了</p>
 <h3 id="四-聊天工具"><a href="#四-聊天工具" class="headerlink" title="四.聊天工具"></a>四.聊天工具</h3><p>我们日常使用的聊天工具无非就是微信,QQ,Telegram</p>
 <p>这个时候，我们可以去<a href="https://aur.archlinux.org/packages/">Archlinux庞大的AUR软件</a>里面搜索</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#微信</span></span><br><span class="line">yay -S deepin-wine-wechat</span><br><span class="line"><span class="comment">#QQ</span></span><br><span class="line">yay -S deepin-wine-qq</span><br><span class="line"><span class="comment">#Telegram</span></span><br><span class="line">sudo pacman  -S telegram-desktop</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#微信(已经是孤儿包不维护了)</span></span><br><span class="line">yay -S deepin-wine-wechat </span><br><span class="line"><span class="comment">#QQ(已经是孤儿包不维护了)</span></span><br><span class="line">yay -S deepin-wine-qq</span><br><span class="line"><span class="comment">#Telegram</span></span><br><span class="line">sudo pacman  -S telegram-desktop</span><br></pre></td></tr></table></figure>
 
 <h3 id="五-科学上网"><a href="#五-科学上网" class="headerlink" title="五.科学上网"></a>五.科学上网</h3><h4 id="服务器端-Server端"><a href="#服务器端-Server端" class="headerlink" title="服务器端(Server端)"></a>服务器端(Server端)</h4><h5 id="1-科学上网服务器-外网服务器一台"><a href="#1-科学上网服务器-外网服务器一台" class="headerlink" title="1.科学上网服务器(外网服务器一台)"></a>1.科学上网服务器(外网服务器一台)</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 系统是centos7,更新软件</span></span><br><span class="line">yum update -y &amp;&amp; yum upgrade &amp;&amp; yum install curl -y &amp;&amp; yum -y install wget</span><br></pre></td></tr></table></figure>
 
@@ -1106,7 +1106,40 @@
 
 <h5 id="X-UI"><a href="#X-UI" class="headerlink" title="X-UI"></a>X-UI</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
 
-<h4 id="客户端-Client端"><a href="#客户端-Client端" class="headerlink" title="客户端(Client端)"></a>客户端(Client端)</h4><h3 id="六-美化系统"><a href="#六-美化系统" class="headerlink" title="六.美化系统"></a>六.美化系统</h3><h3 id="七-虚拟化"><a href="#七-虚拟化" class="headerlink" title="七.虚拟化"></a>七.虚拟化</h3><h4 id="1-VMwareWorkstation-篇"><a href="#1-VMwareWorkstation-篇" class="headerlink" title="1.VMwareWorkstation 篇"></a>1.VMwareWorkstation 篇</h4><h4 id="2-VirtualBox篇"><a href="#2-VirtualBox篇" class="headerlink" title="2.VirtualBox篇"></a>2.VirtualBox篇</h4><h4 id="3-docker-篇-初级"><a href="#3-docker-篇-初级" class="headerlink" title="3.docker 篇(初级)"></a>3.docker 篇(初级)</h4><h5 id="一-安装docker"><a href="#一-安装docker" class="headerlink" title="一.安装docker"></a>一.安装docker</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S docker</span><br></pre></td></tr></table></figure>
+<h4 id="客户端-Client端"><a href="#客户端-Client端" class="headerlink" title="客户端(Client端)"></a>客户端(Client端)</h4><h3 id="六-美化系统"><a href="#六-美化系统" class="headerlink" title="六.美化系统"></a>六.美化系统</h3><p>装个像Mac一样的dack</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S latte-dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="七-虚拟化"><a href="#七-虚拟化" class="headerlink" title="七.虚拟化"></a>七.虚拟化</h3><h4 id="1-KVM"><a href="#1-KVM" class="headerlink" title="1.KVM"></a>1.KVM</h4><h5 id="环境检查"><a href="#环境检查" class="headerlink" title="环境检查"></a>环境检查</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查硬件是否支持虚拟化</span></span><br><span class="line">LC_ALL=C lscpu | grep Virtualization</span><br><span class="line"><span class="comment"># 检查内核是否已经包含了支持虚拟化所必须的模块</span></span><br><span class="line">zgrep CONFIG_KVM /proc/config.gz</span><br><span class="line"><span class="comment"># 确定模块是否已经加载</span></span><br><span class="line">lsmod | grep kvm</span><br><span class="line"><span class="comment"># 这里输出中需要包含 virtio</span></span><br><span class="line">lsmod | grep virtio</span><br><span class="line"><span class="comment"># 没有 virtio 时执行</span></span><br><span class="line">sudo modprobe virtio</span><br></pre></td></tr></table></figure>
+
+<h5 id="安装KVM"><a href="#安装KVM" class="headerlink" title="安装KVM"></a>安装KVM</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo  pacman -S qemu libvirt ovmf virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>qemu QEMU 软件，提供 qemu-img 等命令</li>
+<li>libvirt 提供管理虚拟机、存储、网络的功能</li>
+<li>virt-manager, 图形化的管理界面</li>
+<li>virt-viewer是虚拟机查看器，它是一个显示虚拟化客户机的图形界面的工具</li>
+<li>dnsmasq DHCP DNS 服务，用于 default NAT 网络</li>
+<li>bridge-utils 桥接网络管理，用于桥接网络</li>
+<li>openbsd-netcat 用于通过 SSH 管理</li>
+</ul>
+<h5 id="重置虚拟机配置"><a href="#重置虚拟机配置" class="headerlink" title="重置虚拟机配置"></a>重置虚拟机配置</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay -S --noconfirm --needed libguestfs</span><br></pre></td></tr></table></figure>
+
+<h5 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动虚拟机管理后台服务</span></span><br><span class="line">sudo systemctl start libvirtd</span><br><span class="line"><span class="comment"># 启动 default NAT 网络</span></span><br><span class="line">sudo virsh net-start default</span><br></pre></td></tr></table></figure>
+
+<h5 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> libvirtd.service</span><br><span class="line">sudo systemctl start libvirtd.service</span><br></pre></td></tr></table></figure>
+
+<h5 id="添加权限组"><a href="#添加权限组" class="headerlink" title="添加权限组"></a>添加权限组</h5><p>修改<code>libvirtd.conf</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/libvirt/libvirtd.conf</span><br><span class="line"><span class="comment"># 将UNIX域套接字组所有权设置为libvirt（第85行）：</span></span><br><span class="line">unix_sock_group = <span class="string">&quot;libvirt&quot;</span></span><br><span class="line"><span class="comment"># 设置R/W套接字的UNIX套接字权限（第108行）：</span></span><br><span class="line">unix_sock_rw_perms = <span class="string">&quot;0770&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>保存退出，执行下面命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#将你的用户帐户添加到libvirt组：</span></span><br><span class="line">sudo usermod -a -G libvirt $(<span class="built_in">whoami</span>)</span><br><span class="line"><span class="comment"># newgrp 命令使当前普通用户登入到这个群组</span></span><br><span class="line">newgrp libvirt</span><br><span class="line"><span class="comment"># 重启libvirt守护进程：</span></span><br><span class="line">sudo systemctl restart libvirtd.service</span><br></pre></td></tr></table></figure>
+
+<h5 id="开启嵌套虚拟化"><a href="#开启嵌套虚拟化" class="headerlink" title="开启嵌套虚拟化"></a>开启嵌套虚拟化</h5><p>嵌套虚拟化功能使你可以在KVM虚拟机中运行虚拟机，我的CPU是intel的，启用内核模块为kvm_intel，如果是amd的需要改为kvm_amd：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo modprobe -r kvm_intel</span><br><span class="line">sudo modprobe kvm_intel nested=1</span><br><span class="line">要使此配置持久，请运行：</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;options kvm-intel nested=1&quot;</span> | sudo <span class="built_in">tee</span> /etc/modprobe.d/kvm-intel.conf</span><br><span class="line">确认嵌套虚拟化设置为是：</span><br><span class="line">systool -m kvm_intel -v | grep nested</span><br><span class="line">nested              = <span class="string">&quot;Y&quot;</span></span><br><span class="line">nested_early_check  = <span class="string">&quot;N&quot;</span></span><br><span class="line"><span class="built_in">cat</span> /sys/module/kvm_intel/parameters/nested </span><br><span class="line">Y</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-VMwareWorkstation-篇"><a href="#2-VMwareWorkstation-篇" class="headerlink" title="2.VMwareWorkstation 篇"></a>2.VMwareWorkstation 篇</h4><h4 id="3-VirtualBox篇"><a href="#3-VirtualBox篇" class="headerlink" title="3.VirtualBox篇"></a>3.VirtualBox篇</h4><h4 id="4-docker-篇-初级"><a href="#4-docker-篇-初级" class="headerlink" title="4.docker 篇(初级)"></a>4.docker 篇(初级)</h4><h5 id="一-安装docker"><a href="#一-安装docker" class="headerlink" title="一.安装docker"></a>一.安装docker</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S docker</span><br></pre></td></tr></table></figure>
 
 <p>启动docker</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
