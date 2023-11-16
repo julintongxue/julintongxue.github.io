@@ -200,158 +200,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/" class="post-title-link" itemprop="url">版本切换工具篇</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-23 00:22:19" itemprop="dateCreated datePublished" datetime="2022-11-23T00:22:19+08:00">2022-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-11 02:27:42" itemprop="dateModified" datetime="2023-06-11T02:27:42+08:00">2023-06-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="版本切换工具篇"><a href="#版本切换工具篇" class="headerlink" title="版本切换工具篇"></a>版本切换工具篇</h1><h2 id="JENV管理JDK"><a href="#JENV管理JDK" class="headerlink" title="JENV管理JDK"></a>JENV管理JDK</h2><p><strong>jdk全称”Java Development Kit“，指的是Java语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序的开发。jdk是java开发的核心，包括了JRE（Java运行环境）运行时类库、JVM（Java虚拟机）。</strong></p>
-<p><strong>一般，我们需要用到基于Java虚拟机的操作服务时，需要有JDK的环境，这样的Java有两个特点（Write once, run anywhere）：</strong></p>
-<ul>
-<li><strong>易于移植：只需要有Java的虚拟机（JDK）环境，即可运行Java程序。</strong></li>
-<li><strong>需要平台有Java虚拟机支持：Java程序有所限制，需要有Java环境支持</strong></li>
-</ul>
-<p><strong>大部分程序开发者，或者普通用户，都有了解过JDK的配置。但是：</strong></p>
-<ul>
-<li><strong>Linux服务器上怎么配置JDK呢？</strong></li>
-<li><strong>能否实现多版本JDK同时配置安装呢？</strong></li>
-</ul>
-<p><strong>本次教程，就在Linux（ubuntu系统）上安装多版本JDK，并使用Jenv管理JDK。</strong></p>
-<h3 id="安装思路"><a href="#安装思路" class="headerlink" title="安装思路"></a>安装思路</h3><h4 id="常规（传统）安装"><a href="#常规（传统）安装" class="headerlink" title="常规（传统）安装"></a>常规（传统）安装</h4><p><strong>我们通常安装JDK是：</strong></p>
-<ul>
-<li><strong>Centos系统使用<code>yum</code>包管理器安装&#x2F;Ubuntu使用<code>apt</code>包管理器安装，然后直接使用。</strong></li>
-<li><strong>上传源码包、解压源码包、在环境变量文件中追加<code>JAVA_HOME</code>然后<code>source</code>重载配置后使用。</strong></li>
-</ul>
-<h4 id="前卫安装"><a href="#前卫安装" class="headerlink" title="前卫安装"></a>前卫安装</h4><p><strong>在前面常规（传统）安装的前提下，追加<code>Jenv</code>的配置，实现JDK的切换：</strong></p>
-<p><strong>确定使用OpenJDK和JDK的版本之后，使用<a target="_blank" rel="noopener" href="https://www.azul.com/downloads/?package=jdk#download-openjdk">ZuluJDK（一个OpenJDK的发行版本）</a></strong></p>
-<h5 id="安装JDK8"><a href="#安装JDK8" class="headerlink" title="安装JDK8"></a>安装JDK8</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># wget 下载源码包</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># wget https://cdn.azul.com/zulu/bin/zulu8.66.0.15-ca-jdk8.0.352-linux_x64.tar.gz</span></span><br><span class="line"><span class="comment"># 创建源码包保存目录</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># mkdir /JDK</span></span><br><span class="line"><span class="comment"># 解压源码包至保存目录</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># tar -xzvf zulu8.66.0.15-ca-jdk8.0.352-linux_x64.tar.gz -C /JDK/</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置JAVA_HOME</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># vim .bashrc</span></span><br><span class="line"><span class="comment"># JAVA环境变量配置</span></span><br><span class="line">JAVA_HOME=/JDK/jdk8</span><br><span class="line">CLASSPATH=<span class="variable">$JAVA_HOME</span>/lib/</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin/</span><br><span class="line"><span class="built_in">export</span> PATH JAVA_HOME CLASSSPATH</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重载配置</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># source ~/.bashrc </span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看版本（JDK1.8就是JDK8）</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># java -version</span></span><br><span class="line">openjdk version <span class="string">&quot;1.8.0_352&quot;</span></span><br><span class="line">OpenJDK Runtime Environment (Zulu 8.66.0.15-CA-linux64) (build 1.8.0_352-b08)</span><br><span class="line">OpenJDK 64-Bit Server VM (Zulu 8.66.0.15-CA-linux64) (build 25.352-b08, mixed mode)</span><br></pre></td></tr></table></figure>
-
-<h3 id="多版本JDK管理"><a href="#多版本JDK管理" class="headerlink" title="多版本JDK管理"></a>多版本JDK管理</h3><h4 id="安装JENV"><a href="#安装JENV" class="headerlink" title="安装JENV"></a>安装JENV</h4><p><a target="_blank" rel="noopener" href="https://www.jenv.be/">Jenv项目地址</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用git下载jenv源码到用户目录下的.jenv文件夹</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># git clone https://github.com/jenv/jenv.git ~/.jenv</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># vim .bashrc</span></span><br><span class="line"><span class="comment"># Jenv配置环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$HOME</span>/.jenv/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(jenv init -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重载配置(会出现“jenv has been updated, process to refresh plugin links”这句话，说明配置成功)</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># source ~/.bashrc </span></span><br></pre></td></tr></table></figure>
-
-<p><strong>现在jenv就可以使用了：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv help</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="切换JDK"><a href="#切换JDK" class="headerlink" title="切换JDK"></a>切换JDK</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前安装的JDK版本</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 局部JDK11</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv local 11</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局JDK11</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv global 11</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="管理JDK"><a href="#管理JDK" class="headerlink" title="管理JDK"></a>管理JDK</h4><p><strong>有时候，jenv的add扫描，扫描的内容过多怎么办呢？比如，我只添加了JDK8、JDK11,怎么会有这么多版本JDK：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br><span class="line">* system (<span class="built_in">set</span> by /root/.jenv/version)</span><br><span class="line">  11</span><br><span class="line">  11.0</span><br><span class="line">  11.0.17</span><br><span class="line">  1.8.0.352</span><br><span class="line">  1.8</span><br><span class="line">  1.8.0.352</span><br><span class="line">  zulu64-1.8.0.352</span><br></pre></td></tr></table></figure>
-
-<p><strong>这个时候也很简单，使用remove命令即可：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv remove zulu64-1.8.0.352</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv remove 1.8</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br><span class="line">  system</span><br><span class="line">  11.0.17</span><br><span class="line">* 1.8.0.352 (<span class="built_in">set</span> by /root/.jenv/version)</span><br></pre></td></tr></table></figure>
-
-<h2 id="NVM管理Node-js"><a href="#NVM管理Node-js" class="headerlink" title="NVM管理Node.js"></a>NVM管理Node.js</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/11/23/%E6%B8%97%E9%80%8F-and-web/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1493,6 +1341,108 @@
 <p>第五flag到手</p>
 <p><img src="/2022/11/23/%E6%B8%97%E9%80%8F-and-web/image-20221205193743545.png" alt="image-20221205193743545"></p>
 <h2 id="移动手机"><a href="#移动手机" class="headerlink" title="移动手机"></a>移动手机</h2><h3 id="短信轰炸"><a href="#短信轰炸" class="headerlink" title="短信轰炸"></a>短信轰炸</h3><p><a target="_blank" rel="noopener" href="https://github.com/OpenEthan/SMSBoom">SMSBoom</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/11/17/%E6%9C%89%E8%B6%A3%E7%9A%84Web%E9%A1%B5%E9%9D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/17/%E6%9C%89%E8%B6%A3%E7%9A%84Web%E9%A1%B5%E9%9D%A2/" class="post-title-link" itemprop="url">有趣的Web页面</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-17 00:03:56" itemprop="dateCreated datePublished" datetime="2022-11-17T00:03:56+08:00">2022-11-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-17 00:34:29" itemprop="dateModified" datetime="2023-11-17T00:34:29+08:00">2023-11-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%BB%91%E7%A7%91%E6%8A%80/" itemprop="url" rel="index"><span itemprop="name">黑科技</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/11/17/%E6%9C%89%E8%B6%A3%E7%9A%84Web%E9%A1%B5%E9%9D%A2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/17/%E6%9C%89%E8%B6%A3%E7%9A%84Web%E9%A1%B5%E9%9D%A2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://acl4ssr-sub.github.io/">节点转换</a></p>
 
       
     </div>
