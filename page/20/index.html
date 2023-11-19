@@ -123,7 +123,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">58</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">59</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -196,6 +196,144 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/03/28/PHP-Study/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/28/PHP-Study/" class="post-title-link" itemprop="url">PHP_Study</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-28 15:28:18" itemprop="dateCreated datePublished" datetime="2022-03-28T15:28:18+08:00">2022-03-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/03/28/PHP-Study/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/03/28/PHP-Study/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="php连接数据库"><a href="#php连接数据库" class="headerlink" title="php连接数据库"></a>php连接数据库</h2><p>第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">var_dump(<span class="variable">$conn</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>返回这个说明连接成功</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153359251.png" alt="image-20230328153359251"></p>
+<p><strong>返回这个说明数据库连接失败，可能是ip错了</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153537406.png" alt="image-20230328153537406"></p>
+<p><strong>返回这个说明是数据库账号错了</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153756724.png" alt="image-20230328153756724"></p>
+<p><strong>返回这个说明是数据库密码错了</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153829750.png" alt="image-20230328153829750"></p>
+<p><strong>接下来开始连接数据库然后打印数据库表内容</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">// 执行SQL语句,这里是意思是把整张test02表格输出</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">var_dump(<span class="variable">$result</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>*<em>看到这个说明我们执行成功，后面int(4)说我们有4条记录，我们数据表确实有4条记录，那么为啥没有具体是查询出来捏<del>(￣▽￣)</del><em>，我们得转换一下将执行结果转换成为结果集</em></em></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328154327099.png" alt="image-20230328154327099"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">// 执行SQL语句,这里是意思是把整张test02表格输出</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line"><span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>);</span><br><span class="line">var_dump(<span class="variable">$data</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>下面这个则是输出值:(你会发现，为啥我四行的数据表只输出了一行)</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328155530623.png" alt="image-20230328155530623"></p>
+<p><strong>这个时候，我们使用循环遍历，把一个个数据表遍历出来</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">	var_dump(<span class="variable">$data</span>);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/28/PHP-Study/image-20230328161200638.png" alt="image-20230328161200638"></p>
+<p><strong>数据都遍历出来了，但是很密集，我这给它空几行</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    var_dump(<span class="variable">$data</span>);</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>这样看就舒服多了，是不是捏<del>(￣▽￣)</del></strong>*</p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328161509400.png" alt="image-20230328161509400"></p>
+<p><strong>如果我需要它的名字怎么办？</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT name FROM test02&quot;</span>;       <span class="comment">#这里把*改name</span></span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    var_dump(<span class="variable">$data</span>);</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/28/PHP-Study/image-20230328161904981.png" alt="image-20230328161904981"></p>
+<p><strong>但是，还是不够简洁，那么可以改成这样</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;       <span class="comment">#这里把name改*也可以</span></span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$data</span>[<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/28/PHP-Study/image-20230328162301304.png" alt="image-20230328162301304"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -395,7 +533,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -579,6 +717,26 @@ window.addEventListener('pjax:success', () => {
 
 
 
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
 
 
 
