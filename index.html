@@ -231,7 +231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-22 01:53:13" itemprop="dateModified" datetime="2023-11-22T01:53:13+08:00">2023-11-22</time>
+                <time title="修改时间：2023-11-22 17:50:02" itemprop="dateModified" datetime="2023-11-22T17:50:02+08:00">2023-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -263,7 +263,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>609</span>
+              <span>974</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -286,8 +286,13 @@
 <h1 id="Arch竟能安装游戏"><a href="#Arch竟能安装游戏" class="headerlink" title="Arch竟能安装游戏"></a>Arch竟能安装游戏</h1><h2 id="steam"><a href="#steam" class="headerlink" title="steam"></a>steam</h2><p><strong>打完显卡驱动之后咧，我们就能下steam愉快的玩<code>apex、文明6、空洞骑士等游戏</code>了</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S steam</span><br></pre></td></tr></table></figure>
 
-<p><strong>这边下完steam完成更新和登录要进设置<code>中文</code>和这个<code>兼容性</code>，语言你可以不设置，但是兼容性一定要开，不然下不了游戏，即使下了也是win端的linux没办法打开。</strong></p>
+<p><strong>为了让 SteamDeck (搭载基于 Arch Linux 的魔改版) 能卖出去, Valve 开发了 Steam Proton (基于 wine), 这个软件可以让 Linux 运行只有 Windows 能玩的游戏, 我们把这个功能打开后就可以玩绝大多数游戏啦！！！</strong></p>
+<p><strong>所以这边下完steam完成更新和登录要进设置<code>中文</code>和这个<code>兼容性</code>，语言你可以不设置，但是兼容性一定要开，不然下不了游戏，即使下了也是win端的linux没办法打开。</strong></p>
 <p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_012423.png" alt="Screenshot_20231122_012423"></p>
+<p><strong>筛选掉不支持 Linux 的游戏</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_173911.png" alt="Screenshot_20231122_173911"></p>
+<p><strong>下个apex玩玩！</strong></p>
+<p><strong>运行游戏需要预编译 Vulkan 着色器, 是个很吃 CPU 的操作, 耐心等待一断时间就好。</strong></p>
 <h2 id="Lutris"><a href="#Lutris" class="headerlink" title="Lutris"></a><a target="_blank" rel="noopener" href="https://lutris.net/">Lutris</a></h2><p><strong><a target="_blank" rel="noopener" href="https://lutris.net/">Lutris</a> 是一个视频游戏保存平台，旨在让您的视频游戏收藏在未来几年保持正常运行。 多年来，视频游戏经历了许多不同的硬件和软件平台。通过提供可用于运行游戏的最佳软件，<a target="_blank" rel="noopener" href="https://lutris.net/">Lutris</a> 使您可以轻松运行所有新旧游戏。</strong></p>
 <p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_013507.png" alt="Screenshot_20231122_013507"></p>
 <p><strong>目前，该平台能很好的使用<code>Steam、Epic Games Store、GOG 和 Humble Bundle</code> 游戏库，但是我这里只做部分（Epic和EA平台）补充说明。</strong></p>
@@ -303,6 +308,23 @@
 <p><strong>完成<code>wine安装</code>再点击左边的<code>EA App</code>，就能很顺利的安装上EA平台了，但目前由于我的硬盘受限没有安装游戏实验下去。</strong></p>
 <p><strong>最后，来张<code>steam、lutris、epic、ea</code>四app同台合影</strong></p>
 <p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_014908.png" alt="Screenshot_20231122_014908"></p>
+<h2 id="Minecraft"><a href="#Minecraft" class="headerlink" title="Minecraft"></a>Minecraft</h2><h3 id="国际版启动器"><a href="#国际版启动器" class="headerlink" title="国际版启动器"></a>国际版启动器</h3><p> <strong>微软官方正版MC(国际版)</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S minecraft-launcher</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_165224.png" alt="Screenshot_20231122_165224"></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_165341.png" alt="Screenshot_20231122_165341"></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_165435.png" alt="Screenshot_20231122_165435"></p>
+<p><strong>但目前只有JAVA版是能用的其他版本例如基岩都是显示设备不可用</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_165729.png" alt="Screenshot_20231122_165729"></p>
+<p><strong>下面是JAVA版的展示</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_170242.png" alt="Screenshot_20231122_170242"></p>
+<p><strong>根据下图可以看出目前是没有调用电脑的独显的，仅仅是使用了核显</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_170529.png" alt="Screenshot_20231122_170529"></p>
+<h3 id="HMCL"><a href="#HMCL" class="headerlink" title="HMCL"></a>HMCL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S hmcl-stable-bin</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_173619.png" alt="Screenshot_20231122_173619"></p>
+<p><strong>进去游戏还是可以看到没有调用显卡，那么后期还得针对游戏进行显卡优化</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_173558.png" alt="Screenshot_20231122_173558"></p>
 
       
     </div>

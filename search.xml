@@ -7,8 +7,13 @@
 <h1 id="Arch竟能安装游戏"><a href="#Arch竟能安装游戏" class="headerlink" title="Arch竟能安装游戏"></a>Arch竟能安装游戏</h1><h2 id="steam"><a href="#steam" class="headerlink" title="steam"></a>steam</h2><p><strong>打完显卡驱动之后咧，我们就能下steam愉快的玩<code>apex、文明6、空洞骑士等游戏</code>了</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S steam</span><br></pre></td></tr></table></figure>
 
-<p><strong>这边下完steam完成更新和登录要进设置<code>中文</code>和这个<code>兼容性</code>，语言你可以不设置，但是兼容性一定要开，不然下不了游戏，即使下了也是win端的linux没办法打开。</strong></p>
+<p><strong>为了让 SteamDeck (搭载基于 Arch Linux 的魔改版) 能卖出去, Valve 开发了 Steam Proton (基于 wine), 这个软件可以让 Linux 运行只有 Windows 能玩的游戏, 我们把这个功能打开后就可以玩绝大多数游戏啦！！！</strong></p>
+<p><strong>所以这边下完steam完成更新和登录要进设置<code>中文</code>和这个<code>兼容性</code>，语言你可以不设置，但是兼容性一定要开，不然下不了游戏，即使下了也是win端的linux没办法打开。</strong></p>
 <p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_012423.png" alt="Screenshot_20231122_012423"></p>
+<p><strong>筛选掉不支持 Linux 的游戏</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_173911.png" alt="Screenshot_20231122_173911"></p>
+<p><strong>下个apex玩玩！</strong></p>
+<p><strong>运行游戏需要预编译 Vulkan 着色器, 是个很吃 CPU 的操作, 耐心等待一断时间就好。</strong></p>
 <h2 id="Lutris"><a href="#Lutris" class="headerlink" title="Lutris"></a><a href="https://lutris.net/">Lutris</a></h2><p><strong><a href="https://lutris.net/">Lutris</a> 是一个视频游戏保存平台，旨在让您的视频游戏收藏在未来几年保持正常运行。 多年来，视频游戏经历了许多不同的硬件和软件平台。通过提供可用于运行游戏的最佳软件，<a href="https://lutris.net/">Lutris</a> 使您可以轻松运行所有新旧游戏。</strong></p>
 <p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_013507.png" alt="Screenshot_20231122_013507"></p>
 <p><strong>目前，该平台能很好的使用<code>Steam、Epic Games Store、GOG 和 Humble Bundle</code> 游戏库，但是我这里只做部分（Epic和EA平台）补充说明。</strong></p>
@@ -24,6 +29,23 @@
 <p><strong>完成<code>wine安装</code>再点击左边的<code>EA App</code>，就能很顺利的安装上EA平台了，但目前由于我的硬盘受限没有安装游戏实验下去。</strong></p>
 <p><strong>最后，来张<code>steam、lutris、epic、ea</code>四app同台合影</strong></p>
 <p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_014908.png" alt="Screenshot_20231122_014908"></p>
+<h2 id="Minecraft"><a href="#Minecraft" class="headerlink" title="Minecraft"></a>Minecraft</h2><h3 id="国际版启动器"><a href="#国际版启动器" class="headerlink" title="国际版启动器"></a>国际版启动器</h3><p> <strong>微软官方正版MC(国际版)</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay -S minecraft-launcher</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_165224.png" alt="Screenshot_20231122_165224"></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_165341.png" alt="Screenshot_20231122_165341"></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_165435.png" alt="Screenshot_20231122_165435"></p>
+<p><strong>但目前只有JAVA版是能用的其他版本例如基岩都是显示设备不可用</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_165729.png" alt="Screenshot_20231122_165729"></p>
+<p><strong>下面是JAVA版的展示</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_170242.png" alt="Screenshot_20231122_170242"></p>
+<p><strong>根据下图可以看出目前是没有调用电脑的独显的，仅仅是使用了核显</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_170529.png" alt="Screenshot_20231122_170529"></p>
+<h3 id="HMCL"><a href="#HMCL" class="headerlink" title="HMCL"></a>HMCL</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay -S hmcl-stable-bin</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_173619.png" alt="Screenshot_20231122_173619"></p>
+<p><strong>进去游戏还是可以看到没有调用显卡，那么后期还得针对游戏进行显卡优化</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_173558.png" alt="Screenshot_20231122_173558"></p>
 ]]></content>
       <categories>
         <category>Linux系统</category>
@@ -1106,7 +1128,7 @@
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Syyu                     <span class="comment">#更新整个系统</span></span><br><span class="line">pacman -S archlinuxcn-keyring    <span class="comment">#安装密钥环密钥</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="注意：如果更新的时候出现manjaro-pacman：“GPGME错误：无数据”问题"><a href="#注意：如果更新的时候出现manjaro-pacman：“GPGME错误：无数据”问题" class="headerlink" title="注意：如果更新的时候出现manjaro  pacman：“GPGME错误：无数据”问题"></a>注意：如果更新的时候出现manjaro  pacman：“GPGME错误：无数据”问题</h4><p>如下所示：</p>
+<h5 id="注意：如果更新的时候出现manjaro-pacman：“GPGME错误：无数据”问题"><a href="#注意：如果更新的时候出现manjaro-pacman：“GPGME错误：无数据”问题" class="headerlink" title="注意：如果更新的时候出现manjaro  pacman：“GPGME错误：无数据”问题"></a>注意：如果更新的时候出现manjaro  pacman：“GPGME错误：无数据”问题</h5><p>如下所示：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Syyu</span><br><span class="line">错误：GPGME error: 无数据</span><br><span class="line">错误：GPGME error: 无数据</span><br><span class="line">错误：GPGME error: 无数据</span><br><span class="line">错误：GPGME error: 无数据</span><br><span class="line">错误：GPGME error: 无数据</span><br><span class="line">:: 正在同步软件包数据库...</span><br><span class="line"> core 已经是最新版本        0.0   B  0.00B/s 00:00 [----------------------]   0%</span><br><span class="line"> extra 已经是最新版本       0.0   B  0.00B/s 00:00 [----------------------]   0%</span><br><span class="line"> community 已经是最新版本   0.0   B  0.00B/s 00:00 [----------------------]   0%</span><br><span class="line"> multilib-testing 已经是最新版本  B  0.00B/s 00:00 [----------------------]   0%</span><br><span class="line"> multilib 已经是最新版本    0.0   B  0.00B/s 00:00 [----------------------]   0%</span><br><span class="line">错误：数据库 <span class="string">&#x27;core&#x27;</span> 无效 (无效或已损坏的数据库 (PGP 签名))</span><br><span class="line">错误：数据库 <span class="string">&#x27;extra&#x27;</span> 无效 (无效或已损坏的数据库 (PGP 签名))</span><br><span class="line">错误：数据库 <span class="string">&#x27;community&#x27;</span> 无效 (无效或已损坏的数据库 (PGP 签名))</span><br><span class="line">错误：数据库 <span class="string">&#x27;multilib-testing&#x27;</span> 无效 (无效或已损坏的数据库 (PGP 签名))</span><br><span class="line">错误：数据库 <span class="string">&#x27;multilib&#x27;</span> 无效 (无效或已损坏的数据库 (PGP 签名))</span><br></pre></td></tr></table></figure>
 
 <p>只需要执行这条命令就可以正常启动</p>
@@ -1121,13 +1143,31 @@
 <p><a href="https://aur.archlinux.org/packages/">Archlinux庞大的AUR软件包地址，需要软件包直接进去搜索</a></p>
 <h4 id="4-安装一个非常重要的基础库base-devel"><a href="#4-安装一个非常重要的基础库base-devel" class="headerlink" title="4.安装一个非常重要的基础库base-devel"></a>4.安装一个非常重要的基础库base-devel</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo pacman -S base-devel</span><br><span class="line">#:: 在组 base-devel 中有 24 成员：</span><br><span class="line">#:: 软件仓库 core</span><br><span class="line">   1) autoconf  2) automake  3) binutils  4) bison  5) fakeroot  6) file  7) findutils  8) flex  9) gawk</span><br><span class="line">   10) gcc  11) gettext  12) grep  13) groff  14) gzip  15) libtool  16) m4  17) make  18) pacman  19) patch</span><br><span class="line">   20) pkgconf  21) sed  22) sudo  23) texinfo  24) which</span><br><span class="line">#这个基础包必须安装，否则我们在使用yay安装AUR软件的时候经常会遇到安装不上的问题。</span><br></pre></td></tr></table></figure>
 
-<h4 id="5-办公套件WPS"><a href="#5-办公套件WPS" class="headerlink" title="5.办公套件WPS"></a>5.办公套件WPS</h4><p><strong>虽然安装manjaro的时候让你选择了办公套件，但是全英文的真是一言难尽。还是用回国产吧！</strong></p>
+<h4 id="5-浏览器"><a href="#5-浏览器" class="headerlink" title="5.浏览器"></a>5.浏览器</h4><h5 id="谷歌浏览器"><a href="#谷歌浏览器" class="headerlink" title="谷歌浏览器"></a>谷歌浏览器</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay -S google-chrome</span><br></pre></td></tr></table></figure>
+
+<h5 id="Chromium"><a href="#Chromium" class="headerlink" title="Chromium"></a>Chromium</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S chromium</span><br></pre></td></tr></table></figure>
+
+<h5 id="火狐浏览器"><a href="#火狐浏览器" class="headerlink" title="火狐浏览器"></a>火狐浏览器</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S firefox</span><br></pre></td></tr></table></figure>
+
+<p><strong>中文汉化</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S firefox-i18n-zh-cn</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-办公套件WPS"><a href="#6-办公套件WPS" class="headerlink" title="6.办公套件WPS"></a>6.办公套件WPS</h4><p><strong>虽然安装manjaro的时候让你选择了办公套件，但是全英文的真是一言难尽。还是用回国产吧！</strong></p>
 <p><strong>那就直接<code>AUR</code>库安装wps咯</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay -S wps-office-mui-zh-cn wps-office-mime-cn wps-office-cn wps-office-fonts ttf-ms-fonts  ttf-wps-fonts</span><br></pre></td></tr></table></figure>
 
 <p><strong><code>ttf-wps-fonts</code>、<code>wps-office-fonts</code>和<code>ttf-ms-fonts</code>是安装字体的，可选安装的，我这就懒了，直接一把梭呗！</strong></p>
-<h4 id="6-安装Jetbra全家桶-以Pycharm为例子"><a href="#6-安装Jetbra全家桶-以Pycharm为例子" class="headerlink" title="6.安装Jetbra全家桶(以Pycharm为例子)"></a>6.安装Jetbra全家桶(以Pycharm为例子)</h4><a href="/2023/11/19/Manjaro-install-Pycharm-Professional/" title="Manjaro_install_Pycharm_Professional">Manjaro_install_Pycharm_Professional</a>
+<h4 id="7-安装Jetbra全家桶-以Pycharm为例子"><a href="#7-安装Jetbra全家桶-以Pycharm为例子" class="headerlink" title="7.安装Jetbra全家桶(以Pycharm为例子)"></a>7.安装Jetbra全家桶(以Pycharm为例子)</h4><a href="/2023/11/19/Manjaro-install-Pycharm-Professional/" title="Manjaro_install_Pycharm_Professional">Manjaro_install_Pycharm_Professional</a>
 
+<h4 id="8-安装obs"><a href="#8-安装obs" class="headerlink" title="8.安装obs"></a>8.安装obs</h4><p><strong>使用命令下面命令安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay -S obs-studio</span><br></pre></td></tr></table></figure>
+
+<p><strong>你启动obs的时候可以看到启动然后马上闪退</strong></p>
+<p><strong>这里只需要把<code>libva-vdpau-driver</code>这个包删了就行了</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -R libva-vdpau-driver</span><br></pre></td></tr></table></figure>
+
+<p><strong>然后，就能正常使用obs了</strong></p>
+<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231122_150148.png" alt="Screenshot_20231122_150148"></p>
 <h3 id="安装输入法"><a href="#安装输入法" class="headerlink" title="安装输入法"></a>安装输入法</h3><p><a href="https://wiki.archlinux.org/index.php/Fcitx5_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Fcitx5 官方文档</a><br>中文及日文输入法均体验良好。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S fcitx5-im <span class="comment">#基础包组</span></span><br><span class="line">sudo pacman -S fcitx5-chinese-addons <span class="comment">#官方中文输入引擎</span></span><br><span class="line">sudo pacman -S fcitx5-anthy <span class="comment">#日文输入引擎</span></span><br><span class="line">yay -S fcitx5-pinyin-moegirl <span class="comment">#萌娘百科词库 由于中国大陆政府对github封锁，你可能在此卡住。如卡住，可根据后文设置好代理后再安装</span></span><br><span class="line">sudo pacman -S fcitx5-pinyin-zhwiki <span class="comment">#中文维基百科词库</span></span><br><span class="line">sudo pacman -S fcitx5-material-color <span class="comment">#主题</span></span><br></pre></td></tr></table></figure>
 
