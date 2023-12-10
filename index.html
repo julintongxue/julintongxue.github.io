@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">59</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">61</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -196,6 +196,124 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot%20currently%20show%20the%20desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot%20currently%20show%20the%20desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">raspberry系统VNC连接报Cannot currently show the desktop错误解决</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-12-10 20:11:36" itemprop="dateCreated datePublished" datetime="2023-12-10T20:11:36+08:00">2023-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-12-11 00:42:08" itemprop="dateModified" datetime="2023-12-11T00:42:08+08:00">2023-12-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot%20currently%20show%20the%20desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot%20currently%20show%20the%20desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="raspberry系统VNC连接报“Cannot-currently-show-the-desktop”错误解决"><a href="#raspberry系统VNC连接报“Cannot-currently-show-the-desktop”错误解决" class="headerlink" title="raspberry系统VNC连接报“Cannot currently show the desktop”错误解决"></a>raspberry系统VNC连接报“Cannot currently show the desktop”错误解决</h1><p><strong>某天我装了树莓派官方的系统，开启了vnc就快乐得做起单片机实验，可惜天有不测之风云，宿舍停电了。等我缴清宿舍电费之后，煎熬得等电到后，我怀着急切的心情登录vnc看看代码状况，因为我没有时刻按<code>ctrl+s</code>的习惯，所以我肯定得重新写代码。</strong></p>
+<p><strong>那么，我在重新登陆VNC的时候就看到了这个</strong></p>
+<p>![image-20231202215551062](raspberry系统VNC连接报Cannot currently show the desktop错误解决&#x2F;image-20231202215551062.png)</p>
+<p><strong>所以，我目前无法登录VNC，我用ssh登录了树莓派，检查了VNC服务是正常开启的，所以就开始我的排查之路</strong></p>
+<p><strong>我能找到的办法就是更改更高的分辨率即可，是的就是这么简单粗暴</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
+
+<p><strong>选择<code> Advanced Options</code>选项</strong></p>
+<p>![image-20231202221549017](raspberry系统VNC连接报Cannot currently show the desktop错误解决&#x2F;image-20231202221549017.png)</p>
+<p><strong>然后选择<code>Resolution</code>选项</strong></p>
+<p>![image-20231202222000138](raspberry系统VNC连接报Cannot currently show the desktop错误解决&#x2F;image-20231202222000138.png)</p>
+<p><strong>我这里就选<code>DMT Mode 16 1024x768 60Hz 4:3</code>了，你喜欢就选<code>DMT Mode 82 1920x1080 60Hz 16:9</code>都没问题的</strong></p>
+<p>![image-20231202222049948](raspberry系统VNC连接报Cannot currently show the desktop错误解决&#x2F;image-20231202222049948.png)</p>
+<p><strong>然后，确认、重启就行了</strong></p>
+<p>![image-20231202222409846](raspberry系统VNC连接报Cannot currently show the desktop错误解决&#x2F;image-20231202222409846.png)</p>
+<p>![image-20231202222337513](raspberry系统VNC连接报Cannot currently show the desktop错误解决&#x2F;image-20231202222337513.png)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -456,123 +574,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="post-title-link" itemprop="url">python多进程和多线程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-10-23 10:38:39 / 修改时间：11:13:36" itemprop="dateCreated datePublished" datetime="2023-10-23T10:38:39+08:00">2023-10-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="python单进程"><a href="#python单进程" class="headerlink" title="python单进程"></a>python单进程</h3><h4 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ping</span>(<span class="params">host</span>):</span><br><span class="line">    result = subprocess.run(</span><br><span class="line">        <span class="string">&#x27;ping -c2 %s &amp;&gt; /dev/null&#x27;</span> % host,shell=<span class="literal">True</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">if</span> result.returncode == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:up&#x27;</span>% host)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:down&#x27;</span>% host)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    ips = [<span class="string">&#x27;192.168.0.%s&#x27;</span> %i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">255</span>)]</span><br><span class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> ips:</span><br><span class="line">        ping(ip)</span><br></pre></td></tr></table></figure>
-
-<p><strong>这个会ping得很慢，因为要等待前一个进程得到结果才能运行下一个命令</strong></p>
-<h3 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h3><h4 id="ping2"><a href="#ping2" class="headerlink" title="ping2"></a>ping2</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ping</span>(<span class="params">host</span>):</span><br><span class="line">    result = subprocess.run(</span><br><span class="line">        <span class="string">&#x27;ping -c2 %s &amp;&gt; /dev/null&#x27;</span> % host,shell=<span class="literal">True</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">if</span> result.returncode == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:up&#x27;</span>% host)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:down&#x27;</span>% host)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    ips = [<span class="string">&#x27;192.168.0.%s&#x27;</span> %i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">255</span>)]</span><br><span class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> ips:</span><br><span class="line">        ret_val = os.fork()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> ret_val:    </span><br><span class="line">            ping(ip)</span><br><span class="line">            exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>这个就会很快，因为用了多进程的概念(注意：是多进程不是多线程)</strong></p>
-<p><strong>Windows是没有多进程的概念的，只有多线程；Linux有多进程和多线程的概念，两者要注意分开！！！！</strong></p>
-<h3 id="产生僵死进程"><a href="#产生僵死进程" class="headerlink" title="产生僵死进程"></a>产生僵死进程</h3><h4 id="frozen-process"><a href="#frozen-process" class="headerlink" title="frozen_process"></a>frozen_process</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;starting&#x27;</span>)</span><br><span class="line">ret_val = os.fork()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ret_val:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in parent&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">30</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;parent done&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in child&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">15</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;child done&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20231023104631420.png" alt="image-20231023104631420"></p>
-<p><img src="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20231023104703212.png" alt="image-20231023104703212"></p>
-<h3 id="线程挂起与不挂起-os-waitpid"><a href="#线程挂起与不挂起-os-waitpid" class="headerlink" title="线程挂起与不挂起_os.waitpid()"></a>线程挂起与不挂起_os.waitpid()</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.waitpid(-1,0) <span class="comment"># 挂起父进程，子进程会被父进程看管，子进程一旦干完活马上被父进程杀死。期间不会产生僵死进程</span></span><br><span class="line">os.waitpid(-1,1) <span class="comment"># 不挂起父进程，子进程不会被父进程看管，会产生僵死进程。如父进程时间到了，结束了进程，子进程如果还有东西运行就继续运行下去(父进程迁移成为system)，如果没有运行的东西(父进程迁移成为system)被system马上杀死</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="挂起父进程"><a href="#挂起父进程" class="headerlink" title="挂起父进程"></a>挂起父进程</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;starting&#x27;</span>)</span><br><span class="line">ret_val = os.fork()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ret_val:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in parent&#x27;</span>)</span><br><span class="line">    result = os.waitpid(-<span class="number">1</span>,<span class="number">0</span>)   <span class="comment"># 挂起父进程</span></span><br><span class="line">    <span class="built_in">print</span>(result)               <span class="comment"># result是元组:(子进程pid，0)</span></span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;parent done&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in child&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;child done&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>父进程<code>print(&#39;in parent&#39;)</code>，然后运行到<code>os.waitpid(-1,0)</code>父进程挂起,子进程干活<code>print(&#39;in child&#39;)</code>,睡觉5秒后<code>print(&#39;child done&#39;)</code>,父进程开始杀死子进程，并且打印<code>print(result)</code>，睡觉3秒后<code>print(&#39;parent done&#39;)</code></p>
-<h4 id="不挂起父进程"><a href="#不挂起父进程" class="headerlink" title="不挂起父进程"></a>不挂起父进程</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;starting&#x27;</span>)</span><br><span class="line">ret_val = os.fork()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ret_val:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in parent&#x27;</span>)</span><br><span class="line">    result = os.waitpid(-<span class="number">1</span>,<span class="number">1</span>)   <span class="comment"># 不挂起父进程</span></span><br><span class="line">    <span class="built_in">print</span>(result)               <span class="comment"># result是元组:(0，0)</span></span><br><span class="line">    time.sleep(<span class="number">10</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;parent done&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in child&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;child done&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -644,7 +649,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
