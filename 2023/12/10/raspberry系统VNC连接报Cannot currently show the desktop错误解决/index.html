@@ -29,12 +29,14 @@
 <meta property="og:site_name" content="orangeの博客">
 <meta property="og:description" content="[toc] raspberry系统VNC连接报“Cannot currently show the desktop”错误解决某天我装了树莓派官方的系统，开启了vnc就快乐得做起单片机实验，可惜天有不测之风云，宿舍停电了。等我缴清宿舍电费之后，煎熬得等电到后，我怀着急切的心情登录vnc看看代码状况，因为我没有时刻按ctrl+s的习惯，所以我肯定得重新写代码。 那么，我在重新登陆VNC的时候就看到了这">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot%20currently%20show%20the%20desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/image-20231202215551062.png">
 <meta property="article:published_time" content="2023-12-10T12:11:36.000Z">
-<meta property="article:modified_time" content="2023-12-10T16:42:08.824Z">
+<meta property="article:modified_time" content="2023-12-11T00:26:54.939Z">
 <meta property="article:author" content="涩橙子">
 <meta property="article:tag" content="树莓派">
 <meta property="article:tag" content="单片机">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://julintongxue.github.io/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot%20currently%20show%20the%20desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/image-20231202215551062.png">
 
 <link rel="canonical" href="https://julintongxue.github.io/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot%20currently%20show%20the%20desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/">
 
@@ -235,7 +237,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-11 00:42:08" itemprop="dateModified" datetime="2023-12-11T00:42:08+08:00">2023-12-11</time>
+                <time title="修改时间：2023-12-11 08:26:54" itemprop="dateModified" datetime="2023-12-11T08:26:54+08:00">2023-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -267,7 +269,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>962</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -289,7 +291,7 @@
         <p>[toc]</p>
 <h1 id="raspberry系统VNC连接报“Cannot-currently-show-the-desktop”错误解决"><a href="#raspberry系统VNC连接报“Cannot-currently-show-the-desktop”错误解决" class="headerlink" title="raspberry系统VNC连接报“Cannot currently show the desktop”错误解决"></a>raspberry系统VNC连接报“Cannot currently show the desktop”错误解决</h1><p><strong>某天我装了树莓派官方的系统，开启了vnc就快乐得做起单片机实验，可惜天有不测之风云，宿舍停电了。等我缴清宿舍电费之后，煎熬得等电到后，我怀着急切的心情登录vnc看看代码状况，因为我没有时刻按<code>ctrl+s</code>的习惯，所以我肯定得重新写代码。</strong></p>
 <p><strong>那么，我在重新登陆VNC的时候就看到了这个</strong></p>
-<p>![image-20231202215551062](raspberry系统VNC连接报Cannot currently show the desktop错误解决&#x2F;image-20231202215551062.png)</p>
+<p><img src="/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot%20currently%20show%20the%20desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/image-20231202215551062.png" alt="image-20231202215551062"></p>
 <p><strong>所以，我目前无法登录VNC，我用ssh登录了树莓派，检查了VNC服务是正常开启的，所以就开始我的排查之路</strong></p>
 <p><strong>我能找到的办法就是更改更高的分辨率即可，是的就是这么简单粗暴</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
