@@ -2839,35 +2839,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>raspberry系统VNC连接报Cannot currently show the desktop错误解决</title>
-    <url>/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot%20currently%20show%20the%20desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<p>[toc]</p>
-<h1 id="raspberry系统VNC连接报“Cannot-currently-show-the-desktop”错误解决"><a href="#raspberry系统VNC连接报“Cannot-currently-show-the-desktop”错误解决" class="headerlink" title="raspberry系统VNC连接报“Cannot currently show the desktop”错误解决"></a>raspberry系统VNC连接报“Cannot currently show the desktop”错误解决</h1><p><strong>某天我装了树莓派官方的系统，开启了vnc就快乐得做起单片机实验，可惜天有不测之风云，宿舍停电了。等我缴清宿舍电费之后，煎熬得等电到后，我怀着急切的心情登录vnc看看代码状况，因为我没有时刻按<code>ctrl+s</code>的习惯，所以我肯定得重新写代码。</strong></p>
-<p><strong>那么，我在重新登陆VNC的时候就看到了这个</strong></p>
-<p><img src="/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot%20currently%20show%20the%20desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/image-20231202215551062.png" alt="image-20231202215551062"></p>
-<p><strong>所以，我目前无法登录VNC，我用ssh登录了树莓派，检查了VNC服务是正常开启的，所以就开始我的排查之路</strong></p>
-<p><strong>我能找到的办法就是更改更高的分辨率即可，是的就是这么简单粗暴</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
-
-<p><strong>选择<code> Advanced Options</code>选项</strong></p>
-<p>![image-20231202221549017](raspberry系统VNC连接报Cannot currently show the desktop错误解决&#x2F;image-20231202221549017.png)</p>
-<p><strong>然后选择<code>Resolution</code>选项</strong></p>
-<p>![image-20231202222000138](raspberry系统VNC连接报Cannot currently show the desktop错误解决&#x2F;image-20231202222000138.png)</p>
-<p><strong>我这里就选<code>DMT Mode 16 1024x768 60Hz 4:3</code>了，你喜欢就选<code>DMT Mode 82 1920x1080 60Hz 16:9</code>都没问题的</strong></p>
-<p>![image-20231202222049948](raspberry系统VNC连接报Cannot currently show the desktop错误解决&#x2F;image-20231202222049948.png)</p>
-<p><strong>然后，确认、重启就行了</strong></p>
-<p>![image-20231202222409846](raspberry系统VNC连接报Cannot currently show the desktop错误解决&#x2F;image-20231202222409846.png)</p>
-<p>![image-20231202222337513](raspberry系统VNC连接报Cannot currently show the desktop错误解决&#x2F;image-20231202222337513.png)</p>
-]]></content>
-      <categories>
-        <category>娱乐单片机</category>
-      </categories>
-      <tags>
-        <tag>树莓派</tag>
-        <tag>单片机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ssh反向代理</title>
     <url>/2022/08/09/ssh%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
     <content><![CDATA[<p>[toc]</p>
@@ -5216,6 +5187,35 @@
       <tags>
         <tag>渗透</tag>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>raspberry系统VNC连接报Cannot currently show the desktop错误解决</title>
+    <url>/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot-currently-show-the-desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h1 id="raspberry系统VNC连接报“Cannot-currently-show-the-desktop”错误解决"><a href="#raspberry系统VNC连接报“Cannot-currently-show-the-desktop”错误解决" class="headerlink" title="raspberry系统VNC连接报“Cannot currently show the desktop”错误解决"></a>raspberry系统VNC连接报“Cannot currently show the desktop”错误解决</h1><p><strong>某天我装了树莓派官方的系统，开启了vnc就快乐得做起单片机实验，可惜天有不测之风云，宿舍停电了。等我缴清宿舍电费之后，煎熬得等电到后，我怀着急切的心情登录vnc看看代码状况，因为我没有时刻按<code>ctrl+s</code>的习惯，所以我肯定得重新写代码。</strong></p>
+<p><strong>那么，我在重新登陆VNC的时候就看到了这个</strong></p>
+<p><img src="/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot-currently-show-the-desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/image-20231202215551062.png" alt="image-20231202215551062"></p>
+<p><strong>所以，我目前无法登录VNC，我用ssh登录了树莓派，检查了VNC服务是正常开启的，所以就开始我的排查之路</strong></p>
+<p><strong>我能找到的办法就是更改更高的分辨率即可，是的就是这么简单粗暴</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
+
+<p><strong>选择<code> Advanced Options</code>选项</strong></p>
+<p><img src="/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot-currently-show-the-desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/image-20231202221549017.png" alt="image-20231202221549017"></p>
+<p><strong>然后选择<code>Resolution</code>选项</strong></p>
+<p><img src="/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot-currently-show-the-desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/image-20231202222000138.png" alt="image-20231202222000138"></p>
+<p><strong>我这里就选<code>DMT Mode 16 1024x768 60Hz 4:3</code>了，你喜欢就选<code>DMT Mode 82 1920x1080 60Hz 16:9</code>都没问题的</strong></p>
+<p><img src="/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot-currently-show-the-desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/image-20231202222049948.png" alt="image-20231202222049948"></p>
+<p><strong>然后，确认、重启就行了</strong></p>
+<p><img src="/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot-currently-show-the-desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/image-20231202222409846.png" alt="image-20231202222409846"></p>
+<p><img src="/2023/12/10/raspberry%E7%B3%BB%E7%BB%9FVNC%E8%BF%9E%E6%8E%A5%E6%8A%A5Cannot-currently-show-the-desktop%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/image-20231202222337513.png" alt="image-20231202222337513"></p>
+]]></content>
+      <categories>
+        <category>娱乐单片机</category>
+      </categories>
+      <tags>
+        <tag>树莓派</tag>
+        <tag>单片机</tag>
       </tags>
   </entry>
 </search>
