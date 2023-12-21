@@ -120,12 +120,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">61</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">72</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -135,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">41</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">43</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2021/08/09/Java%E5%85%A5%E9%97%A8/">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/19/MYSQL-5-7-16-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -214,7 +214,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/09/Java%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">Java入门</a>
+            <a href="/2022/07/19/MYSQL-5-7-16-install/" class="post-title-link" itemprop="url">MYSQL_5.7.16_install</a>
         </h2>
 
         <div class="post-meta">
@@ -224,14 +224,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-09 16:35:55" itemprop="dateCreated datePublished" datetime="2021-08-09T16:35:55+08:00">2021-08-09</time>
+              <time title="创建时间：2022-07-19 20:37:24" itemprop="dateCreated datePublished" datetime="2022-07-19T20:37:24+08:00">2022-07-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-13 17:20:19" itemprop="dateModified" datetime="2023-08-13T17:20:19+08:00">2023-08-13</time>
+                <time title="修改时间：2023-05-01 19:09:55" itemprop="dateModified" datetime="2023-05-01T19:09:55+08:00">2023-05-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,7 +239,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
             </span>
 
@@ -252,8 +252,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/08/09/Java%E5%85%A5%E9%97%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/09/Java%E5%85%A5%E9%97%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/07/19/MYSQL-5-7-16-install/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/19/MYSQL-5-7-16-install/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -263,14 +263,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.2k</span>
+              <span>5.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -283,29 +283,322 @@
 
       
           <p>[toc]</p>
-<h2 id="Helloworld"><a href="#Helloworld" class="headerlink" title="Helloworld"></a>Helloworld</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Helloworld</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;你好世界！！！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="一-MYSQL"><a href="#一-MYSQL" class="headerlink" title="一.MYSQL"></a>一.MYSQL</h1><h3 id="1-MYSQL简介"><a href="#1-MYSQL简介" class="headerlink" title="1.MYSQL简介"></a><strong>1.MYSQL简介</strong></h3><p>​		MYSQL 是一种开源的关系型数据库产品，具有开放式的架构。MYSQL最初由瑞典MYSQL AB 公司研发，后被SUN 公司收购，最后被Oracle公司收购。</p>
+<p>​		MYSQL 数据库是传统的关系型数据库，其开放式的架构使得用户有更多的选择。当下大多数互联网公司也比较热衷选择开源代码架构的产品。MYSQL 数据库在不断的更新和迭代发展，其功能也越来越强大，性能越爱越好，支持的平台越来越广。在实际工作中，MYSQL也是使用最多的是数据库。</p>
+<h3 id="2-MYSQL版本"><a href="#2-MYSQL版本" class="headerlink" title="2.MYSQL版本"></a><strong>2.MYSQL版本</strong></h3><p>​		MYSQL有众多版本，如下所示：</p>
+<p>(1)Alpha版本：一般在软件开发公司内部运行，不对外公开。</p>
+<p>(2)Beta版本：完成功能开发和所有测试工作后的产品，不会存在较大的功能或者性能Bug。</p>
+<p>(3)PC版本：属于正式发布前的一个版本，也是最终测试版本，进一步收集Bug或者不足之处，然后进行修复和完善。</p>
+<p>(4)GA版本：软件产品正式发布的版本，也是生产环境使用的版本。</p>
+<h3 id="3-MYSQL的安装方式"><a href="#3-MYSQL的安装方式" class="headerlink" title="3.MYSQL的安装方式"></a><strong>3.MYSQL的安装方式</strong></h3><p>（1）常见的编译安装方式（适用于MYSQL 5.5前的版本）。</p>
+<p>（2）二进制包安装的方式。</p>
+<p>（3）RPM包的安装方式。</p>
+<p>（4）Cmake方式安装（适用于MYSQL 5.5后的版本）。</p>
+<h1 id="二-MYSQL-的安装与部署（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）"><a href="#二-MYSQL-的安装与部署（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）" class="headerlink" title="二.MYSQL 的安装与部署（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）"></a><strong>二.MYSQL 的安装与部署</strong>（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）</h1><h3 id="1-MYSQL安装包的下载网站"><a href="#1-MYSQL安装包的下载网站" class="headerlink" title="1.MYSQL安装包的下载网站"></a><strong>1.MYSQL安装包的下载网站</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://downloads.mysql.com/archives/community/</span><br></pre></td></tr></table></figure>
 
-<h2 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ScannerDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入第一个数字&quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">number01</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入第二个数字&quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">number02</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        System.out.println(number01 + number02);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在里面下载一个Linux的 <strong>mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</strong> 二进制安装包</p>
+<h3 id="2-安装依赖包软件"><a href="#2-安装依赖包软件" class="headerlink" title="2.安装依赖包软件"></a><strong>2.安装依赖包软件</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># yum -y install zlib-devel gcc-c++ ncurses ncurses-devel libaio libaio-devel libncurses*</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="键盘录入三位数，取其个十百三位"><a href="#键盘录入三位数，取其个十百三位" class="headerlink" title="键盘录入三位数，取其个十百三位"></a>键盘录入三位数，取其个十百三位</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TextDemo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入一个三位数&quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">number01</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        <span class="type">int</span> <span class="variable">ge</span> <span class="operator">=</span> number01 % <span class="number">10</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">shi</span> <span class="operator">=</span> number01 / <span class="number">10</span> % <span class="number">10</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">bai</span> <span class="operator">=</span> number01 / <span class="number">100</span> % <span class="number">10</span>;</span><br><span class="line">        System.out.println(ge);</span><br><span class="line">        System.out.println(shi);</span><br><span class="line">        System.out.println(bai);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-用xshell上传-mysql-5-7-16-linux-glibc2-5-x86-64-tar-gz到服务器上"><a href="#3-用xshell上传-mysql-5-7-16-linux-glibc2-5-x86-64-tar-gz到服务器上" class="headerlink" title="*3.用xshell上传 mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz到服务器上*"></a>*<em>3.用xshell上传 <em>mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</em>到服务器上</em>*</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># yum -y install lrzsz     #安装lrzsz 方便两设备上传下载东西</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="三个和尚"><a href="#三个和尚" class="headerlink" title="三个和尚"></a>三个和尚</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Tests</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">height1</span> <span class="operator">=</span> <span class="number">150</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">height2</span> <span class="operator">=</span> <span class="number">210</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">height3</span> <span class="operator">=</span> <span class="number">165</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> height1 &gt; height2 ? height1 : height2;</span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> temp &gt; height3 ? temp : height3;</span><br><span class="line">        System.out.println(max);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="求回文数"><a href="#求回文数" class="headerlink" title="求回文数"></a>求回文数</h2><p><img src="/2021/08/09/Java%E5%85%A5%E9%97%A8/image-20230811223733345.png" alt="image-20230811223733345"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">121</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> x;  <span class="comment">//备份x</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">while</span> (x != <span class="number">0</span>)&#123;        <span class="comment">//从右往左取每一位数字</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">ge</span> <span class="operator">=</span> x % <span class="number">10</span>;   </span><br><span class="line">            x = x / <span class="number">10</span>;        <span class="comment">//修改x记录值</span></span><br><span class="line">            num = num * <span class="number">10</span> + ge;<span class="comment">//拼接</span></span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(num == temp);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="求商和余数"><a href="#求商和余数" class="headerlink" title="求商和余数"></a>求商和余数</h2><p><img src="/2021/08/09/Java%E5%85%A5%E9%97%A8/image-20230811223828826.png" alt="image-20230811223828826"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//定义被除数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">dividend</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        <span class="comment">//定义除数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">divisor</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">        <span class="comment">//定义一个变量用来统计相减了多少次</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//循环while,在循环中不断用 被除数 - 被数，只要 被除数 &gt; 除数,则一直循环，减剩下的则是余数</span></span><br><span class="line">        <span class="keyword">while</span> (dividend &gt;= divisor)&#123;</span><br><span class="line">            dividend = dividend - divisor;</span><br><span class="line">            count ++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;余数为:&quot;</span> + dividend);</span><br><span class="line">        System.out.println(<span class="string">&quot;商为:&quot;</span> + count);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="逢七过"><a href="#逢七过" class="headerlink" title="逢七过"></a>逢七过</h2><p><img src="/2021/08/09/Java%E5%85%A5%E9%97%A8/image-20230812114558912.png" alt="image-20230812114558912"></p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Demo01</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">1</span>;i &lt;= <span class="number">100</span>;i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i % <span class="number">10</span> == <span class="number">7</span> || i / <span class="number">10</span> % <span class="number">10</span> == <span class="number">7</span> || i % <span class="number">7</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                System.<span class="keyword">out</span>.println(<span class="string">&quot;过&quot;</span>);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            System.<span class="keyword">out</span>.println(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(25).png"></p>
+<p>安装好 <strong>lrzsz</strong> 后即可时使用 <strong>rz</strong> 命令上传文件到服务器，使用 <strong>sz</strong> 命令下载文件到客户端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># rz</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="求平方根"><a href="#求平方根" class="headerlink" title="求平方根"></a>求平方根</h2><p><img src="/2021/08/09/Java%E5%85%A5%E9%97%A8/image-20230812114624491.png" alt="image-20230812114624491"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        System.out.print(<span class="string">&quot;请输入一个整数:&quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;i &lt;= number;i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i * i == number)&#123;</span><br><span class="line">                System.out.println(i + <span class="string">&quot;就是&quot;</span> + number + <span class="string">&quot;的平方根&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i * i &gt; number)&#123;</span><br><span class="line">                System.out.println((i - <span class="number">1</span>) + <span class="string">&quot;就是&quot;</span> + number + <span class="string">&quot;平方根的整数部分&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Random"><a href="#Random" class="headerlink" title="Random"></a>Random</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.w3c.dom.ranges.Range;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Random</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        <span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> r.nextInt(<span class="number">100</span>) + <span class="number">1</span>; <span class="comment">// 1~100</span></span><br><span class="line">        System.out.println(number);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="猜数字"><a href="#猜数字" class="headerlink" title="猜数字"></a>猜数字</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.w3c.dom.ranges.Range;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Random</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        <span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> r.nextInt(<span class="number">100</span>) + <span class="number">1</span>; <span class="comment">// 1~100</span></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>)&#123;</span><br><span class="line">            System.out.print(<span class="string">&quot;输入你想要输入的数字:&quot;</span>);</span><br><span class="line">            <span class="type">int</span> <span class="variable">guessNumber</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">            <span class="keyword">if</span> (guessNumber &gt; number)&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;大了&quot;</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(guessNumber &lt; number)&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;小了&quot;</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;猜中了&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(26).png"></p>
+<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(27).png"></p>
+<p>上传完成后可以用 <strong>ls</strong> 命令来看到 <strong>mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</strong> 二进制安装包</p>
+<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(28).png"></p>
+<h3 id="4-安装MYSQL"><a href="#4-安装MYSQL" class="headerlink" title="4.安装MYSQL"></a><strong>4.安装MYSQL</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># useradd mysql -s /sbin/nologin -M      #创建一个mysql的账号，并且定义它不能登录shell，-M参数：不要自动建立用户的主目录（意味这mysql这个用户没有家）</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># mkdir -p /mysql/data           #创建一个递归目录，-p参数：没有的目录自动创建</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># chown -R mysql.mysql /mysql/   #递归更改目录的属主和属组为mysql，-R参数：递归地更改指定文件夹的所有权，但不更改链接指向目录</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># tar zxf mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz -C /usr/local/     #指定解压 mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz 到/usr/local/ 目录下</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># ln -s /usr/local/mysql-5.7.16-linux-glibc2.5-x86_64 /usr/local/mysql    #说真的。。。看到这个我tm笑死，建立软连接干嘛，怕那么点字母？</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># cd /usr/local/mysql/      </span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># cp support-files/my-default.cnf /etc/my.cnf    #修改/etc/my.cnf 里面的数据就好，my-default.cnf 这个压根不用管。。。配置文件都转移到/etc/目录下面了</span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># cp support-files/mysql.server /etc/init.d/mysqld</span></span><br><span class="line"><span class="comment"># init.d目录包含许多系统各种服务的启动和停止脚本(/etc/init.d里的shell脚本能够响应start，stop，restart，reload命令来管理某个具体的应用)。</span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># chmod +x /etc/init.d/mysqld    #添加执行权限，x参数：执行权限</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-MYSQL初始化"><a href="#5-MYSQL初始化" class="headerlink" title="5.MYSQL初始化"></a><strong>5.MYSQL初始化</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># ./bin/mysqld --initialize --basedir=/usr/local/mysql --datadir=/mysql/data/ --user=mysql      #初始化并且规定服务安装目录、	MYSQL服务数据存储目录、规定使用者是 mysql</span></span><br></pre></td></tr></table></figure>
+
+<p>初始化完成后会出现一段密码，把它保存下来，后面登录数据库需要用到它</p>
+<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(29)_%E7%88%B1%E5%A5%87%E8%89%BA.jpg"></p>
+<p>后面这样一串就是密码： <strong>&gt;rqiYpmT9Sh_</strong>   (注意：这里别把空格弄进去了，空格在密码也算一个位置的，密码是自动生成的，每台设备都不一样，别抄我的密码进去了，这样都弄错。。。小心我锤爆你狗头doge）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># egrep -v &quot;^#|^$&quot; /etc/my.cnf    #其实刚刚看到这串鬼东西的时候，我人都傻了，我只学过grep这个命令，egrep这是什么鬼东西，后来从度娘那边查到egrep == grep -e ，秒懂！！！（废话一堆，这句话意思就是，过滤掉 my.cnf 文本里面的注释和空格，剩下的东西全部显现在屏幕上）</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看出<strong>my.cnf</strong> 里面就两行配置信息</p>
+<p>那么我们直接进去加点料，定义一些配置信息，让我们装逼装的更加彻底</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># vim /etc/my.cnf</span></span><br></pre></td></tr></table></figure>
+
+<p>进去就会看到这样的 <strong>冥场面</strong> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For advice on how to change settings please see</span></span><br><span class="line"><span class="comment"># http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html</span></span><br><span class="line"><span class="comment"># *** DO NOT EDIT THIS FILE. It&#x27;s a template which will be copied to the</span></span><br><span class="line"><span class="comment"># *** default location during install, and will be replaced if you</span></span><br><span class="line"><span class="comment"># *** upgrade to a newer version of MySQL.</span></span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove leading # and set to the amount of RAM for the most important data</span></span><br><span class="line"><span class="comment"># cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.</span></span><br><span class="line"><span class="comment"># innodb_buffer_pool_size = 128M</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove leading # to turn on a very important data integrity option: logging</span></span><br><span class="line"><span class="comment"># changes to the binary log between backups.</span></span><br><span class="line"><span class="comment"># log_bin</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># These are commonly set, remove the # and set as required.</span></span><br><span class="line"><span class="comment"># basedir = .....</span></span><br><span class="line"><span class="comment"># datadir = .....</span></span><br><span class="line"><span class="comment"># port = .....</span></span><br><span class="line"><span class="comment"># server_id = .....</span></span><br><span class="line"><span class="comment"># socket = .....</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove leading # to set options mainly useful for reporting servers.</span></span><br><span class="line"><span class="comment"># The server defaults are faster for transactions and fast SELECTs.</span></span><br><span class="line"><span class="comment"># Adjust sizes as needed, experiment to find the optimal values.</span></span><br><span class="line"><span class="comment"># join_buffer_size = 128M</span></span><br><span class="line"><span class="comment"># sort_buffer_size = 2M</span></span><br><span class="line"><span class="comment"># read_rnd_buffer_size = 2M </span></span><br><span class="line"></span><br><span class="line">sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line">~                                                                                                                                                                          </span><br><span class="line">~ </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>对于我这个英语小白来说简直绝望</strong></p>
+<p><strong>在里面写入这段配置信息，注意不要重复了</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">port = 3306</span><br><span class="line">socket = /mysql/mysql.sock</span><br><span class="line">[mysqld]</span><br><span class="line">basedir = /usr/local/mysql</span><br><span class="line">datadir = /mysql/data/</span><br><span class="line">port = 3306</span><br><span class="line">server_id = 1</span><br><span class="line">socket = /mysql/mysql.sock</span><br><span class="line">sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line">[mysqld_safe]</span><br><span class="line">log-error = /mysql/mysql.log</span><br><span class="line">pid-file = /mysql/mysql.pid</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-开启MYSQL服务"><a href="#6-开启MYSQL服务" class="headerlink" title="6.开启MYSQL服务"></a><strong>6.开启MYSQL服务</strong></h3><p>开启这个服务之后，然后就能看到唯一看得懂的英文 <strong>SUCCESS</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># /etc/init.d/mysqld start</span></span><br><span class="line">Starting MySQL.. SUCCESS! </span><br></pre></td></tr></table></figure>
+
+<p>可以使用这段代码来监听端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># lsof -i :3306</span></span><br><span class="line">COMMAND   PID  USER   FD   TYPE DEVICE SIZE/OFF NODE NAME</span><br><span class="line">mysqld  11932 mysql   23u  IPv6 150481      0t0  TCP *:mysql (LISTEN)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="7-配置环境变量"><a href="#7-配置环境变量" class="headerlink" title="7.配置环境变量"></a><strong>7.配置环境变量</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># echo &#x27;export PATH=$PATH:/usr/local/mysql/bin&#x27; &gt;&gt; /etc/profile</span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># source /etc/profile</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="8-登录数据库"><a href="#8-登录数据库" class="headerlink" title="8.登录数据库"></a><strong>8.登录数据库</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># mysql -uroot -p      </span></span><br><span class="line">Enter password:     <span class="comment">#别告诉我你没有保存密码哦，小心狗头！！！</span></span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection <span class="built_in">id</span> is 2</span><br><span class="line">Server version: 5.7.16</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; </span><br><span class="line">mysql&gt; </span><br><span class="line">mysql&gt; </span><br></pre></td></tr></table></figure>
+
+<h3 id="9-修改密码"><a href="#9-修改密码" class="headerlink" title="9.修改密码"></a><strong>9.修改密码</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;1234567890&#x27;</span>;    <span class="comment">#密码改成1234567890</span></span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line">mysql&gt; <span class="built_in">exit</span>       <span class="comment">#退出数据库</span></span><br><span class="line">Bye</span><br><span class="line">[root@kejulin ~]<span class="comment">#</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># mysql -uroot -p1234567890</span></span><br><span class="line">mysql: [Warning] Using a password on the <span class="built_in">command</span> line interface can be insecure.</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection <span class="built_in">id</span> is 3</span><br><span class="line">Server version: 5.7.16 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="三-结尾"><a href="#三-结尾" class="headerlink" title="三.结尾"></a><strong>三.结尾</strong></h1><p>虽然，CSDN 和 百度 等搜索工具里面查到的MYSQL很坑，但是作为一个先行者，我可以很负责任的说能善于用任何工具来解决自己问题对于日后的排错非常有帮助。</p>
+<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210614171041.png"></p>
+<p>遇到的困难都可以自己尝试去解决的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/" class="post-title-link" itemprop="url">kali 系统基础配置（2023版）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-19 20:34:55" itemprop="dateCreated datePublished" datetime="2022-07-19T20:34:55+08:00">2022-07-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-22 14:30:26" itemprop="dateModified" datetime="2023-04-22T14:30:26+08:00">2023-04-22</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="kali-系统基础配置（2023版）"><a href="#kali-系统基础配置（2023版）" class="headerlink" title="kali 系统基础配置（2023版）"></a>kali 系统基础配置（2023版）</h1><h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p><strong>然后将原有的源全部注释掉，然后插入下面这串源地址</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>etc</strong>模式下输入这个   :set nu   可以看到行号</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#deb 代表软件位置，deb-src 代表软件的源代码的位置</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="apt-命令和知识"><a href="#apt-命令和知识" class="headerlink" title="apt 命令和知识"></a>apt 命令和知识</h2><p><strong>使用apt 新的软件包获取最新的软件包列表。</strong></p>
+<p>**注意：apt update 的作用是从&#x2F;etc&#x2F;apt&#x2F;sources.list 文件中定义的源中获取的最新的软件包列表。即运行apt update 并没有更新软件，而是相当于windows下面的检查更新，获取的是软件的状态。 **</p>
+<p><strong>Kali apt 源的软件包类型说明：</strong></p>
+<p><strong>dists 区域           软件包组件标准</strong></p>
+<p><strong>main					遵从Debian 自由软件指导方针（DFSG），并且不依赖 non-free</strong></p>
+<p><strong>contrib				遵从Debian 自由软件指导方针（DFSG)，但依赖于 non-free</strong>			</p>
+<p><strong>non-free			不遵从Debian 自由软件指导方针（DFSG)</strong></p>
+<p><strong>注意：DFSG是Debian 自由软件指导方针</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update   <span class="comment">#更新列表</span></span><br><span class="line">sudo apt upgrade  <span class="comment">#从更新列表中升级软件包，升级时软件包有相依性的问题，次软件包就不会被升级。</span></span><br><span class="line">sudo dist-upgrade <span class="comment">#升级时，软件包有相依性问题，会移除旧版，直接安装新版本。（所以通常dist-upgrade被认为是有风险的升级）（移除旧版升级新版容易出现A依赖B的旧版，但是B升级了新版，但是A只能用B的旧版，所以A出现问题）</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(56).png"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install     <span class="comment">#安装软件包</span></span><br><span class="line">sudo apt remove      <span class="comment">#移除软件包</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="网络配置-ip、子网、网关、DNS"><a href="#网络配置-ip、子网、网关、DNS" class="headerlink" title="网络配置(ip、子网、网关、DNS)"></a>网络配置(ip、子网、网关、DNS)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/network/interfaces</span><br></pre></td></tr></table></figure>
+
+<p><strong>写入这个静态ip和网络信息</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">auto eth0                  <span class="comment">#使用这块网卡，不写这个网络配置相当于没用</span></span><br><span class="line">iface eth0 inet static     <span class="comment">#配置eth0使用静态地址</span></span><br><span class="line">address 192.168.1.53       <span class="comment">#配置eth0的固定ip地址</span></span><br><span class="line">netmask 255.255.255.0      <span class="comment">#配置子网掩码</span></span><br><span class="line">gateway 192.168.1.1        <span class="comment">#配置网关</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>配置DNS信息</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/resolv.conf    </span><br></pre></td></tr></table></figure>
+
+
+
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Generated by NetworkManager</span></span><br><span class="line">search localdmain</span><br><span class="line">nameserver 8.8.8.8</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart networking.service    <span class="comment">#重启网络服务</span></span><br><span class="line"><span class="comment">#或者用</span></span><br><span class="line">/etc/init.d/networking restart          <span class="comment">#重启网络服务</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="启动ssh服务"><a href="#启动ssh服务" class="headerlink" title="启动ssh服务"></a>启动ssh服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p><strong>插入这几行配置</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin <span class="built_in">yes</span></span><br><span class="line">PubkeyAuthentication <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>然后重启ssh服务，并设置开机自启</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart ssh</span><br><span class="line">systemctl <span class="built_in">enable</span> ssh</span><br></pre></td></tr></table></figure>
+
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><h3 id="whois查询"><a href="#whois查询" class="headerlink" title="whois查询"></a>whois查询</h3><p><a target="_blank" rel="noopener" href="https://whois.chinaz.com/">站长之家</a></p>
+<p><a target="_blank" rel="noopener" href="https://whois.aliyun.com/">万网whois</a></p>
+<h3 id="在线网站备案"><a href="#在线网站备案" class="headerlink" title="在线网站备案"></a>在线网站备案</h3><p><a target="_blank" rel="noopener" href="https://www.tianyancha.com/">天眼查</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.beianx.cn/">ICP备案查询网</a></p>
+<h3 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集"></a>子域名收集</h3><p><a target="_blank" rel="noopener" href="https://fofa.info/toLogin">1.FOFA</a>	title&#x3D;“公司名称”</p>
+<p><a target="_blank" rel="noopener" href="https://www.baidu.com/">2.百度</a>	intitle&#x3D;“公司名称”</p>
+<p><a target="_blank" rel="noopener" href="https://www.google.com/">3.Google</a>	intitle&#x3D;“公司名称”</p>
+<p><a target="_blank" rel="noopener" href="https://www.zoomeye.org/">4.钟馗之眼</a>	site:域名</p>
+<h3 id="dns信息收集"><a href="#dns信息收集" class="headerlink" title="dns信息收集"></a>dns信息收集</h3><h2 id="KALI-的渗透软件"><a href="#KALI-的渗透软件" class="headerlink" title="KALI 的渗透软件"></a>KALI 的渗透软件</h2><h3 id><a href="#" class="headerlink" title></a></h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/19/Google%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/19/Google%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">Google搜索引擎的使用技巧</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-19 20:32:58" itemprop="dateCreated datePublished" datetime="2022-07-19T20:32:58+08:00">2022-07-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/19/Google%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/19/Google%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>415</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Google搜索引擎的使用技巧"><a href="#Google搜索引擎的使用技巧" class="headerlink" title="Google搜索引擎的使用技巧"></a>Google搜索引擎的使用技巧</h1><h3 id="一-垃圾话"><a href="#一-垃圾话" class="headerlink" title="一.垃圾话"></a>一.垃圾话</h3><p><strong>我们通常使用搜索引擎都是直接搜索自己想要的内容，正常情况下我们都是直接使用语言进行描述问题来进行搜索，然后搜索引擎也有特定的语法可以使用，熟练掌握搜索引擎的语法可以让你的搜索效率和准确率大幅度提升，当然我们学习这种技巧是为了寻找存在漏洞的页面，或者存在敏感信息的文件。</strong></p>
+<h3 id="二-Google-常用语法说明"><a href="#二-Google-常用语法说明" class="headerlink" title="二.Google 常用语法说明"></a>二.Google 常用语法说明</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">site              <span class="comment">#指定域名,如：xuegod.cn</span></span><br><span class="line">inurl             <span class="comment">#URL中存在的关键字页面，如：admin_login.php、admin/login.php、manage.php、admin.asp、admin.php </span></span><br><span class="line">intext            <span class="comment">#网页内容里面的关键字,如：后台</span></span><br><span class="line">Filetype          <span class="comment">#指定文件类型</span></span><br><span class="line">intitle           <span class="comment">#网页标题中的关键字,如：后台登录、index.of、.bash_history </span></span><br><span class="line"><span class="built_in">link</span>              <span class="comment">#返回你所有的指定域名链接</span></span><br><span class="line">info              <span class="comment">#查找指定站点信息</span></span><br><span class="line">cache             <span class="comment">#搜索Google里面的内容缓存</span></span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -323,7 +616,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/20/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span>
+    <a class="extend prev" rel="prev" href="/page/20/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/22/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -395,20 +688,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"julintongxue.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了&quot;搁浅&quot;两字的就是个空文档,望注意)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="orangeの博客">
+<meta property="og:url" content="https://julintongxue.github.io/page/24/index.html">
+<meta property="og:site_name" content="orangeの博客">
+<meta property="og:description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了&quot;搁浅&quot;两字的就是个空文档,望注意)">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="涩橙子">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://julintongxue.github.io/page/24/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>orangeの博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">orangeの博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">72</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">43</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-追番">
+
+    <a href="/bangumis/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>追番</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/julintongxue" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/05/01/Blackarch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/01/Blackarch/" class="post-title-link" itemprop="url">Blackarch</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-05-01 22:07:51" itemprop="dateCreated datePublished" datetime="2022-05-01T22:07:51+08:00">2022-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-05-01 22:10:41" itemprop="dateModified" datetime="2023-05-01T22:10:41+08:00">2023-05-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%94%BB%E9%98%B2/" itemprop="url" rel="index"><span itemprop="name">攻防</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/05/01/Blackarch/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/05/01/Blackarch/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>706</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="Blackarch"><a href="#Blackarch" class="headerlink" title="Blackarch"></a>Blackarch</h1><h3 id="netdiscover"><a href="#netdiscover" class="headerlink" title="netdiscover"></a>netdiscover</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S netdiscover</span><br></pre></td></tr></table></figure>
+
+<h4 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这会无休止一直广播ARP</span></span><br><span class="line">sudo netdiscover </span><br><span class="line"><span class="comment"># -i 设置网卡</span></span><br><span class="line">sudo netdiscover -i wlan0</span><br><span class="line"><span class="comment"># -r 设置ip段</span></span><br><span class="line">sudo netdiscover -i wlan0 -r 192.168.1.0/24</span><br></pre></td></tr></table></figure>
+
+<h3 id="arp-scan"><a href="#arp-scan" class="headerlink" title="arp-scan"></a>arp-scan</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我有blackarch的源，你懂的！！！</span></span><br><span class="line">[orange@orange ~]$ yay -Ss arp-scan</span><br><span class="line">aur/obs-time-warp-scan 0.1.6-3 (+0 0.00) </span><br><span class="line">    Time Warp Scan filter <span class="keyword">for</span> OBS Studio</span><br><span class="line">aur/arp-scan-git r304.af905ce-1 (+1 0.00) </span><br><span class="line">    The ARP Scanner</span><br><span class="line">blackarch/arp-scan 1.9.7-2 (337.6 KiB 1017.9 KiB) [blackarch blackarch-networking blackarch-scanner blackarch-fingerprint] </span><br><span class="line">    A tool that uses ARP to discover and fingerprint IP hosts on the <span class="built_in">local</span> network</span><br><span class="line">community/arp-scan 1.9.7-2 (337.6 KiB 1017.9 KiB) </span><br><span class="line">    A tool that uses ARP to discover and fingerprint IP hosts on the <span class="built_in">local</span> network</span><br><span class="line">[orange@orange ~]$ yay -S arp-scan</span><br></pre></td></tr></table></figure>
+
+<h4 id="简单使用-1"><a href="#简单使用-1" class="headerlink" title="简单使用"></a>简单使用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -l 使用本地网络段扫描</span></span><br><span class="line">sudo arp-scan -l</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="wireshark"><a href="#wireshark" class="headerlink" title="wireshark"></a>wireshark</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/03/28/PHP-Study/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/28/PHP-Study/" class="post-title-link" itemprop="url">PHP_Study</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-28 15:28:18" itemprop="dateCreated datePublished" datetime="2022-03-28T15:28:18+08:00">2022-03-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/03/28/PHP-Study/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/03/28/PHP-Study/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="php连接数据库"><a href="#php连接数据库" class="headerlink" title="php连接数据库"></a>php连接数据库</h2><p>第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">var_dump(<span class="variable">$conn</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>返回这个说明连接成功</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153359251.png" alt="image-20230328153359251"></p>
+<p><strong>返回这个说明数据库连接失败，可能是ip错了</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153537406.png" alt="image-20230328153537406"></p>
+<p><strong>返回这个说明是数据库账号错了</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153756724.png" alt="image-20230328153756724"></p>
+<p><strong>返回这个说明是数据库密码错了</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153829750.png" alt="image-20230328153829750"></p>
+<p><strong>接下来开始连接数据库然后打印数据库表内容</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">// 执行SQL语句,这里是意思是把整张test02表格输出</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">var_dump(<span class="variable">$result</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>*<em>看到这个说明我们执行成功，后面int(4)说我们有4条记录，我们数据表确实有4条记录，那么为啥没有具体是查询出来捏<del>(￣▽￣)</del><em>，我们得转换一下将执行结果转换成为结果集</em></em></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328154327099.png" alt="image-20230328154327099"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">// 执行SQL语句,这里是意思是把整张test02表格输出</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line"><span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>);</span><br><span class="line">var_dump(<span class="variable">$data</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>下面这个则是输出值:(你会发现，为啥我四行的数据表只输出了一行)</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328155530623.png" alt="image-20230328155530623"></p>
+<p><strong>这个时候，我们使用循环遍历，把一个个数据表遍历出来</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">	var_dump(<span class="variable">$data</span>);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/28/PHP-Study/image-20230328161200638.png" alt="image-20230328161200638"></p>
+<p><strong>数据都遍历出来了，但是很密集，我这给它空几行</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    var_dump(<span class="variable">$data</span>);</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>这样看就舒服多了，是不是捏<del>(￣▽￣)</del></strong>*</p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328161509400.png" alt="image-20230328161509400"></p>
+<p><strong>如果我需要它的名字怎么办？</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT name FROM test02&quot;</span>;       <span class="comment">#这里把*改name</span></span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    var_dump(<span class="variable">$data</span>);</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/28/PHP-Study/image-20230328161904981.png" alt="image-20230328161904981"></p>
+<p><strong>但是，还是不够简洁，那么可以改成这样</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;       <span class="comment">#这里把name改*也可以</span></span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$data</span>[<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/28/PHP-Study/image-20230328162301304.png" alt="image-20230328162301304"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2021/08/09/Java%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/09/Java%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">Java入门</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-09 16:35:55" itemprop="dateCreated datePublished" datetime="2021-08-09T16:35:55+08:00">2021-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-13 17:20:19" itemprop="dateModified" datetime="2023-08-13T17:20:19+08:00">2023-08-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/08/09/Java%E5%85%A5%E9%97%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/09/Java%E5%85%A5%E9%97%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h2 id="Helloworld"><a href="#Helloworld" class="headerlink" title="Helloworld"></a>Helloworld</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Helloworld</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;你好世界！！！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ScannerDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入第一个数字&quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">number01</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入第二个数字&quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">number02</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        System.out.println(number01 + number02);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="键盘录入三位数，取其个十百三位"><a href="#键盘录入三位数，取其个十百三位" class="headerlink" title="键盘录入三位数，取其个十百三位"></a>键盘录入三位数，取其个十百三位</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TextDemo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入一个三位数&quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">number01</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        <span class="type">int</span> <span class="variable">ge</span> <span class="operator">=</span> number01 % <span class="number">10</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">shi</span> <span class="operator">=</span> number01 / <span class="number">10</span> % <span class="number">10</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">bai</span> <span class="operator">=</span> number01 / <span class="number">100</span> % <span class="number">10</span>;</span><br><span class="line">        System.out.println(ge);</span><br><span class="line">        System.out.println(shi);</span><br><span class="line">        System.out.println(bai);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三个和尚"><a href="#三个和尚" class="headerlink" title="三个和尚"></a>三个和尚</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Tests</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">height1</span> <span class="operator">=</span> <span class="number">150</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">height2</span> <span class="operator">=</span> <span class="number">210</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">height3</span> <span class="operator">=</span> <span class="number">165</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> height1 &gt; height2 ? height1 : height2;</span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> temp &gt; height3 ? temp : height3;</span><br><span class="line">        System.out.println(max);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="求回文数"><a href="#求回文数" class="headerlink" title="求回文数"></a>求回文数</h2><p><img src="/2021/08/09/Java%E5%85%A5%E9%97%A8/image-20230811223733345.png" alt="image-20230811223733345"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">121</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> x;  <span class="comment">//备份x</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">while</span> (x != <span class="number">0</span>)&#123;        <span class="comment">//从右往左取每一位数字</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">ge</span> <span class="operator">=</span> x % <span class="number">10</span>;   </span><br><span class="line">            x = x / <span class="number">10</span>;        <span class="comment">//修改x记录值</span></span><br><span class="line">            num = num * <span class="number">10</span> + ge;<span class="comment">//拼接</span></span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(num == temp);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="求商和余数"><a href="#求商和余数" class="headerlink" title="求商和余数"></a>求商和余数</h2><p><img src="/2021/08/09/Java%E5%85%A5%E9%97%A8/image-20230811223828826.png" alt="image-20230811223828826"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//定义被除数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">dividend</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        <span class="comment">//定义除数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">divisor</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">        <span class="comment">//定义一个变量用来统计相减了多少次</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//循环while,在循环中不断用 被除数 - 被数，只要 被除数 &gt; 除数,则一直循环，减剩下的则是余数</span></span><br><span class="line">        <span class="keyword">while</span> (dividend &gt;= divisor)&#123;</span><br><span class="line">            dividend = dividend - divisor;</span><br><span class="line">            count ++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;余数为:&quot;</span> + dividend);</span><br><span class="line">        System.out.println(<span class="string">&quot;商为:&quot;</span> + count);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="逢七过"><a href="#逢七过" class="headerlink" title="逢七过"></a>逢七过</h2><p><img src="/2021/08/09/Java%E5%85%A5%E9%97%A8/image-20230812114558912.png" alt="image-20230812114558912"></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Demo01</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">1</span>;i &lt;= <span class="number">100</span>;i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i % <span class="number">10</span> == <span class="number">7</span> || i / <span class="number">10</span> % <span class="number">10</span> == <span class="number">7</span> || i % <span class="number">7</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                System.<span class="keyword">out</span>.println(<span class="string">&quot;过&quot;</span>);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            System.<span class="keyword">out</span>.println(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="求平方根"><a href="#求平方根" class="headerlink" title="求平方根"></a>求平方根</h2><p><img src="/2021/08/09/Java%E5%85%A5%E9%97%A8/image-20230812114624491.png" alt="image-20230812114624491"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        System.out.print(<span class="string">&quot;请输入一个整数:&quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;i &lt;= number;i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i * i == number)&#123;</span><br><span class="line">                System.out.println(i + <span class="string">&quot;就是&quot;</span> + number + <span class="string">&quot;的平方根&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i * i &gt; number)&#123;</span><br><span class="line">                System.out.println((i - <span class="number">1</span>) + <span class="string">&quot;就是&quot;</span> + number + <span class="string">&quot;平方根的整数部分&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Random"><a href="#Random" class="headerlink" title="Random"></a>Random</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.w3c.dom.ranges.Range;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Random</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        <span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> r.nextInt(<span class="number">100</span>) + <span class="number">1</span>; <span class="comment">// 1~100</span></span><br><span class="line">        System.out.println(number);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="猜数字"><a href="#猜数字" class="headerlink" title="猜数字"></a>猜数字</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.w3c.dom.ranges.Range;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Random</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        <span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> r.nextInt(<span class="number">100</span>) + <span class="number">1</span>; <span class="comment">// 1~100</span></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>)&#123;</span><br><span class="line">            System.out.print(<span class="string">&quot;输入你想要输入的数字:&quot;</span>);</span><br><span class="line">            <span class="type">int</span> <span class="variable">guessNumber</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">            <span class="keyword">if</span> (guessNumber &gt; number)&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;大了&quot;</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(guessNumber &lt; number)&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;小了&quot;</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;猜中了&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="涩橙子"
+      src="/images/head.jpg">
+  <p class="site-author-name" itemprop="name">涩橙子</p>
+  <div class="site-description" itemprop="description">自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="/%E4%B8%8D%E7%BB%99%E4%BD%A0%EF%BC%81%EF%BC%81%EF%BC%81" title="E-Mail → 不给你！！！"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://aienh.github.io/" title="https:&#x2F;&#x2F;aienh.github.io" rel="noopener" target="_blank">ienAの博客</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://tokiame.cn/" title="https:&#x2F;&#x2F;tokiame.cn" rel="noopener" target="_blank">时雨小栈</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://songxwn.com/" title="https:&#x2F;&#x2F;songxwn.com&#x2F;" rel="noopener" target="_blank">songxwn</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+      <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=8269604294&auto=1&height=90"></iframe>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+  
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">涩橙子</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 't3KNgr4WVcpJVh17S5thqEXl-gzGzoHsz',
+      appKey     : 'tvxyuYI5nZrSoGZ4ct2MSuxe',
+      placeholder: "写下你的评论吧",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
+
+
