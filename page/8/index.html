@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">72</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">75</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%87%87%E9%9B%86%E7%94%B5%E8%84%91HDMI%E8%A7%86%E9%A2%91%E7%94%BB%E9%9D%A2/">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/08/19/%E6%89%B9%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -214,7 +214,228 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%87%87%E9%9B%86%E7%94%B5%E8%84%91HDMI%E8%A7%86%E9%A2%91%E7%94%BB%E9%9D%A2/" class="post-title-link" itemprop="url">树莓派采集电脑HDMI视频画面</a>
+            <a href="/2023/08/19/%E6%89%B9%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">批处理脚本</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-08-19 21:34:11 / 修改时间：21:42:18" itemprop="dateCreated datePublished" datetime="2023-08-19T21:34:11+08:00">2023-08-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DOS/" itemprop="url" rel="index"><span itemprop="name">DOS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/08/19/%E6%89%B9%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/08/19/%E6%89%B9%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>505</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="电脑定时关机脚本"><a href="#电脑定时关机脚本" class="headerlink" title="电脑定时关机脚本"></a>电脑定时关机脚本</h2><p><a href="%E7%94%B5%E8%84%91%E5%AE%9A%E6%97%B6%E5%85%B3%E6%9C%BA%E8%84%9A%E6%9C%AC.bat">电脑定时关机脚本.bat</a></p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">title</span> orange定时关机脚本V1.<span class="number">0</span></span><br><span class="line"><span class="built_in">color</span> <span class="number">02</span></span><br><span class="line">:menu</span><br><span class="line"><span class="built_in">cls</span></span><br><span class="line"><span class="built_in">echo</span> ====================================================</span><br><span class="line"><span class="built_in">echo</span>              菜单</span><br><span class="line"><span class="built_in">echo</span>          <span class="number">1</span>.定时关机</span><br><span class="line"><span class="built_in">echo</span>          <span class="number">2</span>.取消定时关机</span><br><span class="line"><span class="built_in">echo</span>          <span class="number">3</span>.退出</span><br><span class="line"><span class="built_in">echo</span> ====================================================</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> /p num=请选择:</span><br><span class="line"><span class="keyword">if</span> &quot;<span class="variable">%num%</span>&quot;==&quot;<span class="number">1</span>&quot; <span class="keyword">goto</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> &quot;<span class="variable">%num%</span>&quot;==&quot;<span class="number">2</span>&quot; <span class="keyword">goto</span> <span class="number">2</span></span><br><span class="line"><span class="keyword">if</span> &quot;<span class="variable">%num%</span>&quot;==&quot;<span class="number">3</span>&quot; <span class="keyword">goto</span> <span class="number">3</span></span><br><span class="line">别瞎乱输，认真点！！！只能输入<span class="number">1</span>/<span class="number">2</span>/<span class="number">3</span>。</span><br><span class="line"><span class="built_in">pause</span></span><br><span class="line"><span class="keyword">goto</span> menu</span><br><span class="line"></span><br><span class="line">:<span class="number">1</span></span><br><span class="line"><span class="built_in">set</span> /p a=请输入多少时间(单位/秒)：</span><br><span class="line">shutdown -s -f -t <span class="variable">%a%</span></span><br><span class="line"><span class="keyword">goto</span> menu</span><br><span class="line"></span><br><span class="line">:<span class="number">2</span></span><br><span class="line">shutdown -a</span><br><span class="line"><span class="keyword">goto</span> menu</span><br><span class="line"></span><br><span class="line">:<span class="number">3</span></span><br><span class="line"><span class="keyword">exit</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/" class="post-title-link" itemprop="url">树莓派4b发射wifi</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-08-13 00:16:53 / 修改时间：01:01:12" itemprop="dateCreated datePublished" datetime="2023-08-13T00:16:53+08:00">2023-08-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>741</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>Raspberry Pi 4B板载了无线网络适配器，不需要额外增加无线网卡就可以把它打造成一个无线路由器。有一种方法是给Raspberry Pi刷上OpenWRT等路由器固件，这样它就变成了一个比较正宗的路由器。另一种方法是开启树莓派无线网络适配器的AP功能，并且共享其有线网络。这样依然使用Raspbian系统，可以发挥Raspiberry Pi作为一个微型服务器的优势。</strong></p>
+<p><strong>以下描述如何开启树莓派无线网络适配器的AP功能，并且开机自动启动，实现无线路由功能。</strong></p>
+<p><strong>本次我们需要下载github上的create_ap这个项目，利用这个项目来开启树莓派的AP模式。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo git <span class="built_in">clone</span> https://github.com/oblique/create_ap</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/image-20230813001714906.png" alt="image-20230813001714906"></p>
+<p><strong>克隆到文件下来后，进入到目录里进行安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> create_ap</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p><strong>发现出现下面一些列信息，这些信息则说明已经安装成功</strong></p>
+<p><img src="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/image-20230813001732275.png" alt="image-20230813001732275"></p>
+<p><strong>但是我们还需要安装一些依赖库</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install util-linux procps hostapd iproute2 iw haveged dnsmasq</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/image-20230813001755315.png" alt="image-20230813001755315"></p>
+<p><strong>安装过程会让你重启某些服务，回车即可</strong></p>
+<p><img src="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/image-20230813002031619.png" alt="image-20230813002031619"></p>
+<p><strong>接下来可以直接命令创建WiFi热点</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo create_ap wlan0 eth0 wifi名字 wifi密码</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/image-20230813003427905.png" alt="image-20230813003427905"></p>
+<p><img src="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/image-20230813002338252.png" alt="image-20230813002338252"></p>
+<p><img src="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/image-20230813002456136.png" alt="image-20230813002456136"></p>
+<p><strong>在手机端可以看出，这个wifi是2.4Ghz的wifi，相比于5Ghz，2.4的带宽、速度都不如5Ghz的wifi，但是2.4Ghz有个好处就是覆盖的范围会比5Ghz的广，结合情景使用才会更加舒服</strong></p>
+<p><img src="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/image-20230813005505461.png" alt="image-20230813005505461"></p>
+<img src="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/微信图片_20230813002548-1691857577096.jpg" alt="微信图片_20230813002548" style="zoom:50%;">
+
+<p><strong>这里默认是wifi4的<code>802.11n</code>，不知道为啥我强制选择<code>802.11n</code>或者<code>802.11ac</code>都是wifi4的<code>802.11n</code>而且是2.4Ghz的，无论远近都不自适应跳转5Ghz，可能这就是bug或者没完善吧！</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/" class="post-title-link" itemprop="url">树莓派命令行连接蓝牙设备</a>
         </h2>
 
         <div class="post-meta">
@@ -224,14 +445,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-08-02 19:06:30" itemprop="dateCreated datePublished" datetime="2023-08-02T19:06:30+08:00">2023-08-02</time>
+              <time title="创建时间：2023-08-04 09:38:09" itemprop="dateCreated datePublished" datetime="2023-08-04T09:38:09+08:00">2023-08-04</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-06 23:04:46" itemprop="dateModified" datetime="2023-08-06T23:04:46+08:00">2023-08-06</time>
+                <time title="修改时间：2023-08-11 12:44:17" itemprop="dateModified" datetime="2023-08-11T12:44:17+08:00">2023-08-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,8 +473,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%87%87%E9%9B%86%E7%94%B5%E8%84%91HDMI%E8%A7%86%E9%A2%91%E7%94%BB%E9%9D%A2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%87%87%E9%9B%86%E7%94%B5%E8%84%91HDMI%E8%A7%86%E9%A2%91%E7%94%BB%E9%9D%A2/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -263,14 +484,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -283,255 +504,95 @@
 
       
           <p>[toc]</p>
-<h2 id="在-Raspberry-Pi-4-上同时捕获一个HDMI流"><a href="#在-Raspberry-Pi-4-上同时捕获一个HDMI流" class="headerlink" title="在 Raspberry Pi 4 上同时捕获一个HDMI流"></a>在 Raspberry Pi 4 上同时捕获一个HDMI流</h2><h3 id="安装-v4l"><a href="#安装-v4l" class="headerlink" title="安装 v4l"></a>安装 v4l</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install v4l-utils</span><br></pre></td></tr></table></figure>
+<h2 id="安装和早期准备"><a href="#安装和早期准备" class="headerlink" title="安装和早期准备"></a>安装和早期准备</h2><p><strong>树莓派通常来说自带了蓝牙软件，但总有例外是吧</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install bluez*</span><br></pre></td></tr></table></figure>
 
-<h3 id="列出设备"><a href="#列出设备" class="headerlink" title="列出设备"></a>列出设备</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v4l2-ctl --list-devices</span><br></pre></td></tr></table></figure>
+<p><strong>现在，使用以下systemctl命令启用<code>bluetooth.service</code></strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth.service</span><br></pre></td></tr></table></figure>
 
-<h3 id="列表模式"><a href="#列表模式" class="headerlink" title="列表模式"></a>列表模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f v4l2 -list_formats all -i /dev/video0</span><br></pre></td></tr></table></figure>
+<p><strong>以上是后台启用蓝牙服务。但它需要重新启动您的系统。如果不想重启，也可以执行以下命令：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start bluetooth.service</span><br></pre></td></tr></table></figure>
 
-<h3 id="列出-PulseAudio-源"><a href="#列出-PulseAudio-源" class="headerlink" title="列出 PulseAudio 源"></a>列出 PulseAudio 源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -sources pulse</span><br></pre></td></tr></table></figure>
+<p><strong>注意：确保内核模块<code>btusb</code>已加载到系统中。内核模块相当于Windows操作系统中的驱动程序。如果未加载，则使用加载</strong></p>
+<p><strong>查看内核加载</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep btusb</span><br></pre></td></tr></table></figure>
 
-<h3 id="使用-FFplay-显示-HDMI-采集卡的视频-720p-60fps"><a href="#使用-FFplay-显示-HDMI-采集卡的视频-720p-60fps" class="headerlink" title="使用 FFplay 显示 HDMI 采集卡的视频 (720p 60fps)"></a>使用 FFplay 显示 HDMI 采集卡的视频 (720p 60fps)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay -f v4l2 -input_format mjpeg -video_size 1280x720 -framerate 60 -i /dev/video0</span><br></pre></td></tr></table></figure>
+<p><strong>加载<code>btusb</code>进内核</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modprobe btusb</span><br></pre></td></tr></table></figure>
 
-<h3 id="使用-FFplay-显示-HDMI-采集卡的视频-1080p-30fps"><a href="#使用-FFplay-显示-HDMI-采集卡的视频-1080p-30fps" class="headerlink" title="使用 FFplay 显示 HDMI 采集卡的视频 (1080p 30fps)"></a>使用 FFplay 显示 HDMI 采集卡的视频 (1080p 30fps)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay -f v4l2 -input_format mjpeg -video_size 1920x1080 -framerate 30 -i /dev/video0</span><br></pre></td></tr></table></figure>
+<h2 id="进入Bluetoothctl的交互模式"><a href="#进入Bluetoothctl的交互模式" class="headerlink" title="进入Bluetoothctl的交互模式"></a>进入Bluetoothctl的交互模式</h2><p><strong>与 <code>nmtui</code>一样，<code>bluetoothctl</code>的交互模式在首次连接时更容易使用。与<code>nmcli</code>一样，非交互模式非常适合脚本编写。如果要进入交互模式，请使用</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo bluetoothctl</span><br></pre></td></tr></table></figure>
 
-<h3 id="使用-FFplay-播放-HDMI-采集卡中的音频"><a href="#使用-FFplay-播放-HDMI-采集卡中的音频" class="headerlink" title="使用 FFplay 播放 HDMI 采集卡中的音频"></a>使用 FFplay 播放 HDMI 采集卡中的音频</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay -f pulse -i default</span><br></pre></td></tr></table></figure>
+<p><strong>完成所有步骤后，您可以退出使用</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># quit</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="将音频和视频捕获为-AVI-文件（720p-60fps，无需重新编码）"><a href="#将音频和视频捕获为-AVI-文件（720p-60fps，无需重新编码）" class="headerlink" title="将音频和视频捕获为 AVI 文件（720p 60fps，无需重新编码）"></a>将音频和视频捕获为 AVI 文件（720p 60fps，无需重新编码）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f v4l2 -thread_queue_size 1024 -input_format mjpeg -video_size 1280x720 -framerate 60 -i /dev/video0 -f pulse -thread_queue_size 1024 -i default -codec copy vid_720p_60.avi</span><br></pre></td></tr></table></figure>
+<h2 id="在-Linux-中打开蓝牙"><a href="#在-Linux-中打开蓝牙" class="headerlink" title="在 Linux 中打开蓝牙"></a>在 Linux 中打开蓝牙</h2><p><strong>要打开蓝牙，请在蓝牙交互模式使用开机命令：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># power on</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="将音频和视频捕获为-AVI-文件（1080p-30fps，无需重新编码）"><a href="#将音频和视频捕获为-AVI-文件（1080p-30fps，无需重新编码）" class="headerlink" title="将音频和视频捕获为 AVI 文件（1080p 30fps，无需重新编码）"></a>将音频和视频捕获为 AVI 文件（1080p 30fps，无需重新编码）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f v4l2 -thread_queue_size 1024 -input_format mjpeg -video_size 1920x1080 -framerate 30 -i /dev/video0 -f pulse -thread_queue_size 1024 -i default -codec copy vid_1080p_30.avi</span><br></pre></td></tr></table></figure>
+<p><strong>在我的系统中，我得到以下输出：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Agent registered</span><br><span class="line">[CHG] Controller E4:5F:01:9D:17:85 Pairable: <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="将avi转换为mp4（硬件编码）"><a href="#将avi转换为mp4（硬件编码）" class="headerlink" title="将avi转换为mp4（硬件编码）"></a>将avi转换为mp4（硬件编码）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i vid_720p_60.avi -vcodec h264_omx -acodec aac -b:v 9500k -pix_fmt yuv420p vid.mp4</span><br></pre></td></tr></table></figure>
+<p><strong>同样，要关闭它，可以使用该<code>power off</code>命令。</strong></p>
+<h2 id="扫描可用的蓝牙设备"><a href="#扫描可用的蓝牙设备" class="headerlink" title="扫描可用的蓝牙设备"></a>扫描可用的蓝牙设备</h2><p><strong>首先列出可用的设备</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># devices</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="将avi转换为mp4（软件编码）"><a href="#将avi转换为mp4（软件编码）" class="headerlink" title="将avi转换为mp4（软件编码）"></a>将avi转换为mp4（软件编码）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i vid_720p_60.avi -vcodec libx264 -acodec aac -b:v 9500k -pix_fmt yuv420p vid.mp4</span><br></pre></td></tr></table></figure>
+<p><strong>如果在输出中找不到您的设备，请使用以下命令：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># scan on</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="使用硬件解码播放-mp4"><a href="#使用硬件解码播放-mp4" class="headerlink" title="使用硬件解码播放 mp4"></a>使用硬件解码播放 mp4</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">omxplayer vid.mp4</span><br></pre></td></tr></table></figure>
+<p><img src="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/image-20230804102708724.png" alt="image-20230804102708724"></p>
+<p><strong>如果您希望其他设备可以发现您的 Linux 计算机，请使用下面给出的命令。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># discoverable on</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="在-Raspberry-Pi-4-上同时捕获两个-HDMI-流"><a href="#在-Raspberry-Pi-4-上同时捕获两个-HDMI-流" class="headerlink" title="在 Raspberry Pi 4 上同时捕获两个 HDMI 流"></a>在 Raspberry Pi 4 上同时捕获两个 HDMI 流</h2><h3 id="一次记录两个流"><a href="#一次记录两个流" class="headerlink" title="一次记录两个流"></a>一次记录两个流</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg \</span><br><span class="line">-f v4l2 -thread_queue_size 1024 -input_format mjpeg -video_size 1920x1080 -framerate 30 -i /dev/video0 \</span><br><span class="line">-f pulse -thread_queue_size 1024 -i alsa_input.usb-MACROSILICON_USB_Video-02.analog-stereo \</span><br><span class="line">-f v4l2 -thread_queue_size 1024 -input_format mjpeg -video_size 1920x1080 -framerate 30 -i /dev/video2 \</span><br><span class="line">-f pulse -thread_queue_size 1024 -i alsa_input.usb-MACROSILICON_USB_Video-02.analog-stereo.2 \</span><br><span class="line">-codec copy -copytb 1 \</span><br><span class="line">-map 0:0 -map 1:0 stream1.avi \</span><br><span class="line">-codec copy -copytb 1 \</span><br><span class="line">-map 2:0 -map 3:0 stream2.avi</span><br></pre></td></tr></table></figure>
+<h2 id="连接到您的蓝牙设备"><a href="#连接到您的蓝牙设备" class="headerlink" title="连接到您的蓝牙设备"></a>连接到您的蓝牙设备</h2><p><strong>我们可以通过两种方式做到这一点：</strong><br><strong>1.配对，然后连接。</strong><br><strong>2.信任然后连接。我发现它更简单，不那么令人困惑，而且它适用于所有类型的设备。</strong></p>
+<h3 id="配对并连接"><a href="#配对并连接" class="headerlink" title="配对并连接"></a>配对并连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># pair 50:E6:66:A4:B3:F3</span></span><br></pre></td></tr></table></figure>
 
+<p><strong>现在使用连接</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># connect 50:E6:66:A4:B3:F3</span></span><br></pre></td></tr></table></figure>
 
-      
-    </div>
+<p><strong>现在，您可能会收到接受连接的提示。</strong></p>
+<h3 id="信任和联系"><a href="#信任和联系" class="headerlink" title="信任和联系"></a>信任和联系</h3><p><strong>首先，您需要使用以下方法信任您的设备：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># trust 50:E6:66:A4:B3:F3</span></span><br></pre></td></tr></table></figure>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+<p><strong>输出：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[CHG] Device 50:E6:66:A4:B3:F3 Trusted: <span class="built_in">yes</span></span><br><span class="line">Changing 50:E6:66:A4:B3:F3 trust succeeded</span><br></pre></td></tr></table></figure>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/">
+<p><strong>现在，<code>bluetoothctl</code>会将您设备的地址保存在您的计算机上。将来，您将不再需要信任该设备。即使系统重新启动，这种节省也会保留下来。现在，您可以使用以下方式连接设备：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># connect 50:E6:66:A4:B3:F3</span></span><br></pre></td></tr></table></figure>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
+<p><strong>现在，您可能会收到接受连接的提示。它甚至可能要求您匹配密钥&#x2F;密码。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Request confirmation</span><br><span class="line">[agent] Confirm passkey 000000 (<span class="built_in">yes</span>/no): <span class="built_in">yes</span></span><br><span class="line">[CHG] Device 50:E6:66:A4:B3:F3 Paired: <span class="built_in">yes</span></span><br><span class="line">Connection successful</span><br></pre></td></tr></table></figure>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/" class="post-title-link" itemprop="url">树莓派vnc远程桌面</a>
-        </h2>
+<h2 id="在非交互模式下使用-bluetoothctl-编写脚本"><a href="#在非交互模式下使用-bluetoothctl-编写脚本" class="headerlink" title="在非交互模式下使用 bluetoothctl 编写脚本"></a>在非交互模式下使用 bluetoothctl 编写脚本</h2><p><strong>我们也可以通过在前面添加bluetoothctl以非交互模式执行上述命令。例如，开机命令变为</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">bluetoothctl</span> power <span class="literal">on</span></span><br></pre></td></tr></table></figure>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
+<p><strong>因此，如果您想使用单个命令连接到蓝牙设备，请使用以下命令：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bluetoothctl power on &amp;&amp; bluetoothctl connect 50:E6:66:A4:B3:F3</span><br></pre></td></tr></table></figure>
 
-              <time title="创建时间：2023-08-02 01:01:59 / 修改时间：09:50:18" itemprop="dateCreated datePublished" datetime="2023-08-02T01:01:59+08:00">2023-08-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
-                </span>
-            </span>
+<p><strong>注意：如上所述，在执行上述命令之前，不要忘记信任您的设备 <code>50:E6:66:A4:B3:F3 </code>我们设备一生中只需要执行一次。</strong></p>
+<p><strong>脚本编写是我喜欢 Linux 的原因之一,您可以将一个命令与另一个命令合并并提高您的工作效率。</strong></p>
+<p><strong>从我当前使用上述命令和nmcli命令与计算机共享智能手机的互联网可以看出这一点。它的网络速度也是相当快的同时，蓝牙比Wi-Fi消耗的电能少得多。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bluetoothctl power on &amp;&amp; bluetoothctl connect 54:0D:F9:F4:B8:E4 &amp;&amp; nmcli connection up <span class="string">&#x27;橙皮\ Network&#x27;</span></span><br></pre></td></tr></table></figure>
 
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>413</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
+<p><img src="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/image-20230804191138807.png" alt="image-20230804191138807"></p>
+<p><img src="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/image-20230804191203645.png" alt="image-20230804191203645"></p>
+<p><img src="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/image-20230804191217621.png" alt="image-20230804191217621"></p>
+<p><strong>然后，使用<code>ip a</code>命令之后可以看到这个网卡</strong></p>
+<p><img src="/2023/08/04/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87/image-20230804191254468.png" alt="image-20230804191254468"></p>
+<h2 id="断开-x2F-取消信任蓝牙命令"><a href="#断开-x2F-取消信任蓝牙命令" class="headerlink" title="断开&#x2F;取消信任蓝牙命令"></a>断开&#x2F;取消信任蓝牙命令</h2><p><strong>当我们使用<code>devices</code>命令时，我们得到了一个设备列表。如果出于隐私原因您想要从列表中删除您的设备，请在交互模式下使用以下命令：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># remove 54:0D:F9:F4:B8:E4</span></span><br></pre></td></tr></table></figure>
 
-        </div>
-      </header>
+<p><strong>如果您不再希望您的设备再被信任，请使用：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetooth]<span class="comment"># untrust 54:0D:F9:F4:B8:E4</span></span><br></pre></td></tr></table></figure>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h2 id="开启-VNC-服务"><a href="#开启-VNC-服务" class="headerlink" title="开启 VNC 服务"></a>开启 VNC 服务</h2><p>在命令行输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010356098.png" alt="image-20230802010356098"></p>
-<p>选择<code>Interface Options</code>，然后回车</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010448952.png" alt="image-20230802010448952"></p>
-<p>然后选择<code>VNC</code>，然后回车，再选择<code>Yes</code>开启</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010515821.png" alt="image-20230802010515821"></p>
-<p>弹出下面这话即开启成功</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010600332.png" alt="image-20230802010600332"></p>
-<h2 id="设置分辨率"><a href="#设置分辨率" class="headerlink" title="设置分辨率"></a>设置分辨率</h2><p>还是在命令行输入之后那个界面</p>
-<p>选择<code>Display Options</code>选项</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010837297.png" alt="image-20230802010837297"></p>
-<p>然后选择<code>D5 VNC Resolution...</code>，然后回车，再选择<code>合适的分辨率（1920*1080）</code>，然后回车即可</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010924329.png" alt="image-20230802010924329"></p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011043166.png" alt="image-20230802011043166"></p>
-<p>弹出下图直接回车即可</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011121714.png" alt="image-20230802011121714"></p>
-<p>设置完成记得<code>finish</code>，树莓派会自动<code>reboot</code>,那么接下来VNC就看到<code>1920*1080</code>的远程桌面了</p>
-<h2 id="VNC-远程桌面"><a href="#VNC-远程桌面" class="headerlink" title="VNC 远程桌面"></a>VNC 远程桌面</h2><p>下载<code>win版</code>VNC就可以远程树莓派了</p>
-<p><a target="_blank" rel="noopener" href="https://www.realvnc.com/en/connect/download/viewer/">VNC官网</a></p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011420613.png" alt="image-20230802011420613"></p>
-<p>下载好后点击安装，没有中文的，这才是正宗VNC，有中文的要警惕病毒</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011505719.png" alt="image-20230802011505719"></p>
-<p>安装好后直接打开，然后输入<code>ip</code>，然后回车,再选择<code>Continue</code>选项</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011748589.png" alt="image-20230802011748589"></p>
-<p>然后就弹出需要账号和密码，输入自己设置的管理员账号和密码或者用(官方的用户名是 pi，密码是 raspberry)</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011847484.png" alt="image-20230802011847484"></p>
-<p>ok之后就看到远程的树莓派桌面了</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802094938075.png" alt="image-20230802094938075"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/" class="post-title-link" itemprop="url">windows10使用wsl</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-08-01 19:14:50 / 修改时间：19:55:38" itemprop="dateCreated datePublished" datetime="2023-08-01T19:14:50+08:00">2023-08-01</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>89</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h2 id="开启wsl"><a href="#开启wsl" class="headerlink" title="开启wsl"></a>开启wsl</h2><p><img src="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/image-20230801191507728.png" alt="image-20230801191507728"></p>
-<h2 id="设置wsl版本为2"><a href="#设置wsl版本为2" class="headerlink" title="设置wsl版本为2"></a>设置wsl版本为2</h2><p><img src="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/image-20230801192923260.png" alt="image-20230801192923260"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-default-version 2</span><br></pre></td></tr></table></figure>
-
-<h2 id="更新wsl"><a href="#更新wsl" class="headerlink" title="更新wsl"></a>更新wsl</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --update</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/image-20230801194227663.png" alt="image-20230801194227663"></p>
-<h2 id="查看wsl版本"><a href="#查看wsl版本" class="headerlink" title="查看wsl版本"></a>查看wsl版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --status</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装ubuntu"><a href="#安装ubuntu" class="headerlink" title="安装ubuntu"></a>安装ubuntu</h2><p><img src="/2023/08/01/windows10%E4%BD%BF%E7%94%A8wsl/image-20230801194614331.png" alt="image-20230801194614331"></p>
+<p><strong>要断开连接，有多种方法：</strong></p>
+<ul>
+<li><p><strong>切换蓝牙设备和&#x2F;或计算机上的蓝牙开关。</strong></p>
+</li>
+<li><p><strong>从终端使用<code>bluetoothctl power off</code>命令。</strong></p>
+</li>
+<li><p><strong>使用标准方法<code>bluetoothctl disconnect 54:0D:F9:F4:B8:E4</code>即可</strong></p>
+</li>
+</ul>
 
       
     </div>
@@ -550,7 +611,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -622,7 +683,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">75</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

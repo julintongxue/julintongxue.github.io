@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">72</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">75</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/10/18/%E5%85%B3%E4%BA%8EDjango%E8%AE%BE%E7%BD%AEdebug-False%E4%B9%8B%E5%90%8E%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E4%B8%A2%E5%A4%B1%E7%9A%84%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/11/21/Arch-can-actually-play-games/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -214,125 +214,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/10/18/%E5%85%B3%E4%BA%8EDjango%E8%AE%BE%E7%BD%AEdebug-False%E4%B9%8B%E5%90%8E%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E4%B8%A2%E5%A4%B1%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">关于Django设置debug=False之后静态文件丢失的问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-10-18 18:49:43 / 修改时间：22:44:28" itemprop="dateCreated datePublished" datetime="2023-10-18T18:49:43+08:00">2023-10-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/10/18/%E5%85%B3%E4%BA%8EDjango%E8%AE%BE%E7%BD%AEdebug-False%E4%B9%8B%E5%90%8E%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E4%B8%A2%E5%A4%B1%E7%9A%84%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/10/18/%E5%85%B3%E4%BA%8EDjango%E8%AE%BE%E7%BD%AEdebug-False%E4%B9%8B%E5%90%8E%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E4%B8%A2%E5%A4%B1%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>699</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>很多人学了Django是为了快速上线服务而学习的Django，而我是为了快速完成毕业设计的问题。由于学习速度太快，很多东西都没系统性消化。</strong></p>
-<p><strong>某天，我在设置404页面的时候，官方要求将settings.py文件下面两个设置修改</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DEBUG = True</span><br><span class="line">ALLOWED_HOSTS = []</span><br></pre></td></tr></table></figure>
-
-<p><strong>修改后</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DEBUG = False</span><br><span class="line">ALLOWED_HOSTS = [<span class="string">&#x27;*&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-<p><strong>修改完成之后，所有的静态资源都无法找到，而我写的前端登录界面就只有个框架(html),而css、images、js这些全部没了。</strong></p>
-<p><img src="/2023/10/18/%E5%85%B3%E4%BA%8EDjango%E8%AE%BE%E7%BD%AEdebug-False%E4%B9%8B%E5%90%8E%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E4%B8%A2%E5%A4%B1%E7%9A%84%E9%97%AE%E9%A2%98/image-20231018220605735.png" alt="image-20231018220605735"></p>
-<p><strong>浏览器返回的报错是下面这样的</strong></p>
-<p><img src="/2023/10/18/%E5%85%B3%E4%BA%8EDjango%E8%AE%BE%E7%BD%AEdebug-False%E4%B9%8B%E5%90%8E%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E4%B8%A2%E5%A4%B1%E7%9A%84%E9%97%AE%E9%A2%98/image-20231018220918553.png" alt="image-20231018220918553"></p>
-<p><strong>而pycharm终端返回的报错则是404</strong></p>
-<p><img src="/2023/10/18/%E5%85%B3%E4%BA%8EDjango%E8%AE%BE%E7%BD%AEdebug-False%E4%B9%8B%E5%90%8E%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E4%B8%A2%E5%A4%B1%E7%9A%84%E9%97%AE%E9%A2%98/image-20231018221454698.png" alt="image-20231018221454698"></p>
-<p><strong>经过大量的资料查询，我发现Django官网给出了静态文件迁移的办法，就是在settings.py设置静态迁移文件路径，然后执行迁移程序</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新增</span></span><br><span class="line">STATIC_ROOT = os.path.join(BASE_DIR,<span class="string">&#x27;static&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>控制终端执行迁移程序</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py collectstatic</span><br></pre></td></tr></table></figure>
-
-<p><strong>迁移过后，就在我的项目根目录生成了个<code>static</code>目录</strong></p>
-<p><img src="/2023/10/18/%E5%85%B3%E4%BA%8EDjango%E8%AE%BE%E7%BD%AEdebug-False%E4%B9%8B%E5%90%8E%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E4%B8%A2%E5%A4%B1%E7%9A%84%E9%97%AE%E9%A2%98/image-20231018223112439.png" alt="image-20231018223112439"></p>
-<p><strong>结果还是不行，网上很多人写什么在<code>urls.py</code>里面写拼接路径的，这些我都试过了，是绝对不可行的，而且<code>csdn</code>没有原创内容，都是互相抄袭。。。花了两天时间，我快绝望了准备放弃的时候，我无意中想到<code>DEBUG = False</code>貌似会让Django的一个中间件失效，也就是不会有Web前端静态文件的功能，只有这样有<code>html</code>框架没有<code>css</code>、<code>images</code>、<code>js</code>这样就解释清楚了。</strong></p>
-<p><strong>那么，理论上就解释的通了，通过Nginx、Apache作为Web服务器，访问静态迁移文件即可。</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/10/02/%E5%AD%A6%E4%B9%A0Django%E4%B9%8B%E4%B8%BA%E4%BA%86%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/02/%E5%AD%A6%E4%B9%A0Django%E4%B9%8B%E4%B8%BA%E4%BA%86%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">学习Django之为了毕业设计</a>
+            <a href="/2023/11/21/Arch-can-actually-play-games/" class="post-title-link" itemprop="url">Arch_can_actually_play_games</a>
         </h2>
 
         <div class="post-meta">
@@ -342,14 +224,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-10-02 18:21:20" itemprop="dateCreated datePublished" datetime="2023-10-02T18:21:20+08:00">2023-10-02</time>
+              <time title="创建时间：2023-11-21 22:42:35" itemprop="dateCreated datePublished" datetime="2023-11-21T22:42:35+08:00">2023-11-21</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-25 17:47:59" itemprop="dateModified" datetime="2023-11-25T17:47:59+08:00">2023-11-25</time>
+                <time title="修改时间：2023-11-22 17:50:02" itemprop="dateModified" datetime="2023-11-22T17:50:02+08:00">2023-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -357,7 +239,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                  <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
                 </span>
             </span>
 
@@ -370,8 +252,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/10/02/%E5%AD%A6%E4%B9%A0Django%E4%B9%8B%E4%B8%BA%E4%BA%86%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/10/02/%E5%AD%A6%E4%B9%A0Django%E4%B9%8B%E4%B8%BA%E4%BA%86%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/11/21/Arch-can-actually-play-games/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/11/21/Arch-can-actually-play-games/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -381,107 +263,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          这里有东西被加密了，需要输入密码查看哦。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/10/02/%E5%AD%A6%E4%B9%A0Django%E4%B9%8B%E4%B8%BA%E4%BA%86%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/08/23/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E4%B9%8B%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/23/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E4%B9%8B%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">鸿蒙开发之入门</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-08-23 21:13:53" itemprop="dateCreated datePublished" datetime="2023-08-23T21:13:53+08:00">2023-08-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-24 01:15:29" itemprop="dateModified" datetime="2023-08-24T01:15:29+08:00">2023-08-24</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/08/23/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E4%B9%8B%E5%85%A5%E9%97%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/08/23/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E4%B9%8B%E5%85%A5%E9%97%A8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>555</span>
+              <span>974</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -501,32 +283,277 @@
 
       
           <p>[toc]</p>
-<h1 id="DevEco-Studio常见设置"><a href="#DevEco-Studio常见设置" class="headerlink" title="DevEco Studio常见设置"></a>DevEco Studio常见设置</h1><h2 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h2><p><code>File</code>-&gt;<code>Settings</code>-&gt;<code>Appearance &amp; Behavior</code>-&gt;<code>Appearance</code></p>
-<p><img src="/2023/08/23/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E4%B9%8B%E5%85%A5%E9%97%A8/image-20230823213227400.png" alt="image-20230823213227400"></p>
-<h2 id="设置字体大小"><a href="#设置字体大小" class="headerlink" title="设置字体大小"></a>设置字体大小</h2><p>直接搜索<code>font</code></p>
-<p><img src="/2023/08/23/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E4%B9%8B%E5%85%A5%E9%97%A8/image-20230823213341324.png" alt="image-20230823213341324"></p>
-<h2 id="取消注释斜体并且修改注释颜色"><a href="#取消注释斜体并且修改注释颜色" class="headerlink" title="取消注释斜体并且修改注释颜色"></a>取消注释斜体并且修改注释颜色</h2><p><img src="/2023/08/23/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E4%B9%8B%E5%85%A5%E9%97%A8/image-20230823213733207.png" alt="image-20230823213733207"></p>
-<p><img src="/2023/08/23/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E4%B9%8B%E5%85%A5%E9%97%A8/image-20230823213856474.png" alt="image-20230823213856474"></p>
-<h2 id="忽略大小写"><a href="#忽略大小写" class="headerlink" title="忽略大小写"></a>忽略大小写</h2><p><img src="/2023/08/23/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E4%B9%8B%E5%85%A5%E9%97%A8/image-20230823214234384.png" alt="image-20230823214234384"></p>
-<h2 id="自动导包"><a href="#自动导包" class="headerlink" title="自动导包"></a>自动导包</h2><p><img src="/2023/08/23/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E4%B9%8B%E5%85%A5%E9%97%A8/image-20230823214455934.png" alt="image-20230823214455934"></p>
-<h2 id="修改自动提示的快捷键"><a href="#修改自动提示的快捷键" class="headerlink" title="修改自动提示的快捷键"></a>修改自动提示的快捷键</h2><p><img src="/2023/08/23/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E4%B9%8B%E5%85%A5%E9%97%A8/image-20230823215226328.png" alt="image-20230823215226328"></p>
-<p><img src="/2023/08/23/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E4%B9%8B%E5%85%A5%E9%97%A8/image-20230823215315656.png" alt="image-20230823215315656"></p>
-<h1 id="了解基本工程目录"><a href="#了解基本工程目录" class="headerlink" title="了解基本工程目录"></a>了解基本工程目录</h1><h2 id="工程级目录"><a href="#工程级目录" class="headerlink" title="工程级目录"></a>工程级目录</h2><p>工程的目录结构如下:</p>
-<p><img src="/2023/08/23/%E9%B8%BF%E8%92%99%E5%BC%80%E5%8F%91%E4%B9%8B%E5%85%A5%E9%97%A8/image-20230824005027789.png" alt="image-20230824005027789"></p>
-<p>其中详细如下：</p>
-<ul>
-<li>AppScope中存放应用全局所需要的资源文件。</li>
-<li>entry是应用的主模块，存放HarmonyOS应用的代码、资源等。</li>
-<li>oh_modules是工程的依赖包，存放工程依赖的源文件。</li>
-<li>build-profile.json5是工程级配置信息，包括签名、产品配置等。</li>
-<li>hvigorfile.ts是工程级编译构建任务脚本，hvigor是基于任务管理机制实现的一款全新的自动化构建工具，主要提供任务注册编排，工程模型管理、配置管理等核心能力。</li>
-<li>oh-package.json5是工程级依赖配置文件，用于记录引入包的配置信息。</li>
-</ul>
-<p>在AppScope，其中有resources文件夹和配置文件app.json5。AppScope&gt;resources&gt;base中包含element和media两个文件夹，</p>
-<ul>
-<li>其中element文件夹主要存放公共的字符串、布局文件等资源。</li>
-<li>media存放全局公共的多媒体资源文件。</li>
-</ul>
+<h1 id="Arch竟能安装游戏"><a href="#Arch竟能安装游戏" class="headerlink" title="Arch竟能安装游戏"></a>Arch竟能安装游戏</h1><h2 id="steam"><a href="#steam" class="headerlink" title="steam"></a>steam</h2><p><strong>打完显卡驱动之后咧，我们就能下steam愉快的玩<code>apex、文明6、空洞骑士等游戏</code>了</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S steam</span><br></pre></td></tr></table></figure>
+
+<p><strong>为了让 SteamDeck (搭载基于 Arch Linux 的魔改版) 能卖出去, Valve 开发了 Steam Proton (基于 wine), 这个软件可以让 Linux 运行只有 Windows 能玩的游戏, 我们把这个功能打开后就可以玩绝大多数游戏啦！！！</strong></p>
+<p><strong>所以这边下完steam完成更新和登录要进设置<code>中文</code>和这个<code>兼容性</code>，语言你可以不设置，但是兼容性一定要开，不然下不了游戏，即使下了也是win端的linux没办法打开。</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_012423.png" alt="Screenshot_20231122_012423"></p>
+<p><strong>筛选掉不支持 Linux 的游戏</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_173911.png" alt="Screenshot_20231122_173911"></p>
+<p><strong>下个apex玩玩！</strong></p>
+<p><strong>运行游戏需要预编译 Vulkan 着色器, 是个很吃 CPU 的操作, 耐心等待一断时间就好。</strong></p>
+<h2 id="Lutris"><a href="#Lutris" class="headerlink" title="Lutris"></a><a target="_blank" rel="noopener" href="https://lutris.net/">Lutris</a></h2><p><strong><a target="_blank" rel="noopener" href="https://lutris.net/">Lutris</a> 是一个视频游戏保存平台，旨在让您的视频游戏收藏在未来几年保持正常运行。 多年来，视频游戏经历了许多不同的硬件和软件平台。通过提供可用于运行游戏的最佳软件，<a target="_blank" rel="noopener" href="https://lutris.net/">Lutris</a> 使您可以轻松运行所有新旧游戏。</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_013507.png" alt="Screenshot_20231122_013507"></p>
+<p><strong>目前，该平台能很好的使用<code>Steam、Epic Games Store、GOG 和 Humble Bundle</code> 游戏库，但是我这里只做部分（Epic和EA平台）补充说明。</strong></p>
+<h3 id="安装Lutris"><a href="#安装Lutris" class="headerlink" title="安装Lutris"></a>安装Lutris</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S lutris</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果<code>pacman</code>安装不了就使用<code>yay</code>，毕竟AUR库里有这个包</strong></p>
+<h2 id="Epic平台安装"><a href="#Epic平台安装" class="headerlink" title="Epic平台安装"></a>Epic平台安装</h2><p><strong>点开Lutris软件，在搜索栏输入<code>epic game</code>，你就能看到下面这个<code>epic app</code>的安装信息</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_014122.png" alt="Screenshot_20231122_014122"></p>
+<p><strong>点击安装即可。</strong></p>
+<h2 id="EA-APP平台安装"><a href="#EA-APP平台安装" class="headerlink" title="EA APP平台安装"></a>EA APP平台安装</h2><p><strong>如果要安装EA的话，就要多走一步，需要先完成wine的安装。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S wine </span><br></pre></td></tr></table></figure>
+
+<p><strong>完成<code>wine安装</code>再点击左边的<code>EA App</code>，就能很顺利的安装上EA平台了，但目前由于我的硬盘受限没有安装游戏实验下去。</strong></p>
+<p><strong>最后，来张<code>steam、lutris、epic、ea</code>四app同台合影</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_014908.png" alt="Screenshot_20231122_014908"></p>
+<h2 id="Minecraft"><a href="#Minecraft" class="headerlink" title="Minecraft"></a>Minecraft</h2><h3 id="国际版启动器"><a href="#国际版启动器" class="headerlink" title="国际版启动器"></a>国际版启动器</h3><p> <strong>微软官方正版MC(国际版)</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S minecraft-launcher</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_165224.png" alt="Screenshot_20231122_165224"></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_165341.png" alt="Screenshot_20231122_165341"></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_165435.png" alt="Screenshot_20231122_165435"></p>
+<p><strong>但目前只有JAVA版是能用的其他版本例如基岩都是显示设备不可用</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_165729.png" alt="Screenshot_20231122_165729"></p>
+<p><strong>下面是JAVA版的展示</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_170242.png" alt="Screenshot_20231122_170242"></p>
+<p><strong>根据下图可以看出目前是没有调用电脑的独显的，仅仅是使用了核显</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_170529.png" alt="Screenshot_20231122_170529"></p>
+<h3 id="HMCL"><a href="#HMCL" class="headerlink" title="HMCL"></a>HMCL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S hmcl-stable-bin</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_173619.png" alt="Screenshot_20231122_173619"></p>
+<p><strong>进去游戏还是可以看到没有调用显卡，那么后期还得针对游戏进行显卡优化</strong></p>
+<p><img src="/2023/11/21/Arch-can-actually-play-games/Screenshot_20231122_173558.png" alt="Screenshot_20231122_173558"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/11/19/Manjaro-install-Pycharm-Professional/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/11/19/Manjaro-install-Pycharm-Professional/" class="post-title-link" itemprop="url">Manjaro_install_Pycharm_Professional</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-11-19 17:33:52 / 修改时间：23:16:25" itemprop="dateCreated datePublished" datetime="2023-11-19T17:33:52+08:00">2023-11-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/11/19/Manjaro-install-Pycharm-Professional/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/11/19/Manjaro-install-Pycharm-Professional/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>515</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="安装Pycharm-Professional正版"><a href="#安装Pycharm-Professional正版" class="headerlink" title="安装Pycharm_Professional正版"></a>安装Pycharm_Professional正版</h1><p><strong>这里先去<a target="_blank" rel="noopener" href="https://aur.archlinux.org/">AUR (en) - Home (archlinux.org)</a>查看<code>Pycharm_Professional</code>这个包名字</strong></p>
+<p><img src="/2023/11/19/Manjaro-install-Pycharm-Professional/Screenshot_20231119_173812.png" alt="Screenshot_20231119_173812"></p>
+<p><strong>然后调出我们的zsh终端，输入：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S pycharm-professional</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/11/19/Manjaro-install-Pycharm-Professional/Screenshot_20231119_174501.png" alt="Screenshot_20231119_174501"></p>
+<p><img src="/2023/11/19/Manjaro-install-Pycharm-Professional/Screenshot_20231119_174629.png" alt="Screenshot_20231119_174629"></p>
+<p><strong>静静等待安装完成。。。  打开Pycharm你就能看到叫你激活的页面</strong></p>
+<p><strong>打开下面网站，找一个可以点的进去的</strong></p>
+<p><a target="_blank" rel="noopener" href="https://3.jetbra.in/">网站</a></p>
+<p><img src="/2023/11/19/Manjaro-install-Pycharm-Professional/Screenshot_20231119_175201.png" alt="Screenshot_20231119_175201"></p>
+<p><strong>点进去之后你能看到一个提示和很多软件，我们需要的就是提示给的<code>破解包(里面有破解命令)</code>和<code>相应的Pycharm的激活密钥</code>这两个东西</strong></p>
+<p><img src="/2023/11/19/Manjaro-install-Pycharm-Professional/Screenshot_20231119_175445.png" alt="Screenshot_20231119_175445"></p>
+<p><strong>下好破解包之后，将其解压到<code>/opt/pycharm-professional</code>里面，然后<code>cd </code>到<code>/opt/pycharm-professional</code>里面给权限<code>chmod -R +777 jetbra</code>，然后进入到<code>/opt/pycharm-professional/jetbra/scripts/</code>你会看到<code>install.sh</code>，执行它即可</strong></p>
+<p><strong>即：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./install</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/11/19/Manjaro-install-Pycharm-Professional/Screenshot_20231119_224958.png" alt="Screenshot_20231119_224958"></p>
+<p><strong>然后，注销电脑，重新登陆系统，点开<code>Pycharm_Professional</code>,点击 <code>Activation code</code> 然后把网站上的那个<code>相应的Pycharm的激活密钥</code>粘贴到激活面板然后确认<code>Activate</code>就行了。</strong></p>
+<p><strong>激活后：</strong></p>
+<p><img src="/2023/11/19/Manjaro-install-Pycharm-Professional/Screenshot_20231119_225632.png" alt="Screenshot_20231119_225632"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="post-title-link" itemprop="url">python多进程和多线程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-10-23 10:38:39 / 修改时间：11:13:36" itemprop="dateCreated datePublished" datetime="2023-10-23T10:38:39+08:00">2023-10-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="python单进程"><a href="#python单进程" class="headerlink" title="python单进程"></a>python单进程</h3><h4 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ping</span>(<span class="params">host</span>):</span><br><span class="line">    result = subprocess.run(</span><br><span class="line">        <span class="string">&#x27;ping -c2 %s &amp;&gt; /dev/null&#x27;</span> % host,shell=<span class="literal">True</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">if</span> result.returncode == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:up&#x27;</span>% host)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:down&#x27;</span>% host)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    ips = [<span class="string">&#x27;192.168.0.%s&#x27;</span> %i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">255</span>)]</span><br><span class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> ips:</span><br><span class="line">        ping(ip)</span><br></pre></td></tr></table></figure>
+
+<p><strong>这个会ping得很慢，因为要等待前一个进程得到结果才能运行下一个命令</strong></p>
+<h3 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h3><h4 id="ping2"><a href="#ping2" class="headerlink" title="ping2"></a>ping2</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ping</span>(<span class="params">host</span>):</span><br><span class="line">    result = subprocess.run(</span><br><span class="line">        <span class="string">&#x27;ping -c2 %s &amp;&gt; /dev/null&#x27;</span> % host,shell=<span class="literal">True</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">if</span> result.returncode == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:up&#x27;</span>% host)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:down&#x27;</span>% host)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    ips = [<span class="string">&#x27;192.168.0.%s&#x27;</span> %i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">255</span>)]</span><br><span class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> ips:</span><br><span class="line">        ret_val = os.fork()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> ret_val:    </span><br><span class="line">            ping(ip)</span><br><span class="line">            exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>这个就会很快，因为用了多进程的概念(注意：是多进程不是多线程)</strong></p>
+<p><strong>Windows是没有多进程的概念的，只有多线程；Linux有多进程和多线程的概念，两者要注意分开！！！！</strong></p>
+<h3 id="产生僵死进程"><a href="#产生僵死进程" class="headerlink" title="产生僵死进程"></a>产生僵死进程</h3><h4 id="frozen-process"><a href="#frozen-process" class="headerlink" title="frozen_process"></a>frozen_process</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;starting&#x27;</span>)</span><br><span class="line">ret_val = os.fork()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ret_val:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in parent&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">30</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;parent done&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in child&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">15</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;child done&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20231023104631420.png" alt="image-20231023104631420"></p>
+<p><img src="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20231023104703212.png" alt="image-20231023104703212"></p>
+<h3 id="线程挂起与不挂起-os-waitpid"><a href="#线程挂起与不挂起-os-waitpid" class="headerlink" title="线程挂起与不挂起_os.waitpid()"></a>线程挂起与不挂起_os.waitpid()</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.waitpid(-1,0) <span class="comment"># 挂起父进程，子进程会被父进程看管，子进程一旦干完活马上被父进程杀死。期间不会产生僵死进程</span></span><br><span class="line">os.waitpid(-1,1) <span class="comment"># 不挂起父进程，子进程不会被父进程看管，会产生僵死进程。如父进程时间到了，结束了进程，子进程如果还有东西运行就继续运行下去(父进程迁移成为system)，如果没有运行的东西(父进程迁移成为system)被system马上杀死</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="挂起父进程"><a href="#挂起父进程" class="headerlink" title="挂起父进程"></a>挂起父进程</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;starting&#x27;</span>)</span><br><span class="line">ret_val = os.fork()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ret_val:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in parent&#x27;</span>)</span><br><span class="line">    result = os.waitpid(-<span class="number">1</span>,<span class="number">0</span>)   <span class="comment"># 挂起父进程</span></span><br><span class="line">    <span class="built_in">print</span>(result)               <span class="comment"># result是元组:(子进程pid，0)</span></span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;parent done&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in child&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;child done&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>父进程<code>print(&#39;in parent&#39;)</code>，然后运行到<code>os.waitpid(-1,0)</code>父进程挂起,子进程干活<code>print(&#39;in child&#39;)</code>,睡觉5秒后<code>print(&#39;child done&#39;)</code>,父进程开始杀死子进程，并且打印<code>print(result)</code>，睡觉3秒后<code>print(&#39;parent done&#39;)</code></p>
+<h4 id="不挂起父进程"><a href="#不挂起父进程" class="headerlink" title="不挂起父进程"></a>不挂起父进程</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;starting&#x27;</span>)</span><br><span class="line">ret_val = os.fork()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ret_val:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in parent&#x27;</span>)</span><br><span class="line">    result = os.waitpid(-<span class="number">1</span>,<span class="number">1</span>)   <span class="comment"># 不挂起父进程</span></span><br><span class="line">    <span class="built_in">print</span>(result)               <span class="comment"># result是元组:(0，0)</span></span><br><span class="line">    time.sleep(<span class="number">10</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;parent done&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in child&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;child done&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -545,7 +572,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -617,7 +644,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">75</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

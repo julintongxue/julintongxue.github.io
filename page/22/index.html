@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">72</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">75</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/19/Git%20%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/19/MYSQL-5-7-16-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -214,7 +214,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/19/Git%20%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">git_学习</a>
+            <a href="/2022/07/19/MYSQL-5-7-16-install/" class="post-title-link" itemprop="url">MYSQL_5.7.16_install</a>
         </h2>
 
         <div class="post-meta">
@@ -224,15 +224,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-07-19 20:31:55" itemprop="dateCreated datePublished" datetime="2022-07-19T20:31:55+08:00">2022-07-19</time>
+              <time title="创建时间：2022-07-19 20:37:24" itemprop="dateCreated datePublished" datetime="2022-07-19T20:37:24+08:00">2022-07-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 00:28:03" itemprop="dateModified" datetime="2023-07-24T00:28:03+08:00">2023-07-24</time>
+                <time title="修改时间：2023-05-01 19:09:55" itemprop="dateModified" datetime="2023-05-01T19:09:55+08:00">2023-05-01</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
 
           
   
@@ -243,8 +252,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2022/07/19/Git%20%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/19/Git%20%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/07/19/MYSQL-5-7-16-install/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/19/MYSQL-5-7-16-install/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -254,14 +263,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>696</span>
+              <span>5.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -274,39 +283,80 @@
 
       
           <p>[toc]</p>
-<h1 id="Git-配置"><a href="#Git-配置" class="headerlink" title="Git 配置"></a>Git 配置</h1><h3 id="查看git配置"><a href="#查看git配置" class="headerlink" title="查看git配置"></a>查看git配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config -l</span><br></pre></td></tr></table></figure>
+<h1 id="一-MYSQL"><a href="#一-MYSQL" class="headerlink" title="一.MYSQL"></a>一.MYSQL</h1><h3 id="1-MYSQL简介"><a href="#1-MYSQL简介" class="headerlink" title="1.MYSQL简介"></a><strong>1.MYSQL简介</strong></h3><p>​		MYSQL 是一种开源的关系型数据库产品，具有开放式的架构。MYSQL最初由瑞典MYSQL AB 公司研发，后被SUN 公司收购，最后被Oracle公司收购。</p>
+<p>​		MYSQL 数据库是传统的关系型数据库，其开放式的架构使得用户有更多的选择。当下大多数互联网公司也比较热衷选择开源代码架构的产品。MYSQL 数据库在不断的更新和迭代发展，其功能也越来越强大，性能越爱越好，支持的平台越来越广。在实际工作中，MYSQL也是使用最多的是数据库。</p>
+<h3 id="2-MYSQL版本"><a href="#2-MYSQL版本" class="headerlink" title="2.MYSQL版本"></a><strong>2.MYSQL版本</strong></h3><p>​		MYSQL有众多版本，如下所示：</p>
+<p>(1)Alpha版本：一般在软件开发公司内部运行，不对外公开。</p>
+<p>(2)Beta版本：完成功能开发和所有测试工作后的产品，不会存在较大的功能或者性能Bug。</p>
+<p>(3)PC版本：属于正式发布前的一个版本，也是最终测试版本，进一步收集Bug或者不足之处，然后进行修复和完善。</p>
+<p>(4)GA版本：软件产品正式发布的版本，也是生产环境使用的版本。</p>
+<h3 id="3-MYSQL的安装方式"><a href="#3-MYSQL的安装方式" class="headerlink" title="3.MYSQL的安装方式"></a><strong>3.MYSQL的安装方式</strong></h3><p>（1）常见的编译安装方式（适用于MYSQL 5.5前的版本）。</p>
+<p>（2）二进制包安装的方式。</p>
+<p>（3）RPM包的安装方式。</p>
+<p>（4）Cmake方式安装（适用于MYSQL 5.5后的版本）。</p>
+<h1 id="二-MYSQL-的安装与部署（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）"><a href="#二-MYSQL-的安装与部署（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）" class="headerlink" title="二.MYSQL 的安装与部署（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）"></a><strong>二.MYSQL 的安装与部署</strong>（本次部署是在Centos8上面部署的，安装包和命令都是成功后的复制品，不存在失败）</h1><h3 id="1-MYSQL安装包的下载网站"><a href="#1-MYSQL安装包的下载网站" class="headerlink" title="1.MYSQL安装包的下载网站"></a><strong>1.MYSQL安装包的下载网站</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://downloads.mysql.com/archives/community/</span><br></pre></td></tr></table></figure>
 
-<p><strong>查看系统配置</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --system --list</span><br></pre></td></tr></table></figure>
+<p>在里面下载一个Linux的 <strong>mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</strong> 二进制安装包</p>
+<h3 id="2-安装依赖包软件"><a href="#2-安装依赖包软件" class="headerlink" title="2.安装依赖包软件"></a><strong>2.安装依赖包软件</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># yum -y install zlib-devel gcc-c++ ncurses ncurses-devel libaio libaio-devel libncurses*</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>查看用户配置</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
-
-<p><strong>Git相关的配置文件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Git\etc\gitconfig    <span class="comment">#Git安装目录下的gitconfig --system  系统级</span></span><br><span class="line">C：\User\Administrator\.gitconfig   <span class="comment">#只适用于当前登录用户的配置 --global  全局</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="安装完Git必须配置用户名和邮箱"><a href="#安装完Git必须配置用户名和邮箱" class="headerlink" title="安装完Git必须配置用户名和邮箱"></a>安装完Git必须配置用户名和邮箱</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;名称&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="本地仓库搭建"><a href="#本地仓库搭建" class="headerlink" title="本地仓库搭建"></a>本地仓库搭建</h3><p><strong>创建本地仓库有两种方法：一.创造全新的仓库，二.克隆远程仓库</strong></p>
-<ul>
-<li><strong>本地仓库搭建</strong></li>
-</ul>
-<p><strong>1.创建全新的仓库，需要用GIT管理的项目的根目录执行：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在当前目录新创建一个Git代码库</span><br><span class="line">git init    <span class="comment">#初始化</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>2.执行完之后可以在项目目录多了一个.git目录，关于版本等的所以信息都在这个目录里面。</strong></p>
-<ul>
-<li><strong>克隆远程仓库</strong></li>
-</ul>
-<p><strong>1.另一种方式是克隆远程目录，就是将远程服务器上的仓库完全镜像到本地</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># git clone [url]</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>2.去gitee或者github上克隆一个测试！</strong></p>
-<h3 id="git设置代理"><a href="#git设置代理" class="headerlink" title="git设置代理"></a>git设置代理</h3><p><strong>下面这个地址<code>192.168.0.102:8101</code>是我的旁路由代理</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">&quot;http://192.168.0.112:8101&quot;</span></span><br><span class="line">git config --global https.proxy <span class="string">&quot;https://192.168.0.112:8101&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-用xshell上传-mysql-5-7-16-linux-glibc2-5-x86-64-tar-gz到服务器上"><a href="#3-用xshell上传-mysql-5-7-16-linux-glibc2-5-x86-64-tar-gz到服务器上" class="headerlink" title="*3.用xshell上传 mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz到服务器上*"></a>*<em>3.用xshell上传 <em>mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</em>到服务器上</em>*</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># yum -y install lrzsz     #安装lrzsz 方便两设备上传下载东西</span></span><br></pre></td></tr></table></figure>
 
 
 
+
+<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(25).png"></p>
+<p>安装好 <strong>lrzsz</strong> 后即可时使用 <strong>rz</strong> 命令上传文件到服务器，使用 <strong>sz</strong> 命令下载文件到客户端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># rz</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(26).png"></p>
+<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(27).png"></p>
+<p>上传完成后可以用 <strong>ls</strong> 命令来看到 <strong>mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</strong> 二进制安装包</p>
+<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(28).png"></p>
+<h3 id="4-安装MYSQL"><a href="#4-安装MYSQL" class="headerlink" title="4.安装MYSQL"></a><strong>4.安装MYSQL</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># useradd mysql -s /sbin/nologin -M      #创建一个mysql的账号，并且定义它不能登录shell，-M参数：不要自动建立用户的主目录（意味这mysql这个用户没有家）</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># mkdir -p /mysql/data           #创建一个递归目录，-p参数：没有的目录自动创建</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># chown -R mysql.mysql /mysql/   #递归更改目录的属主和属组为mysql，-R参数：递归地更改指定文件夹的所有权，但不更改链接指向目录</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># tar zxf mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz -C /usr/local/     #指定解压 mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz 到/usr/local/ 目录下</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># ln -s /usr/local/mysql-5.7.16-linux-glibc2.5-x86_64 /usr/local/mysql    #说真的。。。看到这个我tm笑死，建立软连接干嘛，怕那么点字母？</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># cd /usr/local/mysql/      </span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># cp support-files/my-default.cnf /etc/my.cnf    #修改/etc/my.cnf 里面的数据就好，my-default.cnf 这个压根不用管。。。配置文件都转移到/etc/目录下面了</span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># cp support-files/mysql.server /etc/init.d/mysqld</span></span><br><span class="line"><span class="comment"># init.d目录包含许多系统各种服务的启动和停止脚本(/etc/init.d里的shell脚本能够响应start，stop，restart，reload命令来管理某个具体的应用)。</span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># chmod +x /etc/init.d/mysqld    #添加执行权限，x参数：执行权限</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-MYSQL初始化"><a href="#5-MYSQL初始化" class="headerlink" title="5.MYSQL初始化"></a><strong>5.MYSQL初始化</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># ./bin/mysqld --initialize --basedir=/usr/local/mysql --datadir=/mysql/data/ --user=mysql      #初始化并且规定服务安装目录、	MYSQL服务数据存储目录、规定使用者是 mysql</span></span><br></pre></td></tr></table></figure>
+
+<p>初始化完成后会出现一段密码，把它保存下来，后面登录数据库需要用到它</p>
+<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(29)_%E7%88%B1%E5%A5%87%E8%89%BA.jpg"></p>
+<p>后面这样一串就是密码： <strong>&gt;rqiYpmT9Sh_</strong>   (注意：这里别把空格弄进去了，空格在密码也算一个位置的，密码是自动生成的，每台设备都不一样，别抄我的密码进去了，这样都弄错。。。小心我锤爆你狗头doge）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># egrep -v &quot;^#|^$&quot; /etc/my.cnf    #其实刚刚看到这串鬼东西的时候，我人都傻了，我只学过grep这个命令，egrep这是什么鬼东西，后来从度娘那边查到egrep == grep -e ，秒懂！！！（废话一堆，这句话意思就是，过滤掉 my.cnf 文本里面的注释和空格，剩下的东西全部显现在屏幕上）</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看出<strong>my.cnf</strong> 里面就两行配置信息</p>
+<p>那么我们直接进去加点料，定义一些配置信息，让我们装逼装的更加彻底</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># vim /etc/my.cnf</span></span><br></pre></td></tr></table></figure>
+
+<p>进去就会看到这样的 <strong>冥场面</strong> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For advice on how to change settings please see</span></span><br><span class="line"><span class="comment"># http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html</span></span><br><span class="line"><span class="comment"># *** DO NOT EDIT THIS FILE. It&#x27;s a template which will be copied to the</span></span><br><span class="line"><span class="comment"># *** default location during install, and will be replaced if you</span></span><br><span class="line"><span class="comment"># *** upgrade to a newer version of MySQL.</span></span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove leading # and set to the amount of RAM for the most important data</span></span><br><span class="line"><span class="comment"># cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.</span></span><br><span class="line"><span class="comment"># innodb_buffer_pool_size = 128M</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove leading # to turn on a very important data integrity option: logging</span></span><br><span class="line"><span class="comment"># changes to the binary log between backups.</span></span><br><span class="line"><span class="comment"># log_bin</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># These are commonly set, remove the # and set as required.</span></span><br><span class="line"><span class="comment"># basedir = .....</span></span><br><span class="line"><span class="comment"># datadir = .....</span></span><br><span class="line"><span class="comment"># port = .....</span></span><br><span class="line"><span class="comment"># server_id = .....</span></span><br><span class="line"><span class="comment"># socket = .....</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove leading # to set options mainly useful for reporting servers.</span></span><br><span class="line"><span class="comment"># The server defaults are faster for transactions and fast SELECTs.</span></span><br><span class="line"><span class="comment"># Adjust sizes as needed, experiment to find the optimal values.</span></span><br><span class="line"><span class="comment"># join_buffer_size = 128M</span></span><br><span class="line"><span class="comment"># sort_buffer_size = 2M</span></span><br><span class="line"><span class="comment"># read_rnd_buffer_size = 2M </span></span><br><span class="line"></span><br><span class="line">sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line">~                                                                                                                                                                          </span><br><span class="line">~ </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>对于我这个英语小白来说简直绝望</strong></p>
+<p><strong>在里面写入这段配置信息，注意不要重复了</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">port = 3306</span><br><span class="line">socket = /mysql/mysql.sock</span><br><span class="line">[mysqld]</span><br><span class="line">basedir = /usr/local/mysql</span><br><span class="line">datadir = /mysql/data/</span><br><span class="line">port = 3306</span><br><span class="line">server_id = 1</span><br><span class="line">socket = /mysql/mysql.sock</span><br><span class="line">sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line">[mysqld_safe]</span><br><span class="line">log-error = /mysql/mysql.log</span><br><span class="line">pid-file = /mysql/mysql.pid</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-开启MYSQL服务"><a href="#6-开启MYSQL服务" class="headerlink" title="6.开启MYSQL服务"></a><strong>6.开启MYSQL服务</strong></h3><p>开启这个服务之后，然后就能看到唯一看得懂的英文 <strong>SUCCESS</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># /etc/init.d/mysqld start</span></span><br><span class="line">Starting MySQL.. SUCCESS! </span><br></pre></td></tr></table></figure>
+
+<p>可以使用这段代码来监听端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># lsof -i :3306</span></span><br><span class="line">COMMAND   PID  USER   FD   TYPE DEVICE SIZE/OFF NODE NAME</span><br><span class="line">mysqld  11932 mysql   23u  IPv6 150481      0t0  TCP *:mysql (LISTEN)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="7-配置环境变量"><a href="#7-配置环境变量" class="headerlink" title="7.配置环境变量"></a><strong>7.配置环境变量</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin mysql]<span class="comment"># echo &#x27;export PATH=$PATH:/usr/local/mysql/bin&#x27; &gt;&gt; /etc/profile</span></span><br><span class="line">[root@kejulin mysql]<span class="comment"># source /etc/profile</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="8-登录数据库"><a href="#8-登录数据库" class="headerlink" title="8.登录数据库"></a><strong>8.登录数据库</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@kejulin ~]<span class="comment"># mysql -uroot -p      </span></span><br><span class="line">Enter password:     <span class="comment">#别告诉我你没有保存密码哦，小心狗头！！！</span></span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection <span class="built_in">id</span> is 2</span><br><span class="line">Server version: 5.7.16</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; </span><br><span class="line">mysql&gt; </span><br><span class="line">mysql&gt; </span><br></pre></td></tr></table></figure>
+
+<h3 id="9-修改密码"><a href="#9-修改密码" class="headerlink" title="9.修改密码"></a><strong>9.修改密码</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;1234567890&#x27;</span>;    <span class="comment">#密码改成1234567890</span></span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line">mysql&gt; <span class="built_in">exit</span>       <span class="comment">#退出数据库</span></span><br><span class="line">Bye</span><br><span class="line">[root@kejulin ~]<span class="comment">#</span></span><br><span class="line">[root@kejulin ~]<span class="comment"># mysql -uroot -p1234567890</span></span><br><span class="line">mysql: [Warning] Using a password on the <span class="built_in">command</span> line interface can be insecure.</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection <span class="built_in">id</span> is 3</span><br><span class="line">Server version: 5.7.16 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="三-结尾"><a href="#三-结尾" class="headerlink" title="三.结尾"></a><strong>三.结尾</strong></h1><p>虽然，CSDN 和 百度 等搜索工具里面查到的MYSQL很坑，但是作为一个先行者，我可以很负责任的说能善于用任何工具来解决自己问题对于日后的排错非常有帮助。</p>
+<p><img src="/2022/07/19/MYSQL-5-7-16-install/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210614171041.png"></p>
+<p>遇到的困难都可以自己尝试去解决的。</p>
 
       
     </div>
@@ -326,7 +376,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/17/raspberry/">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -340,7 +390,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/17/raspberry/" class="post-title-link" itemprop="url">raspberry(搁浅)</a>
+            <a href="/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/" class="post-title-link" itemprop="url">kali 系统基础配置（2023版）</a>
         </h2>
 
         <div class="post-meta">
@@ -350,7 +400,153 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-07-17 18:49:23" itemprop="dateCreated datePublished" datetime="2022-07-17T18:49:23+08:00">2022-07-17</time>
+              <time title="创建时间：2022-07-19 20:34:55" itemprop="dateCreated datePublished" datetime="2022-07-19T20:34:55+08:00">2022-07-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-22 14:30:26" itemprop="dateModified" datetime="2023-04-22T14:30:26+08:00">2023-04-22</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="kali-系统基础配置（2023版）"><a href="#kali-系统基础配置（2023版）" class="headerlink" title="kali 系统基础配置（2023版）"></a>kali 系统基础配置（2023版）</h1><h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p><strong>然后将原有的源全部注释掉，然后插入下面这串源地址</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>etc</strong>模式下输入这个   :set nu   可以看到行号</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#deb 代表软件位置，deb-src 代表软件的源代码的位置</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="apt-命令和知识"><a href="#apt-命令和知识" class="headerlink" title="apt 命令和知识"></a>apt 命令和知识</h2><p><strong>使用apt 新的软件包获取最新的软件包列表。</strong></p>
+<p>**注意：apt update 的作用是从&#x2F;etc&#x2F;apt&#x2F;sources.list 文件中定义的源中获取的最新的软件包列表。即运行apt update 并没有更新软件，而是相当于windows下面的检查更新，获取的是软件的状态。 **</p>
+<p><strong>Kali apt 源的软件包类型说明：</strong></p>
+<p><strong>dists 区域           软件包组件标准</strong></p>
+<p><strong>main					遵从Debian 自由软件指导方针（DFSG），并且不依赖 non-free</strong></p>
+<p><strong>contrib				遵从Debian 自由软件指导方针（DFSG)，但依赖于 non-free</strong>			</p>
+<p><strong>non-free			不遵从Debian 自由软件指导方针（DFSG)</strong></p>
+<p><strong>注意：DFSG是Debian 自由软件指导方针</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update   <span class="comment">#更新列表</span></span><br><span class="line">sudo apt upgrade  <span class="comment">#从更新列表中升级软件包，升级时软件包有相依性的问题，次软件包就不会被升级。</span></span><br><span class="line">sudo dist-upgrade <span class="comment">#升级时，软件包有相依性问题，会移除旧版，直接安装新版本。（所以通常dist-upgrade被认为是有风险的升级）（移除旧版升级新版容易出现A依赖B的旧版，但是B升级了新版，但是A只能用B的旧版，所以A出现问题）</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/07/19/kali-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%EF%BC%882022%E7%89%88%EF%BC%89/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(56).png"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install     <span class="comment">#安装软件包</span></span><br><span class="line">sudo apt remove      <span class="comment">#移除软件包</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="网络配置-ip、子网、网关、DNS"><a href="#网络配置-ip、子网、网关、DNS" class="headerlink" title="网络配置(ip、子网、网关、DNS)"></a>网络配置(ip、子网、网关、DNS)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/network/interfaces</span><br></pre></td></tr></table></figure>
+
+<p><strong>写入这个静态ip和网络信息</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">auto eth0                  <span class="comment">#使用这块网卡，不写这个网络配置相当于没用</span></span><br><span class="line">iface eth0 inet static     <span class="comment">#配置eth0使用静态地址</span></span><br><span class="line">address 192.168.1.53       <span class="comment">#配置eth0的固定ip地址</span></span><br><span class="line">netmask 255.255.255.0      <span class="comment">#配置子网掩码</span></span><br><span class="line">gateway 192.168.1.1        <span class="comment">#配置网关</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>配置DNS信息</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/resolv.conf    </span><br></pre></td></tr></table></figure>
+
+
+
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Generated by NetworkManager</span></span><br><span class="line">search localdmain</span><br><span class="line">nameserver 8.8.8.8</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart networking.service    <span class="comment">#重启网络服务</span></span><br><span class="line"><span class="comment">#或者用</span></span><br><span class="line">/etc/init.d/networking restart          <span class="comment">#重启网络服务</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="启动ssh服务"><a href="#启动ssh服务" class="headerlink" title="启动ssh服务"></a>启动ssh服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p><strong>插入这几行配置</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin <span class="built_in">yes</span></span><br><span class="line">PubkeyAuthentication <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>然后重启ssh服务，并设置开机自启</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart ssh</span><br><span class="line">systemctl <span class="built_in">enable</span> ssh</span><br></pre></td></tr></table></figure>
+
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><h3 id="whois查询"><a href="#whois查询" class="headerlink" title="whois查询"></a>whois查询</h3><p><a target="_blank" rel="noopener" href="https://whois.chinaz.com/">站长之家</a></p>
+<p><a target="_blank" rel="noopener" href="https://whois.aliyun.com/">万网whois</a></p>
+<h3 id="在线网站备案"><a href="#在线网站备案" class="headerlink" title="在线网站备案"></a>在线网站备案</h3><p><a target="_blank" rel="noopener" href="https://www.tianyancha.com/">天眼查</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.beianx.cn/">ICP备案查询网</a></p>
+<h3 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集"></a>子域名收集</h3><p><a target="_blank" rel="noopener" href="https://fofa.info/toLogin">1.FOFA</a>	title&#x3D;“公司名称”</p>
+<p><a target="_blank" rel="noopener" href="https://www.baidu.com/">2.百度</a>	intitle&#x3D;“公司名称”</p>
+<p><a target="_blank" rel="noopener" href="https://www.google.com/">3.Google</a>	intitle&#x3D;“公司名称”</p>
+<p><a target="_blank" rel="noopener" href="https://www.zoomeye.org/">4.钟馗之眼</a>	site:域名</p>
+<h3 id="dns信息收集"><a href="#dns信息收集" class="headerlink" title="dns信息收集"></a>dns信息收集</h3><h2 id="KALI-的渗透软件"><a href="#KALI-的渗透软件" class="headerlink" title="KALI 的渗透软件"></a>KALI 的渗透软件</h2><h3 id><a href="#" class="headerlink" title></a></h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/19/Google%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/19/Google%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">Google搜索引擎的使用技巧</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-19 20:32:58" itemprop="dateCreated datePublished" datetime="2022-07-19T20:32:58+08:00">2022-07-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -359,15 +555,6 @@
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
               </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
-                </span>
-            </span>
 
           
   
@@ -378,8 +565,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2022/07/17/raspberry/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/17/raspberry/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/07/19/Google%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/19/Google%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -389,7 +576,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>558</span>
+              <span>415</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -408,445 +595,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>[toc]</p>
-<h1 id="raspberry-搁浅"><a href="#raspberry-搁浅" class="headerlink" title="raspberry(搁浅)"></a>raspberry(搁浅)</h1><h2 id="基础入门"><a href="#基础入门" class="headerlink" title="基础入门"></a>基础入门</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><h3 id="2-远程连接"><a href="#2-远程连接" class="headerlink" title="2.远程连接"></a>2.远程连接</h3><h4 id="window端远程连接"><a href="#window端远程连接" class="headerlink" title="window端远程连接"></a>window端远程连接</h4><p>要使用window的远程连接<code>mstsc</code>的话需要树莓派安装了<code>xrdp</code>这个软件；当然如果你觉得自带的不香的话也可以用树莓派自带的<code>vnc</code>，这得需要你去官网下一个<code>vncviewer</code>  这个客户端</p>
-<p><strong>raspberry设置</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
+          <h1 id="Google搜索引擎的使用技巧"><a href="#Google搜索引擎的使用技巧" class="headerlink" title="Google搜索引擎的使用技巧"></a>Google搜索引擎的使用技巧</h1><h3 id="一-垃圾话"><a href="#一-垃圾话" class="headerlink" title="一.垃圾话"></a>一.垃圾话</h3><p><strong>我们通常使用搜索引擎都是直接搜索自己想要的内容，正常情况下我们都是直接使用语言进行描述问题来进行搜索，然后搜索引擎也有特定的语法可以使用，熟练掌握搜索引擎的语法可以让你的搜索效率和准确率大幅度提升，当然我们学习这种技巧是为了寻找存在漏洞的页面，或者存在敏感信息的文件。</strong></p>
+<h3 id="二-Google-常用语法说明"><a href="#二-Google-常用语法说明" class="headerlink" title="二.Google 常用语法说明"></a>二.Google 常用语法说明</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">site              <span class="comment">#指定域名,如：xuegod.cn</span></span><br><span class="line">inurl             <span class="comment">#URL中存在的关键字页面，如：admin_login.php、admin/login.php、manage.php、admin.asp、admin.php </span></span><br><span class="line">intext            <span class="comment">#网页内容里面的关键字,如：后台</span></span><br><span class="line">Filetype          <span class="comment">#指定文件类型</span></span><br><span class="line">intitle           <span class="comment">#网页标题中的关键字,如：后台登录、index.of、.bash_history </span></span><br><span class="line"><span class="built_in">link</span>              <span class="comment">#返回你所有的指定域名链接</span></span><br><span class="line">info              <span class="comment">#查找指定站点信息</span></span><br><span class="line">cache             <span class="comment">#搜索Google里面的内容缓存</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="linux端远程连接"><a href="#linux端远程连接" class="headerlink" title="linux端远程连接"></a>linux端远程连接</h4><p>将树莓派打开<code>vnc</code>功能，然后就可以通过vnc远程连接了</p>
-<p><strong>raspberry设置</strong></p>
-<p>因为我使用的系统是manjaro那么我就推荐arch的软件咯</p>
-<p><strong>manjaro设置</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S realvnc-vnc-viewer</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="虚拟篇"><a href="#虚拟篇" class="headerlink" title="虚拟篇"></a>虚拟篇</h2><h3 id="exsi虚拟化"><a href="#exsi虚拟化" class="headerlink" title="exsi虚拟化"></a>exsi虚拟化</h3><h4 id="一-树莓派更新"><a href="#一-树莓派更新" class="headerlink" title="一.树莓派更新"></a>一.树莓派更新</h4><h4 id="二-前期步骤"><a href="#二-前期步骤" class="headerlink" title="二.前期步骤"></a>二.前期步骤</h4><ul>
-<li><p><a target="_blank" rel="noopener" href="https://flings.vmware.com/esxi-arm-edition">exsi官方下载地址</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://bit.ly/2HpIaG6">最新的 Raspberry Pi 固件</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://bit.ly/3jota8D">UEFI 树莓派固件</a></p>
-</li>
-</ul>
-<p>下载到以上的文件之后，先解压<code>firmware-master.zip</code>这个文件，弹出文件是否替换，单击<code>全部选否</code>，解压完成之后进入<code>boot</code>文件目录，拷贝里面的全部内容到你格式化好的tf卡中，并且删除掉这几个<code>kernel*</code>的文件。</p>
-<p><img src="/2022/07/17/raspberry/image-20220719185945121-1658231139940.png" alt="image-20220719185945121"></p>
-<p><img src="/2022/07/17/raspberry/image-20220719191049021-1658231139941.png" alt="image-20220719191049021"></p>
-<p><img src="/2022/07/17/raspberry/image-20220719191232782-1658231139941.png" alt="image-20220719191232782"></p>
-<p>接下来解压<code>RPi4_UEFI_Firmware_v1.20</code>压缩包，把里面的所有的内容拷贝到tf卡里面，弹出是否要替换文件的时候选择<code>替换目标中的文件</code></p>
-<p><img src="/2022/07/17/raspberry/image-20220719192054052-1658231139941.png" alt="image-20220719192054052"></p>
-<p>在<code>config.txt</code>文件中添加<code>gpu_mem=16</code></p>
-<p><img src="/2022/07/17/raspberry/image-20220719192730271-1658231139941.png" alt="image-20220719192730271"></p>
-<h4 id="三-exsi-install"><a href="#三-exsi-install" class="headerlink" title="三.exsi install"></a>三.exsi install</h4>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/" class="post-title-link" itemprop="url">Manjaro-生存手册</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-07-17 18:46:02" itemprop="dateCreated datePublished" datetime="2022-07-17T18:46:02+08:00">2022-07-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-25 17:08:30" itemprop="dateModified" datetime="2023-11-25T17:08:30+08:00">2023-11-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>10k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a><a target="_blank" rel="noopener" href="https://manjaro.org/download/">下载镜像</a></h3><h4 id="选择镜像"><a href="#选择镜像" class="headerlink" title="选择镜像"></a>选择镜像</h4><h5 id="1-XFCE"><a href="#1-XFCE" class="headerlink" title="1.XFCE"></a>1.XFCE</h5><p><strong>Xfce 是一个用于类 UNIX 操作系统的轻量级桌面环境。它的目标是快速和低系统资源，同时仍然具有视觉吸引力和用户友好性。Xfce 体现了传统的 UNIX 模块化和可重用性哲学。它由许多组件组成，这些组件提供了现代桌面环境所期望的全部功能。它们是单独包装的，您可以在可用的软件包中进行选择，以创建最佳的个人工作环境。</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/XFCE.png" alt="XFCE"></p>
-<h5 id="2-KDE-Plasma"><a href="#2-KDE-Plasma" class="headerlink" title="2.KDE Plasma"></a>2.KDE Plasma</h5><p><strong>KDE Plasma 适合那些想要用户友好和可定制桌面的人。它是一个功能丰富且用途广泛的桌面环境，提供多种不同风格的菜单来访问应用程序。一个出色的内置界面，可以轻松访问和安装来自互联网的新主题、小部件等，也值得一提。默认情况下，KDE Plasma 很简单，它是一个干净的工作区域，供实际使用，不会妨碍您，因此用户可以创建工作流程，从而更有效地完成任务。</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/KDEPlasma.png" alt="KDEPlasma"></p>
-<h5 id="3-GNOME"><a href="#3-GNOME" class="headerlink" title="3.GNOME"></a>3.GNOME</h5><p><strong>对于想要一个非常现代和简单的桌面的人</strong></p>
-<p><strong>简单来说，这就是像ubuntu那样的桌面，算是极简主义者的天堂了。</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/GNOME.jpg" alt="GNOME"></p>
-<h3 id="制造启动U盘"><a href="#制造启动U盘" class="headerlink" title="制造启动U盘"></a><a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">制造启动U盘</a></h3><h4 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h4><p>这里我们去<code>balenaEtcher</code>的官网下载一个便携式的u盘刻录工具，萌新前期可以通过这个工具把我们需要装的系统刻录进u盘中。(如果觉得一次只能刻录一个镜像而感到苦恼的话，也可以去<a target="_blank" rel="noopener" href="https://www.ventoy.net/cn/index.html">ventoy官网</a>下载ventoy这款无敌的工具，能够兼容多个系统镜像，真正让你的u盘不再唯一)</p>
-<p>刻录好u盘之后我们可以开始进行我们的系统安装了！！！</p>
-<h3 id="1-单系统-manjaro"><a href="#1-单系统-manjaro" class="headerlink" title="1.单系统(manjaro)"></a>1.单系统(manjaro)</h3><h3 id="2-双系统-window10-manjaro"><a href="#2-双系统-window10-manjaro" class="headerlink" title="2.双系统(window10 + manjaro)"></a>2.双系统(window10 + manjaro)</h3><h3 id="一-与window10-efi-共存方案"><a href="#一-与window10-efi-共存方案" class="headerlink" title="一.与window10 efi 共存方案"></a>一.与window10 efi 共存方案</h3><h3 id="二-单独一个-manjaro-efi-方案"><a href="#二-单独一个-manjaro-efi-方案" class="headerlink" title="二.单独一个 manjaro efi 方案"></a>二.单独一个 manjaro efi 方案</h3><h3 id="三-如何删除双系统下的manjaro系统"><a href="#三-如何删除双系统下的manjaro系统" class="headerlink" title="三.如何删除双系统下的manjaro系统"></a>三.如何删除双系统下的manjaro系统</h3><h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p><strong>直接在window系统上面格式化manjaro的磁盘是不能完全删除manjaro的，这样做会触发efi检测不到manjaro硬盘而进入grub模式！！！</strong></p>
-<h4 id="1-EFI根除教程"><a href="#1-EFI根除教程" class="headerlink" title="1.EFI根除教程"></a>1.EFI根除教程</h4><p><strong>1.删除EFI首先在cmd里面把装系统的那个分区显现出来，并且赋予盘符号。</strong></p>
-<ul>
-<li><p><strong>1.用diskpart来对磁盘进行操作</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(52).png"></p>
-</li>
-<li><p><strong>然后给diskpart授权开启</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(53).png"></p>
-</li>
-<li><p><strong>2.查看磁盘命令</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(54).png"></p>
-</li>
-<li><p><strong>3.选中目标磁盘0用select disk 0命令</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(55).png"></p>
-</li>
-<li><p>4.列出该磁盘下的所有分区信息用<strong>list partition</strong>命令</p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(56).png"></p>
-</li>
-<li><p><strong>5.选择我们的EFI系统分区用select partition 1命令（在这一步也可以删掉选中盘的所有内容（命令是delete partition override）（执行这条命令相当于把那个分区抹去了））</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(57).png"></p>
-</li>
-<li><p><strong>6.用命令给这个EFI分区赋予盘符之后，它就会像一个磁盘出现在电脑里面，命令是assign letter&#x3D;p（这里p是盘符号，你也可以按照自己喜欢来打其他字母，只要不重复就好。）</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(49).png"></p>
-</li>
-<li><p><strong>7.然后你就神奇的发现多了一个p盘分区（这个叫SYSTEM的磁盘分区就是那个EFI）</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(58).png"></p>
-</li>
-<li><p>8.这个时候你可以使用<strong>新建文本文档</strong>在里面打开这个p盘里面<strong>删掉EFI里面的系统启动文件</strong>或者用<strong>Total Commander 64 bit</strong>这个东西来删除里面的<strong>删掉EFI里面的系统启动文件</strong>（<strong>千万别把整个EFI干掉，那就是一把梭，莽！！！</strong>）<br><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(59).png"><br><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(48).png"><br><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(60).png"></p>
-</li>
-<li><p><strong>然后移除盘符p用命令remove letter&#x3D;p</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(61).png"></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE(62).png"></p>
-</li>
-</ul>
-<h4 id="2-删除卷"><a href="#2-删除卷" class="headerlink" title="2.删除卷"></a>2.删除卷</h4><p><strong>右键<code>此电脑</code>—&gt;单击<code>管理</code>—&gt;单击<code>磁盘管理</code>—&gt;找到你分配给<code>manjaro</code>的磁盘，直接右击<code>删除卷</code>，然后重新添加新的分区就行了。</strong></p>
-<h4 id="3-manjaro系统入门操作-过不了就躺板板吧，别学了"><a href="#3-manjaro系统入门操作-过不了就躺板板吧，别学了" class="headerlink" title="3.manjaro系统入门操作(过不了就躺板板吧，别学了)"></a>3.manjaro系统入门操作(过不了就躺板板吧，别学了)</h4><h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><h4 id="1-换国内软件源"><a href="#1-换国内软件源" class="headerlink" title="1.换国内软件源"></a>1.换国内软件源</h4><p>安装完成manjaro的第一步就是给manjaro换上国内源，使接下来能安装软件等其他操作。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman-mirrors -i -c China -m rank <span class="comment">#在弹出来的面板选择一道两个时间短的源</span></span><br></pre></td></tr></table></figure>
-
-<p>下面这个跟上面那一步操作类似，它是直接把源放入到文件里面一步到位(注意：这个源要放文件内容最前面)，有上面命令的操作可以跳过导入源到mirrorlist这一步。</p>
-<p>首先把这几个源加入到这个文件里面：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/pacman.d/mirrorlist    <span class="comment">#因为没有软件源，我没办法下载vim,所以这里我用的编辑器是vi,你们可以使用nano</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Country : China</span></span><br><span class="line">Server = https://mirrors.huaweicloud.com/manjaro/stable/<span class="variable">$repo</span>/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Country : China</span></span><br><span class="line">Server = https://mirrors.ustc.edu.cn/manjaro/stable/<span class="variable">$repo</span>/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Country : China</span></span><br><span class="line">Server = https://mirrors.sjtug.sjtu.edu.cn/manjaro/stable/<span class="variable">$repo</span>/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Country : China</span></span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/<span class="variable">$repo</span>/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Country : China</span></span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/<span class="variable">$repo</span>/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-添加cn软件源-完成这步，就可以正常下载东西了"><a href="#2-添加cn软件源-完成这步，就可以正常下载东西了" class="headerlink" title="2.添加cn软件源(完成这步，就可以正常下载东西了)"></a>2.添加cn软件源(完成这步，就可以正常下载东西了)</h4><p>这里我使用的是中科大的软件源：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/pacman.conf</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#中科大源</span></span><br><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustedOnly</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syyu                     <span class="comment">#更新整个系统</span></span><br><span class="line">pacman -S archlinuxcn-keyring    <span class="comment">#安装密钥环密钥</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="注意：如果更新的时候出现manjaro-pacman：“GPGME错误：无数据”问题"><a href="#注意：如果更新的时候出现manjaro-pacman：“GPGME错误：无数据”问题" class="headerlink" title="注意：如果更新的时候出现manjaro  pacman：“GPGME错误：无数据”问题"></a>注意：如果更新的时候出现manjaro  pacman：“GPGME错误：无数据”问题</h5><p>如下所示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syyu</span><br><span class="line">错误：GPGME error: 无数据</span><br><span class="line">错误：GPGME error: 无数据</span><br><span class="line">错误：GPGME error: 无数据</span><br><span class="line">错误：GPGME error: 无数据</span><br><span class="line">错误：GPGME error: 无数据</span><br><span class="line">:: 正在同步软件包数据库...</span><br><span class="line"> core 已经是最新版本        0.0   B  0.00B/s 00:00 [----------------------]   0%</span><br><span class="line"> extra 已经是最新版本       0.0   B  0.00B/s 00:00 [----------------------]   0%</span><br><span class="line"> community 已经是最新版本   0.0   B  0.00B/s 00:00 [----------------------]   0%</span><br><span class="line"> multilib-testing 已经是最新版本  B  0.00B/s 00:00 [----------------------]   0%</span><br><span class="line"> multilib 已经是最新版本    0.0   B  0.00B/s 00:00 [----------------------]   0%</span><br><span class="line">错误：数据库 <span class="string">&#x27;core&#x27;</span> 无效 (无效或已损坏的数据库 (PGP 签名))</span><br><span class="line">错误：数据库 <span class="string">&#x27;extra&#x27;</span> 无效 (无效或已损坏的数据库 (PGP 签名))</span><br><span class="line">错误：数据库 <span class="string">&#x27;community&#x27;</span> 无效 (无效或已损坏的数据库 (PGP 签名))</span><br><span class="line">错误：数据库 <span class="string">&#x27;multilib-testing&#x27;</span> 无效 (无效或已损坏的数据库 (PGP 签名))</span><br><span class="line">错误：数据库 <span class="string">&#x27;multilib&#x27;</span> 无效 (无效或已损坏的数据库 (PGP 签名))</span><br></pre></td></tr></table></figure>
-
-<p>只需要执行这条命令就可以正常启动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -R /var/lib/pacman/sync</span><br></pre></td></tr></table></figure>
-
-<h3 id="常用工具"><a href="#常用工具" class="headerlink" title="常用工具"></a>常用工具</h3><h4 id="1-vim编辑工具"><a href="#1-vim编辑工具" class="headerlink" title="1.vim编辑工具"></a>1.vim编辑工具</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S vim         <span class="comment"># vim编辑器永远的神</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-时间同步-非常重要，影响科学上网的vmess协议"><a href="#2-时间同步-非常重要，影响科学上网的vmess协议" class="headerlink" title="2.时间同步(非常重要，影响科学上网的vmess协议)"></a>2.时间同步(非常重要，影响科学上网的vmess协议)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#硬件时间and系统时间</span></span><br><span class="line"><span class="comment">#这2个时间不是同步的！如果有一天发现系统的时间不对了，可以分别看看这2个时间。硬件时间写在BIOS里，系统时间就是电脑显示的时间了。</span></span><br><span class="line"><span class="comment">#这个显示的时硬件时间。</span></span><br><span class="line">sudo hwclock -r                                                                               </span><br><span class="line">[sudo] <span class="variable">$home</span> 的密码：</span><br><span class="line">2022-01-21 17:28:32.107794+08:00</span><br><span class="line"></span><br><span class="line"><span class="comment">#在使用ntpdate同步网络时间后可以将时间写入到BIOS：</span></span><br><span class="line"><span class="comment">#同步网络时间：</span></span><br><span class="line">sudo ntpdate time.windows.com</span><br><span class="line">21 Jan 17:30:46 ntpdate[1898]: adjust time server 20.189.79.72 offset -0.276329 sec</span><br><span class="line"></span><br><span class="line"><span class="comment">#写入BIOS：</span></span><br><span class="line">sudo  hwclock -w <span class="comment">#写入BISO</span></span><br><span class="line"><span class="comment">#再看看现在的时间</span></span><br><span class="line">sudo  hwclock -r</span><br><span class="line">2014年12月31日 星期三 20时26分03秒  -0.979207 seconds</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-安装yay"><a href="#3-安装yay" class="headerlink" title="3.安装yay"></a>3.安装yay</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S yay <span class="comment">#yay可以安装archlinux wiki上面的AUR软件包，给archlinux点赞</span></span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/">Archlinux庞大的AUR软件包地址，需要软件包直接进去搜索</a></p>
-<h4 id="4-安装一个非常重要的基础库base-devel"><a href="#4-安装一个非常重要的基础库base-devel" class="headerlink" title="4.安装一个非常重要的基础库base-devel"></a>4.安装一个非常重要的基础库base-devel</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S base-devel</span><br><span class="line">#:: 在组 base-devel 中有 24 成员：</span><br><span class="line">#:: 软件仓库 core</span><br><span class="line">   1) autoconf  2) automake  3) binutils  4) bison  5) fakeroot  6) file  7) findutils  8) flex  9) gawk</span><br><span class="line">   10) gcc  11) gettext  12) grep  13) groff  14) gzip  15) libtool  16) m4  17) make  18) pacman  19) patch</span><br><span class="line">   20) pkgconf  21) sed  22) sudo  23) texinfo  24) which</span><br><span class="line">#这个基础包必须安装，否则我们在使用yay安装AUR软件的时候经常会遇到安装不上的问题。</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-浏览器"><a href="#5-浏览器" class="headerlink" title="5.浏览器"></a>5.浏览器</h4><h5 id="谷歌浏览器"><a href="#谷歌浏览器" class="headerlink" title="谷歌浏览器"></a>谷歌浏览器</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S google-chrome</span><br></pre></td></tr></table></figure>
-
-<h5 id="Chromium"><a href="#Chromium" class="headerlink" title="Chromium"></a>Chromium</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S chromium</span><br></pre></td></tr></table></figure>
-
-<h5 id="火狐浏览器"><a href="#火狐浏览器" class="headerlink" title="火狐浏览器"></a>火狐浏览器</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S firefox</span><br></pre></td></tr></table></figure>
-
-<p><strong>中文汉化</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S firefox-i18n-zh-cn</span><br></pre></td></tr></table></figure>
-
-<h4 id="6-办公套件WPS"><a href="#6-办公套件WPS" class="headerlink" title="6.办公套件WPS"></a>6.办公套件WPS</h4><p><strong>虽然安装manjaro的时候让你选择了办公套件，但是全英文的真是一言难尽。还是用回国产吧！</strong></p>
-<p><strong>那就直接<code>AUR</code>库安装wps咯</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S wps-office-mui-zh-cn wps-office-mime-cn wps-office-cn wps-office-fonts ttf-ms-fonts  ttf-wps-fonts</span><br></pre></td></tr></table></figure>
-
-<p><strong><code>ttf-wps-fonts</code>、<code>wps-office-fonts</code>和<code>ttf-ms-fonts</code>是安装字体的，可选安装的，我这就懒了，直接一把梭呗！</strong></p>
-<h4 id="7-安装Jetbra全家桶-以Pycharm为例子"><a href="#7-安装Jetbra全家桶-以Pycharm为例子" class="headerlink" title="7.安装Jetbra全家桶(以Pycharm为例子)"></a>7.安装Jetbra全家桶(以Pycharm为例子)</h4><a href="/2023/11/19/Manjaro-install-Pycharm-Professional/" title="Manjaro_install_Pycharm_Professional">Manjaro_install_Pycharm_Professional</a>
-
-<h4 id="8-安装obs"><a href="#8-安装obs" class="headerlink" title="8.安装obs"></a>8.安装obs</h4><p><strong>使用命令下面命令安装</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S obs-studio</span><br></pre></td></tr></table></figure>
-
-<p><strong>你启动obs的时候可以看到启动然后马上闪退</strong></p>
-<p><strong>这里只需要把<code>libva-vdpau-driver</code>这个包删了就行了</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -R libva-vdpau-driver</span><br></pre></td></tr></table></figure>
-
-<p><strong>然后，就能正常使用obs了</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231122_150148.png" alt="Screenshot_20231122_150148"></p>
-<p><strong>但是。。。我手贱没将它加入忽略更新里面,敲了一次<code>sudo pacman -Syyu</code>这个obs就挂了</strong></p>
-<p><strong>好吧！试一下编译安装</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S obs-studio-rc</span><br></pre></td></tr></table></figure>
-
-<p><strong>这个倒是没问题了，所以不确定的包，尽量别更新，趁早丢忽略更新里头。</strong></p>
-<p><strong>好好查查文档，想玩好arch就得看官方文档，上游更新之后，系统只要滚一下就是最新的了，所以很多问题都没有披露就被你“趁热”吃上了。</strong></p>
-<p><a target="_blank" rel="noopener" href="https://obsproject.com/download#linux">obs官网</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/obsproject/obs-studio">obs-studio-github</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/obsproject/obs-studio/wiki/install-instructions#linux">obs-studio-github-install</a></p>
-<h3 id="安装输入法"><a href="#安装输入法" class="headerlink" title="安装输入法"></a>安装输入法</h3><p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Fcitx5_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Fcitx5 官方文档</a><br>中文及日文输入法均体验良好。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx5-im <span class="comment">#基础包组</span></span><br><span class="line">sudo pacman -S fcitx5-chinese-addons <span class="comment">#官方中文输入引擎</span></span><br><span class="line">sudo pacman -S fcitx5-anthy <span class="comment">#日文输入引擎</span></span><br><span class="line">yay -S fcitx5-pinyin-moegirl <span class="comment">#萌娘百科词库 由于中国大陆政府对github封锁，你可能在此卡住。如卡住，可根据后文设置好代理后再安装</span></span><br><span class="line">sudo pacman -S fcitx5-pinyin-zhwiki <span class="comment">#中文维基百科词库</span></span><br><span class="line">sudo pacman -S fcitx5-material-color <span class="comment">#主题</span></span><br></pre></td></tr></table></figure>
-
-<p>设置环境变量 编辑文件 <code>sudo vim /etc/environment</code> 加入以下内容。konsole 以及 dolphin 都需要这些环境变量，倒是 chrome 和 firefox 都不需要就可以输入中文</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br><span class="line">SDL_IM_MODULE=fcitx</span><br></pre></td></tr></table></figure>
-
-<p>打开 <em>系统设置</em> &gt; <em>区域设置</em> &gt; _输入法_，先点击<code>运行Fcitx</code>即可，拼音为默认添加项。如你还需要更多输入法如五笔，则再点击<code>添加输入法</code>，找到简体中文下的五笔 ，点击添加即可加入五笔输入法。(建议，无论什么输入法都留一个英文的输入法在首位置)。</p>
-<p>接下来点击 <em>拼音</em> 右侧的配置按钮，点选<code>云拼音</code>和<code>在程序中显示预编辑文本</code> 最后应用。</p>
-<p>回到输入法设置，点击<code>配置附加组件</code>，找到 <em>经典用户界面</em> 在主题里选择一个你喜欢的颜色 最后应用。</p>
-<p>注销，重新登陆，就可以发现已经可以在各个软件中输入中文了</p>
-<h3 id="聊天工具"><a href="#聊天工具" class="headerlink" title="聊天工具"></a>聊天工具</h3><p>我们日常使用的聊天工具无非就是微信,QQ,Telegram</p>
-<p>这个时候，我们可以去<a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/">Archlinux庞大的AUR软件</a>里面搜索</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#微信(已经是孤儿包不维护了)</span></span><br><span class="line">yay -S deepin-wine-wechat </span><br><span class="line"><span class="comment">#QQ(已经是孤儿包不维护了)</span></span><br><span class="line">yay -S deepin-wine-qq</span><br><span class="line"><span class="comment">#Telegram</span></span><br><span class="line">sudo pacman  -S telegram-desktop</span><br></pre></td></tr></table></figure>
-
-<h3 id="科学上网-没有经验的直接跳过"><a href="#科学上网-没有经验的直接跳过" class="headerlink" title="科学上网(没有经验的直接跳过)"></a>科学上网(没有经验的直接跳过)</h3><h4 id="服务器端-Server端"><a href="#服务器端-Server端" class="headerlink" title="服务器端(Server端)"></a>服务器端(Server端)</h4><h5 id="1-科学上网服务器-外网服务器一台"><a href="#1-科学上网服务器-外网服务器一台" class="headerlink" title="1.科学上网服务器(外网服务器一台)"></a>1.科学上网服务器(外网服务器一台)</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 系统是centos7,更新软件</span></span><br><span class="line">yum update -y &amp;&amp; yum upgrade &amp;&amp; yum install curl -y &amp;&amp; yum -y install wget</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 脚本</span></span><br><span class="line">wget -P /root -N --no-check-certificate <span class="string">&quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot;</span> &amp;&amp; <span class="built_in">chmod</span> 700 /root/install.sh &amp;&amp; /root/install.sh</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-开启BBR加速"><a href="#2-开启BBR加速" class="headerlink" title="2.开启BBR加速"></a>2.开启BBR加速</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O tcpx.sh https://raw.githubusercontent.com/ylx2016/Linux-NetSpeed/master/tcpx.sh &amp;&amp; <span class="built_in">chmod</span> +x tcpx.sh &amp;&amp; ./tcpx.sh</span><br><span class="line"><span class="built_in">uname</span> -r</span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
-
-<h5 id="不喜欢上面的一键脚本可以试一下X-UI"><a href="#不喜欢上面的一键脚本可以试一下X-UI" class="headerlink" title="不喜欢上面的一键脚本可以试一下X-UI"></a>不喜欢上面的一键脚本可以试一下X-UI</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
-
-<h4 id="客户端-Client端"><a href="#客户端-Client端" class="headerlink" title="客户端(Client端)"></a>客户端(Client端)</h4><p><a target="_blank" rel="noopener" href="https://clashforwindows.app/download/">https://clashforwindows.app/download/</a></p>
-<p>目前 Clash for Windows 最新版本为 <strong>v0.20.39</strong>，可直接点击下表下载最新版 Clash for Windows。<strong>原厂备份，绝无修改，😂笑死根本不会改。</strong></p>
-<table>
-<thead>
-<tr>
-<th align="left">文件名</th>
-<th>说明</th>
-<th>下载</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">Clash.for.Windows-0.20.39-arm64-linux.tar.gz</td>
-<td>Linux ARM 64 位 版本 压缩包</td>
-<td><a target="_blank" rel="noopener" href="https://clashforwindows.app/apps/Clash.for.Windows-0.20.39-arm64-linux.tar.gz">下载</a></td>
-</tr>
-<tr>
-<td align="left"><strong>⭐Clash.for.Windows-0.20.39-win.7z</strong></td>
-<td>Windows 64 位 版本 压缩包</td>
-<td><a target="_blank" rel="noopener" href="https://clashforwindows.app/apps/Clash.for.Windows-0.20.39-win.7z">下载</a></td>
-</tr>
-<tr>
-<td align="left">Clash.for.Windows-0.20.39-x64-linux.tar.gz</td>
-<td>Linux 64 位 版本 压缩包</td>
-<td><a target="_blank" rel="noopener" href="https://clashforwindows.app/apps/Clash.for.Windows-0.20.39-x64-linux.tar.gz">下载</a></td>
-</tr>
-<tr>
-<td align="left">Clash.for.Windows-0.20.39.dmg</td>
-<td>Mac 64 位 版本</td>
-<td><a target="_blank" rel="noopener" href="https://clashforwindows.app/apps/Clash.for.Windows-0.20.39.dmg">下载</a></td>
-</tr>
-<tr>
-<td align="left">Clash.for.Windows.Setup.0.20.39.arm64.exe</td>
-<td>Windows ARM 64 位 版本</td>
-<td><a target="_blank" rel="noopener" href="https://clashforwindows.app/apps/Clash.for.Windows.Setup.0.20.39.arm64.exe">下载</a></td>
-</tr>
-<tr>
-<td align="left"><strong>⭐Clash.for.Windows.Setup.0.20.39.exe</strong></td>
-<td>Windows 64 位 版本</td>
-<td><a target="_blank" rel="noopener" href="https://clashforwindows.app/apps/Clash.for.Windows.Setup.0.20.39.exe">下载</a></td>
-</tr>
-<tr>
-<td align="left">Clash.for.Windows.Setup.0.20.39.ia32.exe</td>
-<td>Windows 英特尔 32 位 版本</td>
-<td><a target="_blank" rel="noopener" href="https://clashforwindows.app/apps/Clash.for.Windows.Setup.0.20.39.ia32.exe">下载</a></td>
-</tr>
-</tbody></table>
-<h3 id="美化系统"><a href="#美化系统" class="headerlink" title="美化系统"></a>美化系统</h3><h4 id="装个像Mac一样的dock栏"><a href="#装个像Mac一样的dock栏" class="headerlink" title="装个像Mac一样的dock栏"></a>装个像Mac一样的dock栏</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S latte-dock</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231116_172202.png" alt="Screenshot_20231116_172202"></p>
-<p><strong>点一下<code>Latte</code>下面就会弹出这样的<code>dock</code>(你想多了，没这么好看，你得微调)</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231116_171950.png" alt="Screenshot_20231116_171950"></p>
-<h4 id="设置桌面动效"><a href="#设置桌面动效" class="headerlink" title="设置桌面动效"></a>设置桌面动效</h4><h3 id="娱乐篇"><a href="#娱乐篇" class="headerlink" title="娱乐篇"></a>娱乐篇</h3><p><strong>哈哈嗨！说了是娱乐嘛！那肯定得打游戏优先咯。那不得先玩玩fps游戏？</strong></p>
-<a href="/2023/11/21/Arch-can-actually-play-games/" title="Arch_can_actually_play_games">Arch_can_actually_play_games</a>
-
-<h3 id="虚拟化"><a href="#虚拟化" class="headerlink" title="虚拟化"></a>虚拟化</h3><h4 id="1-KVM"><a href="#1-KVM" class="headerlink" title="1.KVM"></a>1.KVM</h4><h5 id="环境检查"><a href="#环境检查" class="headerlink" title="环境检查"></a>环境检查</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查硬件是否支持虚拟化</span></span><br><span class="line">LC_ALL=C lscpu | grep Virtualization</span><br><span class="line"><span class="comment"># 检查内核是否已经包含了支持虚拟化所必须的模块</span></span><br><span class="line">zgrep CONFIG_KVM /proc/config.gz</span><br><span class="line"><span class="comment"># 确定模块是否已经加载</span></span><br><span class="line">lsmod | grep kvm</span><br><span class="line"><span class="comment"># 这里输出中需要包含 virtio</span></span><br><span class="line">lsmod | grep virtio</span><br><span class="line"><span class="comment"># 没有 virtio 时执行</span></span><br><span class="line">sudo modprobe virtio</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231116_163347-1700124808962.png" alt="Screenshot_20231116_163347"><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231116_163419.png" alt="Screenshot_20231116_163419"><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231116_163438.png" alt="Screenshot_20231116_163438"></p>
-<h5 id="安装KVM"><a href="#安装KVM" class="headerlink" title="安装KVM"></a>安装KVM</h5><p><strong>执行下列命令安装必要软件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  pacman -S qemu libvirt ovmf virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>qemu QEMU 软件，提供 qemu-img 等命令</strong></li>
-<li><strong>libvirt 提供管理虚拟机、存储、网络的功能</strong></li>
-<li><strong>virt-manager, 图形化的管理界面</strong></li>
-<li><strong>virt-viewer是虚拟机查看器，它是一个显示虚拟化客户机的图形界面的工具</strong></li>
-<li><strong>dnsmasq DHCP DNS 服务，用于 default NAT 网络</strong></li>
-<li><strong>bridge-utils 桥接网络管理，用于桥接网络</strong></li>
-<li><strong>openbsd-netcat 用于通过 SSH 管理</strong></li>
-</ul>
-<h5 id="重置虚拟机配置"><a href="#重置虚拟机配置" class="headerlink" title="重置虚拟机配置"></a>重置虚拟机配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S --noconfirm --needed libguestfs</span><br></pre></td></tr></table></figure>
-
-<h5 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动虚拟机管理后台服务</span></span><br><span class="line">sudo systemctl start libvirtd</span><br><span class="line"><span class="comment"># 启动 default NAT 网络</span></span><br><span class="line">sudo virsh net-start default</span><br></pre></td></tr></table></figure>
-
-<h5 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> libvirtd.service</span><br><span class="line">sudo systemctl start libvirtd.service</span><br></pre></td></tr></table></figure>
-
-<h5 id="添加权限组"><a href="#添加权限组" class="headerlink" title="添加权限组"></a>添加权限组</h5><p><strong>修改<code>libvirtd.conf</code>文件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/libvirt/libvirtd.conf</span><br><span class="line"><span class="comment"># 将UNIX域套接字组所有权设置为libvirt（第85行）：</span></span><br><span class="line">unix_sock_group = <span class="string">&quot;libvirt&quot;</span></span><br><span class="line"><span class="comment"># 设置R/W套接字的UNIX套接字权限（第108行）：</span></span><br><span class="line">unix_sock_rw_perms = <span class="string">&quot;0770&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>保存退出，执行下面命令：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将你的用户帐户添加到libvirt组：</span></span><br><span class="line">sudo usermod -a -G libvirt $(<span class="built_in">whoami</span>)</span><br><span class="line"><span class="comment"># newgrp 命令使当前普通用户登入到这个群组</span></span><br><span class="line">newgrp libvirt</span><br><span class="line"><span class="comment"># 重启libvirt守护进程：</span></span><br><span class="line">sudo systemctl restart libvirtd.service</span><br></pre></td></tr></table></figure>
-
-<h5 id="开启嵌套虚拟化"><a href="#开启嵌套虚拟化" class="headerlink" title="开启嵌套虚拟化"></a>开启嵌套虚拟化</h5><p><strong>嵌套虚拟化功能使你可以在KVM虚拟机中运行虚拟机，我的CPU是<code>intel</code>的，启用内核模块为<code>kvm_intel</code>，如果是<code>amd</code>的需要改为<code>kvm_amd</code>：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe -r kvm_intel</span><br><span class="line">sudo modprobe kvm_intel nested=1</span><br><span class="line">要使此配置持久，请运行：</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;options kvm-intel nested=1&quot;</span> | sudo <span class="built_in">tee</span> /etc/modprobe.d/kvm-intel.conf</span><br><span class="line">确认嵌套虚拟化设置为是：</span><br><span class="line">systool -m kvm_intel -v | grep nested</span><br><span class="line">nested              = <span class="string">&quot;Y&quot;</span></span><br><span class="line">nested_early_check  = <span class="string">&quot;N&quot;</span></span><br><span class="line"><span class="built_in">cat</span> /sys/module/kvm_intel/parameters/nested </span><br><span class="line">Y</span><br></pre></td></tr></table></figure>
-
-<h5 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h5><p><strong>直接打开<code>virt-manager</code>点点点就行了，这就不用我教了吧！</strong></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231116_165156.png" alt="Screenshot_20231116_165156"></p>
-<p><strong>这个KVM篇章就是用上面这个虚拟机写的，命令、图片传输只能通过nas传，后续使用<code>VMwareWorkstation</code>就能通过自带的<code>tool</code>加强Linux主机和虚拟机的联系。</strong></p>
-<h4 id="2-VMwareWorkstation-篇"><a href="#2-VMwareWorkstation-篇" class="headerlink" title="2.VMwareWorkstation 篇"></a>2.VMwareWorkstation 篇</h4><p><a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages?O=0&SeB=nd&K=vmware-workstation&outdated=&SB=p&SO=d&PP=50&submit=Go">vmware-workstation</a></p>
-<p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231125_164005.png" alt="Screenshot_20231125_164005"></p>
-<h4 id="3-VirtualBox篇"><a href="#3-VirtualBox篇" class="headerlink" title="3.VirtualBox篇"></a>3.VirtualBox篇</h4><h4 id="4-docker篇"><a href="#4-docker篇" class="headerlink" title="4.docker篇"></a>4.docker篇</h4><h5 id="一-安装docker"><a href="#一-安装docker" class="headerlink" title="一.安装docker"></a>一.安装docker</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S docker</span><br></pre></td></tr></table></figure>
-
-<h5 id="二-docker基础服务命令"><a href="#二-docker基础服务命令" class="headerlink" title="二.docker基础服务命令"></a>二.docker基础服务命令</h5><p><strong>启动docker</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
-
-<p><strong>开机启动docker</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
-
-<p><strong>关掉开机启动docker</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemclt <span class="built_in">disable</span> docker</span><br></pre></td></tr></table></figure>
-
-<p><strong>显示docker的版本信息</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
-
-
-<h5 id="三-配置镜像加速和docker代理"><a href="#三-配置镜像加速和docker代理" class="headerlink" title="三.配置镜像加速和docker代理"></a>三.配置镜像加速和docker代理</h5><p><strong>镜像加速</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
-
-<p><strong>加入这个中科大的源</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>重新加载配置</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
-
-<h5 id="四-docker命令"><a href="#四-docker命令" class="headerlink" title="四.docker命令"></a>四.docker命令</h5><p><strong>查看docker安装的镜像</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-
-<p><strong>搜索镜像</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search 目标镜像</span><br></pre></td></tr></table></figure>
-
-<p><strong>下载目标镜像</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 目标镜像</span><br></pre></td></tr></table></figure>
-
-<p><strong>下载指定版本的目标镜像</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 目标镜像:版本</span><br></pre></td></tr></table></figure>
-
-<p><strong>卸载目标镜像</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi -f 容器ID 容器ID 容器ID 容器ID</span><br></pre></td></tr></table></figure>
-
-<p><strong>运行容器</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run [可选参数] image</span><br><span class="line"><span class="comment"># 参数说明</span></span><br><span class="line">--name=<span class="string">&quot;Name&quot;</span>    Name是你给容器起的名字，来区分容器</span><br><span class="line">-d               后台方式运行</span><br><span class="line">-it              使用交互方式运行，加入容器看内容</span><br><span class="line">-p               指定容器的端口 -p 8080：8080</span><br><span class="line">	-p IP:主机端口：容器端口</span><br><span class="line">	-p 主机端口：容器端口</span><br><span class="line">	-p 容器端口</span><br><span class="line">-P（大P） 随机指定端口</span><br></pre></td></tr></table></figure>
-
-<p><strong>查看正在运行的容器</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line">-a <span class="comment">#列出当前正在运行的容器+带出历史运行过的容器</span></span><br><span class="line">-q <span class="comment">#列出容器id</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>退出容器</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span>  <span class="comment">#直接容器停止并且退出</span></span><br><span class="line">ctrl + p + q   <span class="comment">#容器不停止退出</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>删除容器</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> 容器<span class="built_in">id</span>      <span class="comment">#删除指定的容器，不能删除正在运行发容器 </span></span><br><span class="line">docker <span class="built_in">rm</span> -f $(docker ps -aq)      <span class="comment">#删除所有容器</span></span><br><span class="line">docker ps -aq | xargs docker <span class="built_in">rm</span>    <span class="comment">#删除所有容器</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>启动和停止容器的操作</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker start 容器<span class="built_in">id</span>   <span class="comment">#启动容器</span></span><br><span class="line">docker restart 容器<span class="built_in">id</span> <span class="comment">#重启容器</span></span><br><span class="line">docker stop 容器<span class="built_in">id</span>    <span class="comment">#停止当前正在运行的容器</span></span><br><span class="line">docker <span class="built_in">kill</span> 容器<span class="built_in">id</span>    <span class="comment">#强制停止当前容器</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="五-常用其他命令"><a href="#五-常用其他命令" class="headerlink" title="五.常用其他命令"></a>五.常用其他命令</h5><p><strong>后台启动容器</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d 镜像名</span><br><span class="line"><span class="comment"># 问题docker ps ，发现centos 停止了</span></span><br><span class="line"><span class="comment">#常见的坑，docker容器使用后台运行，就必须要有一个前台进程，docker发现没有应用，就会自动停止</span></span><br><span class="line"><span class="comment">#nginx，容器启动后发现自己没有提供服务，就会立刻停止，就是没有程序了</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>查看日志目录</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker logs -tf --<span class="built_in">tail</span> 10 容器<span class="built_in">id</span>      <span class="comment">#看十条容器日志</span></span><br><span class="line">-tf <span class="comment">#显示日志</span></span><br><span class="line">--<span class="built_in">tail</span> number <span class="comment">#要显示日志条数</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>查看容器中进程信息</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker top 容器<span class="built_in">id</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>查看容器的原数据</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器<span class="built_in">id</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>备份：导出容器数据</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">export</span> 容器<span class="built_in">id</span> &gt; xx.tar</span><br></pre></td></tr></table></figure>
-
-<p><strong>备份：导入备份数据</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> xx.tar | docker import - 镜像用户/镜像名:镜像版本号</span><br></pre></td></tr></table></figure>
-
-<p><strong>打包容器成为镜像</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m=<span class="string">&quot;提交的描述信息&quot;</span> -a=<span class="string">&quot;作者&quot;</span> 容器<span class="built_in">id</span> 要创建的目标镜像名:[标签名]</span><br></pre></td></tr></table></figure>
-
-<p><strong>进入当前正在运行的容器</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">方式一：进去容器后开启一个新的终端，可以在里面操作（常用）</span><br><span class="line">docker <span class="built_in">exec</span> -it 容器<span class="built_in">id</span> /bin/bash</span><br><span class="line">方式二:进入正在运行的终端，不会启动新的进程</span><br><span class="line">docker attach 容器<span class="built_in">id</span> </span><br></pre></td></tr></table></figure>
-
-<p><strong>拷贝容器里面的数据到主机</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> 容器<span class="built_in">id</span>:/home/* /home</span><br><span class="line"><span class="comment"># 把容器的home目录下的全部文件拷贝到我主机的home目录</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="部署Mariadb"><a href="#部署Mariadb" class="headerlink" title="部署Mariadb"></a>部署Mariadb</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --restart=always --name mariadb01 \ </span><br><span class="line">-p 3306:3306 \ </span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456 \ </span><br><span class="line">-v /home/orange/docker/mariadb/mysql.conf.d/mysql.cnf:/etc/mysql/mysql.conf.d/mysql.cnf \ </span><br><span class="line">-v /home/orange/docker/mariadb/data:/var/lib/mysql \</span><br><span class="line">-d mariadb</span><br><span class="line"><span class="comment">#-e环境配置</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="部署Nginx"><a href="#部署Nginx" class="headerlink" title="部署Nginx"></a>部署Nginx</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name nginx01 -p 8080:80 -v /home/orange/docker/nginx/html:/usr/share/nginx/html:ro -d amd64/nginx</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-wine-最牛的"><a href="#5-wine-最牛的" class="headerlink" title="5.wine(最牛的)"></a>5.wine(最牛的)</h4>
       
     </div>
 
@@ -864,7 +616,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/21/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/23/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/21/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/23/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -936,7 +688,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">75</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

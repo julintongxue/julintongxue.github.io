@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">72</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">75</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/05/16/ZStack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -214,7 +214,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">基于next主题的hexo博客</a>
+            <a href="/2023/05/16/ZStack/" class="post-title-link" itemprop="url">ZStack(搁浅)</a>
         </h2>
 
         <div class="post-meta">
@@ -223,23 +223,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2023-04-25 14:45:01" itemprop="dateCreated datePublished" datetime="2023-04-25T14:45:01+08:00">2023-04-25</time>
+              <time title="创建时间：2023-05-16 14:54:20 / 修改时间：14:58:01" itemprop="dateCreated datePublished" datetime="2023-05-16T14:54:20+08:00">2023-05-16</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-01 00:16:28" itemprop="dateModified" datetime="2023-07-01T00:16:28+08:00">2023-07-01</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+                  <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
                 </span>
             </span>
 
@@ -252,8 +246,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/05/16/ZStack/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/05/16/ZStack/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -263,7 +257,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>0</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -282,63 +276,142 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>[toc]</p>
-<h1 id="基于next主题的hexo博客"><a href="#基于next主题的hexo博客" class="headerlink" title="基于next主题的hexo博客"></a>基于next主题的hexo博客</h1><h2 id="创建blog文件夹"><a href="#创建blog文件夹" class="headerlink" title="创建blog文件夹"></a>创建blog文件夹</h2><p><strong>首先，创建一个文件夹然后重命名，你以后写的博客内容将跟随这个文件夹一辈子所以，无论是刮风下雨还是重装系统，你都要对它进行备份（备份很简单，压缩一份，拿U盘拷走就行了）。</strong></p>
-<p><strong>现在，创建一个名叫apple的文件夹</strong></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423011836912.png" alt="image-20230423011836912"></p>
-<p><strong>现在，这个文件夹还不能叫blog文件夹，因为它还没有hexo blog的内容</strong></p>
-<p><strong>对blog文件夹进行hexo的初始化，让其具有博客能力</strong></p>
-<p><strong>在博客文件夹内，点击鼠标右键，选择<code>Git Bash Here</code>调出Git窗口，输入初始化命令</strong></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423012104900.png" alt="image-20230423012104900"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+          这里有东西被加密了，需要输入密码才能查看哦。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/05/16/ZStack/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423012408486.png" alt="image-20230423012408486"></p>
-<p><strong>然后，我们看到博客出现一堆文件</strong></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423012446932.png" alt="image-20230423012446932"></p>
-<h2 id="博客基础命令和前期设置"><a href="#博客基础命令和前期设置" class="headerlink" title="博客基础命令和前期设置"></a>博客基础命令和前期设置</h2><p><strong>现在的blog文件夹已经算是个具备博客的能力了，现在学习我们后面要用到的几个关键的博客命令</strong></p>
-<h3 id="创建博客文章命令"><a href="#创建博客文章命令" class="headerlink" title="创建博客文章命令"></a>创建博客文章命令</h3><p><strong>下面这个命令会创建当前时间点的markdown格式文章以及对应的博客文章文件夹</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new “文章名字”</span><br></pre></td></tr></table></figure>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-<p><strong>下面我们创建一个<code>我的第一篇博客</code>文章看看咯</strong></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423013119422.png" alt="image-20230423013119422"></p>
-<p><strong>创建完成之后，在博客文件夹下的<code>\source\_posts</code>可以看到你创建的博客文章</strong></p>
-<p><strong>下面出现了两篇文章，<code>hello-world</code>是hexo官方给的测试文章，然后这个<code>我的第一篇博客</code>则是我自己创建的，那么前面作者不是说会自动创建相应的文件夹吗？难道这B。。。站up欺骗了我？当然不是，这个自动创建是要改配置文件的</strong></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423013101068.png" alt="image-20230423013101068"></p>
-<p><strong>现在，我们先回到博客文件夹最初页面，找到<code>_config.yml</code>,然后用你的记事本或者其他编辑软件找到里面的<code>post_asset_folder:false</code>这个参数（大概在43行），把它改成<code>true</code>即可</strong></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423014021985.png" alt="image-20230423014021985"></p>
-<p><strong>保存退出之后，我们再创建<code>我的第二篇博客</code>试一下</strong></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423014222069.png" alt="image-20230423014222069"></p>
-<p><strong>那么，为啥需要这个文件夹呢？其实一个博客的灵魂就在于<code>图文并茂</code>，如果光是代码和文章，那么除了最了解它的人（作者本人）另外就是已经懂这个博客文章的人才能看的懂了。如果是萌新，看这个就会觉得学习这个东西成本太高，就不会去深耕下去。配上图可以加快各位的学习速度，也可以让作者复盘的时候更流畅，这么说来就很显然易见了，这个文件夹是装与之匹配的图片用的</strong></p>
-<p><strong>下面，我推荐typora作为我们博客文章的编辑软件，这个软件目前是收费的，如果实在囊中羞涩的朋友可以看看网上有什么特殊手段搞到，这里就不再赘述了</strong></p>
-<p><strong>打开typora，选择左上角<code>选择文件-&gt;偏好设置-&gt;图像</code></strong></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423015157051.png" alt="image-20230423015157051"></p>
-<p><strong>然后，勾选<code>优先使用相对路径</code>和<code>对本地位置的图片应用上述规则</code></strong></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423015243688.png" alt="image-20230423015243688"></p>
-<p>然后，再选择<code>插入图片时</code>要<code>复制到指定路径</code></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423015421816.png" alt="image-20230423015421816"></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423015534220.png" alt="image-20230423015534220"></p>
-<p><strong>我们可以拖一张进<code>我的第二篇博客</code>看看是不是已经有复制到博客文章自己的文件夹下</strong></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423015940419.png" alt="image-20230423015940419"></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423020000832.png" alt="image-20230423020000832"></p>
-<p><strong>结果很显然了，桌面的图片拖进来之后路径不是引用桌面的，很显然已经更改到自家的博客文章文件夹里</strong></p>
-<h3 id="生成博客命令"><a href="#生成博客命令" class="headerlink" title="生成博客命令"></a>生成博客命令</h3><p><strong>上面，我们讲到了博客文章已经拉了一张图片了，这个时候我想看看它在博客呈现什么样子，这个时候就要生成博客，下面这个命令就可以把图片和文章生成静态的html网页</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/05/15/linux%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E6%BA%90/">
 
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423020457077.png" alt="image-20230423020457077"></p>
-<p><strong>可以看到已经生成了内容，那么怎么在本地查看呢？总不能打开文件夹看看吧，那多麻烦是吧！放心hexo可没那么傻，下面hexo服务器端启动命令就可以在浏览器看到具体页面</strong></p>
-<p><strong>另外这里加入一个小提示，随着hexo博客里面文章图片的日积月累，hexo生成能力越来越慢，然后也会出现内存溢出等现象。。。目前我还没遇到，但是<code>hexo生成能力越来越慢</code>这个我已经遇到了，就在博客到达900M的时候，用上多线程<code>-c 线程数</code>可以大大提升hexo生成能力。</strong></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230701001519066.png" alt="image-20230701001519066"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不要超过最大线程数</span></span><br><span class="line">hexo -g -c 12</span><br></pre></td></tr></table></figure>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
 
-<h3 id="hexo服务器端启动命令"><a href="#hexo服务器端启动命令" class="headerlink" title="hexo服务器端启动命令"></a>hexo服务器端启动命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/05/15/linux%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E6%BA%90/" class="post-title-link" itemprop="url">linux常用系统源</a>
+        </h2>
 
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423020802817.png" alt="image-20230423020802817"></p>
-<p><strong>在命令行输入之后，可以复制这个<code>http://localhost:4000/</code>到自己的浏览器看自己写的博客内容了</strong></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423020932924.png" alt="image-20230423020932924"></p>
-<p><strong>这里我们看到自己生成的第一篇和第二篇博客，而且可以看到hexo的测试博客页面，但是总感觉啊不对劲是吧！我们博客二图片没出来，只显示了<code>微信图片</code>,这就是作者说的“图文并茂”吗？</strong></p>
-<p><img src="/2023/04/25/%E5%9F%BA%E4%BA%8Enext%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/image-20230423021135893.png" alt="image-20230423021135893"></p>
-<p><strong>其实，这个就要引入下个内容<code>“插件”</code>了</strong></p>
-<h3 id="安装图片插件"><a href="#安装图片插件" class="headerlink" title="安装图片插件"></a>安装图片插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-05-15 00:40:32 / 修改时间：00:45:11" itemprop="dateCreated datePublished" datetime="2023-05-15T00:40:32+08:00">2023-05-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/05/15/linux%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E6%BA%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/05/15/linux%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E6%BA%90/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>872</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Centos7"><a href="#Centos7" class="headerlink" title="Centos7"></a>Centos7</h2><ul>
+<li><strong>1.备份</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>2.下载新的 <code>CentOS-Base.repo</code> 到<code> /etc/yum.repos.d/</code></strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>3.运行 <code>yum makecache </code>生成缓存</strong></p>
+</li>
+<li><p><strong>4.其他</strong></p>
+</li>
+</ul>
+<p>**非阿里云ECS用户会出现 Couldn’t resolve host ‘mirrors.cloud.aliyuncs.com’ 信息，不影响使用。用户也可自行修改相关配置: **</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i -e <span class="string">&#x27;/mirrors.cloud.aliyuncs.com/d&#x27;</span> -e <span class="string">&#x27;/mirrors.aliyuncs.com/d&#x27;</span> /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
+
+<h2 id="raspberry"><a href="#raspberry" class="headerlink" title="raspberry"></a>raspberry</h2><ul>
+<li><strong>1.备份</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> /etc/apt/sources.list etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>2.换源，编辑<code>/etc/apt/sources.list</code></strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /etc/apt/sources.list &lt; EOF</span><br><span class="line">deb http://mirrors.huaweicloud.com/debian/ buster main non-free contrib</span><br><span class="line">deb http://mirrors.huaweicloud.com/debian-security buster/updates main</span><br><span class="line">deb http://mirrors.huaweicloud.com/debian/ buster-updates main non-free contrib</span><br><span class="line">deb http://mirrors.huaweicloud.com/debian/ buster-backports main non-free contrib</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>3.更新</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update -y</span><br></pre></td></tr></table></figure>
 
 
       
@@ -359,7 +432,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/05/14/Kubernetes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -373,7 +446,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/" class="post-title-link" itemprop="url">Arch linux如何美化GRUB</a>
+            <a href="/2023/05/14/Kubernetes/" class="post-title-link" itemprop="url">Kubernetes(搁浅)</a>
         </h2>
 
         <div class="post-meta">
@@ -383,14 +456,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-04-08 08:35:19" itemprop="dateCreated datePublished" datetime="2023-04-08T08:35:19+08:00">2023-04-08</time>
+              <time title="创建时间：2023-05-14 14:21:24" itemprop="dateCreated datePublished" datetime="2023-05-14T14:21:24+08:00">2023-05-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 18:30:23" itemprop="dateModified" datetime="2023-07-24T18:30:23+08:00">2023-07-24</time>
+                <time title="修改时间：2023-08-04 09:50:46" itemprop="dateModified" datetime="2023-08-04T09:50:46+08:00">2023-08-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -411,8 +484,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/05/14/Kubernetes/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/05/14/Kubernetes/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -422,14 +495,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>402</span>
+              <span>7.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -441,135 +514,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Archlinux如何美化GRUB"><a href="#Archlinux如何美化GRUB" class="headerlink" title="Archlinux如何美化GRUB"></a>Archlinux如何美化GRUB</h1><p>玩了这么久的Arch,每次换主题都是在桌面、软件这些地方，朋友来用你电脑才能看到你美轮美奂的桌面，那么怎么让你朋友一开机能知道你是一个资深二次元呢？答案很简单，给我们的Archlinux的GRUB换个衣服就能做到。</p>
-<p>我们可以来到下面这个网站寻找自己喜欢的GRUB主题:</p>
-<p><a target="_blank" rel="noopener" href="https://www.pling.com/browse?cat=109&ord=latest">PLING</a></p>
-<p>本次使用的主题是<a target="_blank" rel="noopener" href="https://www.pling.com/p/1526503/">The Quintessential Quintuplets GRUB Theme</a></p>
-<p>首先，把安装包下载下来。</p>
-<p><img src="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408203651056.png" alt="image-20230408203651056"></p>
-<p>将压缩包解压</p>
-<p><img src="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408203806670.png" alt="image-20230408203806670"></p>
-<p>解压之后，我们需要进去目录里面，要进去多次，直到能看到图片为止</p>
-<p><img src="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408203854175.png" alt="image-20230408203854175"></p>
-<p><img src="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408204047142.png" alt="image-20230408204047142"></p>
-<p><img src="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408210306115.png" alt="image-20230408210306115"></p>
-<p>然后把这个文件夹内容全部拷贝到</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r . /usr/share/grub/themes/Nino/</span><br></pre></td></tr></table></figure>
-
-<p>然后编辑</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/grub</span><br></pre></td></tr></table></figure>
-
-<p>添加下面这行参数</p>
-<p><img src="/2023/04/08/Archlinux%E5%A6%82%E4%BD%95%E7%BE%8E%E5%8C%96GRUB/image-20230408210607247.png" alt="image-20230408210607247"></p>
-<p>最后，重新生成一次grub.cfg</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
-
-<p>重启之后，就能看到新装扮的GRUB了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/03/17/python%E7%88%AC%E8%99%AB%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/17/python%E7%88%AC%E8%99%AB%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">python爬虫和数据分析</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-03-17 18:44:18" itemprop="dateCreated datePublished" datetime="2023-03-17T18:44:18+08:00">2023-03-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-26 22:43:09" itemprop="dateModified" datetime="2023-07-26T22:43:09+08:00">2023-07-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/03/17/python%E7%88%AC%E8%99%AB%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/03/17/python%E7%88%AC%E8%99%AB%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>23k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>21 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          这里有东西被加密了，需要输入密码查看哦。
+          这里有东西被加密了，需要输入密码才能查看哦。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/03/17/python%E7%88%AC%E8%99%AB%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/#more" rel="contents">
+              <a class="btn" href="/2023/05/14/Kubernetes/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -592,7 +540,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -664,7 +612,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">75</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

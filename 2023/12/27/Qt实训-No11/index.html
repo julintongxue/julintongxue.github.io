@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"julintongxue.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="[toc] sMonitor android开发环境构建应用开发环境的构建安装jdk1.8（jdk8） 设置环境变量找不到环境变量入口说明你大学四年白学了！！！  新建    设置环境路径  1JAVA_HOME  1C:\Program Files\Java\jdk1.8.0_202    编辑用户变量path    新增两项变量  1%JAVA_HOME%\bin  1%JAVA_HOME%\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="orangeの博客">
+<meta property="og:url" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/index.html">
+<meta property="og:site_name" content="orangeの博客">
+<meta property="og:description" content="[toc] sMonitor android开发环境构建应用开发环境的构建安装jdk1.8（jdk8） 设置环境变量找不到环境变量入口说明你大学四年白学了！！！  新建    设置环境路径  1JAVA_HOME  1C:\Program Files\Java\jdk1.8.0_202    编辑用户变量path    新增两项变量  1%JAVA_HOME%\bin  1%JAVA_HOME%\">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225092647550.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225093052063.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225092943155.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225094026587.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225093739079.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225094502358.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225094808697.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095108416.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095125497.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095140760.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095542111.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095616689.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095646067.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225100933754.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225101220038.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225101744935.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105038060.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105136339.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105240356.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105349387.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105419775.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225113724480.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225111834806.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112058378.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225111937256.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225111959096.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112137172.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112154609.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112327391.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112346983.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225113001271.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225113016990.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225113042651.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231227171333751.png">
+<meta property="og:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231227171345702.png">
+<meta property="article:published_time" content="2023-12-27T08:54:31.445Z">
+<meta property="article:modified_time" content="2023-12-27T09:19:34.192Z">
+<meta property="article:author" content="涩橙子">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225092647550.png">
+
+<link rel="canonical" href="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | orangeの博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">orangeの博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">75</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">44</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-追番">
+
+    <a href="/bangumis/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>追番</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/julintongxue" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-12-27 16:54:31 / 修改时间：17:19:34" itemprop="dateCreated datePublished" datetime="2023-12-27T16:54:31+08:00">2023-12-27</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>[toc]</p>
+<h1 id="sMonitor-android开发环境构建"><a href="#sMonitor-android开发环境构建" class="headerlink" title="sMonitor android开发环境构建"></a>sMonitor android开发环境构建</h1><h2 id="应用开发环境的构建"><a href="#应用开发环境的构建" class="headerlink" title="应用开发环境的构建"></a>应用开发环境的构建</h2><h3 id="安装jdk1-8（jdk8）"><a href="#安装jdk1-8（jdk8）" class="headerlink" title="安装jdk1.8（jdk8）"></a>安装jdk1.8（jdk8）</h3><p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225092647550.png" alt="image-20231225092647550"></p>
+<h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><p><strong>找不到环境变量入口说明你大学四年白学了！！！</strong></p>
+<ul>
+<li><strong>新建</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225093052063.png" alt="image-20231225093052063"></p>
+<ul>
+<li><strong>设置环境路径</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Java\jdk1.8.0_202</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225092943155.png" alt="image-20231225092943155"></p>
+<ul>
+<li><strong>编辑用户变量path</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225094026587.png" alt="image-20231225094026587"></p>
+<ul>
+<li><strong>新增两项变量</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%JAVA_HOME%\bin</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%JAVA_HOME%\jre\bin</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225093739079.png" alt="image-20231225093739079"></p>
+<ul>
+<li><strong>在cmd输入<code>java -version</code>看看信息</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225094502358.png" alt="image-20231225094502358"></p>
+<h2 id="安装Eclipse"><a href="#安装Eclipse" class="headerlink" title="安装Eclipse"></a>安装Eclipse</h2><p><strong>无脑安装！！！</strong></p>
+<h2 id="安装Android-SDK"><a href="#安装Android-SDK" class="headerlink" title="安装Android SDK"></a>安装Android SDK</h2><p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225094808697.png" alt="image-20231225094808697"></p>
+<ul>
+<li><strong>一定要把那个包移动到其他路径！不然就是在你包当前安装了</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095108416.png" alt="image-20231225095108416"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095125497.png" alt="image-20231225095125497"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095140760.png" alt="image-20231225095140760"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095542111.png" alt="image-20231225095542111"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095616689.png" alt="image-20231225095616689"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095646067.png" alt="image-20231225095646067"></p>
+<ul>
+<li><strong>设置环境变量</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ANDROID_HOME</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 写你自己的！！！</span></span><br><span class="line">C:\Users\orange\Desktop\欸\android-sdk-windows</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225100933754.png" alt="image-20231225100933754"></p>
+<ul>
+<li><strong>我这遇到bug了，编辑用户变量path</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 写你自己的</span></span><br><span class="line">C:\Users\orange\Desktop\欸\android-sdk-windows\platform-tools</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225101220038.png" alt="image-20231225101220038"></p>
+<h2 id="安装ADT"><a href="#安装ADT" class="headerlink" title="安装ADT"></a>安装ADT</h2><p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225101744935.png" alt="image-20231225101744935"></p>
+<ul>
+<li>打开Eclipse，进入help栏里面的<code>Install New Software</code>里面</li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105038060.png" alt="image-20231225105038060"></p>
+<ul>
+<li><strong>添加ADT(无需解压)</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105136339.png" alt="image-20231225105136339"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105240356.png" alt="image-20231225105240356"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105349387.png" alt="image-20231225105349387"></p>
+<ul>
+<li><strong>疯狂next</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105419775.png" alt="image-20231225105419775"></p>
+<ul>
+<li><strong>完成之后有个警告要安装，安装完成就可以重启这个东西了</strong></li>
+</ul>
+<h2 id="Helloworld"><a href="#Helloworld" class="headerlink" title="Helloworld"></a>Helloworld</h2><ul>
+<li><strong>创建Android项目</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225113724480.png" alt="image-20231225113724480"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225111834806.png" alt="image-20231225111834806"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112058378.png" alt="image-20231225112058378"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225111937256.png" alt="image-20231225111937256"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225111959096.png" alt="image-20231225111959096"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112137172.png" alt="image-20231225112137172"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112154609.png" alt="image-20231225112154609"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112327391.png" alt="image-20231225112327391"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112346983.png" alt="image-20231225112346983"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225113001271.png" alt="image-20231225113001271"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225113016990.png" alt="image-20231225113016990"></p>
+<ul>
+<li><strong>丢夜神模拟器里面</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225113042651.png" alt="image-20231225113042651"></p>
+<h2 id="test"><a href="#test" class="headerlink" title="test"></a>test</h2><ul>
+<li><strong>next跳转到第二页面代码</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//跳转键		</span></span><br><span class="line">		<span class="type">Button</span> <span class="variable">Next</span> <span class="operator">=</span> (Button)findViewById(R.id.Next_bt);</span><br><span class="line">		Next.setOnClickListener(<span class="keyword">new</span> <span class="title class_">OnClickListener</span>() &#123;</span><br><span class="line">		    <span class="meta">@Override</span></span><br><span class="line">		    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View v)</span> &#123;</span><br><span class="line">		        Toast.makeText(MainActivity.<span class="built_in">this</span>, <span class="string">&quot;跳转至下一个页面&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">		        <span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(MainActivity.<span class="built_in">this</span>, Secondtest.class);</span><br><span class="line">		        startActivity(intent);</span><br><span class="line">		    &#125;</span><br><span class="line">		&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>在第二个跳转的<code>Secondtest.java</code>里面写跳转回去的代码</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在这里可以处理第二个Activity的逻辑和界面控件</span></span><br><span class="line">        <span class="type">Button</span> <span class="variable">retrun_bb</span> <span class="operator">=</span> (Button) findViewById(R.id.retrun_bt);</span><br><span class="line">        retrun_bb.setOnClickListener(<span class="keyword">new</span> <span class="title class_">OnClickListener</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View v)</span> &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 在按钮点击时关闭当前的Second，返回到MainActivity</span></span><br><span class="line">                <span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(Secondtest.<span class="built_in">this</span>, MainActivity.class);</span><br><span class="line">                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">                startActivity(intent);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+<p><a href="test.rar">写好的test压缩包</a></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231227171333751.png" alt="image-20231227171333751"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231227171345702.png" alt="image-20231227171345702"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No10/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No12/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sMonitor-android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">sMonitor android开发环境构建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="nav-number">1.1.</span> <span class="nav-text">应用开发环境的构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85jdk1-8%EF%BC%88jdk8%EF%BC%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装jdk1.8（jdk8）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.1.2.</span> <span class="nav-text">设置环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Eclipse"><span class="nav-number">1.2.</span> <span class="nav-text">安装Eclipse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Android-SDK"><span class="nav-number">1.3.</span> <span class="nav-text">安装Android SDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85ADT"><span class="nav-number">1.4.</span> <span class="nav-text">安装ADT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Helloworld"><span class="nav-number">1.5.</span> <span class="nav-text">Helloworld</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#test"><span class="nav-number">1.6.</span> <span class="nav-text">test</span></a></li></ol></li></ol></div>
+      </div>
+
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="涩橙子"
+      src="/images/head.jpg">
+  <p class="site-author-name" itemprop="name">涩橙子</p>
+  <div class="site-description" itemprop="description">自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="/%E4%B8%8D%E7%BB%99%E4%BD%A0%EF%BC%81%EF%BC%81%EF%BC%81" title="E-Mail → 不给你！！！"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://aienh.github.io/" title="https:&#x2F;&#x2F;aienh.github.io" rel="noopener" target="_blank">ienAの博客</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://tokiame.cn/" title="https:&#x2F;&#x2F;tokiame.cn" rel="noopener" target="_blank">时雨小栈</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://songxwn.com/" title="https:&#x2F;&#x2F;songxwn.com&#x2F;" rel="noopener" target="_blank">songxwn</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+      <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=8269604294&auto=1&height=90"></iframe>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+  
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">涩橙子</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 't3KNgr4WVcpJVh17S5thqEXl-gzGzoHsz',
+      appKey     : 'tvxyuYI5nZrSoGZ4ct2MSuxe',
+      placeholder: "写下你的评论吧",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
+
+

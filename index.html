@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">72</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">75</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/12/21/Qt%E5%AE%9E%E8%AE%AD-No9/">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No12/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -214,7 +214,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/12/21/Qt%E5%AE%9E%E8%AE%AD-No9/" class="post-title-link" itemprop="url">Qt实训_No9</a>
+            <a href="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No12/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -223,8 +223,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2023-12-21 22:16:56" itemprop="dateCreated datePublished" datetime="2023-12-21T22:16:56+08:00">2023-12-21</time>
+              <time title="创建时间：2023-12-27 16:54:31 / 修改时间：17:28:30" itemprop="dateCreated datePublished" datetime="2023-12-27T16:54:31+08:00">2023-12-27</time>
             </span>
 
           
@@ -236,8 +237,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/12/21/Qt%E5%AE%9E%E8%AE%AD-No9/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/21/Qt%E5%AE%9E%E8%AE%AD-No9/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No12/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No12/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -247,7 +248,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -266,7 +267,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="sMonitor-android远程指令控制"><a href="#sMonitor-android远程指令控制" class="headerlink" title="sMonitor android远程指令控制"></a>sMonitor android远程指令控制</h1><h2 id="mosquitto介绍"><a href="#mosquitto介绍" class="headerlink" title="mosquitto介绍"></a>mosquitto介绍</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mqtt协议：MQTT(消息队列遥测传输)，是ISO标准(ISO/IEC PRF 20922)下基于发布/订阅范式的消息协议。它工作在 TCP/IP协议族上，是为硬件性能低下的远程设备以及网络状况糟糕的情况下而设计的发布/订阅型消息协议，为此，它需要一个消息中间件 。</span><br><span class="line">MQTT是一个基于客户端-服务器的消息发布/订阅传输协议；MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。</span><br><span class="line">在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用。</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No12/Android_mqttinfo_01.png" alt="img"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No12/Android_mqttinfo_02.png" alt="img"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto是一款实现了消息推送协议 MQTT v3.1 的开源消息代理软件，提供轻量级的，支持可发布/可订阅的的消息推送模式，使设备对设备之间的短消息通信变得简单，比如现在应用广泛的低功耗传感器，手机、嵌入式计算机、微型控制器等移动设备。</span><br></pre></td></tr></table></figure>
+
+<h2 id="mosquitto安装配置"><a href="#mosquitto安装配置" class="headerlink" title="mosquitto安装配置"></a>mosquitto安装配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/mosquitto/conf.d/myconfig.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加监听端口（很重要，否则只能本机访问）</span></span><br><span class="line">listener 1883</span><br><span class="line"><span class="comment"># 开启匿名访问</span></span><br><span class="line">allow_anonymous <span class="literal">true</span></span><br><span class="line"><span class="comment">#指定 用户名-密码 文件</span></span><br><span class="line">password_file /etc/mosquitto/pwfile.txt	</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_passwd -c /etc/mosquitto/pwfile.txt orange</span><br><span class="line">Password: </span><br><span class="line">Reenter password: </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>回车之后输入两次密码即可</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~<span class="comment"># service mosquitto start</span></span><br><span class="line">root@ubuntu:~<span class="comment"># </span></span><br><span class="line">root@ubuntu:~<span class="comment"># </span></span><br><span class="line">root@ubuntu:~<span class="comment"># </span></span><br><span class="line">root@ubuntu:~<span class="comment"># service mosquitto status</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>接受端接收订阅主题</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h localhost -t <span class="string">&quot;/test&quot;</span> -u orange -P Asimov -i <span class="string">&quot;client1&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发布端发布订阅主题</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -h localhost -t <span class="string">&quot;/test&quot;</span> -u orange -P Asimov -m <span class="string">&quot;HelloWorld&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvjf sMonitor_model.tar.bz2</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -285,7 +325,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/12/21/Qt%E5%AE%9E%E8%AE%AD-No8/">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -299,7 +339,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/12/21/Qt%E5%AE%9E%E8%AE%AD-No8/" class="post-title-link" itemprop="url">Qt实训_No8</a>
+            <a href="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -308,8 +348,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2023-12-21 22:16:52" itemprop="dateCreated datePublished" datetime="2023-12-21T22:16:52+08:00">2023-12-21</time>
+              <time title="创建时间：2023-12-27 16:54:31 / 修改时间：17:19:34" itemprop="dateCreated datePublished" datetime="2023-12-27T16:54:31+08:00">2023-12-27</time>
             </span>
 
           
@@ -321,8 +362,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/12/21/Qt%E5%AE%9E%E8%AE%AD-No8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/21/Qt%E5%AE%9E%E8%AE%AD-No8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -332,7 +373,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -351,7 +392,112 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <p>[toc]</p>
+<h1 id="sMonitor-android开发环境构建"><a href="#sMonitor-android开发环境构建" class="headerlink" title="sMonitor android开发环境构建"></a>sMonitor android开发环境构建</h1><h2 id="应用开发环境的构建"><a href="#应用开发环境的构建" class="headerlink" title="应用开发环境的构建"></a>应用开发环境的构建</h2><h3 id="安装jdk1-8（jdk8）"><a href="#安装jdk1-8（jdk8）" class="headerlink" title="安装jdk1.8（jdk8）"></a>安装jdk1.8（jdk8）</h3><p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225092647550.png" alt="image-20231225092647550"></p>
+<h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><p><strong>找不到环境变量入口说明你大学四年白学了！！！</strong></p>
+<ul>
+<li><strong>新建</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225093052063.png" alt="image-20231225093052063"></p>
+<ul>
+<li><strong>设置环境路径</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Java\jdk1.8.0_202</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225092943155.png" alt="image-20231225092943155"></p>
+<ul>
+<li><strong>编辑用户变量path</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225094026587.png" alt="image-20231225094026587"></p>
+<ul>
+<li><strong>新增两项变量</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%JAVA_HOME%\bin</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%JAVA_HOME%\jre\bin</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225093739079.png" alt="image-20231225093739079"></p>
+<ul>
+<li><strong>在cmd输入<code>java -version</code>看看信息</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225094502358.png" alt="image-20231225094502358"></p>
+<h2 id="安装Eclipse"><a href="#安装Eclipse" class="headerlink" title="安装Eclipse"></a>安装Eclipse</h2><p><strong>无脑安装！！！</strong></p>
+<h2 id="安装Android-SDK"><a href="#安装Android-SDK" class="headerlink" title="安装Android SDK"></a>安装Android SDK</h2><p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225094808697.png" alt="image-20231225094808697"></p>
+<ul>
+<li><strong>一定要把那个包移动到其他路径！不然就是在你包当前安装了</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095108416.png" alt="image-20231225095108416"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095125497.png" alt="image-20231225095125497"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095140760.png" alt="image-20231225095140760"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095542111.png" alt="image-20231225095542111"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095616689.png" alt="image-20231225095616689"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225095646067.png" alt="image-20231225095646067"></p>
+<ul>
+<li><strong>设置环境变量</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ANDROID_HOME</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 写你自己的！！！</span></span><br><span class="line">C:\Users\orange\Desktop\欸\android-sdk-windows</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225100933754.png" alt="image-20231225100933754"></p>
+<ul>
+<li><strong>我这遇到bug了，编辑用户变量path</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 写你自己的</span></span><br><span class="line">C:\Users\orange\Desktop\欸\android-sdk-windows\platform-tools</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225101220038.png" alt="image-20231225101220038"></p>
+<h2 id="安装ADT"><a href="#安装ADT" class="headerlink" title="安装ADT"></a>安装ADT</h2><p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225101744935.png" alt="image-20231225101744935"></p>
+<ul>
+<li>打开Eclipse，进入help栏里面的<code>Install New Software</code>里面</li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105038060.png" alt="image-20231225105038060"></p>
+<ul>
+<li><strong>添加ADT(无需解压)</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105136339.png" alt="image-20231225105136339"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105240356.png" alt="image-20231225105240356"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105349387.png" alt="image-20231225105349387"></p>
+<ul>
+<li><strong>疯狂next</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225105419775.png" alt="image-20231225105419775"></p>
+<ul>
+<li><strong>完成之后有个警告要安装，安装完成就可以重启这个东西了</strong></li>
+</ul>
+<h2 id="Helloworld"><a href="#Helloworld" class="headerlink" title="Helloworld"></a>Helloworld</h2><ul>
+<li><strong>创建Android项目</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225113724480.png" alt="image-20231225113724480"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225111834806.png" alt="image-20231225111834806"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112058378.png" alt="image-20231225112058378"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225111937256.png" alt="image-20231225111937256"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225111959096.png" alt="image-20231225111959096"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112137172.png" alt="image-20231225112137172"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112154609.png" alt="image-20231225112154609"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112327391.png" alt="image-20231225112327391"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225112346983.png" alt="image-20231225112346983"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225113001271.png" alt="image-20231225113001271"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225113016990.png" alt="image-20231225113016990"></p>
+<ul>
+<li><strong>丢夜神模拟器里面</strong></li>
+</ul>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231225113042651.png" alt="image-20231225113042651"></p>
+<h2 id="test"><a href="#test" class="headerlink" title="test"></a>test</h2><ul>
+<li><strong>next跳转到第二页面代码</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//跳转键		</span></span><br><span class="line">		<span class="type">Button</span> <span class="variable">Next</span> <span class="operator">=</span> (Button)findViewById(R.id.Next_bt);</span><br><span class="line">		Next.setOnClickListener(<span class="keyword">new</span> <span class="title class_">OnClickListener</span>() &#123;</span><br><span class="line">		    <span class="meta">@Override</span></span><br><span class="line">		    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View v)</span> &#123;</span><br><span class="line">		        Toast.makeText(MainActivity.<span class="built_in">this</span>, <span class="string">&quot;跳转至下一个页面&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">		        <span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(MainActivity.<span class="built_in">this</span>, Secondtest.class);</span><br><span class="line">		        startActivity(intent);</span><br><span class="line">		    &#125;</span><br><span class="line">		&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>在第二个跳转的<code>Secondtest.java</code>里面写跳转回去的代码</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在这里可以处理第二个Activity的逻辑和界面控件</span></span><br><span class="line">        <span class="type">Button</span> <span class="variable">retrun_bb</span> <span class="operator">=</span> (Button) findViewById(R.id.retrun_bt);</span><br><span class="line">        retrun_bb.setOnClickListener(<span class="keyword">new</span> <span class="title class_">OnClickListener</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View v)</span> &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 在按钮点击时关闭当前的Second，返回到MainActivity</span></span><br><span class="line">                <span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(Secondtest.<span class="built_in">this</span>, MainActivity.class);</span><br><span class="line">                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">                startActivity(intent);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+<p><a href="test.rar">写好的test压缩包</a></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231227171333751.png" alt="image-20231227171333751"></p>
+<p><img src="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No11/image-20231227171345702.png" alt="image-20231227171345702"></p>
+
       
     </div>
 
@@ -370,7 +516,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/12/21/Qt%E5%AE%9E%E8%AE%AD-No7/">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.jpg">
@@ -384,7 +530,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/12/21/Qt%E5%AE%9E%E8%AE%AD-No7/" class="post-title-link" itemprop="url">Qt实训_No7</a>
+            <a href="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No10/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -393,8 +539,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2023-12-21 22:16:49" itemprop="dateCreated datePublished" datetime="2023-12-21T22:16:49+08:00">2023-12-21</time>
+              <time title="创建时间：2023-12-27 16:54:31 / 修改时间：16:54:05" itemprop="dateCreated datePublished" datetime="2023-12-27T16:54:31+08:00">2023-12-27</time>
             </span>
 
           
@@ -406,8 +553,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/12/21/Qt%E5%AE%9E%E8%AE%AD-No7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/21/Qt%E5%AE%9E%E8%AE%AD-No7/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No10/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No10/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -454,7 +601,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -526,7 +673,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">75</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
