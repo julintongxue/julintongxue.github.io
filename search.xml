@@ -5705,7 +5705,7 @@
     <title>raspberry5</title>
     <url>/2023/12/27/raspberry5/</url>
     <content><![CDATA[<p>[toc]</p>
-<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><ul>
+<h1 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h1><ul>
 <li><strong>清华源bookworm</strong></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt;/etc/apt/sources.list&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string"># 清华源</span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
@@ -5732,7 +5732,15 @@
 <p><strong>额！为啥<code>R5_eth0</code>对应的设备是<code>--</code>而不是<code>end0</code>，我也不知道！但是我可以确认配置有没有生效！</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@R5:~<span class="comment"># cat /etc/NetworkManager/system-connections/R5_eth0.nmconnection</span></span><br><span class="line">[connection]</span><br><span class="line"><span class="built_in">id</span>=R5_eth0</span><br><span class="line">uuid=0e6c5292-f391-49be-b1f4-1981c5c26538</span><br><span class="line"><span class="built_in">type</span>=ethernet</span><br><span class="line">interface-name=end0</span><br><span class="line"></span><br><span class="line">[ethernet]</span><br><span class="line"></span><br><span class="line">[ipv4]</span><br><span class="line">method=auto</span><br><span class="line"></span><br><span class="line">[ipv6]</span><br><span class="line">addr-gen-mode=default</span><br><span class="line">method=auto</span><br><span class="line"></span><br><span class="line">[proxy]</span><br></pre></td></tr></table></figure>
 
-<p><strong>很好，下一步</strong></p>
+<p><strong>很好，下一步，插上网线</strong></p>
+<p><strong>设置静态ip、网关、dns</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@R5:~<span class="comment"># nmcli connection modify R5_eth0 ipv4.addresses 192.168.0.30/24 ipv4.method manual connection.autoconnect yes ipv4.gateway 192.168.0.1 ipv4.dns 8.8.8.8</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>网卡启动</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@R5:~<span class="comment"># nmcli connection up R5_eth0</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>然后就发现，静态ip设置成功</strong></p>
+<p><img src="/2023/12/27/raspberry5/image-20231228214539257.png" alt="image-20231228214539257"></p>
 ]]></content>
       <categories>
         <category>娱乐单片机</category>
