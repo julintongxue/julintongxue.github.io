@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">78</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">79</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -196,6 +196,109 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/12/18/armx64_ISO%E9%95%9C%E5%83%8F%E7%AB%99%E5%9C%B0%E5%9D%80%E5%A4%A7%E5%85%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/18/armx64_ISO%E9%95%9C%E5%83%8F%E7%AB%99%E5%9C%B0%E5%9D%80%E5%A4%A7%E5%85%A8/" class="post-title-link" itemprop="url">armx64_ISO镜像站地址</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-12-18 00:22:19" itemprop="dateCreated datePublished" datetime="2022-12-18T00:22:19+08:00">2022-12-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-10 08:30:01" itemprop="dateModified" datetime="2023-04-10T08:30:01+08:00">2023-04-10</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/12/18/armx64_ISO%E9%95%9C%E5%83%8F%E7%AB%99%E5%9C%B0%E5%9D%80%E5%A4%A7%E5%85%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/12/18/armx64_ISO%E9%95%9C%E5%83%8F%E7%AB%99%E5%9C%B0%E5%9D%80%E5%A4%A7%E5%85%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>539</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>本人经常折腾x86架构的系统和arm架构的系统，在大一的时候是老师直接分发下载地址或者直接把镜像交予我们，但是很多选择镜像的信息和如何选择对应架构的镜像都没有很好的给我们普及，再加上自己没有很好利用搜索引擎的作用，到大三还是没能接触到各种架构的全部信息。所以本篇致力于讲述各架构之间的不同和如何使用不同架构的镜像。</strong></p>
+<h2 id="架构描述篇"><a href="#架构描述篇" class="headerlink" title="架构描述篇"></a>架构描述篇</h2><p><strong>aarch64 就是arm架构的64位系统，基于armv8指令集的64位架构，应该是后续ARM主流商用服务器的标准。</strong></p>
+<p><strong>x86_64 我们常说的主流的64位架构，代表厂家有Intel、AMD。</strong></p>
+<p><strong>i386 就是已经即将被淘汰的x86的以奔腾系列位代表的32位架构。</strong></p>
+<p><strong>后面3种都是IMb的power系列：</strong></p>
+<p><strong>power9 对应IBM的power9架构cpu</strong></p>
+<p><strong>ppc64  IBM power系列架构，目标架构为64位PowerPC和Power Architecture处理器，并对此优化的应用程序的标识符，编译源代码时经常使用</strong></p>
+<p><strong>ppc64el 纯小端模式，power8作为首要目标，OpenPower基金会基础的技术，试图使基于x86的Linux软件的移植工作以最小的工作量进行</strong></p>
+<h1 id="armx64-ISO镜像站地址大全"><a href="#armx64-ISO镜像站地址大全" class="headerlink" title="armx64_ISO镜像站地址大全"></a>armx64_ISO镜像站地址大全</h1><h2 id="Centos7"><a href="#Centos7" class="headerlink" title="Centos7"></a>Centos7</h2><p><a target="_blank" rel="noopener" href="http://isoredirect.centos.org/altarch/7/isos/aarch64/">aarch64</a></p>
+<h2 id="kali"><a href="#kali" class="headerlink" title="kali"></a>kali</h2><p><a target="_blank" rel="noopener" href="https://www.kali.org/get-kali/#kali-installer-images">Kali Linux</a></p>
+<h2 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -507,139 +610,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/" class="post-title-link" itemprop="url">VSCODE编程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-28 18:24:42" itemprop="dateCreated datePublished" datetime="2022-11-28T18:24:42+08:00">2022-11-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-24 18:34:00" itemprop="dateModified" datetime="2023-07-24T18:34:00+08:00">2023-07-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>526</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="VSCODE编程"><a href="#VSCODE编程" class="headerlink" title="VSCODE编程"></a>VSCODE编程</h1><h2 id="GO环境搭建"><a href="#GO环境搭建" class="headerlink" title="GO环境搭建"></a>GO环境搭建</h2><h3 id="安装GO"><a href="#安装GO" class="headerlink" title="安装GO"></a>安装GO</h3><p><a target="_blank" rel="noopener" href="https://golang.google.cn/dl/">golang安装包下载</a></p>
-<p><strong>无脑安装完成之后，需要配置GO的环境。</strong></p>
-<p><strong>先去下面的网站找到GO的代理模块，然后更改计算机的环境变量。</strong></p>
-<p><a target="_blank" rel="noopener" href="https://goproxy.io/zh/">GOPROXY.IO - 一个全球代理 为 Go 模块而生</a></p>
-<p><strong>此电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量-&gt;系统变量-&gt;新建</strong></p>
-<p><strong>然后按照代理官网改成这样即可</strong></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128181434274.png" alt="image-20221128181434274"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置 GOPROXY 环境变量</span></span><br><span class="line"><span class="variable">$env</span>:GOPROXY = <span class="string">&quot;https://proxy.golang.com.cn,direct&quot;</span></span><br><span class="line"><span class="comment"># 还可以设置不走 proxy 的私有仓库或组，多个用逗号相隔（可选）</span></span><br><span class="line"><span class="variable">$env</span>:GOPRIVATE = <span class="string">&quot;git.mycompany.com,github.com/my/private&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>很简单的</strong></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/Snipaste_2022-12-08_19-47-15.png" alt="Snipaste_2022-12-08_19-47-15"></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/Snipaste_2022-12-08_19-47-54.png" alt="Snipaste_2022-12-08_19-47-54"></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/Snipaste_2022-12-08_19-48-32.png" alt="Snipaste_2022-12-08_19-48-32"></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128181347802.png" alt="image-20221128181347802"></p>
-<p><strong>然后打开vscode</strong></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128182822511.png" alt="image-20221128182822511"></p>
-<p><strong>然后打开一个文件夹，这里我打开一个叫GO的文件夹</strong></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128182935927.png" alt="image-20221128182935927"></p>
-<p>在左侧鼠标右击选择在集成终端中打开</p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183011568.png" alt="image-20221128183011568"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go mod init github.com/your_github_name/GO</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183233831.png" alt="image-20221128183233831"></p>
-<p><strong>然后创建一个文件，写你的helloword去</strong></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183333155.png" alt="image-20221128183333155"></p>
-<p><strong>注意！写完文件的后缀之后，它会识别你的是go语言，然后右下角又弹出的安装go的插件，记得全部都安装。</strong></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183520112.png" alt="image-20221128183520112"></p>
-<p><strong>这个运行和调试就是运行代码。。。你懂的！！！</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -711,7 +685,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -781,7 +755,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

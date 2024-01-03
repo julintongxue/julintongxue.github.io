@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">78</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">79</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -196,6 +196,113 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2024/01/04/%E6%A0%91%E8%8E%93%E6%B4%BE400%E5%92%8C%E5%88%9B%E4%B9%90%E5%8D%9A%E7%9A%84%E7%A2%B0%E6%92%9E%E7%BB%93%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/01/04/%E6%A0%91%E8%8E%93%E6%B4%BE400%E5%92%8C%E5%88%9B%E4%B9%90%E5%8D%9A%E7%9A%84%E7%A2%B0%E6%92%9E%E7%BB%93%E5%90%88/" class="post-title-link" itemprop="url">树莓派400和创乐博的碰撞结合</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-01-04 00:15:04 / 修改时间：01:13:26" itemprop="dateCreated datePublished" datetime="2024-01-04T00:15:04+08:00">2024-01-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/01/04/%E6%A0%91%E8%8E%93%E6%B4%BE400%E5%92%8C%E5%88%9B%E4%B9%90%E5%8D%9A%E7%9A%84%E7%A2%B0%E6%92%9E%E7%BB%93%E5%90%88/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/01/04/%E6%A0%91%E8%8E%93%E6%B4%BE400%E5%92%8C%E5%88%9B%E4%B9%90%E5%8D%9A%E7%9A%84%E7%A2%B0%E6%92%9E%E7%BB%93%E5%90%88/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>毕业前大半年，我收到要设计毕业设计的消息之后，我选了一个最最最作死的毕业设计——<code>基于RFID的图书借还系统</code>，因为我是网工，只会网络和运维，可能还会些安服、安技的知识。但让我当开发去开发一个项目还是对我来说很困难的，现在，毕业设计如同一把<code>达摩利斯之剑</code>悬浮在我的头顶，也是我悲催的开始。</strong></p>
+<p><strong>毕业设计里面需要的RFID，我当时考虑的时候就是找个RFID传感器就解决问题了，但很不幸！我树莓派4b的spi找不到RC522的传感器，所以没办法正常调用。我就买了创乐博的<code>CreatePi v2.0</code>,这玩意巨tm贵，花费我600大洋，买回来我就开始RFID的使用，刚开始的组装、刷系统、点亮等<code>前戏</code>还真别说，确实是有模有样！但到了RFID这里就出问题了，他们用的方案也是RC522，也就奠定了我失败！我的树莓派4B的系统硬件版本是1.4</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dmesg | grep Rev</span><br><span class="line">[    0.000000] Machine model: Raspberry Pi 4 Model B Rev 1.4</span><br></pre></td></tr></table></figure>
+
+<p><strong>因为没办法正常使用RFID我直接和客服联系，他们说可能RFID损坏，我寄回去！寄回去他们检修一段时间后回答我说，板子没有任何问题！这就离了个谱了。没办法正常使用RFID模块，用的是他们提供的东西，除了树莓派4B是我的。和客服扯了一堆有的没的，居然说我的树莓派有问题，没有用他们买的，当时他们给我的方案就是重新购买他们的树莓派4B，我当时那个气呀！树莓派就发行了两个版本<code>硬件结构出现变化</code>，一个是19年第一版树莓派4B有电源不识别的bug，后面发行的电路结构没有任何变化。客服那边说他们那边曾经有过这个问题就是<code>系统硬件版本</code>的问题，只有<code>1.5</code>和<code>1.2</code>的系统版本可以，而他们卖的配套树莓派则全是<code>1.5</code>系统硬件版本的。</strong></p>
+<p><img src="/2024/01/04/%E6%A0%91%E8%8E%93%E6%B4%BE400%E5%92%8C%E5%88%9B%E4%B9%90%E5%8D%9A%E7%9A%84%E7%A2%B0%E6%92%9E%E7%BB%93%E5%90%88/image-20240104003728268.png" alt="image-20240104003728268"></p>
+<p><strong>这个东西真的很神奇，我在官网查找资料，很少有人提及到这些东西，但是我查到了个东西，那就是树莓派的系统硬件版本销售</strong></p>
+<p><a target="_blank" rel="noopener" href="https://core-electronics.com.au/guides/Versions-Raspberry-Pi/">网址在这里</a></p>
+<p><img src="/2024/01/04/%E6%A0%91%E8%8E%93%E6%B4%BE400%E5%92%8C%E5%88%9B%E4%B9%90%E5%8D%9A%E7%9A%84%E7%A2%B0%E6%92%9E%E7%BB%93%E5%90%88/image-20240104005058350.png" alt="image-20240104005058350"></p>
+<p><strong>我总结一下，就是树莓派4B有1.2、1.4和目前(2023年)1.5的，而版本1.3的没有流入市场，然后<code>1.1==1.2</code>,这个就很nice了！要知道我树莓派有很多啊！<code>400、4B、5、pico、picoW</code>等,刚好树莓派400的系统硬件版本是1.1的。我马上就让客服给我把板子寄回来，我使用树莓派400做RFID实验！果然成功了。</strong></p>
+<p><strong>你以为就这么简单！其实我和客服ob大战了一个多小时！从<a target="_blank" rel="noopener" href="https://github.com/raspberrypi/rpi-eeprom">rpi-eeprom</a>打到<code>Rev</code>,刚开始我还以为我记错了，后面摆事实讲道理和技术客服聊，而客服的语言并不专业，让我在<a target="_blank" rel="noopener" href="https://github.com/raspberrypi/rpi-eeprom">rpi-eeprom版本</a>和<code>linux内核版本</code>之间疯狂来回跳，最后我想到他说的可能是<code>Rev</code>。我让给他敲了命令给我看他的板子。。。果然！真是无语，上面那个图其实就是我ob完最后的挣扎，事实已定，我无力反抗。</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -437,119 +544,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No13/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No13/" class="post-title-link" itemprop="url">Qt实训-No13</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-12-27 09:28:10" itemprop="dateCreated datePublished" datetime="2023-12-27T09:28:10+08:00">2023-12-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-28 09:30:20" itemprop="dateModified" datetime="2023-12-28T09:30:20+08:00">2023-12-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Qtcreator/" itemprop="url" rel="index"><span itemprop="name">Qtcreator</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No13/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No13/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          这里有东西被加密了，需要输入密码查看哦。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/12/27/Qt%E5%AE%9E%E8%AE%AD-No13/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -621,7 +619,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -691,7 +689,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
