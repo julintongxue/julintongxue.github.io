@@ -5818,8 +5818,16 @@
 <h2 id="hexo本地博客配置"><a href="#hexo本地博客配置" class="headerlink" title="hexo本地博客配置"></a>hexo本地博客配置</h2><p><strong>编辑<code>_config.yml</code>配置文件</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - <span class="built_in">type</span>: git</span><br><span class="line">    repo: git@github.com:julintongxue/julintongxue.github.io.git</span><br><span class="line">    branch: master</span><br><span class="line"><span class="comment"># 加下面这个</span></span><br><span class="line">  - <span class="built_in">type</span>: git</span><br><span class="line">    repo: git@your_server_ip:/home/git/Git/hexo_nginx.git</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
 
-<h2 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h2 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line"><span class="comment"># 要输入密码</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="免密推送"><a href="#免密推送" class="headerlink" title="免密推送"></a>免密推送</h2><p><strong>把本地的ssh公钥粘给服务器端的git用户</strong></p>
+<p><strong>创建<code>.ssh</code>文件夹</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[git@archlinux ~]$ <span class="built_in">mkdir</span> .ssh</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建<code>authorized_keys</code>文本</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[git@archlinux .ssh]$ <span class="built_in">touch</span> authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p><strong>把公钥粘贴进去得了</strong></p>
 ]]></content>
       <categories>
         <category>博客</category>
