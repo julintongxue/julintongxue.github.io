@@ -5776,4 +5776,57 @@
         <tag>单片机</tag>
       </tags>
   </entry>
+  <entry>
+    <title>hexo博客部署在云服务器</title>
+    <url>/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<p>[toc]</p>
+<p><strong>默认在root用户下执行命令</strong></p>
+<h2 id="docker部署nginx"><a href="#docker部署nginx" class="headerlink" title="docker部署nginx"></a>docker部署nginx</h2><p><strong>自己去安装docker，我相信你会的</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name hexo_nginx --network=host -v /hexo_nginx/www/html:/usr/share/nginx/html -d nginx</span><br></pre></td></tr></table></figure>
+
+<p><strong>设置权限</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> -R 777 /hexo_nginx</span><br></pre></td></tr></table></figure>
+
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p><strong>自己安装git，我还是相信你会的</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">useradd -m -s /bin/bash git</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><code>-m</code> 参数表示创建用户的同时创建用户的家目录</strong></li>
+<li><strong><code>-s /bin/bash</code> 参数表示将用户的默认 shell 设置为 Bash</strong></li>
+</ul>
+<p><strong>更改密码</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">passwd git</span><br></pre></td></tr></table></figure>
+
+<p><strong>切换git用户</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su - git</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建Git文件夹</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[git@archlinux ~]$ <span class="built_in">mkdir</span> Git</span><br></pre></td></tr></table></figure>
+
+<p><strong>进入Git文件夹</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[git@archlinux ~]$ <span class="built_in">cd</span> Git/</span><br><span class="line">[git@archlinux Git]$ </span><br></pre></td></tr></table></figure>
+
+<p><strong>创建一个裸仓库</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[git@archlinux Git]$ git init --bare hexo_nginx.git</span><br><span class="line">hint: Using <span class="string">&#x27;master&#x27;</span> as the name <span class="keyword">for</span> the initial branch. This default branch name</span><br><span class="line">hint: is subject to change. To configure the initial branch name to use <span class="keyword">in</span> all</span><br><span class="line">hint: of your new repositories, <span class="built_in">which</span> will suppress this warning, call:</span><br><span class="line">hint: </span><br><span class="line">hint:   git config --global init.defaultBranch &lt;name&gt;</span><br><span class="line">hint: </span><br><span class="line">hint: Names commonly chosen instead of <span class="string">&#x27;master&#x27;</span> are <span class="string">&#x27;main&#x27;</span>, <span class="string">&#x27;trunk&#x27;</span> and</span><br><span class="line">hint: <span class="string">&#x27;development&#x27;</span>. The just-created branch can be renamed via this <span class="built_in">command</span>:</span><br><span class="line">hint: </span><br><span class="line">hint:   git branch -m &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建钩子脚本</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt;hexo_nginx.git/hooks/post-receive&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">#!/bin/bash</span></span><br><span class="line"><span class="string">git --work-tree=/hexo_nginx/www/html --git-dir=/home/git/Git/hexo_nginx.git checkout -f</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>赋予执行权限</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x hexo_nginx.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo本地博客配置"><a href="#hexo本地博客配置" class="headerlink" title="hexo本地博客配置"></a>hexo本地博客配置</h2><p><strong>编辑<code>_config.yml</code>配置文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - <span class="built_in">type</span>: git</span><br><span class="line">    repo: git@github.com:julintongxue/julintongxue.github.io.git</span><br><span class="line">    branch: master</span><br><span class="line"><span class="comment"># 加下面这个</span></span><br><span class="line">  - <span class="built_in">type</span>: git</span><br><span class="line">    repo: git@your_server_ip:/home/git/Git/hexo_nginx.git</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
+
+<h2 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>博客</tag>
+      </tags>
+  </entry>
 </search>
