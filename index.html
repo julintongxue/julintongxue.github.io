@@ -231,7 +231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-05 00:56:31" itemprop="dateModified" datetime="2024-01-05T00:56:31+08:00">2024-01-05</time>
+                <time title="修改时间：2024-01-05 16:46:27" itemprop="dateModified" datetime="2024-01-05T16:46:27+08:00">2024-01-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -340,7 +340,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> -f hexo_nginx</span><br></pre></td></tr></table></figure>
 
 <p><strong>我是在<code>hexo_nginx</code>创建了certs证书文件夹和<code>default.conf</code>文本文件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name hexo_nginx --network=host -v /hexo_nginx/www/html:/usr/share/nginx/html -v /hexo_nginx/certs:/etc/ssl/certs -v /hexo_nginx/default.conf:/etc/nginx/conf.d/default.conf:ro -d nginx</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name hexo_nginx --network=host --restart always -v /hexo_nginx/www/html:/usr/share/nginx/html -v /hexo_nginx/certs:/etc/ssl/certs -v /hexo_nginx/default.conf:/etc/nginx/conf.d/default.conf:ro -d nginx</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20240105003320649.png" alt="image-20240105003320649"></p>
 <p><strong>访问就可以看到可爱的小锁了，而且80端口也可以正常访问的，就是没有ssl而已</strong></p>
