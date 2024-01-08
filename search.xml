@@ -2197,6 +2197,7 @@
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
 
+<h4 id="papermc-server"><a href="#papermc-server" class="headerlink" title="papermc-server"></a>papermc-server</h4><p><a href="https://hub.docker.com/r/marctv/minecraft-papermc-server">minecraft-papermc-server</a></p>
 <h4 id="openwrt"><a href="#openwrt" class="headerlink" title="openwrt"></a>openwrt</h4><p><strong>openwrt软路由可以替我们电脑实现一些魔法上网的功能，将fq功能给予树莓派处理可以让我们的fq体验更加顺畅丝滑。</strong></p>
 <p><strong>下面我以docker容器化部署一下openwrt，实现家庭设备魔法上网。</strong></p>
 <p><strong>拉取镜像</strong></p>
