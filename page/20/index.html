@@ -495,7 +495,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-08 21:35:52" itemprop="dateModified" datetime="2024-01-08T21:35:52+08:00">2024-01-08</time>
+                <time title="修改时间：2024-01-10 21:31:17" itemprop="dateModified" datetime="2024-01-10T21:31:17+08:00">2024-01-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -534,7 +534,7 @@
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>16 分钟</span>
+              <span>17 分钟</span>
             </span>
 
         </div>
@@ -869,6 +869,14 @@
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184141529.png" alt="image-20221222184141529"></p>
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184202042.png" alt="image-20221222184202042"></p>
 <p><strong>这样可以很好的切换，而且只有浏览器能够fq，想要电脑全局fq就在代理里面设置<code>ip+端口</code>即可。记住win的代理和浏览器的插件只能开一个，别环路了。。。</strong></p>
+<p><strong>网络修复</strong></p>
+<p><strong>用久了发现，树莓派居然没办法将自己的流量代理这就很离谱了，我用<code>ping</code>命令测试了<code>openwrt</code>的容器<code>ip</code>，发现是没办法<code>ping</code>通的，然后把<code>openwrt</code>防火墙清空了还是不行。在同一个网段下，主机居然无法<code>ping</code>通自己<code>肚子里</code>的<code>openwrt</code>，这里我重新想了docker容器和主机之间的网卡之间的关系。</strong></p>
+<p><strong>我认为，我在发送ping命令的icmp给openwrt的时候，流量通过树莓派的物理网卡出去了，但是路由器说流量应该流回树莓派内，树莓派里面的规则把这股流量给丢弃了（因为没有找到内部的openwrt设备ip），这是我的猜想。</strong></p>
+<p><strong>所以，我觉得应该桥接一个网卡出来，这个网卡是和树莓派、openwrt都在同一个网段下的才行，而且ip要独立（非树莓派的ip、非openwrt的ip）</strong></p>
+<p><strong>编辑<code>/etc/network/interfaces</code>文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加下面</span></span><br><span class="line">auto macvlan</span><br><span class="line">iface macvlan inet static</span><br><span class="line">  address 192.168.1.5       <span class="comment">#这个ip一定要非树莓派的ip和非openwrt的ip</span></span><br><span class="line">  netmask 255.255.255.0</span><br><span class="line">  gateway 192.168.1.1       <span class="comment">#要同一个网段</span></span><br><span class="line">  dns-nameservers 192.168.1.1</span><br><span class="line">  pre-up ip <span class="built_in">link</span> add macvlan <span class="built_in">link</span> eth0 <span class="built_in">type</span> macvlan mode bridge</span><br><span class="line">  post-down ip <span class="built_in">link</span> del macvlan <span class="built_in">link</span> eth0 <span class="built_in">type</span> macvlan mode bridge</span><br></pre></td></tr></table></figure>
+
+<p><strong>重启树莓派即可，就发现可以<code>ping</code>通<code>openwrt</code>的容器<code>ip</code>了</strong></p>
 <p><strong>docker版的openwrt还有其他的很多功能，可以自己私下去探索，这里就不再多说了，各自努力吧！</strong></p>
 <h4 id="aria2"><a href="#aria2" class="headerlink" title="aria2"></a>aria2</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name aria2-pro \</span><br><span class="line">    --restart unless-stopped \</span><br><span class="line">    --log-opt max-size=1m \</span><br><span class="line">    -e PUID=<span class="variable">$UID</span> \</span><br><span class="line">    -e PGID=<span class="variable">$GID</span> \</span><br><span class="line">    -e UMASK_SET=022 \</span><br><span class="line">    -e RPC_SECRET=orange \        <span class="comment"># 这个自定义，一定要记住</span></span><br><span class="line">    -e RPC_PORT=6800 \</span><br><span class="line">    -p 6800:6800 \</span><br><span class="line">    -e LISTEN_PORT=6888 \</span><br><span class="line">    -p 6888:6888 \</span><br><span class="line">    -p 6888:6888/udp \</span><br><span class="line">    -v <span class="variable">$PWD</span>/aria2-config:/config \</span><br><span class="line">    -v <span class="variable">$PWD</span>/aria2-downloads:/downloads \</span><br><span class="line">    p3terx/aria2-pro</span><br></pre></td></tr></table></figure>
 
