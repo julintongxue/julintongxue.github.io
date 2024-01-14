@@ -2022,7 +2022,7 @@
 <p><strong>注意：</strong> <code>.env</code> 文件中的变量 <code>CLASH_SECRET</code> 为自定义 Clash Secret，值为空时，脚本将自动生成随机字符串。</p>
 </blockquote>
 <p><strong>启动程序</strong></p>
-<p>**直接运行脚本文件<code>start.sh**</code></p>
+<p><strong>直接运行脚本文件start.sh即可</strong></p>
 <ul>
 <li><strong>进入项目目录</strong></li>
 </ul>
