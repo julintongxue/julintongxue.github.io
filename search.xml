@@ -2011,6 +2011,81 @@
 <p><strong>可以执行<code>curl cip.cc</code>验证：</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># proxy_on</span></span><br><span class="line">终端代理已开启。</span><br><span class="line">root@raspbian:~<span class="comment"># curl cip.cc</span></span><br><span class="line">IP	: 3.113.4.154</span><br><span class="line">地址	: 美国  美国</span><br><span class="line"></span><br><span class="line">数据二	: 日本 | 东京Amazon数据中心</span><br><span class="line"></span><br><span class="line">数据三	: 美国华盛顿 | 亚马逊</span><br><span class="line"></span><br><span class="line">URL	: http://www.cip.cc/3.113.4.154</span><br></pre></td></tr></table></figure>
 
+<h4 id="更加先进的clash终端代理"><a href="#更加先进的clash终端代理" class="headerlink" title="更加先进的clash终端代理"></a>更加先进的clash终端代理</h4><p><strong>下载项目</strong></p>
+<p><a href="clash-for-linux-backup-main.rar">博客备份下载</a></p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">$ git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/Elegycloud/</span>clash-<span class="keyword">for</span>-linux-backup.git</span><br></pre></td></tr></table></figure>
+
+<p><strong>进入到项目目录，编辑<code>.env</code>文件，修改变量<code>CLASH_URL</code>的值。</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> clash-for-linux</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vim .<span class="built_in">env</span></span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意：</strong> <code>.env</code> 文件中的变量 <code>CLASH_SECRET</code> 为自定义 Clash Secret，值为空时，脚本将自动生成随机字符串。</p>
+</blockquote>
+<p><strong>启动程序</strong></p>
+<p>**直接运行脚本文件<code>start.sh**</code></p>
+<ul>
+<li><strong>进入项目目录</strong></li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> <span class="built_in">cd</span> clash<span class="literal">-for-linux</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>运行启动脚本</strong></li>
+</ul>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">$ sudo bash start.sh</span><br><span class="line"></span><br><span class="line">正在检测订阅地址...</span><br><span class="line"><span class="symbol">Clash</span>订阅地址可访问！                                      [  <span class="symbol">OK</span>  ]</span><br><span class="line"></span><br><span class="line">正在下载<span class="symbol">Clash</span>配置文件...</span><br><span class="line">配置文件config.yaml下载成功！                              [  <span class="symbol">OK</span>  ]</span><br><span class="line"></span><br><span class="line">正在启动<span class="symbol">Clash</span>服务...</span><br><span class="line">服务启动成功！                                             [  <span class="symbol">OK</span>  ]</span><br><span class="line"></span><br><span class="line"><span class="symbol">Clash</span> <span class="symbol">Dashboard</span> 访问地址：http://&lt;ip&gt;:<span class="number">9090</span>/ui</span><br><span class="line"><span class="symbol">Secret</span>：xxxxxxxxxxxxx</span><br><span class="line"></span><br><span class="line">请执行以下命令加载环境变量: source /etc/profile.d/clash.sh</span><br><span class="line"></span><br><span class="line">请执行以下命令开启系统代理: proxy_on</span><br><span class="line"></span><br><span class="line">若要临时关闭系统代理，请执行: proxy_off</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> /etc/profile.d/clash.sh</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">proxy_on</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>检查服务端口</strong></li>
+</ul>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>netstat -tln | grep -E <span class="string">&#x27;9090|789.&#x27;</span></span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">127.0</span>.<span class="number">0.1</span><span class="symbol">:</span><span class="number">9090</span>          <span class="number">0.0</span>.<span class="number">0.0</span><span class="symbol">:*</span>               <span class="title class_">LISTEN</span>     </span><br><span class="line">tcp6       <span class="number">0</span>      <span class="number">0</span> ::<span class="symbol">:</span><span class="number">7890</span>                 ::<span class="symbol">:*</span>                    <span class="title class_">LISTEN</span>     </span><br><span class="line">tcp6       <span class="number">0</span>      <span class="number">0</span> ::<span class="symbol">:</span><span class="number">7891</span>                 ::<span class="symbol">:*</span>                    <span class="title class_">LISTEN</span>     </span><br><span class="line">tcp6       <span class="number">0</span>      <span class="number">0</span> ::<span class="symbol">:</span><span class="number">7892</span>                 ::<span class="symbol">:*</span>                    <span class="title class_">LISTEN</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>检查环境变量</strong></li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">$ env | grep -E <span class="string">&#x27;http_proxy|https_proxy&#x27;</span></span><br><span class="line">http_proxy=http:<span class="regexp">//</span><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">7890</span></span><br><span class="line">https_proxy=http:<span class="regexp">//</span><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">7890</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>以上步骤如果正常，说明服务clash程序启动成功，现在就可以体验高速下载github资源了。</strong></p>
+<p><strong>重启程序</strong></p>
+<p><strong>如果需要对Clash配置进行修改，请修改 <code>conf/config.yaml</code> 文件。然后运行 <code>restart.sh</code> 脚本进行重启。</strong></p>
+<blockquote>
+<p><strong>注意：</strong> 重启脚本 <code>restart.sh</code> 不会更新订阅信息。</p>
+</blockquote>
+<p><strong>停止程序</strong></p>
+<ul>
+<li><strong>进入项目目录</strong></li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> <span class="built_in">cd</span> clash<span class="literal">-for-linux</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>关闭服务</strong></li>
+</ul>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="keyword">bash </span><span class="keyword">shutdown.sh</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line">服务关闭成功，请执行以下命令关闭系统代理：proxy_off</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>proxy_off</span><br></pre></td></tr></table></figure>
+
+<p><strong>然后检查程序端口、进程以及环境变量<code>http_proxy|https_proxy</code>，若都没则说明服务正常关闭。</strong></p>
+<p><strong>Clash Dashboard</strong></p>
+<ul>
+<li><strong>访问 Clash Dashboard</strong></li>
+</ul>
+<p>通过浏览器访问 <code>start.sh</code> 执行成功后输出的地址，例如：<a href="http://192.168.0.1:9090/ui">http://192.168.0.1:9090/ui</a></p>
+<ul>
+<li><strong>登录管理界面</strong></li>
+</ul>
+<p><strong>在<code>API Base URL</code>一栏中输入：http:&#x2F;&#x2F;<ip>:9090 ，在<code>Secret(optional)</code>一栏中输入启动成功后输出的Secret。</ip></strong></p>
+<p><strong>点击Add并选择刚刚输入的管理界面地址，之后便可在浏览器上进行一些配置。</strong></p>
+<ul>
+<li><strong>更多教程</strong></li>
+</ul>
+<p><strong>此 Clash Dashboard 使用的是<a href="https://github.com/haishanh/yacd">yacd</a>项目，详细使用方法请移步到yacd上查询。</strong></p>
+<p><strong>终端界面选择代理节点</strong></p>
+<p><strong>部分用户无法通过浏览器使用 Clash Dashboard 进行节点选择、代理模式修改等操作，为了方便用户可以在Linux终端进行操作，下面提供了一个功能简单的脚本以便用户可以临时通过终端界面进行配置。</strong></p>
+<p>**脚本存放位置：<code>scripts/clash_proxy-selector.sh**</code></p>
+<blockquote>
+<p><strong>注意：</strong></p>
+<p>使用脚本前，需要修改脚本中的 <strong>Secret</strong> 变量值为上述启动脚本输出的值，或者与 <code>.env</code> 文件中定义的 <strong>CLASH_SECRET</strong> 变量值保持一致。</p>
+</blockquote>
 <h3 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h3><h4 id="备份一个盘符"><a href="#备份一个盘符" class="headerlink" title="备份一个盘符"></a>备份一个盘符</h4><p><strong>首先，先确定盘符，然后开始备份</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">dd</span> bs=4M <span class="keyword">if</span>=/dev/sda | gzip &gt; bask-raspberry.img.gz</span><br></pre></td></tr></table></figure>
 
