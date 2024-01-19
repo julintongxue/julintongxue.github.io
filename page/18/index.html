@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">80</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">81</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -196,6 +196,226 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/03/16/raspberry-400/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/16/raspberry-400/" class="post-title-link" itemprop="url">raspberry-400</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-16 22:19:05" itemprop="dateCreated datePublished" datetime="2023-03-16T22:19:05+08:00">2023-03-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-18 18:41:02" itemprop="dateModified" datetime="2023-04-18T18:41:02+08:00">2023-04-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/03/16/raspberry-400/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/03/16/raspberry-400/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h1><h1 id="更换系统源"><a href="#更换系统源" class="headerlink" title="更换系统源"></a>更换系统源</h1><p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/raspbian/">清华大学源</a></p>
+<p>如何添加armv7l架构源，很简单，只需编辑<code>/etc/apt/sources.list</code>，并且无需额外的服务或者整机的重启操作。</p>
+<p>先注释掉所有语句，然后加入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ bullseye main non-free contrib rpi</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ bullseye main non-free contrib rpi</span><br><span class="line">deb [<span class="built_in">arch</span>=arm64] https://mirrors.tuna.tsinghua.edu.cn/raspbian/multiarch/ bullseye main</span><br></pre></td></tr></table></figure>
+
+<p>第一行是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择你的 Raspbian 对应的 Debian 版本： Debian 11 (bullseye) Debian 10 (buster) Debian 9 (stretch) </span><br></pre></td></tr></table></figure>
+
+<p>第二行是：</p>
+<p>源码目录仓库是否开启</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启用源码镜像：是 </span><br></pre></td></tr></table></figure>
+
+<p>第三行是：</p>
+<p>为arm64和aarch64提供deb包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启用 multi-arch aarch64：是</span><br></pre></td></tr></table></figure>
+
+<p>然后更新软件列表和软件即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>如果出现证书问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --keyserver keyserver.ubuntu.com --recv-keys [报错的公钥]</span><br></pre></td></tr></table></figure>
+
+<p>如果还想加入aarch64架构的源也可这样，编辑 <code>/etc/apt/sources.list.d/raspi.list</code> 文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ bullseye main</span><br></pre></td></tr></table></figure>
+
+<p>然后更新软件列表和软件即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<h1 id="树莓派实验"><a href="#树莓派实验" class="headerlink" title="树莓派实验"></a>树莓派实验</h1><h2 id="RPI-GPIO-使用手册"><a href="#RPI-GPIO-使用手册" class="headerlink" title="RPI.GPIO 使用手册"></a>RPI.GPIO 使用手册</h2><h3 id="RPI-GPIO包介绍"><a href="#RPI-GPIO包介绍" class="headerlink" title="RPI.GPIO包介绍"></a>RPI.GPIO包介绍</h3><p><strong>RPi.GPIO 模块程序包提供了一个在 Raspberry Pi 中控制 GPIO 的类。</strong></p>
+<p>**RPi.GPIO是 Python的一个module( 模块 ), 树莓派官方系统默认已经安装, 仍在不断更新中，可以访问 <a target="_blank" rel="noopener" href="https://pypi.python.org/pypi/RPi.GPIO">python主页下载源码</a> **</p>
+<p><img src="/2023/03/16/raspberry-400/image-20230412210044844.png" alt="image-20230412210044844"></p>
+<p><strong>注意，该模块不适合应用到追求实时性或计数周期的应用中。这是由于您无法预测 Ptyhon 何时繁忙，以及资源回收的时间。而且它是运行在基于 Linux 核心的系统中，也不合适用于实时应用 – 原因在于其它进程可能获得更高的 CPU 优先级。</strong></p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/">官方的帮助文档的链接：</a></p>
+<p><img src="/2023/03/16/raspberry-400/image-20230412210406116.png" alt="image-20230412210406116"></p>
+<p><img src="/2023/03/16/raspberry-400/image-20230412210518012.png" alt="image-20230412210518012"></p>
+<h3 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br></pre></td></tr></table></figure>
+
+<p><strong>通过这样，您可以在脚本的其余部分中将其称为 GPIO。</strong></p>
+<p><strong>要导入模块并检查它是否成功，请执行以下操作：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    import RPi.GPIO as GPIO</span><br><span class="line">except RuntimeError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Error importing RPi.GPIO!  This is probably because you need superuser privileges.  You can achieve this by using &#x27;sudo&#x27; to run your script&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解释：try except异常捕获处理</span><br><span class="line">RuntimeError是运行时错误，如果触发这个就会打印后面<span class="built_in">print</span>里面的话</span><br></pre></td></tr></table></figure>
+
+<h3 id="引脚编号"><a href="#引脚编号" class="headerlink" title="引脚编号"></a>引脚编号</h3><p><strong>在RPi.GPIO中，有两种方法可以对Raspberry Pi上的IO引脚进行编号。</strong></p>
+<p><strong>第一种是使用BOARD编号系统。这是指Raspberry Pi板上P1接头上的引脚号。使用这种编号系统的优点是，无论树莓派的电路板版本如何，您的硬件都能正常工作。你不需要重新连接你的连接器或更改你的代码。</strong></p>
+<p><strong>第二个编号系统是BCM号码。这是一种较低级别的工作方式 - 它指的是Broadcom SOC上的通道号码。您必须始终使用那个通道编号所对应的树莓派板上哪个引脚的图表。您的脚本程序可能会在Raspberry Pi板的硬件修订后而不能使用。</strong></p>
+<p><strong>我们在使用RPi.GPIO包的时候必须要指定正在使用的（必需）：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GPIO.setmode(GPIO.BOARD)</span><br><span class="line">  <span class="comment"># or</span></span><br><span class="line">GPIO.setmode(GPIO.BCM)</span><br></pre></td></tr></table></figure>
+
+<p><strong>模式将是GPIO.BOARD则返回10，如果是GPIO.BCM则返回11，如果没有设置则返回None</strong></p>
+<p><strong>下面附上GPIO图，适用BCM编码</strong></p>
+<p><img src="/2023/03/16/raspberry-400/GPIO-Pinout-Diagram-2.png" alt="GPIO-Pinout-Diagram-2"></p>
+<p><img src="/2023/03/16/raspberry-400/image-20230412230626919.png" alt="image-20230412230626919"></p>
+<p><strong><a target="_blank" rel="noopener" href="https://pinout.xyz/">交互式引脚排列图：</a>这个网站可以查看GPIO接口作用</strong></p>
+<h3 id="警告"><a href="#警告" class="headerlink" title="警告"></a>警告</h3><p><strong>你可能在Raspberry Pi的GPIO上有多个脚本&#x2F;电路。因此，如果RPi.GPIO检测到引脚已被配置为默认（输入）以外的其他引脚，则在尝试配置脚本时会收到警告。要禁用这些警告：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPIO.setwarnings(<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置一个通道"><a href="#设置一个通道" class="headerlink" title="设置一个通道"></a>设置一个通道</h3><p><strong>你需要设置您用作输入或输出的每个通道。下面是将通道配置为输入：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPIO.setup(channel, GPIO.IN)     <span class="comment">#channel是作者定义的通道名，它最终会调用一个数字，即通道编号</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>（其中通道是基于你指定的编号系统（BOARD或BCM）的通道编号）。</strong></p>
+<p><strong>有关设置输入通道的更多高级信息，请参阅<a target="_blank" rel="noopener" href="https://sourceforge.net/p/raspberry-gpio-python/wiki/Inputs/">此处</a>。</strong></p>
+<p><strong>要将通道设置为输出：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPIO.setup(channel, GPIO.OUT)</span><br></pre></td></tr></table></figure>
+
+<p><strong>（其中通道是基于您指定的编号系统（BOARD或BCM）的通道编号）。</strong></p>
+<p><strong>你还可以为您的输出通道指定一个初始值：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPIO.setup(channel, GPIO.OUT, initial=GPIO.HIGH)</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置多个通道"><a href="#设置多个通道" class="headerlink" title="设置多个通道"></a>设置多个通道</h3><p><strong>你可以一次设置多个通道（从版本 0.5.8 及更高版本）。例如：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chan_list  =  [ <span class="number">11</span> ，<span class="number">12</span> ]     ＃添加任意数量的通道！</span><br><span class="line">                              ＃你可以用元组代替，即：</span><br><span class="line">                              ＃chan_list =（<span class="number">11</span>,<span class="number">12</span>）</span><br><span class="line">GPIO.setup(chan_list, GPIO.OUT)</span><br></pre></td></tr></table></figure>
+
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p><strong>读取GPIO引脚的值：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPIO.<span class="built_in">input</span>(channel)</span><br></pre></td></tr></table></figure>
+
+<p><strong>（其中通道是基于你指定的编号系统（BOARD 或 BCM）的通道编号）。这将返回<code>0 / GPIO.LOW / False</code>或<code>1 / GPIO.HIGH / True</code></strong></p>
+<p><strong>有几种方法可以将GPIO输入到您的程序中。第一种也是最简单的方法是在某个时间点检查输入值。这就是所谓的“轮询”，如果你的程序在错误的时间读取了值，可能会错过输入。轮询在循环中执行，并可能是处理器密集型的。响应GPIO输入的另一种方式是使用’中断’（边沿检测）。边沿是从高电平到低电平（下降沿）或从低电平到高电平（上升沿）的意思。</strong></p>
+<h2 id="点亮LED灯珠"><a href="#点亮LED灯珠" class="headerlink" title="点亮LED灯珠"></a>点亮LED灯珠</h2><p><strong>实验材料：1.官方说的耐压2.2v的小灯珠（我经过5V测试两颗，果然烧了，然后使用树莓派3.3VGPIO口）、2.色环电阻一颗（27K）3.杜邦线公口若干条、4.GPIO口拓展线一根、5.T型GPIO拓展板一块、6.面包板一块</strong></p>
+<p><strong>我们使用树莓派GPIO17接面包板的GND，然后树莓派GPIO第1口（3.3V）接面包板VCC，LED和电阻一起接上面包板GND和VCC（注意：LED有正负极，长的是+，短的是-；电阻不分正负），接上去之后可以看到LED灯是亮的，因为GPIO1口是默认3.3V电压，所以灯已经亮起。</strong></p>
+<p><img src="/2023/03/16/raspberry-400/image-20230412230418872.png" alt="image-20230412230418872"></p>
+<p><img src="/2023/03/16/raspberry-400/IMG_20230412_184612.jpg" alt="IMG_20230412_184612"></p>
+<p><strong>那么，由于前面烧了两颗LED，我可以得知，我的LED是能扛得住3.3V电压直接上电的，所以有了下面这个图（电阻去掉，用杜邦线直接连接）</strong></p>
+<p><img src="/2023/03/16/raspberry-400/IMG_20230412_184544.jpg" alt="IMG_20230412_184544"></p>
+<p> <strong>一直亮着也不是个好玩的是吧，那我写个python让它闪烁咯</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">LED = <span class="number">17</span></span><br><span class="line">GPIO.setmode(GPIO.BCM)</span><br><span class="line">GPIO.setup(LED,GPIO.OUT)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        GPIO.output(LED,GPIO.HIGH)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">        GPIO.output(LED,GPIO.LOW)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;except&quot;</span>)</span><br><span class="line">        GPIO.cleanup()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/03/16/raspberry-400/IMG_20230412_184628.jpg" alt="IMG_20230412_184628"></p>
+<p><strong>可以看出，python控制的HIGHT电平比默认的更加亮，而且能够闪烁（这里由于是图片，所以看不到闪烁）</strong></p>
+<h2 id="显示信息在LCD-1602"><a href="#显示信息在LCD-1602" class="headerlink" title="显示信息在LCD_1602"></a>显示信息在LCD_1602</h2><p><strong>实验材料：1.LCD1602显示面板、2.可调电阻（也叫可变电阻）3.杜邦线公口若干条、4.GPIO口拓展线一根、5.T型GPIO拓展板一块、6.面包板一块</strong></p>
+<p><strong>我们要根据BCM编码来接线</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">root@raspberrypi:/share/raspberry<span class="comment"># gpio readall</span></span><br><span class="line"> +-----+-----+---------+------+---+---Pi 3B+-+---+------+---------+-----+-----+</span><br><span class="line"> | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |</span><br><span class="line"> +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+</span><br><span class="line"> |     |     |    3.3v |      |   |  1 || 2  |   |      | 5v      |     |     |</span><br><span class="line"> |   2 |   8 |   SDA.1 |   IN | 1 |  3 || 4  |   |      | 5v      |     |     |</span><br><span class="line"> |   3 |   9 |   SCL.1 |   IN | 1 |  5 || 6  |   |      | 0v      |     |     |</span><br><span class="line"> |   4 |   7 | GPIO. 7 |  OUT | 0 |  7 || 8  | 0 | IN   | TxD     | 15  | 14  |</span><br><span class="line"> |     |     |      0v |      |   |  9 || 10 | 1 | IN   | RxD     | 16  | 15  |</span><br><span class="line"> |  17 |   0 | GPIO. 0 |   IN | 0 | 11 || 12 | 0 | IN   | GPIO. 1 | 1   | 18  |</span><br><span class="line"> |  27 |   2 | GPIO. 2 |   IN | 0 | 13 || 14 |   |      | 0v      |     |     |</span><br><span class="line"> |  22 |   3 | GPIO. 3 |   IN | 0 | 15 || 16 | 0 | IN   | GPIO. 4 | 4   | 23  |</span><br><span class="line"> |     |     |    3.3v |      |   | 17 || 18 | 0 | IN   | GPIO. 5 | 5   | 24  |</span><br><span class="line"> |  10 |  12 |    MOSI |   IN | 0 | 19 || 20 |   |      | 0v      |     |     |</span><br><span class="line"> |   9 |  13 |    MISO |   IN | 0 | 21 || 22 | 0 | IN   | GPIO. 6 | 6   | 25  |</span><br><span class="line"> |  11 |  14 |    SCLK |   IN | 0 | 23 || 24 | 1 | IN   | CE0     | 10  | 8   |</span><br><span class="line"> |     |     |      0v |      |   | 25 || 26 | 1 | IN   | CE1     | 11  | 7   |</span><br><span class="line"> |   0 |  30 |   SDA.0 |   IN | 1 | 27 || 28 | 1 | IN   | SCL.0   | 31  | 1   |</span><br><span class="line"> |   5 |  21 | GPIO.21 |   IN | 1 | 29 || 30 |   |      | 0v      |     |     |</span><br><span class="line"> |   6 |  22 | GPIO.22 |   IN | 1 | 31 || 32 | 0 | IN   | GPIO.26 | 26  | 12  |</span><br><span class="line"> |  13 |  23 | GPIO.23 |   IN | 0 | 33 || 34 |   |      | 0v      |     |     |</span><br><span class="line"> |  19 |  24 | GPIO.24 |   IN | 0 | 35 || 36 | 0 | IN   | GPIO.27 | 27  | 16  |</span><br><span class="line"> |  26 |  25 | GPIO.25 |   IN | 0 | 37 || 38 | 0 | IN   | GPIO.28 | 28  | 20  |</span><br><span class="line"> |     |     |      0v |      |   | 39 || 40 | 0 | IN   | GPIO.29 | 29  | 21  |</span><br><span class="line"> +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+</span><br><span class="line"> | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |</span><br><span class="line"> +-----+-----+---------+------+---+---Pi 3B+-+---+------+---------+-----+-----+</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>这个图不够直观的话，可以看看下面这个图：</strong></p>
+<p><img src="/2023/03/16/raspberry-400/rpi-pins-40-0.png" alt="rpi-pins-40-0"></p>
+<p><strong>根据python代码接好线路</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LCD_RS = <span class="number">7</span></span><br><span class="line">LCD_E = <span class="number">8</span></span><br><span class="line">LCD_D4 = <span class="number">25</span></span><br><span class="line">LCD_D5 = <span class="number">24</span></span><br><span class="line">LCD_D6 = <span class="number">23</span></span><br><span class="line">LCD_D7 = <span class="number">18</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>LCE1602的VSS和K接口要接地，</strong></li>
+<li><strong>VDD和A要接上正极（+），</strong></li>
+<li><strong>V0是调节液晶显示的偏压信号，可接10K的可调电阻，V0接可调电阻中间脚位，可调电阻另外两个脚位一个接地一个接正极，</strong></li>
+<li><strong>RS接树莓派BCM7号位，</strong></li>
+<li><strong>RW接地（接地表示是写入模式），</strong></li>
+<li><strong>E使能接树莓派BCM8号位，</strong></li>
+<li><strong>D4接树莓派BCM25号位，</strong></li>
+<li><strong>D5接树莓派BCM24号位，</strong></li>
+<li><strong>D6接树莓派BCM23号位，</strong></li>
+<li><strong>D7接树莓派BCM18号位</strong></li>
+</ul>
+<p><strong>下面是接完线之后的样子：</strong></p>
+<p><img src="/2023/03/16/raspberry-400/IMG_20230418_154545.jpg" alt="IMG_20230418_154545"><img src="/2023/03/16/raspberry-400/IMG_20230418_154550.jpg" alt="IMG_20230418_154550"></p>
+<p><strong>给树莓派执行下面python脚本</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">LCD_RS = <span class="number">7</span></span><br><span class="line">LCD_E = <span class="number">8</span></span><br><span class="line">LCD_D4 = <span class="number">25</span></span><br><span class="line">LCD_D5 = <span class="number">24</span></span><br><span class="line">LCD_D6 = <span class="number">23</span></span><br><span class="line">LCD_D7 = <span class="number">18</span></span><br><span class="line">LCD_CHR = <span class="literal">True</span></span><br><span class="line">LCD_CMD = <span class="literal">False</span></span><br><span class="line">LCD_LINE_1 = <span class="number">0x80</span></span><br><span class="line">LCD_LINE_2 = <span class="number">0xc0</span></span><br><span class="line">E_PULSE = <span class="number">0.0005</span></span><br><span class="line">E_DELAY = <span class="number">0.0005</span></span><br><span class="line"></span><br><span class="line">like = <span class="string">&#x27;I love raspberry&#x27;</span></span><br><span class="line">lu = <span class="string">&#x27;       orange&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">lcd_toggle_enable</span>():</span><br><span class="line">    time.sleep(E_DELAY)</span><br><span class="line">    GPIO.output(LCD_E,<span class="literal">True</span>)</span><br><span class="line">    time.sleep(E_PULSE)</span><br><span class="line">    GPIO.output(LCD_E,<span class="literal">False</span>)</span><br><span class="line">    time.sleep(E_DELAY)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">lcd_byte</span>(<span class="params">bits,mode</span>):</span><br><span class="line">    GPIO.output(LCD_RS,mode)</span><br><span class="line">    GPIO.output(LCD_D4,<span class="literal">False</span>)</span><br><span class="line">    GPIO.output(LCD_D5,<span class="literal">False</span>)</span><br><span class="line">    GPIO.output(LCD_D6,<span class="literal">False</span>)</span><br><span class="line">    GPIO.output(LCD_D7,<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x10</span> == <span class="number">0x10</span>:</span><br><span class="line">        GPIO.output(LCD_D4,<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x20</span> == <span class="number">0x20</span>:</span><br><span class="line">        GPIO.output(LCD_D5,<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x40</span> == <span class="number">0x40</span>:</span><br><span class="line">        GPIO.output(LCD_D6,<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x80</span> == <span class="number">0x80</span>:</span><br><span class="line">        GPIO.output(LCD_D7,<span class="literal">True</span>)</span><br><span class="line">    lcd_toggle_enable()</span><br><span class="line"></span><br><span class="line">    GPIO.output(LCD_D4,<span class="literal">False</span>)</span><br><span class="line">    GPIO.output(LCD_D5,<span class="literal">False</span>)</span><br><span class="line">    GPIO.output(LCD_D6,<span class="literal">False</span>)</span><br><span class="line">    GPIO.output(LCD_D7,<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x01</span> == <span class="number">0x01</span>:</span><br><span class="line">        GPIO.output(LCD_D4,<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x02</span> == <span class="number">0x02</span>:</span><br><span class="line">        GPIO.output(LCD_D5,<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x04</span> == <span class="number">0x04</span>:</span><br><span class="line">        GPIO.output(LCD_D6,<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> bits &amp; <span class="number">0x08</span> == <span class="number">0x08</span>:</span><br><span class="line">        GPIO.output(LCD_D7,<span class="literal">True</span>)</span><br><span class="line">    lcd_toggle_enable()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">lcd_init</span>():</span><br><span class="line">    lcd_byte(<span class="number">0x33</span>,LCD_CMD)</span><br><span class="line">    lcd_byte(<span class="number">0x32</span>,LCD_CMD)</span><br><span class="line">    lcd_byte(<span class="number">0x01</span>,LCD_CMD)</span><br><span class="line">    lcd_byte(<span class="number">0x0f</span>,LCD_CMD)</span><br><span class="line">    lcd_byte(<span class="number">0x06</span>,LCD_CMD)</span><br><span class="line">    lcd_byte(LCD_LINE_1,LCD_CMD)</span><br><span class="line">    time.sleep(E_DELAY)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    GPIO.setwarnings(<span class="literal">False</span>)</span><br><span class="line">    GPIO.setmode(GPIO.BCM)</span><br><span class="line">    GPIO.setup(LCD_E,GPIO.OUT)</span><br><span class="line">    GPIO.setup(LCD_RS,GPIO.OUT)</span><br><span class="line">    GPIO.setup(LCD_D4,GPIO.OUT)</span><br><span class="line">    GPIO.setup(LCD_D5,GPIO.OUT)</span><br><span class="line">    GPIO.setup(LCD_D6,GPIO.OUT)</span><br><span class="line">    GPIO.setup(LCD_D7,GPIO.OUT)</span><br><span class="line">    lcd_init()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(like)):</span><br><span class="line">        lcd_byte(<span class="built_in">ord</span>(like[i]),LCD_CHR)</span><br><span class="line">        time.sleep(<span class="number">0.05</span>)</span><br><span class="line">    lcd_byte(LCD_LINE_2,LCD_CMD)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(lu)):</span><br><span class="line">        lcd_byte(<span class="built_in">ord</span>(lu[i]),LCD_CHR)</span><br><span class="line">        time.sleep(<span class="number">0.05</span>)</span><br><span class="line">        </span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+
+<p><strong>看看效果吧</strong></p>
+<p><img src="/2023/03/16/raspberry-400/IMG_20230418_143304.jpg" alt="IMG_20230418_143304"></p>
+<p><strong>开头的显示没有问题，但是第二行出现了乱码。</strong></p>
+<p><img src="/2023/03/16/raspberry-400/IMG_20230418_142443.jpg" alt="IMG_20230418_142443"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -502,164 +722,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/01/08/window%E7%AB%AF%E6%9C%89%E8%B6%A3%E7%9A%84%E8%BD%AF%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/01/08/window%E7%AB%AF%E6%9C%89%E8%B6%A3%E7%9A%84%E8%BD%AF%E4%BB%B6/" class="post-title-link" itemprop="url">window端有趣的软件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-01-08 17:02:29" itemprop="dateCreated datePublished" datetime="2023-01-08T17:02:29+08:00">2023-01-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-11 00:37:54" itemprop="dateModified" datetime="2023-12-11T00:37:54+08:00">2023-12-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/01/08/window%E7%AB%AF%E6%9C%89%E8%B6%A3%E7%9A%84%E8%BD%AF%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/01/08/window%E7%AB%AF%E6%9C%89%E8%B6%A3%E7%9A%84%E8%BD%AF%E4%BB%B6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>420</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="https://www.bluetoothgoodies.com/a2dp/files/AlternativeA2dpSetup-0.8.3.1.msi">Alternative A2DP Driver</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">改蓝牙编码和码率</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/lyswhut/lx-music-desktop">落雪音乐</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">免费听音乐</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/jadepeng/XMusicDownloader">XMusic</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">大规模下载音乐</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://www.getmusicbee.com/">MusicBee</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">很强大的音乐播放器(要自己找无损音乐)</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">balenaEtcher</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一款SD卡刷写器应用程序</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://rufus.ie/zh/">rufus</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">创建USB启动盘的软件</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN">v2rayn</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fq 软件</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/zzzgydi/clash-verge/releases">clash-verge</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clash.meta</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/Z-Siqi/Clash-for-Windows_Chinese">clash_chinese</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clash猫 fq 软件</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://dbeaver.io/download/">DBeaver Community</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据库的一款连接软件(有免费和收费双版本)</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://hmcl.huangyuhui.net/">HMCL</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HMCL MC客户端</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/mcmilk/7-Zip-zstd">7-Zip-zstd</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">特殊的压缩解压软件</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://www.advanced-ip-scanner.com/cn/">ipscan22</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">扫描局域网内设备</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-sg/geforce/broadcasting/broadcast-app/">NVIDIA Broadcast</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nb的20系列以上声音降噪器</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/geforce/guides/nvidia-rtx-voice-setup-guide/">NVIDIA RTX Voice</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">20以下系列显卡声音降噪器</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://portableapps.com/apps/utilities/rcvportable">rcvPortable</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">很牛逼的数据恢复软件</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/FQrabbit/SSTap-Rule">SSTap</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">节点打游戏，想都不敢想，但是有人想了</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/netchx/netch">netcht</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">节点打游戏，想都不敢想，但是有人想了(这是SSTap升级版)</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://acl4ssr-sub.github.io/">节点转换</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如名所说</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -735,7 +797,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

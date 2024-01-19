@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">80</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">81</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -196,6 +196,107 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2024/01/19/%E9%80%82%E5%90%88%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%9D%E5%AE%9D%E7%9A%84docker-compose/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/01/19/%E9%80%82%E5%90%88%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%9D%E5%AE%9D%E7%9A%84docker-compose/" class="post-title-link" itemprop="url">适合树莓派宝宝的docker-compose</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-01-19 23:16:31" itemprop="dateCreated datePublished" datetime="2024-01-19T23:16:31+08:00">2024-01-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-20 00:02:20" itemprop="dateModified" datetime="2024-01-20T00:02:20+08:00">2024-01-20</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/01/19/%E9%80%82%E5%90%88%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%9D%E5%AE%9D%E7%9A%84docker-compose/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/01/19/%E9%80%82%E5%90%88%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%9D%E5%AE%9D%E7%9A%84docker-compose/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="gitlab"><a href="#gitlab" class="headerlink" title="gitlab"></a>gitlab</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /root/docker-compose/gitlab/docker-compose.yml &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">version: &#x27;3&#x27;</span></span><br><span class="line"><span class="string">services:</span></span><br><span class="line"><span class="string">  gitlab:</span></span><br><span class="line"><span class="string">    image: yrzr/gitlab-ce-arm64v8:latest</span></span><br><span class="line"><span class="string">    container_name: gitlab</span></span><br><span class="line"><span class="string">    restart: always</span></span><br><span class="line"><span class="string">    privileged: true</span></span><br><span class="line"><span class="string">    environment:</span></span><br><span class="line"><span class="string">      TZ: &#x27;Asia/Shanghai&#x27;</span></span><br><span class="line"><span class="string">      GITLAB_OMNIBUS_CONFIG: |</span></span><br><span class="line"><span class="string">        external_url = &quot;http://gitlab.fastjrun.com&quot;</span></span><br><span class="line"><span class="string">        gitlab_rails[&#x27;time_zone&#x27;] = &#x27;Asia/Shanghai&#x27;</span></span><br><span class="line"><span class="string">        gitlab_rails[&#x27;gitlab_ssh_host&#x27;] = &#x27;gitlab.fastjrun.com&#x27;</span></span><br><span class="line"><span class="string">        gitlab_rails[&#x27;gitlab_shell_ssh_port&#x27;] = 22</span></span><br><span class="line"><span class="string">    ports:</span></span><br><span class="line"><span class="string">      - &#x27;8080:80&#x27;</span></span><br><span class="line"><span class="string">      - &#x27;443:443&#x27;</span></span><br><span class="line"><span class="string">      - &#x27;222:22&#x27;</span></span><br><span class="line"><span class="string">    volumes:</span></span><br><span class="line"><span class="string">      - &#x27;./gitlab/config:/etc/gitlab&#x27;</span></span><br><span class="line"><span class="string">      - &#x27;./gitlab/logs:/var/log/gitlab&#x27;</span></span><br><span class="line"><span class="string">      - &#x27;./gitlab/data:/var/opt/gitlab&#x27;</span></span><br><span class="line"><span class="string">    logging:</span></span><br><span class="line"><span class="string">      driver: &quot;json-file&quot;</span></span><br><span class="line"><span class="string">      options:</span></span><br><span class="line"><span class="string">        max-size: &quot;20m&quot;</span></span><br><span class="line"><span class="string">        max-file: &quot;10&quot;      </span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="mariadb"><a href="#mariadb" class="headerlink" title="mariadb"></a>mariadb</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /root/docker-compose/mariadb/docker-compose.yml &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">version: &#x27;3.1&#x27;</span></span><br><span class="line"><span class="string">services:</span></span><br><span class="line"><span class="string">  db:</span></span><br><span class="line"><span class="string">    image: mariadb</span></span><br><span class="line"><span class="string">    restart: always</span></span><br><span class="line"><span class="string">    environment:</span></span><br><span class="line"><span class="string">      MARIADB_ROOT_PASSWORD:#自己喜欢</span></span><br><span class="line"><span class="string">    ports:</span></span><br><span class="line"><span class="string">      - 3306:3306</span></span><br><span class="line"><span class="string">    volumes:</span></span><br><span class="line"><span class="string">      - &#x27;./mysql.conf.d/mysql.cnf:/etc/mysql/mysql.conf.d/mysql.cnf&#x27;</span></span><br><span class="line"><span class="string">      - &#x27;./data:/var/lib/mysql&#x27;</span></span><br><span class="line"><span class="string">  adminer:</span></span><br><span class="line"><span class="string">    image: adminer</span></span><br><span class="line"><span class="string">    restart: always</span></span><br><span class="line"><span class="string">    ports:</span></span><br><span class="line"><span class="string">      - 8888:8080</span></span><br><span class="line"><span class="string">EOF</span>  </span><br></pre></td></tr></table></figure>
+
+<h1 id="pixapop"><a href="#pixapop" class="headerlink" title="pixapop"></a>pixapop</h1><p><strong>这个没办法分文件夹看图，可惜了</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /root/docker-compose/pixapop/docker-compose.yml &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">version: &quot;2.1&quot;</span></span><br><span class="line"><span class="string">services:</span></span><br><span class="line"><span class="string">  pixapop:</span></span><br><span class="line"><span class="string">    image: lscr.io/linuxserver/pixapop:latest</span></span><br><span class="line"><span class="string">    container_name: pixapop</span></span><br><span class="line"><span class="string">    environment:</span></span><br><span class="line"><span class="string">      - PUID=1000</span></span><br><span class="line"><span class="string">      - PGID=1000</span></span><br><span class="line"><span class="string">      - TZ=Asia/Shanghai</span></span><br><span class="line"><span class="string">      - APP_USERNAME=#自己喜欢</span></span><br><span class="line"><span class="string">      - APP_PASSWORD=#自己喜欢</span></span><br><span class="line"><span class="string">    volumes:</span></span><br><span class="line"><span class="string">      - /root/docker-compose/pixapop/config:/config</span></span><br><span class="line"><span class="string">      - /root/docker-compose/pixapop/photos:/photos</span></span><br><span class="line"><span class="string">    ports:</span></span><br><span class="line"><span class="string">      - 5555:80</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="nextcloud"><a href="#nextcloud" class="headerlink" title="nextcloud"></a>nextcloud</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">&#x27;2&#x27;</span></span><br><span class="line"></span><br><span class="line">volumes:</span><br><span class="line">  nextcloud:</span><br><span class="line">  db:</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  db:</span><br><span class="line">    image: mariadb:10.6</span><br><span class="line">    restart: always</span><br><span class="line">    <span class="built_in">command</span>: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW</span><br><span class="line">    volumes:</span><br><span class="line">      - db:/var/lib/mysql</span><br><span class="line">    environment:</span><br><span class="line">      - MYSQL_ROOT_PASSWORD=<span class="comment">#自己喜欢</span></span><br><span class="line">      - MYSQL_PASSWORD=<span class="comment">#自己喜欢</span></span><br><span class="line">      - MYSQL_DATABASE=nextcloud</span><br><span class="line">      - MYSQL_USER=nextcloud</span><br><span class="line"></span><br><span class="line">  app:</span><br><span class="line">    image: nextcloud</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - 9999:80</span><br><span class="line">    links:</span><br><span class="line">      - db</span><br><span class="line">    volumes:</span><br><span class="line">      - nextcloud:/var/www/html</span><br><span class="line">    environment:</span><br><span class="line">      - MYSQL_PASSWORD=<span class="comment">#自己喜欢</span></span><br><span class="line">      - MYSQL_DATABASE=nextcloud</span><br><span class="line">      - MYSQL_USER=nextcloud</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -490,109 +591,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/12/28/Qt%E5%AE%9E%E8%AE%AD-No14/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/12/28/Qt%E5%AE%9E%E8%AE%AD-No14/" class="post-title-link" itemprop="url">Qt实训-No14</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-12-28 09:28:25 / 修改时间：09:29:07" itemprop="dateCreated datePublished" datetime="2023-12-28T09:28:25+08:00">2023-12-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Qtcreator/" itemprop="url" rel="index"><span itemprop="name">Qtcreator</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/12/28/Qt%E5%AE%9E%E8%AE%AD-No14/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/28/Qt%E5%AE%9E%E8%AE%AD-No14/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          这里有东西被加密了，需要输入密码查看哦。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/12/28/Qt%E5%AE%9E%E8%AE%AD-No14/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -668,7 +666,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
