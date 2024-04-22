@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">82</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">83</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -200,6 +200,134 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2024/03/12/Python%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/12/Python%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Python环境设置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-12 23:04:46 / 修改时间：23:19:51" itemprop="dateCreated datePublished" datetime="2024-03-12T23:04:46+08:00">2024-03-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/03/12/Python%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/03/12/Python%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>919</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="Python环境设置"><a href="#Python环境设置" class="headerlink" title="Python环境设置"></a>Python环境设置</h1><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>编译之前得更新一下系统吧！我的是树莓派的raspberry系统，基于debian</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+<p>安装一下依赖文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev</span><br></pre></td></tr></table></figure>
+
+<p>下载Python 3.6.8源代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz</span><br></pre></td></tr></table></figure>
+
+<p>解压并进入目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf Python-3.6.8.tgz</span><br><span class="line"><span class="built_in">cd</span> Python-3.6.8</span><br></pre></td></tr></table></figure>
+
+<p>配置和编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./configure --enable-optimizations --with-ssl --prefix=/usr/local/python3.6.8</span><br><span class="line">make -j4</span><br></pre></td></tr></table></figure>
+
+<p>安装Python</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make altinstall</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>altinstall</code>而不是<code>install</code>可以避免覆盖系统默认的Python版本。</p>
+<h2 id="环境设置"><a href="#环境设置" class="headerlink" title="环境设置"></a>环境设置</h2><p>因为没有覆盖上一个Python的环境，所以现在去敲下面命令，就会</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@raspberrypi:~<span class="comment"># python3 --version</span></span><br><span class="line">Python 3.7.3</span><br></pre></td></tr></table></figure>
+
+<p>出现这样</p>
+<p>所以，我不想破环原有的Python3.7.3的前提，使用我的Python3.6.8</p>
+<p>编辑<code>/etc/profile.d/python.sh</code>，里面写下面命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/usr/local/python3.6.8/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">alias</span> python3=<span class="string">&#x27;/usr/local/python3.6.8/bin/python3.6&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后<code>source /etc/profile.d/python.sh </code> </p>
+<p>再试试看？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@raspberrypi:~<span class="comment"># python3 --version</span></span><br><span class="line">Python 3.6.8</span><br></pre></td></tr></table></figure>
+
+<p>芜湖~~~</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2024/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%84%9A%E6%9C%AC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -231,7 +359,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-14 20:42:49" itemprop="dateModified" datetime="2024-02-14T20:42:49+08:00">2024-02-14</time>
+                <time title="修改时间：2024-02-14 20:50:27" itemprop="dateModified" datetime="2024-02-14T20:50:27+08:00">2024-02-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -282,8 +410,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="%E6%A0%91%E8%8E%93%E6%B4%BE%E8%84%9A%E6%9C%AC/make_swap.sh">make_swap.sh</a></p>
-<h2 id="make-swap-sh"><a href="#make-swap-sh" class="headerlink" title="make_swap.sh"></a>make_swap.sh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否为root用户</span></span><br><span class="line"><span class="keyword">if</span> [ `<span class="built_in">id</span> -u` -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;请使用sudo或作为root用户运行此脚本以执行必要的操作。&quot;</span></span><br><span class="line">    <span class="comment">#在这里1是状态码，表示脚本执行出现了某种问题或错误。通常，成功的执行返回状态码为0，而非零的状态码通常表示错误或异常情况。</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提示用户输入交换文件大小</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">&quot;请输入交换文件大小（例如16G）: &quot;</span> swap_size</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证输入是否符合格式，以G结尾表示</span></span><br><span class="line"><span class="keyword">if</span> [[ ! <span class="variable">$swap_size</span> =~ ^[0-9]+[Gg]$ ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;无效的输入格式，请使用格式如&#x27;16G&#x27;表示大小。&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提示用户确认操作</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">&quot;将创建大小为 <span class="variable">$swap_size</span> 的交换文件，是否继续？(y/n): &quot;</span> confirm</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ ! <span class="variable">$confirm</span> =~ ^[Yy]$ ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;操作已取消.&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算交换文件大小（这里把上面获取到大小系数和1024相乘，例如，如果swap_size的值是&quot;16G&quot;，那么$&#123;swap_size%G&#125;将会得到&quot;16&quot;，去掉了末尾的 &quot;G&quot;。）</span></span><br><span class="line">swap_size=$(( <span class="variable">$&#123;swap_size%G&#125;</span> * <span class="number">1024</span> ))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建交换文件</span></span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=/swapfile bs=1M count=<span class="variable">$&#123;swap_size&#125;</span> status=progress</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置正确的权限</span></span><br><span class="line"><span class="built_in">chmod</span> 600 /swapfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化交换文件</span></span><br><span class="line">mkswap /swapfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启用交换文件</span></span><br><span class="line">swapon /swapfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将/swapfile追加到/etc/fstab文件内</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;/swapfile none swap defaults 0 0&#x27;</span> | sudo <span class="built_in">tee</span> -a /etc/fstab</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;交换文件创建成功并已启用，而且追加到/etc/fstab内。&quot;</span></span><br></pre></td></tr></table></figure>
+          <h2 id="make-swap-sh"><a href="#make-swap-sh" class="headerlink" title="make_swap.sh"></a>make_swap.sh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否为root用户</span></span><br><span class="line"><span class="keyword">if</span> [ `<span class="built_in">id</span> -u` -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;请使用sudo或作为root用户运行此脚本以执行必要的操作。&quot;</span></span><br><span class="line">    <span class="comment">#在这里1是状态码，表示脚本执行出现了某种问题或错误。通常，成功的执行返回状态码为0，而非零的状态码通常表示错误或异常情况。</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提示用户输入交换文件大小</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">&quot;请输入交换文件大小（例如16G）: &quot;</span> swap_size</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证输入是否符合格式，以G结尾表示</span></span><br><span class="line"><span class="keyword">if</span> [[ ! <span class="variable">$swap_size</span> =~ ^[0-9]+[Gg]$ ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;无效的输入格式，请使用格式如&#x27;16G&#x27;表示大小。&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提示用户确认操作</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">&quot;将创建大小为 <span class="variable">$swap_size</span> 的交换文件，是否继续？(y/n): &quot;</span> confirm</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ ! <span class="variable">$confirm</span> =~ ^[Yy]$ ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;操作已取消.&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算交换文件大小（这里把上面获取到大小系数和1024相乘，例如，如果swap_size的值是&quot;16G&quot;，那么$&#123;swap_size%G&#125;将会得到&quot;16&quot;，去掉了末尾的 &quot;G&quot;。）</span></span><br><span class="line">swap_size=$(( <span class="variable">$&#123;swap_size%G&#125;</span> * <span class="number">1024</span> ))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建交换文件</span></span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=/swapfile bs=1M count=<span class="variable">$&#123;swap_size&#125;</span> status=progress</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置正确的权限</span></span><br><span class="line"><span class="built_in">chmod</span> 600 /swapfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化交换文件</span></span><br><span class="line">mkswap /swapfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启用交换文件</span></span><br><span class="line">swapon /swapfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将/swapfile追加到/etc/fstab文件内</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;/swapfile none swap defaults 0 0&#x27;</span> | sudo <span class="built_in">tee</span> -a /etc/fstab</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;交换文件创建成功并已启用，而且追加到/etc/fstab内。&quot;</span></span><br></pre></td></tr></table></figure>
 
 
       
@@ -410,170 +537,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">hexo博客部署在云服务器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-01-04 21:24:37" itemprop="dateCreated datePublished" datetime="2024-01-04T21:24:37+08:00">2024-01-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-05 16:46:27" itemprop="dateModified" datetime="2024-01-05T16:46:27+08:00">2024-01-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<p><strong>默认在root用户下执行命令</strong></p>
-<h2 id="docker部署nginx"><a href="#docker部署nginx" class="headerlink" title="docker部署nginx"></a>docker部署nginx</h2><p><strong>自己去安装docker，我相信你会的</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name hexo_nginx --network=host -v /hexo_nginx/www/html:/usr/share/nginx/html -d nginx</span><br></pre></td></tr></table></figure>
-
-<p><strong>设置权限</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> -R 777 /hexo_nginx</span><br></pre></td></tr></table></figure>
-
-<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p><strong>自己安装git，我还是相信你会的</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -s /bin/bash git</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong><code>-m</code> 参数表示创建用户的同时创建用户的家目录</strong></li>
-<li><strong><code>-s /bin/bash</code> 参数表示将用户的默认 shell 设置为 Bash</strong></li>
-</ul>
-<p><strong>更改密码</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd git</span><br></pre></td></tr></table></figure>
-
-<p><strong>切换git用户</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - git</span><br></pre></td></tr></table></figure>
-
-<p><strong>创建Git文件夹</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[git@archlinux ~]$ <span class="built_in">mkdir</span> Git</span><br></pre></td></tr></table></figure>
-
-<p><strong>进入Git文件夹</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[git@archlinux ~]$ <span class="built_in">cd</span> Git/</span><br><span class="line">[git@archlinux Git]$ </span><br></pre></td></tr></table></figure>
-
-<p><strong>创建一个裸仓库</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[git@archlinux Git]$ git init --bare hexo_nginx.git</span><br><span class="line">hint: Using <span class="string">&#x27;master&#x27;</span> as the name <span class="keyword">for</span> the initial branch. This default branch name</span><br><span class="line">hint: is subject to change. To configure the initial branch name to use <span class="keyword">in</span> all</span><br><span class="line">hint: of your new repositories, <span class="built_in">which</span> will suppress this warning, call:</span><br><span class="line">hint: </span><br><span class="line">hint:   git config --global init.defaultBranch &lt;name&gt;</span><br><span class="line">hint: </span><br><span class="line">hint: Names commonly chosen instead of <span class="string">&#x27;master&#x27;</span> are <span class="string">&#x27;main&#x27;</span>, <span class="string">&#x27;trunk&#x27;</span> and</span><br><span class="line">hint: <span class="string">&#x27;development&#x27;</span>. The just-created branch can be renamed via this <span class="built_in">command</span>:</span><br><span class="line">hint: </span><br><span class="line">hint:   git branch -m &lt;name&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>创建钩子脚本</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt;hexo_nginx.git/hooks/post-receive&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">#!/bin/bash</span></span><br><span class="line"><span class="string">git --work-tree=/hexo_nginx/www/html --git-dir=/home/git/Git/hexo_nginx.git checkout -f</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>赋予执行权限</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x hexo_nginx.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
-
-<h2 id="hexo本地博客配置"><a href="#hexo本地博客配置" class="headerlink" title="hexo本地博客配置"></a>hexo本地博客配置</h2><p><strong>编辑<code>_config.yml</code>配置文件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - <span class="built_in">type</span>: git</span><br><span class="line">    repo: git@github.com:julintongxue/julintongxue.github.io.git</span><br><span class="line">    branch: master</span><br><span class="line"><span class="comment"># 加下面这个</span></span><br><span class="line">  - <span class="built_in">type</span>: git</span><br><span class="line">    repo: git@your_server_ip:/home/git/Git/hexo_nginx.git</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
-
-<h2 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line"><span class="comment"># 要输入密码</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="免密推送"><a href="#免密推送" class="headerlink" title="免密推送"></a>免密推送</h2><p><strong>把本地的ssh公钥粘给服务器端的git用户</strong></p>
-<p><strong>创建<code>.ssh</code>文件夹</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[git@archlinux ~]$ <span class="built_in">mkdir</span> .ssh</span><br></pre></td></tr></table></figure>
-
-<p><strong>创建<code>authorized_keys</code>文本</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[git@archlinux .ssh]$ <span class="built_in">touch</span> authorized_keys</span><br></pre></td></tr></table></figure>
-
-<p><strong>把公钥粘贴进去得了</strong></p>
-<h2 id="部署ssl实现https访问"><a href="#部署ssl实现https访问" class="headerlink" title="部署ssl实现https访问"></a>部署ssl实现https访问</h2><p><strong>首先，得先申请证书！然后下载到<code>certs</code>文件夹里面，欸！太简单了，我不想写</strong></p>
-<p><strong>然后修改<code>default.conf</code>配置文件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    listen  [::]:80;</span><br><span class="line">    <span class="comment">#写你的域名</span></span><br><span class="line">    server_name  www.xxx.com;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    <span class="comment">#写你的域名</span></span><br><span class="line">    server_name www.xxx.com;</span><br><span class="line">    <span class="comment"># 绝对路径指定证书的位置和证书名字</span></span><br><span class="line">    ssl_certificate /etc/ssl/certs/www.xxx.com.pem;</span><br><span class="line">    ssl_certificate_key /etc/ssl/certs/www.xxx.com.key;</span><br><span class="line">    </span><br><span class="line">    ssl_session_timeout 5m;</span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    ssl_session_cache shared:SSL:1m;</span><br><span class="line">    fastcgi_param  HTTPS        on;</span><br><span class="line">    fastcgi_param  HTTP_SCHEME     https;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_set_header   X-Real-IP         <span class="variable">$remote_addr</span>;</span><br><span class="line">        proxy_set_header   Host              <span class="variable">$http_host</span>;</span><br><span class="line">        proxy_set_header   X-Forwarded-For   <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    error_page   500 502 503 504  /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>然后docker数据卷映射就行了</strong></p>
-<p><strong>把上一个docker容器删了,部署新的</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> -f hexo_nginx</span><br></pre></td></tr></table></figure>
-
-<p><strong>我是在<code>hexo_nginx</code>创建了certs证书文件夹和<code>default.conf</code>文本文件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name hexo_nginx --network=host --restart always -v /hexo_nginx/www/html:/usr/share/nginx/html -v /hexo_nginx/certs:/etc/ssl/certs -v /hexo_nginx/default.conf:/etc/nginx/conf.d/default.conf:ro -d nginx</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20240105003320649.png" alt="image-20240105003320649"></p>
-<p><strong>访问就可以看到可爱的小锁了，而且80端口也可以正常访问的，就是没有ssl而已</strong></p>
-<p><img src="/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20240105003423943.png" alt="image-20240105003423943"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -649,7 +612,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
