@@ -2258,11 +2258,19 @@
 
 <p><strong>自己先去zt官网创建网卡，然后需要的设备安装zt并且加入该网络就行了，支持linux、苹果和安卓手机、win电脑、mac等</strong></p>
 <h3 id="pi-apps"><a href="#pi-apps" class="headerlink" title="pi-apps"></a>pi-apps</h3><p><a href="https://github.com/Botspot/pi-apps">https://github.com/Botspot/pi-apps</a></p>
-<h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p><strong>由于树莓派基地系统自带了docker，我们只需要将docker服务启动即可，为了docker能够更好完成和为我们设备提供优质服务，这里建议将docker设置为开机自启。</strong></p>
+<h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><h4 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h4><p>Centos</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
+
+<h4 id="阿里云源"><a href="#阿里云源" class="headerlink" title="阿里云源"></a>阿里云源</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+
+<h4 id="官方源"><a href="#官方源" class="headerlink" title="官方源"></a>官方源</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+
+<p><strong>由于树莓派基地系统自带了docker，我们只需要将docker服务启动即可，为了docker能够更好完成和为我们设备提供优质服务，这里建议将docker设置为开机自启。</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看docker状态</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl status docker.service</span></span><br><span class="line"><span class="comment"># 开机自启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl enable docker.service</span></span><br><span class="line"><span class="comment"># 关闭开机自启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl disable docker.service</span></span><br><span class="line"><span class="comment"># 关闭docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl stop docker.service</span></span><br><span class="line"><span class="comment"># 开启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl start docker.service</span></span><br><span class="line"><span class="comment"># 关闭再开启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl restart docker.service</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>怎么说咧！想要玩得起docker，有个地方是我们不得不去的，那就是docker的官方宝藏之地——<a href="https://hub.docker.com/">Dockerhub</a>,里面有世界各地说话又好听、技术又高的大佬，他们写好的容器则上传到了dockerhub，这些容器就是一个小型的服务或者说是应用。这些应用可以独立或者混合其他容器一起使用。我们后面会讲到部署一个<code>wordpress博客</code>然后用到<code>mariadb数据库容器</code>的案例。再此之前，我们还是先老老实实去b站学习有关docker的各种课程，学习好docker对我们后面学习其他的容器化有很大帮助，而docker里面的网络内容则会贯穿整个进阶篇章。</strong></p>
-<h4 id="配置镜像加速"><a href="#配置镜像加速" class="headerlink" title="配置镜像加速"></a>配置镜像加速</h4><p><strong>镜像加速</strong></p>
+<h4 id="配置镜像加速"><a href="#配置镜像加速" class="headerlink" title="配置镜像加速"></a>配置镜像加速</h4><p><strong>额，换了上面的源就别搞下面的加速了</strong></p>
+<p><strong>镜像加速</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
 
 <p><strong>加入这个中科大的源</strong></p>
@@ -2273,6 +2281,11 @@
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
 
+<h4 id="docker-compose安装"><a href="#docker-compose安装" class="headerlink" title="docker-compose安装"></a>docker-compose安装</h4><p><a href="https://github.com/docker/compose/releases">docker-compose二进制执行包</a></p>
+<p><strong>把二进制包放下面路径</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/local/bin/</span><br></pre></td></tr></table></figure>
+
+<p><strong>并且改名为<code>docker-compose</code>就行了</strong></p>
 <h4 id="papermc-server"><a href="#papermc-server" class="headerlink" title="papermc-server"></a>papermc-server</h4><p><a href="https://hub.docker.com/r/marctv/minecraft-papermc-server">minecraft-papermc-server</a></p>
 <h4 id="openwrt"><a href="#openwrt" class="headerlink" title="openwrt"></a>openwrt</h4><p><strong>openwrt软路由可以替我们电脑实现一些魔法上网的功能，将fq功能给予树莓派处理可以让我们的fq体验更加顺畅丝滑。</strong></p>
 <p><strong>下面我以docker容器化部署一下openwrt，实现家庭设备魔法上网。</strong></p>
