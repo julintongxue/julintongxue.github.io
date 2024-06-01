@@ -6108,5 +6108,13 @@
 
 <h2 id="dhcp服务！启动！"><a href="#dhcp服务！启动！" class="headerlink" title="dhcp服务！启动！"></a>dhcp服务！启动！</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart isc-dhcp-server</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>娱乐单片机</category>
+      </categories>
+      <tags>
+        <tag>树莓派</tag>
+        <tag>单片机</tag>
+        <tag>DHCP</tag>
+      </tags>
   </entry>
 </search>
