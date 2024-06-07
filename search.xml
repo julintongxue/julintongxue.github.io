@@ -6067,7 +6067,7 @@
     <title>raspberry当dhcp服务器共享以太网</title>
     <url>/2024/06/01/raspberry%E5%BD%93dhcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B1%E4%BA%AB%E4%BB%A5%E5%A4%AA%E7%BD%91/</url>
     <content><![CDATA[<blockquote>
-<p>这里我的raspberry外接了一个网卡eth1，这个eth1直接连接路由器获取互联网络，raspberry自己有一个eth0这个网卡用来接电脑，它(eth0)将运行dhcp服务下发ip给电脑</p>
+<p>这里我的raspberry外接了一个网卡eth1，这个eth1直接连接路由器获取互联网络，raspberry自己有一个eth0这个网卡用来接电脑，它(eth0)将运行dhcp服务下发ip给电脑，这样我们的电脑就能拥有网络。你会问我为啥要脱裤子放屁，因为这个eth1网卡可以是通过手机usb共享出来的网络(eth1可以当成手机usb共享的网卡，到时不叫这个名字，这里为了好记忆还是这么叫)，我设计这个的目的就是让手机共享网络给树莓派，然后通过树莓派的lan口(eth0)下发局域网给路由器的wan口，路由器会自己再生成一个局域网下发lan口和wifi，设备连wifi和连路由器的lan都在一个局域网内。</p>
 </blockquote>
 <h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><ul>
 <li><strong>清华源bookworm</strong></li>
@@ -6085,10 +6085,10 @@
 <p><strong>编辑<code>/etc/default/isc-dhcp-server </code>,在里面改<code>INTERFACESv4=“eth0”</code>就行了</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/default/isc-dhcp-server </span><br></pre></td></tr></table></figure>
 
-<p><strong>修改<code>dhcpd.conf </code>配置</strong></p>
+<p>**修改&#96;dhcpd.conf **</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/dhcp/dhcpd.conf </span><br></pre></td></tr></table></figure>
 
-<p><strong>看我的配置！</strong></p>
+<p><strong>看我的配置！这里设计了树莓派的lan口下发的ip范围，但你懂得，树莓派就一个lan口，还是自带的，所以只有一个ip就是<code>192.168.10.1</code>,下发的ip是给路由器或者电脑一个设备端使用，这里我就把范围调大了，可以按照自己喜欢调小</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">subnet 192.168.10.0 netmask 255.255.255.0 &#123;</span><br><span class="line">    range 192.168.10.100 192.168.10.200;</span><br><span class="line">    option routers 192.168.10.1;</span><br><span class="line">    option subnet-mask 255.255.255.0;</span><br><span class="line">    option domain-name-servers 8.8.8.8, 8.8.4.4;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="设置ipv4流量中转"><a href="#设置ipv4流量中转" class="headerlink" title="设置ipv4流量中转"></a>设置ipv4流量中转</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
@@ -6098,15 +6098,22 @@
 <p><strong>配置载入</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo sysctl -p</span><br></pre></td></tr></table></figure>
 
-<h2 id="防火墙流量放行"><a href="#防火墙流量放行" class="headerlink" title="防火墙流量放行"></a>防火墙流量放行</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE    <span class="comment"># 注意！这个网卡是连接以太网的网卡，不是连接你电脑那个网卡！！！</span></span><br></pre></td></tr></table></figure>
+<h2 id="防火墙流量放行"><a href="#防火墙流量放行" class="headerlink" title="防火墙流量放行"></a>防火墙流量放行</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE    <span class="comment"># 注意！这个网卡是连接以太网的网卡，不是连接你电脑那个网卡！！！这个网卡是连接外部互联网的网卡，这么理解会不会好点呢！</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>如果没用<code>iptables</code>需要安装</strong></p>
+<p><strong>如果没<code>iptables</code>需要安装</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install -y iptables iptables-persistent</span><br></pre></td></tr></table></figure>
 
 <p><strong>保存<code>iptables</code>配置</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo netfilter-persistent save</span><br></pre></td></tr></table></figure>
 
 <h2 id="dhcp服务！启动！"><a href="#dhcp服务！启动！" class="headerlink" title="dhcp服务！启动！"></a>dhcp服务！启动！</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart isc-dhcp-server</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用过程报错"><a href="#使用过程报错" class="headerlink" title="使用过程报错"></a>使用过程报错</h2><ul>
+<li><p><strong>如果使用过程中是手机usb共享网络的记得要重新获取一下设备ip，我的是<code>华为nova7</code>就是要这样弄的，不然没有网络</strong></p>
+</li>
+<li><p><strong>如果用的是以太网自动下发的ip地址，就不会出现上述问题</strong></p>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>娱乐单片机</category>
@@ -6115,6 +6122,135 @@
         <tag>树莓派</tag>
         <tag>单片机</tag>
         <tag>DHCP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Centos7服务器安装k8s</title>
+    <url>/2024/06/05/Centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85k8s/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h2 id="防火墙状态与关闭"><a href="#防火墙状态与关闭" class="headerlink" title="防火墙状态与关闭"></a>防火墙状态与关闭</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># systemctl status firewalld.service </span></span><br><span class="line">[root@localhost ~]<span class="comment"># systemctl stop firewalld.service</span></span><br><span class="line">[root@localhost ~]<span class="comment"># systemctl disable firewalld.service</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="SELinux永久关闭or禁用"><a href="#SELinux永久关闭or禁用" class="headerlink" title="SELinux永久关闭or禁用"></a>SELinux永久关闭or禁用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># sudo nano /etc/selinux/config</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>把里面内容改为:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SELINUX=disabled</span><br></pre></td></tr></table></figure>
+
+<p><strong>或者使用下面禁用方法</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># sudo setenforce 0</span></span><br><span class="line"><span class="comment"># 将 SELinux 设置为 permissive 模式意味着 SELinux 仍然会记录违规操作，但不会阻止它们。</span></span><br><span class="line">[root@localhost ~]<span class="comment"># sudo sed -i &#x27;s/^SELINUX=enforcing$/SELINUX=permissive/&#x27; /etc/selinux/config</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="swap禁用"><a href="#swap禁用" class="headerlink" title="swap禁用"></a>swap禁用</h2><p><strong>先把swap禁用</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># free -h</span></span><br><span class="line">              total        used        free      shared  buff/cache   available</span><br><span class="line">Mem:           3.7G        712M        2.3G         25M        697M        2.7G</span><br><span class="line">Swap:          3.9G          0B        3.9G</span><br><span class="line">[root@localhost ~]<span class="comment"># swapoff -a  </span></span><br><span class="line">[root@localhost ~]<span class="comment"># free -h</span></span><br><span class="line">              total        used        free      shared  buff/cache   available</span><br><span class="line">Mem:           3.7G        708M        2.3G         25M        697M        2.7G</span><br><span class="line">Swap:            0B          0B          0B</span><br></pre></td></tr></table></figure>
+
+<p><strong>永久禁止swap启用</strong></p>
+<p><strong>下面sed那个语句就是注释含有swap的配置行</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># sed -ri &#x27;s/.*swap.*/#&amp;/&#x27; /etc/fstab</span></span><br><span class="line"></span><br><span class="line">[root@localhost ~]<span class="comment"># cat /etc/fstab</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># /etc/fstab</span></span><br><span class="line"><span class="comment"># Created by anaconda on Thu May 30 04:10:42 2024</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Accessible filesystems, by reference, are maintained under &#x27;/dev/disk&#x27;</span></span><br><span class="line"><span class="comment"># See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">/dev/mapper/centos-root /                       xfs     defaults        0 0</span><br><span class="line">UUID=f6071794-cb7e-4882-ab44-ecddae691138 /boot                   xfs     defaults        0 0</span><br><span class="line">/dev/mapper/centos-home /home                   xfs     defaults        0 0</span><br><span class="line"><span class="comment">#/dev/mapper/centos-swap swap                    swap    defaults        0 0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><h3 id="更换软件源"><a href="#更换软件源" class="headerlink" title="更换软件源"></a>更换软件源</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment">#  wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>然后更新</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># yum update -y &amp;&amp; yum upgrade -y</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="更换docker软件源"><a href="#更换docker软件源" class="headerlink" title="更换docker软件源"></a>更换docker软件源</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment">#  sudo yum install -y yum-utils</span></span><br><span class="line">[root@localhost ~]<span class="comment">#  sudo yum-config-manager \</span></span><br><span class="line">--add-repo \</span><br><span class="line">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装指定docker"><a href="#安装指定docker" class="headerlink" title="安装指定docker"></a>安装指定docker</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install -y docker-ce-20.10.7 docker-ce-cli-20.10.7  containerd.io-1.4.6</span><br></pre></td></tr></table></figure>
+
+<h2 id="docker配置"><a href="#docker配置" class="headerlink" title="docker配置"></a>docker配置</h2><h3 id="服务设置"><a href="#服务设置" class="headerlink" title="服务设置"></a>服务设置</h3><p><strong>设置重启docker和开机自启docker</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment">#  systemctl restart docker.service</span></span><br><span class="line">[root@localhost ~]<span class="comment">#  systemctl enable docker --now</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="阿里云docker镜像源配置设置"><a href="#阿里云docker镜像源配置设置" class="headerlink" title="阿里云docker镜像源配置设置"></a>阿里云docker镜像源配置设置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment">#  sudo mkdir -p /etc/docker</span></span><br><span class="line">[root@localhost ~]<span class="comment">#  sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">[root@localhost ~]<span class="comment">#  sudo systemctl daemon-reload</span></span><br><span class="line">[root@localhost ~]<span class="comment">#  sudo systemctl restart docker</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装k8s"><a href="#安装k8s" class="headerlink" title="安装k8s"></a>安装k8s</h2><h3 id="添加k8s软件源"><a href="#添加k8s软件源" class="headerlink" title="添加k8s软件源"></a>添加k8s软件源</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># cat &lt;&lt;EOF | sudo tee /etc/yum.repos.d/kubernetes.repo</span></span><br><span class="line">&gt; [kubernetes]</span><br><span class="line">&gt; name=Kubernetes</span><br><span class="line">&gt; baseurl=http://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64</span><br><span class="line">&gt; enabled=1</span><br><span class="line">&gt; gpgcheck=0</span><br><span class="line">&gt; repo_gpgcheck=0</span><br><span class="line">&gt; gpgkey=http://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg \</span><br><span class="line">&gt;         http://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg</span><br><span class="line">&gt; exclude=kubelet kubeadm kubectl</span><br><span class="line">&gt; EOF</span><br></pre></td></tr></table></figure>
+
+<h3 id="k8s服务安装和设置"><a href="#k8s服务安装和设置" class="headerlink" title="k8s服务安装和设置"></a>k8s服务安装和设置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># sudo yum install -y kubelet-1.20.9 kubeadm-1.20.9 kubectl-1.20.9 --disableexcludes=kubernetes</span></span><br><span class="line"></span><br><span class="line">[root@localhost ~]<span class="comment"># sudo systemctl enable --now kubelet</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h2><h3 id="master"><a href="#master" class="headerlink" title="master"></a>master</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># hostnamectl set-hostname master</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;192.168.15.128  master&quot;</span> &gt;&gt; /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<h3 id="nodex"><a href="#nodex" class="headerlink" title="nodex"></a>nodex</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># hostnamectl set-hostname node1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>。。。</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;192.168.15.128  master&quot;</span> &gt;&gt; /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<p><strong>。。。</strong></p>
+<h2 id="主节点初始化"><a href="#主节点初始化" class="headerlink" title="主节点初始化"></a>主节点初始化</h2><h3 id="master-1"><a href="#master-1" class="headerlink" title="master"></a>master</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#主节点初始化</span></span><br><span class="line">kubeadm init \</span><br><span class="line">--apiserver-advertise-address=192.168.15.128 \</span><br><span class="line">--control-plane-endpoint=master \</span><br><span class="line">--image-repository registry.cn-hangzhou.aliyuncs.com/lfy_k8s_images \</span><br><span class="line">--kubernetes-version v1.20.9 \</span><br><span class="line">--service-cidr=10.96.0.0/16 \</span><br><span class="line">--pod-network-cidr=192.16.0.0/16</span><br></pre></td></tr></table></figure>
+
+<p><strong>得到</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$HOME</span>/.kube</span><br><span class="line">sudo <span class="built_in">cp</span> -i /etc/kubernetes/admin.conf <span class="variable">$HOME</span>/.kube/config</span><br><span class="line">sudo <span class="built_in">chown</span> $(<span class="built_in">id</span> -u):$(<span class="built_in">id</span> -g) <span class="variable">$HOME</span>/.kube/config</span><br><span class="line"></span><br><span class="line">kubeadm <span class="built_in">join</span> master:6443 --token x80x7w.zdjqhivr1jopdk2i \</span><br><span class="line">    --discovery-token-ca-cert-hash sha256:9e35229e76fd4c97e062fa4ddccb22bab93973ecb67cdaf073b7d3beab561ff0</span><br></pre></td></tr></table></figure>
+
+<p><strong>但是先执行,剩下那个是给node节点的</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$HOME</span>/.kube</span><br><span class="line">sudo <span class="built_in">cp</span> -i /etc/kubernetes/admin.conf <span class="variable">$HOME</span>/.kube/config</span><br><span class="line">sudo <span class="built_in">chown</span> $(<span class="built_in">id</span> -u):$(<span class="built_in">id</span> -g) <span class="variable">$HOME</span>/.kube/config</span><br></pre></td></tr></table></figure>
+
+<h4 id="下载网络组件"><a href="#下载网络组件" class="headerlink" title="下载网络组件"></a>下载网络组件</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@master ~]<span class="comment"># curl https://docs.projectcalico.org/v3.20/manifests/calico.yaml -O</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="应用网络组件"><a href="#应用网络组件" class="headerlink" title="应用网络组件"></a>应用网络组件</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@master ~]<span class="comment"># kubectl apply -f calico.yaml </span></span><br></pre></td></tr></table></figure>
+
+<h4 id="查看集群部署了哪些应用"><a href="#查看集群部署了哪些应用" class="headerlink" title="查看集群部署了哪些应用"></a>查看集群部署了哪些应用</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看集群部署了哪些应用？</span></span><br><span class="line">docker ps   ===   kubectl get pods -A</span><br><span class="line"><span class="comment"># 运行中的应用在docker里面叫容器，在k8s里面叫Pod</span></span><br><span class="line">kubectl get pods -A</span><br></pre></td></tr></table></figure>
+
+<h3 id="node"><a href="#node" class="headerlink" title="node"></a>node</h3><p><strong>子节点加入master</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm <span class="built_in">join</span> master:6443 --token x80x7w.zdjqhivr1jopdk2i \</span><br><span class="line">    --discovery-token-ca-cert-hash sha256:9e35229e76fd4c97e062fa4ddccb22bab93973ecb67cdaf073b7d3beab561ff0</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证集群"><a href="#验证集群" class="headerlink" title="验证集群"></a>验证集群</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@master ~]<span class="comment"># kubectl get nodes</span></span><br><span class="line">NAME     STATUS   ROLES                  AGE   VERSION</span><br><span class="line">master   Ready    control-plane,master   79m   v1.20.9</span><br><span class="line">node1    Ready    &lt;none&gt;                 23m   v1.20.9</span><br><span class="line">node2    Ready    &lt;none&gt;                 23m   v1.20.9</span><br></pre></td></tr></table></figure>
+
+<h2 id="K8S命令"><a href="#K8S命令" class="headerlink" title="K8S命令"></a>K8S命令</h2><p><strong>生成新的令牌</strong>： 使用 <code>kubeadm token create</code> 命令生成一个新的加入令牌：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm token create --print-join-command</span><br></pre></td></tr></table></figure>
+
+<h3 id="检查和管理现有令牌"><a href="#检查和管理现有令牌" class="headerlink" title="检查和管理现有令牌"></a>检查和管理现有令牌</h3><ol>
+<li><p><strong>查看现有令牌</strong>： 你可以使用以下命令查看当前有效的令牌：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm token list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>删除过期令牌</strong>： 如果有需要，可以删除过期或不再使用的令牌：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm token delete &lt;token-id&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="部署dashboard"><a href="#部署dashboard" class="headerlink" title="部署dashboard"></a>部署dashboard</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.3.1/aio/deploy/recommended.yaml</span><br></pre></td></tr></table></figure>
+
+<p><a href="recommended.yaml">recommended.yaml</a></p>
+<p><strong>可以通过下面命令查看dashboard启动情况</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@master ~]<span class="comment"># kubectl get pod -A</span></span><br><span class="line">NAMESPACE              NAME                                         READY   STATUS    RESTARTS   AGE</span><br><span class="line">kube-system            calico-kube-controllers-577f77cb5c-gmhpd     1/1     Running   1          146m</span><br><span class="line">kube-system            calico-node-bm67j                            1/1     Running   1          129m</span><br><span class="line">kube-system            calico-node-h55js                            1/1     Running   1          146m</span><br><span class="line">kube-system            calico-node-j8x6m                            1/1     Running   1          129m</span><br><span class="line">kube-system            coredns-5897cd56c4-gd2qj                     1/1     Running   1          3h4m</span><br><span class="line">kube-system            coredns-5897cd56c4-ltk4h                     1/1     Running   1          3h4m</span><br><span class="line">kube-system            etcd-master                                  1/1     Running   1          3h4m</span><br><span class="line">kube-system            kube-apiserver-master                        1/1     Running   1          3h4m</span><br><span class="line">kube-system            kube-controller-manager-master               1/1     Running   1          3h4m</span><br><span class="line">kube-system            kube-proxy-72hqs                             1/1     Running   1          3h4m</span><br><span class="line">kube-system            kube-proxy-dw6z2                             1/1     Running   1          129m</span><br><span class="line">kube-system            kube-proxy-xlxqj                             1/1     Running   1          129m</span><br><span class="line">kube-system            kube-scheduler-master                        1/1     Running   1          3h4m</span><br><span class="line">kubernetes-dashboard   dashboard-metrics-scraper-79c5968bdc-nkbtb   1/1     Running   0          37m</span><br><span class="line">kubernetes-dashboard   kubernetes-dashboard-658485d5c7-v9mll        1/1     Running   0          37m</span><br></pre></td></tr></table></figure>
+
+<p>知道<code>NAMESPACE</code>之后，设置访问端口</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl edit svc kubernetes-dashboard -n kubernetes-dashboard</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>type: ClusterIP 改为 type: NodePort</p>
+</blockquote>
+<p><strong>查找访问端口</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@master ~]<span class="comment"># kubectl get svc -A |grep kubernetes-dashboard</span></span><br><span class="line">kubernetes-dashboard   dashboard-metrics-scraper   ClusterIP   10.96.11.165   &lt;none&gt;        8000/TCP                 39m</span><br><span class="line">kubernetes-dashboard   kubernetes-dashboard        NodePort    10.96.158.40   &lt;none&gt;        443:31718/TCP            39m</span><br><span class="line"></span><br><span class="line"><span class="comment">## 找到端口，在安全组放行,这里31718端口就是要访问的端口</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="不安全问题"><a href="#不安全问题" class="headerlink" title="不安全问题"></a>不安全问题</h3><p><strong>无论是在谷歌浏览器还是edge浏览器都会出现这个，而且没得点进去好吧！这个时候可以在键盘输入<code>thisisunsafe</code>这个命令，页面自动给你跳转进去，非常神奇。</strong></p>
+<p><img src="/2024/06/05/Centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85k8s/image-20240530160924513.png" alt="image-20240530160924513"></p>
+<p><strong>输入那个命令就跳转这个了</strong></p>
+<p><img src="/2024/06/05/Centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85k8s/image-20240530160635753.png" alt="image-20240530160635753"></p>
+<h3 id="创建访问账号"><a href="#创建访问账号" class="headerlink" title="创建访问账号"></a>创建访问账号</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#创建访问账号，准备一个yaml文件； nano dash-user.yaml</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ServiceAccount</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">admin-user</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterRoleBinding</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">admin-user</span></span><br><span class="line"><span class="attr">roleRef:</span></span><br><span class="line">  <span class="attr">apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span></span><br><span class="line">  <span class="attr">kind:</span> <span class="string">ClusterRole</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">cluster-admin</span></span><br><span class="line"><span class="attr">subjects:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">kind:</span> <span class="string">ServiceAccount</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">admin-user</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>执行命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl apply -f dash-user.yaml</span><br></pre></td></tr></table></figure>
+
+<h3 id="令牌访问"><a href="#令牌访问" class="headerlink" title="令牌访问"></a>令牌访问</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#获取访问令牌</span></span><br><span class="line">kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath=<span class="string">&quot;&#123;.secrets[0].name&#125;&quot;</span>) -o go-template=<span class="string">&quot;&#123;&#123;.data.token | base64decode&#125;&#125;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">eyJhbGciOiJSUzI1NiIsImtpZCI6IjRoa3k4djFzNUp4eENjN0Y0aXBybHNNaTFQd3hVM09HWGhLU24ycE9DMkkifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuLTl4c3ZnIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiJhODI0YmQxYS1jNjc4LTQzYmUtODhkOC0wYTkxNDhjZjhmYTgiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW4tdXNlciJ9.EaVJeEKLHTr_Oh05GkUTzuwYKdOQfa8slgz-RzRZfE9ow8wmU7JbWNOR5YMT9bhb_sYi5LTjtvcgPqM6szCOGzW1mc0sPurRorkCaxgLW-K61PPGfPmB54HJvBCG-Cp65vAM4AyKCEPVj-cNMgncpyxe9yuik4z69mwt632Idb1Lcdhf5Vut_1LmGQMc1osRqAF4jVcFy-uPRv4CE2RBR1PL_GXEDHsS4KQjttVyUWwf2lqJ0ZefWvjMUCVazXeQI16QHLRTiXBdpg_iOwk8lXsHvV_I4ZdhClZr8FxTa9Cg5-njG9iGvgmZ2mkvZnM2c_dzlh5y98cAKRaRR0HbaA</span><br></pre></td></tr></table></figure>
+
+<p><strong>把得到的令牌粘贴到token里面</strong></p>
+<p><img src="/2024/06/05/Centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85k8s/image-20240530163317280.png" alt="image-20240530163317280"></p>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 随机一个机子拉取nginx</span></span><br><span class="line">kubectl run mynginx --image=nginx</span><br><span class="line"><span class="comment"># 查看default名称空间的Pod</span></span><br><span class="line">kubectl get pod </span><br><span class="line"><span class="comment"># 描述</span></span><br><span class="line">kubectl describe pod 你自己的Pod名字</span><br><span class="line"><span class="comment"># 删除</span></span><br><span class="line">kubectl delete pod 你自己的Pod名字</span><br><span class="line"><span class="comment"># 查看Pod的运行日志</span></span><br><span class="line">kubectl logs Pod名字</span><br><span class="line"><span class="comment"># 每个Pod - k8s都会分配一个ip</span></span><br><span class="line">kubectl get pod -owide</span><br><span class="line"><span class="comment"># 使用Pod的ip+pod里面运行容器的端口</span></span><br><span class="line">curl 192.168.169.136</span><br><span class="line"><span class="comment"># 集群中的任意一个机器以及任意的应用都能通过Pod分配的ip来访问这个Pod</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="test"><a href="#test" class="headerlink" title="test"></a>test</h3><blockquote>
+<p>nginx.yaml</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">mynginx</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">mynginx</span></span><br><span class="line"><span class="comment">#  namespace: default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">nginx</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">mynginx</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>myapp.yaml</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">myapp</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">nginx</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">nginx</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">tomcat:8.5.68</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">tomcat</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux系统</category>
+      </categories>
+      <tags>
+        <tag>Centos</tag>
+        <tag>k8s</tag>
       </tags>
   </entry>
 </search>

@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"julintongxue.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="这里我的raspberry外接了一个网卡eth1，这个eth1直接连接路由器获取互联网络，raspberry自己有一个eth0这个网卡用来接电脑，它(eth0)将运行dhcp服务下发ip给电脑  换源 清华源bookworm  1234567891011cat &gt;&#x2F;etc&#x2F;apt&#x2F;sources.list&lt;&lt;EOF# 清华源deb https:&#x2F;&#x2F;mirrors4.tuna.t">
+  <meta name="description" content="这里我的raspberry外接了一个网卡eth1，这个eth1直接连接路由器获取互联网络，raspberry自己有一个eth0这个网卡用来接电脑，它(eth0)将运行dhcp服务下发ip给电脑，这样我们的电脑就能拥有网络。你会问我为啥要脱裤子放屁，因为这个eth1网卡可以是通过手机usb共享出来的网络(eth1可以当成手机usb共享的网卡，到时不叫这个名字，这里为了好记忆还是这么叫)，我设计这个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="raspberry当dhcp服务器共享以太网">
 <meta property="og:url" content="https://julintongxue.github.io/2024/06/01/raspberry%E5%BD%93dhcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B1%E4%BA%AB%E4%BB%A5%E5%A4%AA%E7%BD%91/index.html">
 <meta property="og:site_name" content="orangeの博客">
-<meta property="og:description" content="这里我的raspberry外接了一个网卡eth1，这个eth1直接连接路由器获取互联网络，raspberry自己有一个eth0这个网卡用来接电脑，它(eth0)将运行dhcp服务下发ip给电脑  换源 清华源bookworm  1234567891011cat &gt;&#x2F;etc&#x2F;apt&#x2F;sources.list&lt;&lt;EOF# 清华源deb https:&#x2F;&#x2F;mirrors4.tuna.t">
+<meta property="og:description" content="这里我的raspberry外接了一个网卡eth1，这个eth1直接连接路由器获取互联网络，raspberry自己有一个eth0这个网卡用来接电脑，它(eth0)将运行dhcp服务下发ip给电脑，这样我们的电脑就能拥有网络。你会问我为啥要脱裤子放屁，因为这个eth1网卡可以是通过手机usb共享出来的网络(eth1可以当成手机usb共享的网卡，到时不叫这个名字，这里为了好记忆还是这么叫)，我设计这个">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-01T14:26:29.000Z">
-<meta property="article:modified_time" content="2024-06-01T16:59:49.568Z">
+<meta property="article:modified_time" content="2024-06-07T07:09:12.998Z">
 <meta property="article:author" content="涩橙子">
 <meta property="article:tag" content="树莓派">
 <meta property="article:tag" content="单片机">
@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">84</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">85</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">46</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">48</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -236,7 +236,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-06-02 00:59:49" itemprop="dateModified" datetime="2024-06-02T00:59:49+08:00">2024-06-02</time>
+                <time title="修改时间：2024-06-07 15:09:12" itemprop="dateModified" datetime="2024-06-07T15:09:12+08:00">2024-06-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,7 +268,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -288,7 +288,7 @@
 
       
         <blockquote>
-<p>这里我的raspberry外接了一个网卡eth1，这个eth1直接连接路由器获取互联网络，raspberry自己有一个eth0这个网卡用来接电脑，它(eth0)将运行dhcp服务下发ip给电脑</p>
+<p>这里我的raspberry外接了一个网卡eth1，这个eth1直接连接路由器获取互联网络，raspberry自己有一个eth0这个网卡用来接电脑，它(eth0)将运行dhcp服务下发ip给电脑，这样我们的电脑就能拥有网络。你会问我为啥要脱裤子放屁，因为这个eth1网卡可以是通过手机usb共享出来的网络(eth1可以当成手机usb共享的网卡，到时不叫这个名字，这里为了好记忆还是这么叫)，我设计这个的目的就是让手机共享网络给树莓派，然后通过树莓派的lan口(eth0)下发局域网给路由器的wan口，路由器会自己再生成一个局域网下发lan口和wifi，设备连wifi和连路由器的lan都在一个局域网内。</p>
 </blockquote>
 <h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><ul>
 <li><strong>清华源bookworm</strong></li>
@@ -306,10 +306,10 @@
 <p><strong>编辑<code>/etc/default/isc-dhcp-server </code>,在里面改<code>INTERFACESv4=“eth0”</code>就行了</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/isc-dhcp-server </span><br></pre></td></tr></table></figure>
 
-<p><strong>修改<code>dhcpd.conf </code>配置</strong></p>
+<p>**修改&#96;dhcpd.conf **</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/dhcp/dhcpd.conf </span><br></pre></td></tr></table></figure>
 
-<p><strong>看我的配置！</strong></p>
+<p><strong>看我的配置！这里设计了树莓派的lan口下发的ip范围，但你懂得，树莓派就一个lan口，还是自带的，所以只有一个ip就是<code>192.168.10.1</code>,下发的ip是给路由器或者电脑一个设备端使用，这里我就把范围调大了，可以按照自己喜欢调小</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">subnet 192.168.10.0 netmask 255.255.255.0 &#123;</span><br><span class="line">    range 192.168.10.100 192.168.10.200;</span><br><span class="line">    option routers 192.168.10.1;</span><br><span class="line">    option subnet-mask 255.255.255.0;</span><br><span class="line">    option domain-name-servers 8.8.8.8, 8.8.4.4;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="设置ipv4流量中转"><a href="#设置ipv4流量中转" class="headerlink" title="设置ipv4流量中转"></a>设置ipv4流量中转</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
@@ -319,15 +319,22 @@
 <p><strong>配置载入</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sysctl -p</span><br></pre></td></tr></table></figure>
 
-<h2 id="防火墙流量放行"><a href="#防火墙流量放行" class="headerlink" title="防火墙流量放行"></a>防火墙流量放行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE    <span class="comment"># 注意！这个网卡是连接以太网的网卡，不是连接你电脑那个网卡！！！</span></span><br></pre></td></tr></table></figure>
+<h2 id="防火墙流量放行"><a href="#防火墙流量放行" class="headerlink" title="防火墙流量放行"></a>防火墙流量放行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE    <span class="comment"># 注意！这个网卡是连接以太网的网卡，不是连接你电脑那个网卡！！！这个网卡是连接外部互联网的网卡，这么理解会不会好点呢！</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>如果没用<code>iptables</code>需要安装</strong></p>
+<p><strong>如果没<code>iptables</code>需要安装</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y iptables iptables-persistent</span><br></pre></td></tr></table></figure>
 
 <p><strong>保存<code>iptables</code>配置</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netfilter-persistent save</span><br></pre></td></tr></table></figure>
 
 <h2 id="dhcp服务！启动！"><a href="#dhcp服务！启动！" class="headerlink" title="dhcp服务！启动！"></a>dhcp服务！启动！</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart isc-dhcp-server</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用过程报错"><a href="#使用过程报错" class="headerlink" title="使用过程报错"></a>使用过程报错</h2><ul>
+<li><p><strong>如果使用过程中是手机usb共享网络的记得要重新获取一下设备ip，我的是<code>华为nova7</code>就是要这样弄的，不然没有网络</strong></p>
+</li>
+<li><p><strong>如果用的是以太网自动下发的ip地址，就不会出现上述问题</strong></p>
+</li>
+</ul>
 
     </div>
 
@@ -351,7 +358,10 @@
     <a href="/2024/03/12/Python%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE/" rel="prev" title="Python环境设置">
       <i class="fa fa-chevron-left"></i> Python环境设置
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2024/06/05/Centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85k8s/" rel="next" title="Centos7服务器安装k8s">
+      Centos7服务器安装k8s <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -414,7 +424,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">换源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eth0%E5%A4%84%E4%BA%8Eup%E7%8A%B6%E6%80%81"><span class="nav-number">2.</span> <span class="nav-text">eth0处于up状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dhcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85%E5%92%8C%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">dhcp服务器安装和设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEipv4%E6%B5%81%E9%87%8F%E4%B8%AD%E8%BD%AC"><span class="nav-number">4.</span> <span class="nav-text">设置ipv4流量中转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E6%B5%81%E9%87%8F%E6%94%BE%E8%A1%8C"><span class="nav-number">5.</span> <span class="nav-text">防火墙流量放行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dhcp%E6%9C%8D%E5%8A%A1%EF%BC%81%E5%90%AF%E5%8A%A8%EF%BC%81"><span class="nav-number">6.</span> <span class="nav-text">dhcp服务！启动！</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">换源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eth0%E5%A4%84%E4%BA%8Eup%E7%8A%B6%E6%80%81"><span class="nav-number">2.</span> <span class="nav-text">eth0处于up状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dhcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85%E5%92%8C%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">dhcp服务器安装和设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEipv4%E6%B5%81%E9%87%8F%E4%B8%AD%E8%BD%AC"><span class="nav-number">4.</span> <span class="nav-text">设置ipv4流量中转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E6%B5%81%E9%87%8F%E6%94%BE%E8%A1%8C"><span class="nav-number">5.</span> <span class="nav-text">防火墙流量放行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dhcp%E6%9C%8D%E5%8A%A1%EF%BC%81%E5%90%AF%E5%8A%A8%EF%BC%81"><span class="nav-number">6.</span> <span class="nav-text">dhcp服务！启动！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E6%8A%A5%E9%94%99"><span class="nav-number">7.</span> <span class="nav-text">使用过程报错</span></a></li></ol></div>
       </div>
 
       <!--/noindex-->
@@ -431,7 +441,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">85</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -444,7 +454,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
