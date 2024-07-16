@@ -30,7 +30,7 @@
 <meta property="og:description" content="这里我的raspberry外接了一个网卡eth1，这个eth1直接连接路由器获取互联网络，raspberry自己有一个eth0这个网卡用来接电脑，它(eth0)将运行dhcp服务下发ip给电脑，这样我们的电脑就能拥有网络。你会问我为啥要脱裤子放屁，因为这个eth1网卡可以是通过手机usb共享出来的网络(eth1可以当成手机usb共享的网卡，到时不叫这个名字，这里为了好记忆还是这么叫)，我设计这个">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-01T14:26:29.000Z">
-<meta property="article:modified_time" content="2024-06-07T07:09:12.998Z">
+<meta property="article:modified_time" content="2024-06-07T19:09:50.332Z">
 <meta property="article:author" content="涩橙子">
 <meta property="article:tag" content="树莓派">
 <meta property="article:tag" content="单片机">
@@ -236,7 +236,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-06-07 15:09:12" itemprop="dateModified" datetime="2024-06-07T15:09:12+08:00">2024-06-07</time>
+                <time title="修改时间：2024-06-08 03:09:50" itemprop="dateModified" datetime="2024-06-08T03:09:50+08:00">2024-06-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,7 +268,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -306,7 +306,7 @@
 <p><strong>编辑<code>/etc/default/isc-dhcp-server </code>,在里面改<code>INTERFACESv4=“eth0”</code>就行了</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/isc-dhcp-server </span><br></pre></td></tr></table></figure>
 
-<p>**修改&#96;dhcpd.conf **</p>
+<p><strong>修改<code>dhcpd.conf </code></strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/dhcp/dhcpd.conf </span><br></pre></td></tr></table></figure>
 
 <p><strong>看我的配置！这里设计了树莓派的lan口下发的ip范围，但你懂得，树莓派就一个lan口，还是自带的，所以只有一个ip就是<code>192.168.10.1</code>,下发的ip是给路由器或者电脑一个设备端使用，这里我就把范围调大了，可以按照自己喜欢调小</strong></p>

@@ -4745,6 +4745,8 @@
 <p><strong>保持原本编码格式:copy</strong></p>
 <h3 id="提取的音频和提取的视频合并"><a href="#提取的音频和提取的视频合并" class="headerlink" title="提取的音频和提取的视频合并"></a><strong>提取的音频和提取的视频合并</strong></h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ffmpeg -i output.m4a -i output.mp4 -c <span class="built_in">copy</span> out.mp4</span><br></pre></td></tr></table></figure>
 
+<h3 id="mp4提取mp3"><a href="#mp4提取mp3" class="headerlink" title="mp4提取mp3"></a>mp4提取mp3</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i <span class="string">&quot;input.mp4&quot;</span> -q:a 0 -map a <span class="string">&quot;input.mp3&quot;</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="音频截取"><a href="#音频截取" class="headerlink" title="音频截取"></a><strong>音频截取</strong></h3><p><strong>截取1分到1分10秒这段音频</strong></p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ffmpeg -i &quot;input.mp3&quot; -ss <span class="number">00</span>:<span class="number">01</span>:<span class="number">00</span> -t <span class="number">10</span> -acodec <span class="built_in">copy</span> output.mp3</span><br></pre></td></tr></table></figure>
 
@@ -6085,7 +6087,7 @@
 <p><strong>编辑<code>/etc/default/isc-dhcp-server </code>,在里面改<code>INTERFACESv4=“eth0”</code>就行了</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/default/isc-dhcp-server </span><br></pre></td></tr></table></figure>
 
-<p>**修改&#96;dhcpd.conf **</p>
+<p><strong>修改<code>dhcpd.conf </code></strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/dhcp/dhcpd.conf </span><br></pre></td></tr></table></figure>
 
 <p><strong>看我的配置！这里设计了树莓派的lan口下发的ip范围，但你懂得，树莓派就一个lan口，还是自带的，所以只有一个ip就是<code>192.168.10.1</code>,下发的ip是给路由器或者电脑一个设备端使用，这里我就把范围调大了，可以按照自己喜欢调小</strong></p>
