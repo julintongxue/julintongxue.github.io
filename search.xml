@@ -2030,6 +2030,45 @@
       </tags>
   </entry>
   <entry>
+    <title>VSCODE编程</title>
+    <url>/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="VSCODE编程"><a href="#VSCODE编程" class="headerlink" title="VSCODE编程"></a>VSCODE编程</h1><h2 id="GO环境搭建"><a href="#GO环境搭建" class="headerlink" title="GO环境搭建"></a>GO环境搭建</h2><h3 id="安装GO"><a href="#安装GO" class="headerlink" title="安装GO"></a>安装GO</h3><p><a href="https://golang.google.cn/dl/">golang安装包下载</a></p>
+<p><strong>无脑安装完成之后，需要配置GO的环境。</strong></p>
+<p><strong>先去下面的网站找到GO的代理模块，然后更改计算机的环境变量。</strong></p>
+<p><a href="https://goproxy.io/zh/">GOPROXY.IO - 一个全球代理 为 Go 模块而生</a></p>
+<p><strong>此电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量-&gt;系统变量-&gt;新建</strong></p>
+<p><strong>然后按照代理官网改成这样即可</strong></p>
+<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128181434274.png" alt="image-20221128181434274"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置 GOPROXY 环境变量</span></span><br><span class="line"><span class="variable">$env</span>:GOPROXY = <span class="string">&quot;https://proxy.golang.com.cn,direct&quot;</span></span><br><span class="line"><span class="comment"># 还可以设置不走 proxy 的私有仓库或组，多个用逗号相隔（可选）</span></span><br><span class="line"><span class="variable">$env</span>:GOPRIVATE = <span class="string">&quot;git.mycompany.com,github.com/my/private&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>很简单的</strong></p>
+<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/Snipaste_2022-12-08_19-47-15.png" alt="Snipaste_2022-12-08_19-47-15"></p>
+<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/Snipaste_2022-12-08_19-47-54.png" alt="Snipaste_2022-12-08_19-47-54"></p>
+<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/Snipaste_2022-12-08_19-48-32.png" alt="Snipaste_2022-12-08_19-48-32"></p>
+<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128181347802.png" alt="image-20221128181347802"></p>
+<p><strong>然后打开vscode</strong></p>
+<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128182822511.png" alt="image-20221128182822511"></p>
+<p><strong>然后打开一个文件夹，这里我打开一个叫GO的文件夹</strong></p>
+<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128182935927.png" alt="image-20221128182935927"></p>
+<p>在左侧鼠标右击选择在集成终端中打开</p>
+<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183011568.png" alt="image-20221128183011568"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">go mod init github.com/your_github_name/GO</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183233831.png" alt="image-20221128183233831"></p>
+<p><strong>然后创建一个文件，写你的helloword去</strong></p>
+<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183333155.png" alt="image-20221128183333155"></p>
+<p><strong>注意！写完文件的后缀之后，它会识别你的是go语言，然后右下角又弹出的安装go的插件，记得全部都安装。</strong></p>
+<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183520112.png" alt="image-20221128183520112"></p>
+<p><strong>这个运行和调试就是运行代码。。。你懂的！！！</strong></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>环境工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Raspberry玩法和心得</title>
     <url>/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/</url>
     <content><![CDATA[<p>[toc]</p>
@@ -2811,45 +2850,6 @@
       </tags>
   </entry>
   <entry>
-    <title>VSCODE编程</title>
-    <url>/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="VSCODE编程"><a href="#VSCODE编程" class="headerlink" title="VSCODE编程"></a>VSCODE编程</h1><h2 id="GO环境搭建"><a href="#GO环境搭建" class="headerlink" title="GO环境搭建"></a>GO环境搭建</h2><h3 id="安装GO"><a href="#安装GO" class="headerlink" title="安装GO"></a>安装GO</h3><p><a href="https://golang.google.cn/dl/">golang安装包下载</a></p>
-<p><strong>无脑安装完成之后，需要配置GO的环境。</strong></p>
-<p><strong>先去下面的网站找到GO的代理模块，然后更改计算机的环境变量。</strong></p>
-<p><a href="https://goproxy.io/zh/">GOPROXY.IO - 一个全球代理 为 Go 模块而生</a></p>
-<p><strong>此电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量-&gt;系统变量-&gt;新建</strong></p>
-<p><strong>然后按照代理官网改成这样即可</strong></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128181434274.png" alt="image-20221128181434274"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置 GOPROXY 环境变量</span></span><br><span class="line"><span class="variable">$env</span>:GOPROXY = <span class="string">&quot;https://proxy.golang.com.cn,direct&quot;</span></span><br><span class="line"><span class="comment"># 还可以设置不走 proxy 的私有仓库或组，多个用逗号相隔（可选）</span></span><br><span class="line"><span class="variable">$env</span>:GOPRIVATE = <span class="string">&quot;git.mycompany.com,github.com/my/private&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>很简单的</strong></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/Snipaste_2022-12-08_19-47-15.png" alt="Snipaste_2022-12-08_19-47-15"></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/Snipaste_2022-12-08_19-47-54.png" alt="Snipaste_2022-12-08_19-47-54"></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/Snipaste_2022-12-08_19-48-32.png" alt="Snipaste_2022-12-08_19-48-32"></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128181347802.png" alt="image-20221128181347802"></p>
-<p><strong>然后打开vscode</strong></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128182822511.png" alt="image-20221128182822511"></p>
-<p><strong>然后打开一个文件夹，这里我打开一个叫GO的文件夹</strong></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128182935927.png" alt="image-20221128182935927"></p>
-<p>在左侧鼠标右击选择在集成终端中打开</p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183011568.png" alt="image-20221128183011568"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">go mod init github.com/your_github_name/GO</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183233831.png" alt="image-20221128183233831"></p>
-<p><strong>然后创建一个文件，写你的helloword去</strong></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183333155.png" alt="image-20221128183333155"></p>
-<p><strong>注意！写完文件的后缀之后，它会识别你的是go语言，然后右下角又弹出的安装go的插件，记得全部都安装。</strong></p>
-<p><img src="/2022/11/28/VSCODE%E7%BC%96%E7%A8%8B/image-20221128183520112.png" alt="image-20221128183520112"></p>
-<p><strong>这个运行和调试就是运行代码。。。你懂的！！！</strong></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>环境工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ZStack(搁浅)</title>
     <url>/2023/05/16/ZStack/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请重新试一下。" data-whm="抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。">
@@ -3500,6 +3500,47 @@
       </tags>
   </entry>
   <entry>
+    <title>raspberry(搁浅)</title>
+    <url>/2022/07/17/raspberry/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h1 id="raspberry-搁浅"><a href="#raspberry-搁浅" class="headerlink" title="raspberry(搁浅)"></a>raspberry(搁浅)</h1><h2 id="基础入门"><a href="#基础入门" class="headerlink" title="基础入门"></a>基础入门</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><h3 id="2-远程连接"><a href="#2-远程连接" class="headerlink" title="2.远程连接"></a>2.远程连接</h3><h4 id="window端远程连接"><a href="#window端远程连接" class="headerlink" title="window端远程连接"></a>window端远程连接</h4><p>要使用window的远程连接<code>mstsc</code>的话需要树莓派安装了<code>xrdp</code>这个软件；当然如果你觉得自带的不香的话也可以用树莓派自带的<code>vnc</code>，这得需要你去官网下一个<code>vncviewer</code>  这个客户端</p>
+<p><strong>raspberry设置</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
+
+<h4 id="linux端远程连接"><a href="#linux端远程连接" class="headerlink" title="linux端远程连接"></a>linux端远程连接</h4><p>将树莓派打开<code>vnc</code>功能，然后就可以通过vnc远程连接了</p>
+<p><strong>raspberry设置</strong></p>
+<p>因为我使用的系统是manjaro那么我就推荐arch的软件咯</p>
+<p><strong>manjaro设置</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay -S realvnc-vnc-viewer</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="虚拟篇"><a href="#虚拟篇" class="headerlink" title="虚拟篇"></a>虚拟篇</h2><h3 id="exsi虚拟化"><a href="#exsi虚拟化" class="headerlink" title="exsi虚拟化"></a>exsi虚拟化</h3><h4 id="一-树莓派更新"><a href="#一-树莓派更新" class="headerlink" title="一.树莓派更新"></a>一.树莓派更新</h4><h4 id="二-前期步骤"><a href="#二-前期步骤" class="headerlink" title="二.前期步骤"></a>二.前期步骤</h4><ul>
+<li><p><a href="https://flings.vmware.com/esxi-arm-edition">exsi官方下载地址</a></p>
+</li>
+<li><p><a href="https://bit.ly/2HpIaG6">最新的 Raspberry Pi 固件</a></p>
+</li>
+<li><p><a href="https://bit.ly/3jota8D">UEFI 树莓派固件</a></p>
+</li>
+</ul>
+<p>下载到以上的文件之后，先解压<code>firmware-master.zip</code>这个文件，弹出文件是否替换，单击<code>全部选否</code>，解压完成之后进入<code>boot</code>文件目录，拷贝里面的全部内容到你格式化好的tf卡中，并且删除掉这几个<code>kernel*</code>的文件。</p>
+<p><img src="/2022/07/17/raspberry/image-20220719185945121-1658231139940.png" alt="image-20220719185945121"></p>
+<p><img src="/2022/07/17/raspberry/image-20220719191049021-1658231139941.png" alt="image-20220719191049021"></p>
+<p><img src="/2022/07/17/raspberry/image-20220719191232782-1658231139941.png" alt="image-20220719191232782"></p>
+<p>接下来解压<code>RPi4_UEFI_Firmware_v1.20</code>压缩包，把里面的所有的内容拷贝到tf卡里面，弹出是否要替换文件的时候选择<code>替换目标中的文件</code></p>
+<p><img src="/2022/07/17/raspberry/image-20220719192054052-1658231139941.png" alt="image-20220719192054052"></p>
+<p>在<code>config.txt</code>文件中添加<code>gpu_mem=16</code></p>
+<p><img src="/2022/07/17/raspberry/image-20220719192730271-1658231139941.png" alt="image-20220719192730271"></p>
+<h4 id="三-exsi-install"><a href="#三-exsi-install" class="headerlink" title="三.exsi install"></a>三.exsi install</h4>]]></content>
+      <categories>
+        <category>娱乐单片机</category>
+      </categories>
+      <tags>
+        <tag>树莓派</tag>
+        <tag>单片机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>raspberry-400</title>
     <url>/2023/03/16/raspberry-400/</url>
     <content><![CDATA[<p>[toc]</p>
@@ -3622,47 +3663,6 @@
 <p><strong>开头的显示没有问题，但是第二行出现了乱码。</strong></p>
 <p><img src="/2023/03/16/raspberry-400/IMG_20230418_142443.jpg" alt="IMG_20230418_142443"></p>
 ]]></content>
-      <categories>
-        <category>娱乐单片机</category>
-      </categories>
-      <tags>
-        <tag>树莓派</tag>
-        <tag>单片机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>raspberry(搁浅)</title>
-    <url>/2022/07/17/raspberry/</url>
-    <content><![CDATA[<p>[toc]</p>
-<h1 id="raspberry-搁浅"><a href="#raspberry-搁浅" class="headerlink" title="raspberry(搁浅)"></a>raspberry(搁浅)</h1><h2 id="基础入门"><a href="#基础入门" class="headerlink" title="基础入门"></a>基础入门</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><h3 id="2-远程连接"><a href="#2-远程连接" class="headerlink" title="2.远程连接"></a>2.远程连接</h3><h4 id="window端远程连接"><a href="#window端远程连接" class="headerlink" title="window端远程连接"></a>window端远程连接</h4><p>要使用window的远程连接<code>mstsc</code>的话需要树莓派安装了<code>xrdp</code>这个软件；当然如果你觉得自带的不香的话也可以用树莓派自带的<code>vnc</code>，这得需要你去官网下一个<code>vncviewer</code>  这个客户端</p>
-<p><strong>raspberry设置</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
-
-<h4 id="linux端远程连接"><a href="#linux端远程连接" class="headerlink" title="linux端远程连接"></a>linux端远程连接</h4><p>将树莓派打开<code>vnc</code>功能，然后就可以通过vnc远程连接了</p>
-<p><strong>raspberry设置</strong></p>
-<p>因为我使用的系统是manjaro那么我就推荐arch的软件咯</p>
-<p><strong>manjaro设置</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay -S realvnc-vnc-viewer</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="虚拟篇"><a href="#虚拟篇" class="headerlink" title="虚拟篇"></a>虚拟篇</h2><h3 id="exsi虚拟化"><a href="#exsi虚拟化" class="headerlink" title="exsi虚拟化"></a>exsi虚拟化</h3><h4 id="一-树莓派更新"><a href="#一-树莓派更新" class="headerlink" title="一.树莓派更新"></a>一.树莓派更新</h4><h4 id="二-前期步骤"><a href="#二-前期步骤" class="headerlink" title="二.前期步骤"></a>二.前期步骤</h4><ul>
-<li><p><a href="https://flings.vmware.com/esxi-arm-edition">exsi官方下载地址</a></p>
-</li>
-<li><p><a href="https://bit.ly/2HpIaG6">最新的 Raspberry Pi 固件</a></p>
-</li>
-<li><p><a href="https://bit.ly/3jota8D">UEFI 树莓派固件</a></p>
-</li>
-</ul>
-<p>下载到以上的文件之后，先解压<code>firmware-master.zip</code>这个文件，弹出文件是否替换，单击<code>全部选否</code>，解压完成之后进入<code>boot</code>文件目录，拷贝里面的全部内容到你格式化好的tf卡中，并且删除掉这几个<code>kernel*</code>的文件。</p>
-<p><img src="/2022/07/17/raspberry/image-20220719185945121-1658231139940.png" alt="image-20220719185945121"></p>
-<p><img src="/2022/07/17/raspberry/image-20220719191049021-1658231139941.png" alt="image-20220719191049021"></p>
-<p><img src="/2022/07/17/raspberry/image-20220719191232782-1658231139941.png" alt="image-20220719191232782"></p>
-<p>接下来解压<code>RPi4_UEFI_Firmware_v1.20</code>压缩包，把里面的所有的内容拷贝到tf卡里面，弹出是否要替换文件的时候选择<code>替换目标中的文件</code></p>
-<p><img src="/2022/07/17/raspberry/image-20220719192054052-1658231139941.png" alt="image-20220719192054052"></p>
-<p>在<code>config.txt</code>文件中添加<code>gpu_mem=16</code></p>
-<p><img src="/2022/07/17/raspberry/image-20220719192730271-1658231139941.png" alt="image-20220719192730271"></p>
-<h4 id="三-exsi-install"><a href="#三-exsi-install" class="headerlink" title="三.exsi install"></a>三.exsi install</h4>]]></content>
       <categories>
         <category>娱乐单片机</category>
       </categories>
@@ -6109,6 +6109,28 @@
       </categories>
       <tags>
         <tag>GO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ZCGL SYSTEM</title>
+    <url>/2024/07/31/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d497d1010e59e8f57282e1000cc6d0be25d9af7a4a4d81cb3afcb05bfa0ca217">63612e356b8da2492e34c83596341841fbe9d524ed17a248958e317ec34ed40735093a35b5b38f6db578eb2cac772be35c89518e23a0da834d5fc9897d202ab6d19bfccc203120820fe1b178f1ac031055ab4d96b2ceb68d3040fdcc921d430198fd90a4479346fe31fa67408b16acdb7a6ed768babbc02795c65e74a31b7538fe9b75fc8c02726fb7001d8257c5fc81716ce6f27d55ac7154e8291d6b61d51190a3d07227fbeb67c28e2d942b8e5eac66cfec2820a124029d987f90c2964f64810480640d1674224b9c10b8afb5c31d8d4a55b2dccd870ab8560c4c5e19f7c0ca82be977bf482800507e7302c42eea86b0839ac069f2b5b4f24210b3bdaad9953e150a4bdc435d848fddd3af7a9e053d63346ffba50623d52fafb99156181e03bb8da552a44c794b78812ce93f5003655350712c2efd04e65882ab4900d60446f374a7d2c99bbbc37c961680e809deb3ef20b6634aabe6531852a9800e6f28b3b9da519ae95a3bb303c2d06f85cbe68d78289a3eb0c67e399835d44aa0a2238b70850f623392d6ff05243b709fc25168ef9efe47c2573944a15e6297e3b1fd3985e25a84325f06dd53f38380f8faa51be329f861bd91009e7f5223ff1f2cecb22c405e98ccd299e2c3945c0260041f040dc1d6ebf1999a117ea1b6d630205bff8d7bafd6b8d23801559c6a347ce00dc1a91eaab9213e9b977e94a00da7dabad58a68c6dd2aa5635edf4e5c8f977f84110451713097511c0513b2ae7068d8218fc13867f7edef0ebfe912b3bceece8e8d07d88fd59d8b7a82b171297f8a2954ceff5a6766d9eef5a8c15d53433d993091e3be8e4f5551e7d24d12c4668efb1e43fddfea362242032a14aaf6b1b92371ffdd15dda517b160a9301e48d240801ce69753e6f6ff53c3e4cff2efcd627a8ddc400bff512316f5b1d062e9cfc02faa6ea1b197f26d312197d393bbd82357cd59b4a2b998bd49be6cffb3c84199e78d4e7b8c7573cb8620f5b4efcf650d89757fa0daaa12dab529985f2cbc6b07ffc1944ef2826f5283d97a4e3f27c75738fdccc35b9de7195c37adb3d3e7012bf54e3eb39555f4e4764cd60311b59f836bc1df5fa2a8e1dfb85c35a52e8e34475725dd70bfde3d5308f6ef91d72b21b32174a47a026de23d0b67775a246b0cc73fcd61ff1dec62d07ccbd00512534b7f0b7424b002a050504c8bc9a87277ebe912533f29942a987bf6d8ea4b9ce71569cde739ecfec01e0e2efba826abed0abc796a0f1c5153921a53c9b472f7d7ed129b8d406c261d2bedc2d6b005a3f25b5614b61bd58f3e114d1bf75438adff312d18e60b5a0eb561c9304f580340870710ec06a46e2ddbe446b59c70aa2e3bfb3eb7817daffa5dbd3805b10f0914a383046a95f270ca3de41ed2f08201724d77800c5b1d7097dcb9ac3c820ce7502895a50a9ba5ca534879ad5b91deb74efb8b05d7cb89994affa201fa3747e6f44de7f8627e529e6b62fc11fb843c64595d4988bc31604f5ad2a684765b3a86cb8cb32c442cfe4855b47796ad64c887f74a77cdaefcd23f46474a3d039c1378345ca821a731d2f4235accf7a3b2c3bd97ba1c16425465700f9596a7b962c464604afafbbe1908531dfb64aaea83319441b5496a4ed2a9c84aa5707f1fc70abac486f1b7b46ef37c36dd1ae5bdbb4d3505c593e9eabb00bba25bc6e924239db7c1bcb9e8a85c243307cb7b06686bacbb92489c64980ac38dc2c0461f59a2fc8d36b8ffd7886e0e87362d9d9e03daaa058236bf9e16f4b18ce89851fff489935796a60858f158bef08a1e3fb7179cd4c2f671a78766900e0c29727d8b409422d555021e1b44a91dd2e37010c7dc365359bb23419fd16783484cf1b61c916532776cd8a4ebab1608ab0de8bc9b9ecefb768ac281aa1e0183a48e80f668437688a791a9ccf476591521c41c2db13ddea68e981bc4d7f969d2644dc72d45d63cc553519d58f9c322d49d0a6cbc3f0b27a51a1ee2d26fe7860a88f4bb8641254121774cc42459698cf776490c5a873cb519e48050992a106a60294fd023b1c8efc3628617204c8a0e83038d91f342fe1f5ee005b43b8d9923af2e00ffa3338bbc615183e6e43de8843f8211bd7e4b191b16a8b6b2545481d5a11f96604d78924133d9acba2443777b12f02ea5d9a04fca943fb9289035160b83c143efec9743ac5cdb0cc5a2f019865fe1ef320476a222b26d1636ce94333bf0aa39c76be316af7409a4a537dd545b9e60afcc9f0dcfbb2c5a844ad5801e778bad52fff0a0fa9571a72238749ee46dcba86eedf60fa87cdcd00d337a82cd14148858eb9968c0efd6bb70094081a4f3ef2d247ef9b6957d42e0b8c924e5f2cf41d1bd64e09c6c4cd9011cd3f4870dbec63b3e82b4f6a970ca880d260d1ff0f6001499b4f3239ffba87e8b7848cf44ef305950b19e902099c40a1791b907fb72e24a842950953a6274d68a867d4f3262e9287b6e39d5b2bbfec9af1a448297b13caac88563500ad3cc8db80609bf86cad05fe97e712e10ddbdafc5c867a2f8e86e32905dd13b8f31247ccf895cc2bcaa281c26d1adb1e8d2f6fe1065aa775bd4eded00741b27fb9256fd39a591153fc7a6ba55498418ee8f029034bd0a37da0747db0487f6188464a396670e081902a701e536bd47055aedcd08f51787ce2cbce08d6bf4acf3fed89d064ddeab538544ae9d6ebbb5876f364411086a5c6ffa25975a93afe7c547d0bf2bcf6fe6b55a19814ef220f66c21b8ff049caacfd4226b0d1146143d314466bf7e316c6521be6d7326bc9d5b7137a33b7ccea8dd373c5cfa3b674b174df883c96aad85dcace6d0951ff810f28b76664c7d3998652c4c802f264d9b4fcd4ca5b22e200497e0f95cfa7bb1bac4324975a6c0e3dc925297a4cdb055e716a6b6fa916eee2cffcf7efaaeef64e51c85a1606c204676283c449e5638886de583e663896e1c271c5128f971621e4d8b28ce0663e0e6e93a83dff30d15c967bb084d5425f53c2968afdeccbe77cc9969ff9727b11efdf0d999c3749c20b5421fccf538add554b3674e97598a16dc903ca612b021dfe8cfa2cd4b2880ad558fed32411363b1737a269e57e1ea4a3608e96c845e642c04a175a1b1be44431f7647f4665bcecf92d7114f6699baea487710fa1a3502c59e41630113038ae64015a7a7c0b8937119bb49ed1610689c1f11fc1b8554e168d12db434c45a87eab7f4fdb6eba268198bcf15e412ab8ed97bf63605421768a96b8757eb2466ebf8218894f3ee73a58c775f56d72db191322a4fe0afdaee1e72bd9b92f0433691a78bfe98e1c42cfffae5608db94ed86f6f9e0ef4f087e2147efd07a58e71a78044440c5684f553f85d7a31ed65d907e74b04b7bf8b20128731565f38768a7ea3451744c9637e625f1da861e38705e299fb0ecbc0ffbb11636667c8bde1a0efd47f8380e0f1845c809d4455e2ac940e972287e8fe26299af351b1c30e681d6c902e9a39b5182b7d190547b7b3e284c92ce34638999e79204de3cea0c4fabb94e77118920dcd58b5d899a89f802f7069066de0241852d389a08423123f7469eba077d0a4b3aa7c5ca85b0c6b2d20ee76e0c507c9f64dc041afa311b368dd72e9dbac504b0b9ebdf27adc7765224c715061b843dc0f44c5a99a8fa5fedf39a2ba5d89eee89bc7ffa1c574a6882df22b11b0df3a91fcbe0a33c55024829844e973a4932ba61246b81e4e20b69b04ee4bc4f33dd56d037f1f722adf64026d1489ce4fe7d6a9e3c606c42f1d1aaef3fe897ca2baeaa382b7d5e812befa24eacde4091bfb40476642e66554b25515d2b88351aedc7d5c2553000f96c218c24fe0e494c60a4dd380f93f353040fa28fc5f3c40c2d5a41308e37199877342f7a796020e8625b7812023b6406bbb3afacc30d172b7ff46c88d33ed363eedffeb5d1c1a99be51f835520826fe5a3157475a8d6d62e19eae607789f3a92dc7c9e8bbd169d3f96507d21a571cac7c03373d63c4242f196255bc439b728c96bce5916e034187a41fc128c3775511d14937c293b058975038122f007344131dc34a1f0b2b10f466efae396ea0a1eb22bd3b9535eb969451362f09d32f587c673622582b442f220ff2cace7d3334198d1b717eeac1ead32a549e6d14057287e1bead8761d622cf637027dba94826663e28ad46f374dea3415f11896a9084f210f39b67c15589054ef034577d51ef803d5a792b04e7e730da180d4be1230bafb94843f3bdd3a5a85693825ab3caf8dfdda7816db17554fb40febef9657137bd66d717596c3d30cc2ed2dedc8e060fd7aa56f31384fef766f8ad70a5c2201a2e190b86d68a8c88b3f80448a57cc3f0098f6f331ab4fe41117876ceb52a3c0bad7f6f9243da3faded7e92007e8d801db96d19a121dcad011e824a576b0c60bee2493aaafc4b5cf2ce0ffe9672aa4e1662a567406dd6f97b90cff764bc456768714140219b0b3b119b207b93d2917a3e3fd5f327e95e5bb4c6d96708cd83c685e5e87e3bdd194a3265acb2786b112ec65b0fcc2b82e922dd27b100f18f2e2922eb29b0d97fc7fc1250fec2d8f6d127cf1bfc58f100e343b23ed32131f9c26b0c80327eb49f1b3b4c48ee6637a7f4e4456ab43ca8a8f834435f1cf8d5136b3d5ec12a39f492507e9842adfe7f582eafea5bd4611679f73df95420770ed2cd63a838ba92ddba1fd8d568dd5c7d6e07a8c31009d2ba8cc1954ef4058189516dc00b1c623a6c54e8e60d6974bdc98c3f9469e8b70dd07c2a0cbf87135847efddfd32c1439905089c5a24e7c09edbe7672ad9b422d74dac433a62d4df1e03fbfc42c30e96b666b417ae4de8c3e2b7b088024afb94cf03ae14f2de9ebc3b00e71ed497e95d38b7f418545b60eb632b4f67c92f421aa5f210e7053ce24bc089e2d6cf7de34362c6949bf8f1d9ac94d8041c86eb3ba2638b03b716eab7ad38b5f813b8de003d4d6839781e564d0a56d9e7812eb068dc2cd0f3ca48a23ffcadaadeec866c802abdfc9eece87dd444d4071b3f23d31d328c64a430bde327cc597d4c93cb7c0ada3fe1bf3fea9699878892c04475544fe2eccfb8805b732365de86d97f2c4fc710beb992a7daaae89c70acecaf9db86b1c641e6cdf3af7e28c2abce833be9ee70c53adc8551f106651b9ae46e3867606416bef5eea801491d548beb2e769be14f88bc7a92820da81f62d7a075d3d04dbcf1b2cc6d1b75dcbceb2779c9112c6807bccc97e0ba901564436d2d0c465e515e93756346a722fe6887b82d671cb15206377cfe2a093fc79ed96ac5516de88e15908161c5a8191778aabcd44347b7351afabeda89ec9b7fc0c51377b2417a99748ef9c2de60c2a565d4fcc09ee925c50d5fc29545df09ed5f91e313b866475ffeb41edaaf57c0738456da9abf0b007d9da778f3701125f436c7c70cd8569bcf6f3e4cb3fb6a4473328858f2e81c3087cbdd32d12917d23efd97547302e96a8076f12053d18e9802ce5443079e8d353c0d4cb3178cb54b1cf542beea638a367a288271463bb7b40fdc3f9fa6ba103f5726c63f6045408770e2b4c59c4a5f0e5e3e574f6c15fe516d0e859ba4f342d218b77d61731d511f355f3778693f3dc1f8ce131281b51d25f359a61dc217bd3dae7e15e0be7c0d83a903a80b1c384df9c1e8054070aba5834adf6ec4a77668ac48fa0f079c2fc591ff35f1dabf722b34794438694a0abbcb392e31441ff9668d0e3ff96ca46cf3564a6b4e1eee7a775b55a8505dd0da9ee51dea6c51a25e059280230fca42126db38e16e60780862c1658b9423671c6eeaf185038887bf6992d3e2571a04fec68ceb93c0c91cfb6f6957e6408505178cbc45c7e232b5ac852ccc5cb10cc81b02ad38184c6496e89ad0c17fa19485d5e10114d476bda168e0b64af30b713a85e5628bf0620c0ccb3aa7b3ce09e6b40c5bb76129235452ca8a1c58849684438a02b366efe591187c5c0933cbadf65d94b83ba565a0b7826f1f6f7f0d1e4635d885cca14952e1dd5407a5ffbb65c3211a341b896dd30a4f59480a703eccd60b8df244397a7b8be426ec24555b6cc52283a3088790b78eb719b964243bb77ccbd74731c25285175636c9f15d702dc92033f5bb72e35f6618cd3b81d5f9a0b76e6cd5d5bfdd0638dc6dbdbf27e1e75eee7c1737d470115f149aab856deb0fec84d12d1adde209539d797ba7153ab7a176b11387c319f9ed3d48138474c0f6c72e3cc910da24dcca9e5114f8ec4932642672e978e53bf8a58f8125033b2eae4fc8f4dc4916a5f73e4c3f57d14a2a2bf6132b50d1b77c2717dd3dd990beef5140b44e3ad7093a531b0e57223fc9539879ebea59aef2cc5a76276f355cabbc57f9f21be0c2276123ecc1bc75a58d957826518c0a3614347ac8ed9cc0653e0ed477b83bccc262283a92402050f4308ccb436b06480f7c6038212dbe8da15522ae53ab8c6f0eea5254cff9024fba174918a1c2e593bffe5ce052d7bc9d3534f16d3024292649c4b1c257e6fbc9e37551970357c4f140a42bfcc7aa52977a27e068048a510ef8a1561150f1904b09a9095675f76b4d0b9f0691b6850fbf90bf98ec9957d99d1f4f9b234b305c389e195f15c6a56a951de2b56eb65125e5e7f3b9d7c14d2e022dec366b9a5349a7fd3f86f85f35e5f874f0c06b36e287d104271d6c07cdf39867ae48d8233b5bf57d8b6a0183a9f1e6010c3674164bfd0d925476f3011c3f1f84953ed503c179a0328bac7319c904c7aaed6b3baaf93d2ca0522884f46887eb983f15093edc78e5f00206743d58750d0c3fa5ef1483f279c6fb40f21f8a0496ea35902460c70f2fd8b014bb9cb0a2a0bfc2413d4da487a4486180c60bd9db627e4fb1caaa561500c2a19f29de80226e2c09f58bfc2a1ea044c6b60034894011f6e4b64a9d8e13b20ec87917e63ee837217f6614ea5b28072b5766a90d43bbc0ed164a4d26b57248420ffeb874cde0c20727602d39cf64e389338a48a7668c749b5a2fcfa0af340e42dd359f14d0fcec38d9ed05b7871c645d2de94989fca94998d0efc26c68867c8e8069e83e39fbd2a64bea56486a3a75bc101bb8b40b078a041811b0ae2d6d552896c06a426857973b3d4e29b33a94ab3532acbb8b073dac87e6d43c0f4f5b0fa3bd5823a0b0c965f8df5dd02e99424dff695c263c49ced26e445cab558a84c76a49161d51222ec941ecd51c7166d4b04b77e135bea076510d338e2bb49d1e9542040ddddde7a6750a49f71df16b83dd8421e03a1c6f47113bcd83d208f3a144518f0a2d884d09670465a193f3cd17f0fc44b9a43b07b09ab791a861f77d4256917b4d80e5807d0e2348c94feff465b68c8cdcf5971849ce6bd715185065f397284832ab9c0c67c8754fcaa778e84109a04f815f418ac57062c14c28779cd89c89d7807f63f4009d246f40c881903009f8e5d8835457e5ea0d4308a2dc1c67abde97659d0a77ab6b77cf715f2e1500627a8fb77f2d950fbea512547ed78dbdcac18c77fee8cdc32e598b7b0b4ac307bacf940868e97367e89e6c01b169f5e669ed4b65179ae32936555c84af18746773044d377bff528e90b9990da782c7d64493e7d022bd68b63ee9814ae0b01938ccf0f8e46809350c31aa7c6bd8d9e7d6f2dbc2aa909234a9c85e5b493a8ef53e5162099c08a47a9ded29fefd9a79e6248a5061e58b6029ade5ca5979eb4ba741614974ef47935591fb7dbf747365641dab1e1537cc99a3512adf678bbd66c121da4580b64d7e28be55d773f9e5da0d16119b0b3945393281dd3d3e48bee2cb12af9a6ab60dbff1f1c9d36c9f146c74867e2c4af91d1b5533fec7d71579388f809e747631f5746864d0f1f74410e051c008ac263f2ba1b15e8047d56072b82b62fd5268e3d37d9863feaa49f76a88c8e44bf7428309f3d1dadcd4a6a6fa7a2de98058b03add9359894623434a1b0cd5ce49fc6728dda929cb09878d1d78d54e020f6c5bd292e48c2c2d1d0eb9ec4cb99649ec9b1712de67aa1ebcf89af64f075c8be12acda3cfda2d150720f9fd91a0530dc9d55ca073cbc82ed3234072db7e323c4c3680751948ff80dcfd4f8a50da1efdf060fe0cfdc85222f63e2e35f196d4b1bcf1381698322b09fb9a37a209f9fadeedc20fa8cb6a48a384a86f5c928a6a3d9e3787a54e931478485518e255993e5c53c355059d401eaa0c7a596bfdd32d93fb1e81d31811e54dc9663d74dd742b417c6df12a1c9a5eea078d1fc51e5b18bb867c6cadbdafcddca9e29ca1cbf74b7edbe5f9df3b3fadc691362305f8c5020a1537e468e2c49e6bd82031d8822029ade5f2e49bf3e3ad68bd589d34615d8efe68bdb9ae60fe466a90cd99b1c4215c1ebc3b7c7e02610002585d73a194491e00dccf5d6ea5aef41fbf269ea3a37d770c33b88f62d1a39881376f1ab41d4317bba0690c10d32006ff371ca48beedb237cbf3c69562cbade6f79084dfeca91223aa045e834ae7e6477e296c4287edff4a9975413fa3c767494b9660b1942572a8e7cca2de3bbb3f437d0a472a20f62df684b376a3fa53d4103243bed97e78c6cd64d25e747f1d554a9f11c5e4f5064b585af9b34d986cebf0562fc004aa0dd29f93cfb6c858ad0718fac0e76d9ecd674233b4fe0329f0c384d2bc626dcab3b11d93e6133fcecd02620f60438cb69936561471a9334cc6bd0007149005c101e796d46164edde539f152fcb02e25044e6213e3e2ca641175a8c98f8ede03448097e0bfd71b06a16ffe06c00254548adeb6c4f17e41d68a6faeb62cc94c8e6983b723fd0bef1025503d9d19b52cb06c78ed8e735c44fddafa5616f6159863a93ec1b0c88d9f5d581050775adddf5c76ef9fac291e4749a8188608d29d09e4b7d33f7f4d5020927e5f5a3c6e510c910706a183092ae68530b518ed1c50c6b36acfea8b41b3d26190e2da424daec4718ee1cfbe0de6ebf96b715c659a49dbab28e07660d75b81cd808b8492841bbcc6f80f8ff0406b9934fabf52a5bd2036a6d58f98414bbad70dfcf2fd1088dc7ccb09627fd881fd6b758365cf440bc815e1860f76aaa06e1f37f2a27d960f12351f31153648f6349e415cbfc62e38881eb561733b1cc241e69c724bb0c4df2384b220d6a4432f5b5550cee32e7ec89ecbf174ca220a9d1f070022be85b8ec7585e7d1da4155c8787c76e357f9e382701693d8c7daa8a1db3efa9df6afda04d7f6513cf59a9533b08fd2a33c35a2531702f412191dea127177891b2db9e69a5bcea7ec6c845ad6210269ae6d42bb35b13a9cffeb575ca357c6445a10173337c36dce3d21ba842a0769456c29f3af7872b9c46bb5d81a66ac2d16c224cd52f346887d582752051252a2ef9783c45957020e5b363d98b0fcdf011525def20ce4e2d972101bf3fead810b186caccad87ef8c8a4f9f59edcb931febc08476599275e22fbc6dbdee0eff84a4656157f8e642d19290439492f2f4ee0cb6cc1875064dda17eee4f0f1b859338635eacf27519048f745d0dd81fd92db0c7c47460485ca9f7d5abf2cd6ad81c16099e3cbcba0a2e37f7424bf407bd96a159d6aa493e1505402999a23bda670bc3a82b98364660dbc0484fe8efd711f0397865038bf4f7e2aa535e22eb1befd9b3c95745ce4d68a7b2f1995b4e78bae59d3c5222f58659859302c86ad942b9282eaaaddc4d13183c5b83255f4130c65ed150ce3cf587492289b87d3a678aecbf87c2aed9fc2f73eef8b97f6abfa4321db9480951858e53b5ff006cff69135dad6fb79856d62f443736702794db239e5ce9b801aceb781258b4449284d76213da25016a24575c84a33a817a71ed5975903b67da1743b22189be09fc785e66260b190b440f29b84f6313a2c0231faa341615b253f339f747d15f688b85ab7262ee38a2a68b879e3901f6ead44bab0c8c85c4d997ad081f823c2413059c8d6da4d581c4b93a48b096f93819612a4fa8d03e68b5da6b94a5fcdb7d4b2f2ce92594eee689c8b0345454f49a9b280b7083ff3fc790f520b676641bc7ae6f5900d73c89b734f167a5fa3aa6481a07a1547abbc1071b77071e3169b6779402834148d7cfd38c264ea10e55431731cda62280fa154edba2d6c7955a0ef07575db336bb5b241b7571b999bcb8321471847361959be4f3b2c33fd770c1d812608b5de6f136d362bd48aa28e6c212929b80d2c312c77406790f7303e2d77b59b041aaf75ed341b72e67c2be4824943267595e776223a7664a93b9988ed05b54427e7d8605ba60a82cff533d89230ab28ecacb078f3f6f6cd291d2ad370877e759796d9103758d1ce13fd3ca2c7009be7b5777b18777fc473e5b123453965c83dbf20c6750c115845a8007880f047d26594ada64b9c163a1c397ee801e6f3d3788dd94d2689c96ca26ca8e593c0ff3273eb5c1f73579ba51a7ff70bdf32552830db0db731c71a4b4c16d41d99ce3178272d7f0e215915f9f61370a345c019c28d4215d43b35ba1b0109c88437be16587a467a159e2c4c3a815e9199644485c061311b10106aa54ef4c5c886c04d5cccd521239736b16887da548b05666056e769a111217b7f4c20670acac82e0c608e3d5e5e44fe3a05dcd6540f7bc9784f1592441d147849c11f66460cfc7aab1f48d415c323168608f2f03e9c5fdd3c563ab124fab9e33d4a1549680b8dcb90f5c40d0b07bcc8d15e69f9faf0fff266d846688f155269fb9089fd99f5f0845a3676b04f7c017452d1164e0c0ece1b12b93655d240f1f54d9687987f5242f38313bc1cb285abd71d09c49a431dbf38796aaecbcedbee0a51ee7b5cb4c79b754d924c4e89b1e524e74ecd46c43f1707e7b7f818c62328f326c9116eba735467ae2abbc5adb96f09bcfd15f8b3a9fc1257e699fe2fb60e746f7f481b014fd38afe54acb939f8f205b5c4e1b5434209dfc203c08288d22396e7f15a4424685612b5967ca6d95b2f6b88275ba427b4654c173e848a08642a65ebbe66edd4062758b825075f7257b20c1caa3c053430810e5d7db37b3f2d2afc0cd199bc9afc5bcd027ecfa0ddef5223a200153a4178ba7b2fdff4302c6068f82eb665239c6f612213051fb72cd104b05089cb980052914289546042579405d2684b08f0e32852e96af145cc39f82425812772cc2d9bfd37e89ca4da52a4452311fd86c09868defec88bfa288e0a2a486c2d02b08998816e1ea56970c66c98fafa2605141ab2ad932dc7f63c1f8ad5e5f2ecebd7c35b33d7625af8bc675a9c390b22c37ac743bc8ff5070af5a37b8bda3fc3e22475c3fcc94fb52b8cebf190906c305bcc5442ae96e40fed52548dd34a858fc09d00208afc426d0fd3148480867edcc83b13092f44aee0d4386ed0434f12198e6632781366a3f015b8f56bdcbfdb2252f5c88a0cf6ead00b889037cd3d0dd2df3e65c3e0ec1b30d92d23ffa2c1172a15a7325601099e29384636bea1b8720756241943fd8a3e418c90a0a6270b36fa0e85517675a58f9387e85604aacd847ce1667b0b75a928cef9c45460006a3d9a472960abb3dc1d35d8f12c4b44c0d2013ba64a28d0a64c60d0817c81e292c0d663e1d079263899d1ff898886041bc3f80149e5432db105aee56ee615bdb29ae3c30afaabb0d0da419473e0d6a1dd0ab71194e2a0b0fd54180a87d0f0a04940bace0df53384e786eaf2b0c6b32fb8bfe8050f5802501a97d08bada8496d8985ee499573ed4d80e4cbb64aca092dbdbbfd1e347ff90be8450564c0936a8212edf52ee1d06d71a82f54fc5ef4d323b93dbf21fffa2202311f383531419bb3b9326f55dde760def890bba18c80249973f5e7f2145dae67d3fa5a0f23e4a2502987e3c8484f820f7d6646b8c450624fa8d1e9d54c296cbef1cf35291df621d08dbff10db218c3facd29e6587686d34356366fd7e93a69652428227ff34dca2bce3d4f47eb59caaef9a11d0a63cd558eab678e85632e56f03935aaf8d47f027ff2ccd2fb50b88db4b6b5dd58d17eaeba8c504109d30acabe4a5de5c52cb194bbb8f274b99c94f3c42b2434b2e6e0d6172381198272ffdf98552fd7a539aab806fbb27318498bc6f98c5eb23dfd79a6f15c5445846815326ea185d346a8a69603e366c104f1bc4eb95a6130a27a468c0ce44b75f41a6fb7674e0a62def828b7b31347be26f06ec2956125eb97185a1fc87b6828bf2dd92a1b805db9fd76419401a42456c4bb0e1c8dd1c525de7840bd88758e51aa485d413df16294ab5adde45c6b551fc43e1371f3e781f6d9f7007fbbd9adcdd5520ab911050019bbe21683641bfe6a751edf63b64f46ae5ac9d956bb1ce821775b01d5ebf3206c359ea708dfdbb76c347a2d1a309cd3e1b3810be2da2ff0a6d10c6063af56f03e43eba622d691897192f247657edd012a4d4147be20de387b7a8066ce5efff898bcdae6fe6fa040860a0898f6e2a38c71ec3f7410febd3ae2fef2ccafaff4fdb2eaa7bfba7d227479ec06a6092234b0478e24b103dbfc8802d8e36e7dc71177431bf6a98d82c9c86f592f5f68289b2c3969c23ca68d36db4fedf7c3c44a8cd05ea20f99a98fbe545ce70bce96c1fb6ec317fdd560173d5b2d40d08206a5bb1092bfa4119a3919aa4c69d0caeb73e2722acf9328604e8f59e2365351f7c527d995128ab47ed802225311f473c42a7c8fefac71056db842aaea241e2f6459b04f7ba4cb903b4347195ac3a95d42c537269b99a507b9348971f390a994b4ec21709d72d356022f914d5a10cb7043598b90d94ebf78da273854c73828d2c9861db2ee2adaa0801a820ddc3f1a6d2a7a38f11bfced2d59b04fbcee28edcfc364d7f13785ac72092ac5b7071a389ca0059d54b7759fb7adfca9fcc554da7359b5db931614ec332878aef7083145ceea7aa008fc70f8f916a706bb96ea2783e143c898defb801a0b41100d5644428a36ea8be9fa97df76b58698af1862884548ff2506d353833baed38c21b6efaf42f5385ebf8da43f77e40780f6c9f09c8ff690e27b633099c1b20d7fb4ec326edcc49b1639ed186afc0739d12deb387cae5ca56038a7db452105f8b64f0908916a2678fd65ac5b3c9b42bacb08db9f0ea708243b10498474720aebcc184307817e06ecdc762171dca5c41e64cc1721cf21e33298f6cbe461f864822492ed506287b54530d903f6fb9e7c96bf7ebd6279b818e04344c24d34a6416a7219bb00f26cb4e7fa63b6d402f05bf1efa7e826b94d460b0e74157424a3927e4cb924162e1ff49ee93be553c7e0501e91d89572ee0eb049e514f9c89bce4ddc49ccd71014ba4e9fdf1a278783ef337042c3bd297afe841a107f7e0ee1535f7bc7952cb65f73d3b1d37e343d2ab291239488a33959f10d1911ddf4884</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，这里需要密码。</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Linux系统</category>
+      </categories>
+      <tags>
+        <tag>Centos</tag>
       </tags>
   </entry>
   <entry>

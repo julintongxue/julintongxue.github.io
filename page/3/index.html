@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">85</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -196,6 +196,177 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">hexo博客部署在云服务器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-01-04 21:24:37" itemprop="dateCreated datePublished" datetime="2024-01-04T21:24:37+08:00">2024-01-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-05-09 02:07:05" itemprop="dateModified" datetime="2024-05-09T02:07:05+08:00">2024-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<p><strong>默认在root用户下执行命令</strong></p>
+<h2 id="docker部署nginx"><a href="#docker部署nginx" class="headerlink" title="docker部署nginx"></a>docker部署nginx</h2><p><strong>自己去安装docker，我相信你会的</strong></p>
+<p><strong>创建目录</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /hexo_nginx</span><br></pre></td></tr></table></figure>
+
+<p><strong>拉取nginx镜像</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull amd64/nginx</span><br></pre></td></tr></table></figure>
+
+<p><strong>运行nginx</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name hexo_nginx --network=host -v /hexo_nginx/www/html:/usr/share/nginx/html -d nginx</span><br></pre></td></tr></table></figure>
+
+<p><strong>设置权限</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> -R 777 /hexo_nginx</span><br></pre></td></tr></table></figure>
+
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p><strong>自己安装git，我还是相信你会的</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -s /bin/bash git</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><code>-m</code> 参数表示创建用户的同时创建用户的家目录</strong></li>
+<li><strong><code>-s /bin/bash</code> 参数表示将用户的默认 shell 设置为 Bash</strong></li>
+</ul>
+<p><strong>更改密码</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd git</span><br></pre></td></tr></table></figure>
+
+<p><strong>切换git用户</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - git</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建Git文件夹</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[git@archlinux ~]$ <span class="built_in">mkdir</span> Git</span><br></pre></td></tr></table></figure>
+
+<p><strong>进入Git文件夹</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[git@archlinux ~]$ <span class="built_in">cd</span> Git/</span><br><span class="line">[git@archlinux Git]$ </span><br></pre></td></tr></table></figure>
+
+<p><strong>创建一个裸仓库</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[git@archlinux Git]$ git init --bare hexo_nginx.git</span><br><span class="line">hint: Using <span class="string">&#x27;master&#x27;</span> as the name <span class="keyword">for</span> the initial branch. This default branch name</span><br><span class="line">hint: is subject to change. To configure the initial branch name to use <span class="keyword">in</span> all</span><br><span class="line">hint: of your new repositories, <span class="built_in">which</span> will suppress this warning, call:</span><br><span class="line">hint: </span><br><span class="line">hint:   git config --global init.defaultBranch &lt;name&gt;</span><br><span class="line">hint: </span><br><span class="line">hint: Names commonly chosen instead of <span class="string">&#x27;master&#x27;</span> are <span class="string">&#x27;main&#x27;</span>, <span class="string">&#x27;trunk&#x27;</span> and</span><br><span class="line">hint: <span class="string">&#x27;development&#x27;</span>. The just-created branch can be renamed via this <span class="built_in">command</span>:</span><br><span class="line">hint: </span><br><span class="line">hint:   git branch -m &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建钩子脚本</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt;hexo_nginx.git/hooks/post-receive&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">#!/bin/bash</span></span><br><span class="line"><span class="string">git --work-tree=/hexo_nginx/www/html --git-dir=/home/git/Git/hexo_nginx.git checkout -f</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>赋予执行权限</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x hexo_nginx.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo本地博客配置"><a href="#hexo本地博客配置" class="headerlink" title="hexo本地博客配置"></a>hexo本地博客配置</h2><p><strong>编辑<code>_config.yml</code>配置文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - <span class="built_in">type</span>: git</span><br><span class="line">    repo: git@github.com:julintongxue/julintongxue.github.io.git</span><br><span class="line">    branch: master</span><br><span class="line"><span class="comment"># 加下面这个</span></span><br><span class="line">  - <span class="built_in">type</span>: git</span><br><span class="line">    repo: git@your_server_ip:/home/git/Git/hexo_nginx.git</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
+
+<h2 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line"><span class="comment"># 要输入密码</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="免密推送"><a href="#免密推送" class="headerlink" title="免密推送"></a>免密推送</h2><p><strong>把本地的ssh公钥粘给服务器端的git用户</strong></p>
+<p><strong>创建<code>.ssh</code>文件夹</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[git@archlinux ~]$ <span class="built_in">mkdir</span> .ssh &amp;&amp; <span class="built_in">cd</span> .ssh</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建<code>authorized_keys</code>文本</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[git@archlinux .ssh]$ <span class="built_in">touch</span> authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p><strong>把公钥粘贴进去得了</strong></p>
+<h2 id="部署ssl实现https访问"><a href="#部署ssl实现https访问" class="headerlink" title="部署ssl实现https访问"></a>部署ssl实现https访问</h2><p><strong>首先，得先申请证书！然后下载到<code>certs</code>文件夹里面，欸！太简单了，我不想写</strong></p>
+<p><strong>然后修改<code>default.conf</code>配置文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    listen  [::]:80;</span><br><span class="line">    <span class="comment">#写你的域名</span></span><br><span class="line">    server_name  www.xxx.com;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    <span class="comment">#写你的域名</span></span><br><span class="line">    server_name www.xxx.com;</span><br><span class="line">    <span class="comment"># 绝对路径指定证书的位置和证书名字</span></span><br><span class="line">    ssl_certificate /etc/ssl/certs/1.pem;</span><br><span class="line">    ssl_certificate_key /etc/ssl/1.key;</span><br><span class="line">    </span><br><span class="line">    ssl_session_timeout 5m;</span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    ssl_session_cache shared:SSL:1m;</span><br><span class="line">    fastcgi_param  HTTPS        on;</span><br><span class="line">    fastcgi_param  HTTP_SCHEME     https;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_set_header   X-Real-IP         <span class="variable">$remote_addr</span>;</span><br><span class="line">        proxy_set_header   Host              <span class="variable">$http_host</span>;</span><br><span class="line">        proxy_set_header   X-Forwarded-For   <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    error_page   500 502 503 504  /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>然后docker数据卷映射就行了</strong></p>
+<p><strong>把上一个docker容器删了,部署新的</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> -f hexo_nginx</span><br></pre></td></tr></table></figure>
+
+<p><strong>我是在<code>hexo_nginx</code>创建了certs证书文件夹和<code>default.conf</code>文本文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name hexo_nginx --network=host --restart always -v /hexo_nginx/www/html:/usr/share/nginx/html -v /hexo_nginx/certs:/etc/ssl/certs -v /hexo_nginx/default.conf:/etc/nginx/conf.d/default.conf:ro -d nginx</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20240105003320649.png" alt="image-20240105003320649"></p>
+<p><strong>访问就可以看到可爱的小锁了</strong></p>
+<p><img src="/2024/01/04/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20240105003423943.png" alt="image-20240105003423943"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -429,144 +600,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2023/12/27/raspberry5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/12/27/raspberry5/" class="post-title-link" itemprop="url">raspberry5</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-12-27 17:12:05" itemprop="dateCreated datePublished" datetime="2023-12-27T17:12:05+08:00">2023-12-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-28 21:46:43" itemprop="dateModified" datetime="2023-12-28T21:46:43+08:00">2023-12-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/12/27/raspberry5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/27/raspberry5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h1 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h1><ul>
-<li><strong>清华源bookworm</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt;/etc/apt/sources.list&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string"># 清华源</span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="在树莓派5-bookworm-上设置静态IP地址"><a href="#在树莓派5-bookworm-上设置静态IP地址" class="headerlink" title="在树莓派5(bookworm)上设置静态IP地址"></a>在树莓派5(bookworm)上设置静态IP地址</h1><p><strong>随着 <code>Raspberry Pi OS Bookworm</code> 的发布，Raspberry Pi 上的网络改为使用 <code>NetworkManager</code> 作为网络的标准控制器，取代了之前的 <code>dhcpcd</code> 系统。 <code>NetworkManager</code> 包括一个名为<code>nmcli</code>的命令行工具，它可以控制 <code>NetworkManager</code> 并报告网络状态。</strong></p>
-<p><strong>接下来，我将使用<code>nmcli</code>将网络配置为使用静态 IP 地址。</strong></p>
-<ul>
-<li><strong>找到网络接口名称（树莓派5有两张网卡wlan0和eth0，一般都叫这个，我的可能特别，但是教程都适用）</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">root@R5:~<span class="comment"># sudo nmcli -p connection show</span></span><br><span class="line">======================================</span><br><span class="line">  NetworkManager connection profiles</span><br><span class="line">======================================</span><br><span class="line">NAME           UUID                                  TYPE      DEVICE     </span><br><span class="line">---------------------------------------------------------------------------------------------------&gt;</span><br><span class="line">preconfigured  add9af6e-dda9-4bb5-b69c-845989b05ee4  wifi      wlan0      </span><br><span class="line">docker0        b899dcfa-19fd-4c29-9aae-42e3851f29a3  bridge    docker0    </span><br><span class="line">lo             ddd0da87-3ac9-4752-9619-b744001c7f8f  loopback  lo         </span><br><span class="line">utun           bbd48214-4665-4ec6-8f06-13b466e1829a  tun       utun       </span><br><span class="line">ztk4jl4ggs     6cb57bf8-5c8a-4833-aa72-3ff3f8c69788  tun       ztk4jl4ggs </span><br></pre></td></tr></table></figure>
-
-<p><strong>通过上面一堆的网卡，我们都没找到需要的<code>eth0</code>在哪里，反而找到其他的网卡，其实除了<code>eth0</code>和<code>wlan0</code>其他都是我的虚拟网卡和本地回环网卡<code>lo</code>网卡</strong></p>
-<p><strong>那我的物理网卡接口eth0呢！因为我没接线！所以用<code>connection show</code>是看不出来滴！所以采用更加原始的办法，用你们的<code>tab</code>补全弹出网卡选项</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@R5:~<span class="comment"># nmcli device show </span></span><br><span class="line">docker0        <span class="built_in">help</span>           p2p-dev-wlan0  wlan0          </span><br><span class="line">end0           lo             utun           ztk4jl4ggs </span><br></pre></td></tr></table></figure>
-
-<p><strong>这里就多出一个end0网卡了，我说它就是<code>eth0</code>你信吗？改个<code>设备名字</code>而已，别慌！！！就是它</strong></p>
-<p><strong>因为，我没有接有线，有线网卡没有自动创建它的设备名称和对应的配置</strong></p>
-<p><strong>所以，我接下来给它创建一个名称就叫<code>R5_eth0</code></strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@R5:~<span class="comment"># nmcli connection add type ethernet ifname end0 con-name R5_eth0</span></span><br><span class="line">Connection <span class="string">&#x27;R5_eth0&#x27;</span> (0e6c5292-f391-49be-b1f4-1981c5c26538) successfully added.</span><br></pre></td></tr></table></figure>
-
-<p><strong>再看看</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@R5:~<span class="comment"># sudo nmcli -p connection show</span></span><br><span class="line">======================================</span><br><span class="line">  NetworkManager connection profiles</span><br><span class="line">======================================</span><br><span class="line">NAME           UUID                                  TYPE      DEVICE     </span><br><span class="line">-----------------------------------------------------------------------------------------------------------------</span><br><span class="line">preconfigured  add9af6e-dda9-4bb5-b69c-845989b05ee4  wifi      wlan0      </span><br><span class="line">docker0        b899dcfa-19fd-4c29-9aae-42e3851f29a3  bridge    docker0    </span><br><span class="line">lo             ddd0da87-3ac9-4752-9619-b744001c7f8f  loopback  lo         </span><br><span class="line">utun           bbd48214-4665-4ec6-8f06-13b466e1829a  tun       utun       </span><br><span class="line">ztk4jl4ggs     6cb57bf8-5c8a-4833-aa72-3ff3f8c69788  tun       ztk4jl4ggs </span><br><span class="line">R5_eth0        0e6c5292-f391-49be-b1f4-1981c5c26538  ethernet  --  </span><br></pre></td></tr></table></figure>
-
-<p><strong>额！为啥<code>R5_eth0</code>对应的设备是<code>--</code>而不是<code>end0</code>，我也不知道！但是我可以确认配置有没有生效！</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root@R5:~<span class="comment"># cat /etc/NetworkManager/system-connections/R5_eth0.nmconnection</span></span><br><span class="line">[connection]</span><br><span class="line"><span class="built_in">id</span>=R5_eth0</span><br><span class="line">uuid=0e6c5292-f391-49be-b1f4-1981c5c26538</span><br><span class="line"><span class="built_in">type</span>=ethernet</span><br><span class="line">interface-name=end0</span><br><span class="line"></span><br><span class="line">[ethernet]</span><br><span class="line"></span><br><span class="line">[ipv4]</span><br><span class="line">method=auto</span><br><span class="line"></span><br><span class="line">[ipv6]</span><br><span class="line">addr-gen-mode=default</span><br><span class="line">method=auto</span><br><span class="line"></span><br><span class="line">[proxy]</span><br></pre></td></tr></table></figure>
-
-<p><strong>很好，下一步，插上网线</strong></p>
-<p><strong>设置静态ip、网关、dns</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@R5:~<span class="comment"># nmcli connection modify R5_eth0 ipv4.addresses 192.168.0.30/24 ipv4.method manual connection.autoconnect yes ipv4.gateway 192.168.0.1 ipv4.dns 8.8.8.8</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>网卡启动</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@R5:~<span class="comment"># nmcli connection up R5_eth0</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>然后就发现，静态ip设置成功</strong></p>
-<p><img src="/2023/12/27/raspberry5/image-20231228214539257.png" alt="image-20231228214539257"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -642,7 +675,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

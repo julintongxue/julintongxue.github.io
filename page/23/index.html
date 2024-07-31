@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">85</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">86</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -196,6 +196,158 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/" class="post-title-link" itemprop="url">版本切换工具篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-23 00:22:19" itemprop="dateCreated datePublished" datetime="2022-11-23T00:22:19+08:00">2022-11-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-06-11 02:27:42" itemprop="dateModified" datetime="2023-06-11T02:27:42+08:00">2023-06-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="版本切换工具篇"><a href="#版本切换工具篇" class="headerlink" title="版本切换工具篇"></a>版本切换工具篇</h1><h2 id="JENV管理JDK"><a href="#JENV管理JDK" class="headerlink" title="JENV管理JDK"></a>JENV管理JDK</h2><p><strong>jdk全称”Java Development Kit“，指的是Java语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序的开发。jdk是java开发的核心，包括了JRE（Java运行环境）运行时类库、JVM（Java虚拟机）。</strong></p>
+<p><strong>一般，我们需要用到基于Java虚拟机的操作服务时，需要有JDK的环境，这样的Java有两个特点（Write once, run anywhere）：</strong></p>
+<ul>
+<li><strong>易于移植：只需要有Java的虚拟机（JDK）环境，即可运行Java程序。</strong></li>
+<li><strong>需要平台有Java虚拟机支持：Java程序有所限制，需要有Java环境支持</strong></li>
+</ul>
+<p><strong>大部分程序开发者，或者普通用户，都有了解过JDK的配置。但是：</strong></p>
+<ul>
+<li><strong>Linux服务器上怎么配置JDK呢？</strong></li>
+<li><strong>能否实现多版本JDK同时配置安装呢？</strong></li>
+</ul>
+<p><strong>本次教程，就在Linux（ubuntu系统）上安装多版本JDK，并使用Jenv管理JDK。</strong></p>
+<h3 id="安装思路"><a href="#安装思路" class="headerlink" title="安装思路"></a>安装思路</h3><h4 id="常规（传统）安装"><a href="#常规（传统）安装" class="headerlink" title="常规（传统）安装"></a>常规（传统）安装</h4><p><strong>我们通常安装JDK是：</strong></p>
+<ul>
+<li><strong>Centos系统使用<code>yum</code>包管理器安装&#x2F;Ubuntu使用<code>apt</code>包管理器安装，然后直接使用。</strong></li>
+<li><strong>上传源码包、解压源码包、在环境变量文件中追加<code>JAVA_HOME</code>然后<code>source</code>重载配置后使用。</strong></li>
+</ul>
+<h4 id="前卫安装"><a href="#前卫安装" class="headerlink" title="前卫安装"></a>前卫安装</h4><p><strong>在前面常规（传统）安装的前提下，追加<code>Jenv</code>的配置，实现JDK的切换：</strong></p>
+<p><strong>确定使用OpenJDK和JDK的版本之后，使用<a target="_blank" rel="noopener" href="https://www.azul.com/downloads/?package=jdk#download-openjdk">ZuluJDK（一个OpenJDK的发行版本）</a></strong></p>
+<h5 id="安装JDK8"><a href="#安装JDK8" class="headerlink" title="安装JDK8"></a>安装JDK8</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># wget 下载源码包</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># wget https://cdn.azul.com/zulu/bin/zulu8.66.0.15-ca-jdk8.0.352-linux_x64.tar.gz</span></span><br><span class="line"><span class="comment"># 创建源码包保存目录</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># mkdir /JDK</span></span><br><span class="line"><span class="comment"># 解压源码包至保存目录</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># tar -xzvf zulu8.66.0.15-ca-jdk8.0.352-linux_x64.tar.gz -C /JDK/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置JAVA_HOME</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># vim .bashrc</span></span><br><span class="line"><span class="comment"># JAVA环境变量配置</span></span><br><span class="line">JAVA_HOME=/JDK/jdk8</span><br><span class="line">CLASSPATH=<span class="variable">$JAVA_HOME</span>/lib/</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin/</span><br><span class="line"><span class="built_in">export</span> PATH JAVA_HOME CLASSSPATH</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重载配置</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># source ~/.bashrc </span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看版本（JDK1.8就是JDK8）</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># java -version</span></span><br><span class="line">openjdk version <span class="string">&quot;1.8.0_352&quot;</span></span><br><span class="line">OpenJDK Runtime Environment (Zulu 8.66.0.15-CA-linux64) (build 1.8.0_352-b08)</span><br><span class="line">OpenJDK 64-Bit Server VM (Zulu 8.66.0.15-CA-linux64) (build 25.352-b08, mixed mode)</span><br></pre></td></tr></table></figure>
+
+<h3 id="多版本JDK管理"><a href="#多版本JDK管理" class="headerlink" title="多版本JDK管理"></a>多版本JDK管理</h3><h4 id="安装JENV"><a href="#安装JENV" class="headerlink" title="安装JENV"></a>安装JENV</h4><p><a target="_blank" rel="noopener" href="https://www.jenv.be/">Jenv项目地址</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用git下载jenv源码到用户目录下的.jenv文件夹</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># git clone https://github.com/jenv/jenv.git ~/.jenv</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># vim .bashrc</span></span><br><span class="line"><span class="comment"># Jenv配置环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$HOME</span>/.jenv/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(jenv init -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重载配置(会出现“jenv has been updated, process to refresh plugin links”这句话，说明配置成功)</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># source ~/.bashrc </span></span><br></pre></td></tr></table></figure>
+
+<p><strong>现在jenv就可以使用了：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv help</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="切换JDK"><a href="#切换JDK" class="headerlink" title="切换JDK"></a>切换JDK</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前安装的JDK版本</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 局部JDK11</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv local 11</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局JDK11</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv global 11</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="管理JDK"><a href="#管理JDK" class="headerlink" title="管理JDK"></a>管理JDK</h4><p><strong>有时候，jenv的add扫描，扫描的内容过多怎么办呢？比如，我只添加了JDK8、JDK11,怎么会有这么多版本JDK：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br><span class="line">* system (<span class="built_in">set</span> by /root/.jenv/version)</span><br><span class="line">  11</span><br><span class="line">  11.0</span><br><span class="line">  11.0.17</span><br><span class="line">  1.8.0.352</span><br><span class="line">  1.8</span><br><span class="line">  1.8.0.352</span><br><span class="line">  zulu64-1.8.0.352</span><br></pre></td></tr></table></figure>
+
+<p><strong>这个时候也很简单，使用remove命令即可：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv remove zulu64-1.8.0.352</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv remove 1.8</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br><span class="line">  system</span><br><span class="line">  11.0.17</span><br><span class="line">* 1.8.0.352 (<span class="built_in">set</span> by /root/.jenv/version)</span><br></pre></td></tr></table></figure>
+
+<h2 id="NVM管理Node-js"><a href="#NVM管理Node-js" class="headerlink" title="NVM管理Node.js"></a>NVM管理Node.js</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1457,160 +1609,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/09/04/linux%E5%B0%8F%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/04/linux%E5%B0%8F%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">linux小知识</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-09-04 11:37:06" itemprop="dateCreated datePublished" datetime="2022-09-04T11:37:06+08:00">2022-09-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-08 21:55:26" itemprop="dateModified" datetime="2023-05-08T21:55:26+08:00">2023-05-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux%E5%B0%8F%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">Linux小知识</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/09/04/linux%E5%B0%8F%E7%9F%A5%E8%AF%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/09/04/linux%E5%B0%8F%E7%9F%A5%E8%AF%86/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>13k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>12 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h1 id="free"><a href="#free" class="headerlink" title="free"></a>free</h1><p>检测系统内存<code>Mem</code>和交换空间<code>swap</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># free -h</span></span><br><span class="line">              total        used        free      shared  buff/cache   available</span><br><span class="line">Mem:          7.7Gi       405Mi       6.8Gi        17Mi       481Mi       7.1Gi</span><br><span class="line">Swap:         1.0Gi          0B       1.0Gi</span><br></pre></td></tr></table></figure>
-
-<p>total:内存总大小</p>
-<p>used:已用</p>
-<p>free:空闲</p>
-<p>available:可用</p>
-<p>swap:交换</p>
-<h1 id="hdparm"><a href="#hdparm" class="headerlink" title="hdparm"></a>hdparm</h1><p>检查磁盘性能，指定-t选项检查磁盘（评估硬盘的读取效率(不经过磁盘cache)），指定-T 平估硬盘快取的读取效率</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># hdparm -t /dev/mmcblk0</span></span><br><span class="line"></span><br><span class="line">/dev/mmcblk0:</span><br><span class="line"> HDIO_DRIVE_CMD(identify) failed: Invalid argument</span><br><span class="line"> Timing buffered disk reads: 132 MB <span class="keyword">in</span>  3.02 seconds =  43.65 MB/sec</span><br><span class="line"></span><br><span class="line">root@raspbian:~<span class="comment"># hdparm -tT /dev/mmcblk0</span></span><br><span class="line"></span><br><span class="line">/dev/mmcblk0:</span><br><span class="line"> Timing cached reads:   1914 MB <span class="keyword">in</span>  2.00 seconds = 958.37 MB/sec</span><br><span class="line"> HDIO_DRIVE_CMD(identify) failed: Invalid argument</span><br><span class="line"> Timing buffered disk reads: 132 MB <span class="keyword">in</span>  3.03 seconds =  43.63 MB/sec</span><br></pre></td></tr></table></figure>
-
-<h1 id="查找命令在哪个软件包"><a href="#查找命令在哪个软件包" class="headerlink" title="查找命令在哪个软件包"></a>查找命令在哪个软件包</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 比如说我需要iostat</span></span><br><span class="line">root@raspbian:~<span class="comment"># apt-cache search iostat</span></span><br><span class="line">dstat - versatile resource statistics tool</span><br><span class="line">ganglia-modules-linux - Ganglia extra modules <span class="keyword">for</span> Linux (IO, filesystems, multicpu)</span><br><span class="line">ifstat - InterFace STATistics Monitoring</span><br><span class="line">nicstat - <span class="built_in">print</span> network traffic statistics</span><br><span class="line">pcp-import-iostat2pcp - Tool <span class="keyword">for</span> importing data from iostat into PCP archive logs</span><br><span class="line">r-cran-epi - GNU R epidemiological analysis</span><br><span class="line">r-cran-epibasix - GNU R Elementary Epidemiological Functions</span><br><span class="line">r-cran-kmi - GNU R Kaplan-Meier Multiple Imputation</span><br><span class="line">r-cran-rms - GNU R regression modeling strategies by Frank Harrell</span><br><span class="line">sysstat - system performance tools <span class="keyword">for</span> Linux</span><br><span class="line"></span><br><span class="line"><span class="comment"># 挑一个吧</span></span><br><span class="line">root@raspbian:~<span class="comment"># apt-get install sysstat</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="iostat"><a href="#iostat" class="headerlink" title="iostat"></a>iostat</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># iostat</span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"><span class="comment">#cpu使用情况</span></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.75    0.00    0.45    0.09    0.00   98.71</span><br><span class="line"><span class="comment">#磁盘使用情况</span></span><br><span class="line">Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">mmcblk0           2.71       136.86        24.05    1074327     188817</span><br></pre></td></tr></table></figure>
-
-<p>-c:显示cpu使用情况</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2秒5次列出cpu情况</span></span><br><span class="line">root@raspbian:~<span class="comment"># iostat -c 2 5</span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.75    0.00    0.44    0.08    0.00   98.73</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.37    0.00    0.25    0.00    0.00   99.38</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.13    0.00    0.13    0.00    0.00   99.75</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.25    0.00    0.12    0.00    0.00   99.62</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %<span class="built_in">nice</span> %system %iowait  %steal   %idle</span><br><span class="line">           0.12    0.00    0.38    0.00    0.00   99.50</span><br></pre></td></tr></table></figure>
-
-<p>-d:磁盘使用情况</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2秒3次</span></span><br><span class="line">root@raspbian:~<span class="comment"># iostat -d 2 3</span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"></span><br><span class="line">Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">mmcblk0           2.53       124.41        22.50    1074327     194285</span><br><span class="line"></span><br><span class="line">Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">mmcblk0           3.00         0.00        16.00          0         32</span><br><span class="line"></span><br><span class="line">Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">mmcblk0           1.00         0.00        36.00          0         72</span><br></pre></td></tr></table></figure>
-
-<p>-x:指定磁盘设备名称</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定/dev/mmcblk0磁盘设备2秒3次</span></span><br><span class="line">root@raspbian:~<span class="comment"># iostat -dx /dev/mmcblk0 2 3</span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"></span><br><span class="line">Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util</span><br><span class="line">mmcblk0          1.45    1.00    118.12     21.71     0.77     1.31  34.61  56.73    5.45   10.22   0.02    81.67    21.76   2.42   0.59</span><br><span class="line"></span><br><span class="line">Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util</span><br><span class="line">mmcblk0          0.00    0.00      0.00      0.00     0.00     0.00   0.00   0.00    0.00    0.00   0.00     0.00     0.00   0.00   0.00</span><br><span class="line"></span><br><span class="line">Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util</span><br><span class="line">mmcblk0          0.00    7.50      0.00     34.00     0.00     1.00   0.00  11.76    0.00    7.00   0.05     0.00     4.53   0.80   0.60</span><br></pre></td></tr></table></figure>
-
-<h1 id="sar"><a href="#sar" class="headerlink" title="sar"></a>sar</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># sar -u 2 5 </span></span><br><span class="line">Linux 5.10.78-Release-OPENFANS+20211111-v8 (raspbian)   09/04/2022      _aarch64_       (4 CPU)</span><br><span class="line"></span><br><span class="line">10:32:27 AM     CPU     %user     %<span class="built_in">nice</span>   %system   %iowait    %steal     %idle</span><br><span class="line">10:32:29 AM     all      1.38      0.00      1.00      0.00      0.00     97.62</span><br><span class="line">10:32:31 AM     all      7.50      0.00      1.38      0.00      0.00     91.12</span><br><span class="line">10:32:33 AM     all      0.25      0.00      0.87      0.00      0.00     98.88</span><br><span class="line">10:32:35 AM     all      0.25      0.00      0.00      0.00      0.00     99.75</span><br><span class="line">10:32:37 AM     all      0.50      0.00      0.13      0.00      0.00     99.37</span><br><span class="line">Average:        all      1.97      0.00      0.67      0.00      0.00     97.35</span><br></pre></td></tr></table></figure>
-
-<h1 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h1><p>查看端口服务，-i查看对应端口服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># lsof -i:22</span></span><br><span class="line">COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME</span><br><span class="line">sshd      834 root    3u  IPv4  26704      0t0  TCP *:ssh (LISTEN)</span><br><span class="line">sshd      834 root    4u  IPv6  26706      0t0  TCP *:ssh (LISTEN)</span><br><span class="line">BT-Panel 1147 root   13u  IPv4  43447      0t0  TCP raspbian:11716-&gt;raspbian:ssh (ESTABLISHED)</span><br><span class="line">sshd     4694 root    3u  IPv4  42753      0t0  TCP raspbian:ssh-&gt;raspbian:11716 (ESTABLISHED)</span><br></pre></td></tr></table></figure>
-
-<h1 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># netstat </span></span><br><span class="line">Active Internet connections (w/o servers)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State      </span><br><span class="line">tcp        0      6 10.71.10.25:8101        10.68.65.140:5937       ESTABLISHED</span><br><span class="line">tcp        0    176 raspbian:ssh            raspbian:11716          ESTABLISHED</span><br><span class="line">tcp      160      0 raspbian:11716          raspbian:ssh            ESTABLISHED</span><br><span class="line">Active UNIX domain sockets (w/o servers)</span><br><span class="line">Proto RefCnt Flags       Type       State         I-Node   Path</span><br><span class="line">unix  2      [ ]         DGRAM                    43560    /run/user/0/systemd/notify</span><br><span class="line">unix  3      [ ]         DGRAM                    15265    /run/systemd/notify</span><br><span class="line">unix  16     [ ]         DGRAM                    15276    /run/systemd/journal/dev-log</span><br><span class="line">unix  2      [ ]         DGRAM                    15282    /run/systemd/journal/syslog</span><br><span class="line">unix  7      [ ]         DGRAM                    15291    /run/systemd/journal/socket</span><br><span class="line">unix  2      [ ]         DGRAM                    24174    @00001</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22269    </span><br><span class="line">unix  2      [ ]         DGRAM                    27827    </span><br><span class="line">unix  2      [ ]         DGRAM                    22165    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21099    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22163    </span><br><span class="line">unix  2      [ ]         DGRAM                    22143    </span><br><span class="line">unix  2      [ ]         DGRAM                    22139    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22433    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22432    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     19284    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26018    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26017    </span><br><span class="line">unix  2      [ ]         DGRAM                    25873    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25871    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25870    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18705    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     27250    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25862    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     30216    /run/containerd/containerd.sock.ttrpc</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     32039    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18236    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     29646    /run/containerd/containerd.sock.ttrpc</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20201    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     32038    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20289    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     29570    /run/containerd/s/efda43ab145a8b986f0fd3455c3b2956d5def686d2807c67031ad6563f9958db</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     31928    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     24063    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20541    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     27836    </span><br><span class="line">unix  2      [ ]         DGRAM                    16406    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20777    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     43564    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21400    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20542    </span><br><span class="line">unix  2      [ ]         DGRAM                    14168    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21401    </span><br><span class="line">unix  2      [ ]         DGRAM                    18426    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     44613    /run/systemd/journal/stdout</span><br><span class="line">unix  2      [ ]         DGRAM                    18148    </span><br><span class="line">unix  2      [ ]         DGRAM                    43546    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     24181    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18312    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18430    </span><br><span class="line">unix  2      [ ]         DGRAM                    41797    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     28070    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18313    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21097    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     17383    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         DGRAM                    15267    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25700    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     43538    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     17927    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25701    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     41806    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18147    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     16734    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20214    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         DGRAM                    15266    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     14309    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         DGRAM                    43561    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     27733    </span><br><span class="line">unix  2      [ ]         DGRAM                    16736    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26790    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         DGRAM                    16739    </span><br><span class="line">unix  2      [ ]         DGRAM                    43549    </span><br><span class="line">unix  2      [ ]         STREAM     CONNECTED     41786    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25802    </span><br><span class="line">unix  3      [ ]         DGRAM                    16740    </span><br><span class="line">unix  3      [ ]         DGRAM                    43562    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26994    /run/systemd/journal/stdout</span><br><span class="line">unix  2      [ ]         DGRAM                    20539    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20421    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21092    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18951    </span><br><span class="line">unix  2      [ ]         DGRAM                    23682    </span><br><span class="line">unix  2      [ ]         DGRAM                    20376    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26990    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21100    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18774    </span><br><span class="line">unix  2      [ ]         DGRAM                    23957    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26995    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21091    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22616    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21096    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18237    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     25678    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21101    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     29575    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21083    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20213    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     24486    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20428    </span><br><span class="line">unix  2      [ ]         DGRAM                    21055    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     28819    /run/containerd/containerd.sock</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21098    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21056    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18933    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     23569    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21035    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21095    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     22801    /run/systemd/journal/stdout</span><br><span class="line">unix  2      [ ]         DGRAM                    21054    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21093    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     19104    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     28821    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21034    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     21094    /var/run/dbus/system_bus_socket</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     28525    /run/containerd/containerd.sock</span><br><span class="line">unix  2      [ ]         DGRAM                    19014    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20929    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     23753    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     31073    /run/containerd/s/f173b4c37ec27fe764ea6843063c75576d07f7ac21d51986b75d8e816f41033e</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18929    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     24056    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     26698    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20778    /run/systemd/journal/stdout</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     18853    </span><br><span class="line">unix  2      [ ]         DGRAM                    23961    </span><br><span class="line">unix  2      [ ]         DGRAM                    18992    </span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     20853 </span><br></pre></td></tr></table></figure>
-
-<h1 id="top、htop"><a href="#top、htop" class="headerlink" title="top、htop"></a>top、htop</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># top</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># htop</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="last"><a href="#last" class="headerlink" title="last"></a>last</h1><p>last可用查看用户登录系统的记录，包括用户名、登录的远程名称或者ip地址以及登录时间。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># last</span></span><br><span class="line">root     pts/0        127.0.0.1        Sun Sep  4 09:43   still logged <span class="keyword">in</span></span><br><span class="line">root     pts/0        127.0.0.1        Sun Sep  4 09:16 - 09:36  (00:20)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00   still running</span><br><span class="line">root     pts/0        10.8.3.28        Sat Sep  3 10:07 - 10:07  (00:00)</span><br><span class="line">root     pts/0        127.0.0.1        Sat Sep  3 09:13 - 09:15  (00:01)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00   still running</span><br><span class="line">root     pts/0        10.8.3.28        Fri Sep  2 13:17 - crash (-19237+05:17)</span><br><span class="line">root     pts/1        127.0.0.1        Thu Sep  1 10:42 - 10:51  (00:08)</span><br><span class="line">root     pts/0        10.8.3.28        Thu Sep  1 10:10 - 13:45  (03:35)</span><br><span class="line">root     pts/1        10.71.22.140     Thu Sep  1 08:55 - 09:33  (00:38)</span><br><span class="line">root     pts/1        10.71.22.140     Thu Sep  1 08:40 - 08:54  (00:14)</span><br><span class="line">root     pts/0        10.71.22.140     Thu Sep  1 08:38 - 09:33  (00:55)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00   still running</span><br><span class="line">root     pts/0        10.8.3.28        Wed Aug 31 23:58 - crash (-19235+15:58)</span><br><span class="line">root     pts/1        10.8.3.28        Wed Aug 31 23:13 - crash (-19235+15:13)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:11 - 23:50  (00:38)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:06 - 23:11  (00:04)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:03 - 23:06  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:02 - 23:02  (00:00)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 23:00 - 23:02  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 22:57 - 22:58  (00:01)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 22:54 - 22:56  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Wed Aug 31 22:31 - 22:52  (00:21)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:28 - 14:29  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:28 - 14:28  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:19 - 14:19  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:19 - 14:19  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:16 - 14:19  (00:02)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00   still running</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:14 - down   (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:13 - 14:14  (00:00)</span><br><span class="line">root     pts/0        10.73.159.18     Wed Aug 31 14:10 - 14:13  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 22:26 - 14:10  (15:43)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 20:46 - 22:26  (01:39)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 20:42 - 20:45  (00:02)</span><br><span class="line">root     pts/2        10.67.44.114     Tue Aug 30 20:11 - 20:13  (00:01)</span><br><span class="line">root     pts/2        127.0.0.1        Tue Aug 30 20:09 - 20:10  (00:01)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 18:33 - 20:31  (01:58)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 17:31 - 18:33  (01:01)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 16:49 - 16:58  (00:09)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 15:57 - 16:27  (00:30)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 14:56 - 15:06  (00:10)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 14:48 - 14:51  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 14:36 - 14:44  (00:08)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 14:21 - 14:24  (00:02)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 13:34 - 14:20  (00:45)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 13:13 - 13:14  (00:00)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 12:43 - 13:13  (00:29)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 12:31 - 12:39  (00:08)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 14:14 (19235+06:14)</span><br><span class="line">root     pts/1        127.0.0.1        Tue Aug 30 12:12 - down   (00:17)</span><br><span class="line">root     pts/1        127.0.0.1        Tue Aug 30 12:12 - 12:12  (00:00)</span><br><span class="line">root     pts/0        127.0.0.1        Tue Aug 30 12:10 - down   (00:19)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 12:30 (19234+04:30)</span><br><span class="line">root     pts/0        127.0.0.1        Mon Aug 29 08:57 - 10:01  (01:04)</span><br><span class="line">root     pts/0        127.0.0.1        Mon Aug 29 08:49 - 08:57  (00:08)</span><br><span class="line">root     pts/0        127.0.0.1        Mon Aug 29 08:16 - 08:17  (00:01)</span><br><span class="line">root     pts/0        127.0.0.1        Mon Aug 29 08:16 - 08:16  (00:00)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 12:30 (19234+04:30)</span><br><span class="line">root     pts/0        10.8.3.28        Sun Aug 28 21:53 - 22:10  (00:17)</span><br><span class="line">root     pts/0        10.8.3.28        Sun Aug 28 20:17 - 21:44  (01:27)</span><br><span class="line">root     pts/0        10.8.3.28        Sun Aug 28 20:12 - 20:12  (00:00)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 12:30 (19234+04:30)</span><br><span class="line">root     pts/0        192.168.1.100    Sun Aug 28 13:27 - crash (-19232+05:27)</span><br><span class="line">pi       pts/0        192.168.1.100    Sun Aug 28 01:10 - 01:15  (00:04)</span><br><span class="line">root     pts/1        127.0.0.1        Sun Aug 28 00:45 - 00:45  (00:00)</span><br><span class="line">root     pts/1        127.0.0.1        Sun Aug 28 00:45 - 00:45  (00:00)</span><br><span class="line">pi       pts/0        192.168.1.100    Sun Aug 28 00:30 - 01:09  (00:38)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 12:30 (19234+04:30)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 18:13 (17941+10:13)</span><br><span class="line">reboot   system boot  5.10.78-Release- Thu Jan  1 08:00 - 18:12 (17941+10:12)</span><br><span class="line"></span><br><span class="line">wtmp begins Thu Jan  1 08:00:03 1970</span><br></pre></td></tr></table></figure>
-
-<h1 id="ulimit"><a href="#ulimit" class="headerlink" title="ulimit"></a>ulimit</h1><blockquote>
-<p>Too many open files是Linux系统中常见的错误，从字面意思上看就是说程序打开的文件数过多，不过这里的files不单是文件的意思，也包括打开的通讯链接(比如socket)，正在监听的端口等等，所以有时候也可以叫做句柄(handle)，这个错误通常也可以叫做句柄数超出系统限制。引起的原因就是进程在某个时刻打开了超过系统限制的文件数量以及通讯链接数。</p>
-</blockquote>
-<p>通过命令ulimit -a可以查看当前系统设置的最大句柄数是多少</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">core file size          (blocks, -c) 0</span><br><span class="line">data seg size           (kbytes, -d) unlimited</span><br><span class="line">scheduling priority             (-e) 0</span><br><span class="line">file size               (blocks, -f) unlimited</span><br><span class="line">pending signals                 (-i) 31767</span><br><span class="line">max locked memory       (kbytes, -l) 64</span><br><span class="line">max memory size         (kbytes, -m) unlimited</span><br><span class="line">open files                      (-n) 1024</span><br><span class="line">pipe size            (512 bytes, -p) 8</span><br><span class="line">POSIX message queues     (bytes, -q) 819200</span><br><span class="line">real-time priority              (-r) 0</span><br><span class="line">stack size              (kbytes, -s) 8192</span><br><span class="line">cpu time               (seconds, -t) unlimited</span><br><span class="line">max user processes              (-u) 31767</span><br><span class="line">virtual memory          (kbytes, -v) unlimited</span><br><span class="line">file locks                      (-x) unlimited</span><br></pre></td></tr></table></figure>
-
-<p>可以看到，open files的配置是1024，可以通过如下命令将open files增加</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ulimit</span> -n 65535</span><br></pre></td></tr></table></figure>
-
-<p>这种修改方式可以临时把文件打开数量增加到65535，但是系统重启后这个配置会失效。</p>
-<p>还有一种方式是修改系统的配置文件，以Ubuntu为例，配置文件默认在</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/security/limits.conf</span><br></pre></td></tr></table></figure>
-
-<p>在这个配置文件中增加</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* soft nofile 65535</span><br><span class="line">* hard nofile 65535</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1686,7 +1684,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
