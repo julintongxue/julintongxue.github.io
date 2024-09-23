@@ -1227,6 +1227,55 @@
       </tags>
   </entry>
   <entry>
+    <title>PHP_Study</title>
+    <url>/2022/03/28/PHP-Study/</url>
+    <content><![CDATA[<h2 id="php连接数据库"><a href="#php连接数据库" class="headerlink" title="php连接数据库"></a>php连接数据库</h2><p>第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">var_dump(<span class="variable">$conn</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>返回这个说明连接成功</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153359251.png" alt="image-20230328153359251"></p>
+<p><strong>返回这个说明数据库连接失败，可能是ip错了</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153537406.png" alt="image-20230328153537406"></p>
+<p><strong>返回这个说明是数据库账号错了</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153756724.png" alt="image-20230328153756724"></p>
+<p><strong>返回这个说明是数据库密码错了</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328153829750.png" alt="image-20230328153829750"></p>
+<p><strong>接下来开始连接数据库然后打印数据库表内容</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">// 执行SQL语句,这里是意思是把整张test02表格输出</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">var_dump(<span class="variable">$result</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>*<em>看到这个说明我们执行成功，后面int(4)说我们有4条记录，我们数据表确实有4条记录，那么为啥没有具体是查询出来捏<del>(￣▽￣)</del><em>，我们得转换一下将执行结果转换成为结果集</em></em></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328154327099.png" alt="image-20230328154327099"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">// 执行SQL语句,这里是意思是把整张test02表格输出</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line"><span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>);</span><br><span class="line">var_dump(<span class="variable">$data</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>下面这个则是输出值:(你会发现，为啥我四行的数据表只输出了一行)</strong></p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328155530623.png" alt="image-20230328155530623"></p>
+<p><strong>这个时候，我们使用循环遍历，把一个个数据表遍历出来</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">	var_dump(<span class="variable">$data</span>);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/28/PHP-Study/image-20230328161200638.png" alt="image-20230328161200638"></p>
+<p><strong>数据都遍历出来了，但是很密集，我这给它空几行</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    var_dump(<span class="variable">$data</span>);</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>这样看就舒服多了，是不是捏<del>(￣▽￣)</del></strong>*</p>
+<p><img src="/2022/03/28/PHP-Study/image-20230328161509400.png" alt="image-20230328161509400"></p>
+<p><strong>如果我需要它的名字怎么办？</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT name FROM test02&quot;</span>;       <span class="comment">#这里把*改name</span></span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    var_dump(<span class="variable">$data</span>);</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/28/PHP-Study/image-20230328161904981.png" alt="image-20230328161904981"></p>
+<p><strong>但是，还是不够简洁，那么可以改成这样</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;       <span class="comment">#这里把name改*也可以</span></span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$data</span>[<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/28/PHP-Study/image-20230328162301304.png" alt="image-20230328162301304"></p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Manjaro-生存手册</title>
     <url>/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/</url>
     <content><![CDATA[<p>[toc]</p>
@@ -1551,55 +1600,6 @@
       <tags>
         <tag>Arch</tag>
         <tag>Manjaro</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP_Study</title>
-    <url>/2022/03/28/PHP-Study/</url>
-    <content><![CDATA[<h2 id="php连接数据库"><a href="#php连接数据库" class="headerlink" title="php连接数据库"></a>php连接数据库</h2><p>第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">var_dump(<span class="variable">$conn</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>返回这个说明连接成功</strong></p>
-<p><img src="/2022/03/28/PHP-Study/image-20230328153359251.png" alt="image-20230328153359251"></p>
-<p><strong>返回这个说明数据库连接失败，可能是ip错了</strong></p>
-<p><img src="/2022/03/28/PHP-Study/image-20230328153537406.png" alt="image-20230328153537406"></p>
-<p><strong>返回这个说明是数据库账号错了</strong></p>
-<p><img src="/2022/03/28/PHP-Study/image-20230328153756724.png" alt="image-20230328153756724"></p>
-<p><strong>返回这个说明是数据库密码错了</strong></p>
-<p><img src="/2022/03/28/PHP-Study/image-20230328153829750.png" alt="image-20230328153829750"></p>
-<p><strong>接下来开始连接数据库然后打印数据库表内容</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">// 执行SQL语句,这里是意思是把整张test02表格输出</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">var_dump(<span class="variable">$result</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>*<em>看到这个说明我们执行成功，后面int(4)说我们有4条记录，我们数据表确实有4条记录，那么为啥没有具体是查询出来捏<del>(￣▽￣)</del><em>，我们得转换一下将执行结果转换成为结果集</em></em></p>
-<p><img src="/2022/03/28/PHP-Study/image-20230328154327099.png" alt="image-20230328154327099"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">// 执行SQL语句,这里是意思是把整张test02表格输出</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line"><span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>);</span><br><span class="line">var_dump(<span class="variable">$data</span>);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>下面这个则是输出值:(你会发现，为啥我四行的数据表只输出了一行)</strong></p>
-<p><img src="/2022/03/28/PHP-Study/image-20230328155530623.png" alt="image-20230328155530623"></p>
-<p><strong>这个时候，我们使用循环遍历，把一个个数据表遍历出来</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">	var_dump(<span class="variable">$data</span>);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/03/28/PHP-Study/image-20230328161200638.png" alt="image-20230328161200638"></p>
-<p><strong>数据都遍历出来了，但是很密集，我这给它空几行</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    var_dump(<span class="variable">$data</span>);</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>这样看就舒服多了，是不是捏<del>(￣▽￣)</del></strong>*</p>
-<p><img src="/2022/03/28/PHP-Study/image-20230328161509400.png" alt="image-20230328161509400"></p>
-<p><strong>如果我需要它的名字怎么办？</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT name FROM test02&quot;</span>;       <span class="comment">#这里把*改name</span></span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    var_dump(<span class="variable">$data</span>);</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/03/28/PHP-Study/image-20230328161904981.png" alt="image-20230328161904981"></p>
-<p><strong>但是，还是不够简洁，那么可以改成这样</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//第一步确认数据库的位置，用户名，密码，位置，ip地址或者网址,后面or die是前面发生错误就会触发后面提示</span><br><span class="line"><span class="variable">$conn</span> = mysqli_connect(<span class="string">&#x27;10.71.10.25&#x27;</span>,<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;Asimov&#x27;</span>) or die(<span class="string">&#x27;链接mysql数据库服务器失败&#x27;</span>);</span><br><span class="line">//选择要操作的数据库</span><br><span class="line">mysqli_select_db(<span class="variable">$conn</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">//设置数据库的编码格式</span><br><span class="line">mysqli_query(<span class="variable">$conn</span>,<span class="string">&#x27;set names utf8&#x27;</span>);</span><br><span class="line">//var_dump(<span class="variable">$conn</span>);</span><br><span class="line">// 执行SQL语句</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM test02&quot;</span>;       <span class="comment">#这里把name改*也可以</span></span><br><span class="line"><span class="variable">$result</span> = mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line">// 将执行结果转换成为结果集</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$data</span> = mysqli_fetch_assoc(<span class="variable">$result</span>))&#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$data</span>[<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/03/28/PHP-Study/image-20230328162301304.png" alt="image-20230328162301304"></p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>PHP</tag>
       </tags>
   </entry>
   <entry>
@@ -3416,6 +3416,35 @@
       </tags>
   </entry>
   <entry>
+    <title>python多进程和多线程</title>
+    <url>/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
+    <content><![CDATA[<h3 id="python单进程"><a href="#python单进程" class="headerlink" title="python单进程"></a>python单进程</h3><h4 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ping</span>(<span class="params">host</span>):</span><br><span class="line">    result = subprocess.run(</span><br><span class="line">        <span class="string">&#x27;ping -c2 %s &amp;&gt; /dev/null&#x27;</span> % host,shell=<span class="literal">True</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">if</span> result.returncode == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:up&#x27;</span>% host)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:down&#x27;</span>% host)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    ips = [<span class="string">&#x27;192.168.0.%s&#x27;</span> %i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">255</span>)]</span><br><span class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> ips:</span><br><span class="line">        ping(ip)</span><br></pre></td></tr></table></figure>
+
+<p><strong>这个会ping得很慢，因为要等待前一个进程得到结果才能运行下一个命令</strong></p>
+<h3 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h3><h4 id="ping2"><a href="#ping2" class="headerlink" title="ping2"></a>ping2</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ping</span>(<span class="params">host</span>):</span><br><span class="line">    result = subprocess.run(</span><br><span class="line">        <span class="string">&#x27;ping -c2 %s &amp;&gt; /dev/null&#x27;</span> % host,shell=<span class="literal">True</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">if</span> result.returncode == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:up&#x27;</span>% host)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:down&#x27;</span>% host)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    ips = [<span class="string">&#x27;192.168.0.%s&#x27;</span> %i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">255</span>)]</span><br><span class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> ips:</span><br><span class="line">        ret_val = os.fork()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> ret_val:    </span><br><span class="line">            ping(ip)</span><br><span class="line">            exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>这个就会很快，因为用了多进程的概念(注意：是多进程不是多线程)</strong></p>
+<p><strong>Windows是没有多进程的概念的，只有多线程；Linux有多进程和多线程的概念，两者要注意分开！！！！</strong></p>
+<h3 id="产生僵死进程"><a href="#产生僵死进程" class="headerlink" title="产生僵死进程"></a>产生僵死进程</h3><h4 id="frozen-process"><a href="#frozen-process" class="headerlink" title="frozen_process"></a>frozen_process</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;starting&#x27;</span>)</span><br><span class="line">ret_val = os.fork()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ret_val:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in parent&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">30</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;parent done&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in child&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">15</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;child done&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20231023104631420.png" alt="image-20231023104631420"></p>
+<p><img src="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20231023104703212.png" alt="image-20231023104703212"></p>
+<h3 id="线程挂起与不挂起-os-waitpid"><a href="#线程挂起与不挂起-os-waitpid" class="headerlink" title="线程挂起与不挂起_os.waitpid()"></a>线程挂起与不挂起_os.waitpid()</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">os.waitpid(-1,0) <span class="comment"># 挂起父进程，子进程会被父进程看管，子进程一旦干完活马上被父进程杀死。期间不会产生僵死进程</span></span><br><span class="line">os.waitpid(-1,1) <span class="comment"># 不挂起父进程，子进程不会被父进程看管，会产生僵死进程。如父进程时间到了，结束了进程，子进程如果还有东西运行就继续运行下去(父进程迁移成为system)，如果没有运行的东西(父进程迁移成为system)被system马上杀死</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="挂起父进程"><a href="#挂起父进程" class="headerlink" title="挂起父进程"></a>挂起父进程</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;starting&#x27;</span>)</span><br><span class="line">ret_val = os.fork()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ret_val:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in parent&#x27;</span>)</span><br><span class="line">    result = os.waitpid(-<span class="number">1</span>,<span class="number">0</span>)   <span class="comment"># 挂起父进程</span></span><br><span class="line">    <span class="built_in">print</span>(result)               <span class="comment"># result是元组:(子进程pid，0)</span></span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;parent done&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in child&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;child done&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>父进程<code>print(&#39;in parent&#39;)</code>，然后运行到<code>os.waitpid(-1,0)</code>父进程挂起,子进程干活<code>print(&#39;in child&#39;)</code>,睡觉5秒后<code>print(&#39;child done&#39;)</code>,父进程开始杀死子进程，并且打印<code>print(result)</code>，睡觉3秒后<code>print(&#39;parent done&#39;)</code></p>
+<h4 id="不挂起父进程"><a href="#不挂起父进程" class="headerlink" title="不挂起父进程"></a>不挂起父进程</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;starting&#x27;</span>)</span><br><span class="line">ret_val = os.fork()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ret_val:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in parent&#x27;</span>)</span><br><span class="line">    result = os.waitpid(-<span class="number">1</span>,<span class="number">1</span>)   <span class="comment"># 不挂起父进程</span></span><br><span class="line">    <span class="built_in">print</span>(result)               <span class="comment"># result是元组:(0，0)</span></span><br><span class="line">    time.sleep(<span class="number">10</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;parent done&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in child&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;child done&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>pte</title>
     <url>/2023/01/14/pte/</url>
     <content><![CDATA[<p>[toc]</p>
@@ -3447,35 +3476,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>python多进程和多线程</title>
-    <url>/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
-    <content><![CDATA[<h3 id="python单进程"><a href="#python单进程" class="headerlink" title="python单进程"></a>python单进程</h3><h4 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ping</span>(<span class="params">host</span>):</span><br><span class="line">    result = subprocess.run(</span><br><span class="line">        <span class="string">&#x27;ping -c2 %s &amp;&gt; /dev/null&#x27;</span> % host,shell=<span class="literal">True</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">if</span> result.returncode == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:up&#x27;</span>% host)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:down&#x27;</span>% host)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    ips = [<span class="string">&#x27;192.168.0.%s&#x27;</span> %i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">255</span>)]</span><br><span class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> ips:</span><br><span class="line">        ping(ip)</span><br></pre></td></tr></table></figure>
-
-<p><strong>这个会ping得很慢，因为要等待前一个进程得到结果才能运行下一个命令</strong></p>
-<h3 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h3><h4 id="ping2"><a href="#ping2" class="headerlink" title="ping2"></a>ping2</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ping</span>(<span class="params">host</span>):</span><br><span class="line">    result = subprocess.run(</span><br><span class="line">        <span class="string">&#x27;ping -c2 %s &amp;&gt; /dev/null&#x27;</span> % host,shell=<span class="literal">True</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">if</span> result.returncode == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:up&#x27;</span>% host)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s:down&#x27;</span>% host)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    ips = [<span class="string">&#x27;192.168.0.%s&#x27;</span> %i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">255</span>)]</span><br><span class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> ips:</span><br><span class="line">        ret_val = os.fork()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> ret_val:    </span><br><span class="line">            ping(ip)</span><br><span class="line">            exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>这个就会很快，因为用了多进程的概念(注意：是多进程不是多线程)</strong></p>
-<p><strong>Windows是没有多进程的概念的，只有多线程；Linux有多进程和多线程的概念，两者要注意分开！！！！</strong></p>
-<h3 id="产生僵死进程"><a href="#产生僵死进程" class="headerlink" title="产生僵死进程"></a>产生僵死进程</h3><h4 id="frozen-process"><a href="#frozen-process" class="headerlink" title="frozen_process"></a>frozen_process</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;starting&#x27;</span>)</span><br><span class="line">ret_val = os.fork()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ret_val:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in parent&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">30</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;parent done&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in child&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">15</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;child done&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20231023104631420.png" alt="image-20231023104631420"></p>
-<p><img src="/2023/10/23/python%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20231023104703212.png" alt="image-20231023104703212"></p>
-<h3 id="线程挂起与不挂起-os-waitpid"><a href="#线程挂起与不挂起-os-waitpid" class="headerlink" title="线程挂起与不挂起_os.waitpid()"></a>线程挂起与不挂起_os.waitpid()</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">os.waitpid(-1,0) <span class="comment"># 挂起父进程，子进程会被父进程看管，子进程一旦干完活马上被父进程杀死。期间不会产生僵死进程</span></span><br><span class="line">os.waitpid(-1,1) <span class="comment"># 不挂起父进程，子进程不会被父进程看管，会产生僵死进程。如父进程时间到了，结束了进程，子进程如果还有东西运行就继续运行下去(父进程迁移成为system)，如果没有运行的东西(父进程迁移成为system)被system马上杀死</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="挂起父进程"><a href="#挂起父进程" class="headerlink" title="挂起父进程"></a>挂起父进程</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;starting&#x27;</span>)</span><br><span class="line">ret_val = os.fork()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ret_val:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in parent&#x27;</span>)</span><br><span class="line">    result = os.waitpid(-<span class="number">1</span>,<span class="number">0</span>)   <span class="comment"># 挂起父进程</span></span><br><span class="line">    <span class="built_in">print</span>(result)               <span class="comment"># result是元组:(子进程pid，0)</span></span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;parent done&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in child&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;child done&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>父进程<code>print(&#39;in parent&#39;)</code>，然后运行到<code>os.waitpid(-1,0)</code>父进程挂起,子进程干活<code>print(&#39;in child&#39;)</code>,睡觉5秒后<code>print(&#39;child done&#39;)</code>,父进程开始杀死子进程，并且打印<code>print(result)</code>，睡觉3秒后<code>print(&#39;parent done&#39;)</code></p>
-<h4 id="不挂起父进程"><a href="#不挂起父进程" class="headerlink" title="不挂起父进程"></a>不挂起父进程</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;starting&#x27;</span>)</span><br><span class="line">ret_val = os.fork()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ret_val:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in parent&#x27;</span>)</span><br><span class="line">    result = os.waitpid(-<span class="number">1</span>,<span class="number">1</span>)   <span class="comment"># 不挂起父进程</span></span><br><span class="line">    <span class="built_in">print</span>(result)               <span class="comment"># result是元组:(0，0)</span></span><br><span class="line">    time.sleep(<span class="number">10</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;parent done&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;in child&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;child done&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python爬虫和数据分析</title>
     <url>/2023/03/17/python%E7%88%AC%E8%99%AB%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。">
@@ -3497,6 +3497,47 @@
         <tag>python</tag>
         <tag>python爬虫</tag>
         <tag>python数据分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>raspberry(搁浅)</title>
+    <url>/2022/07/17/raspberry/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h1 id="raspberry-搁浅"><a href="#raspberry-搁浅" class="headerlink" title="raspberry(搁浅)"></a>raspberry(搁浅)</h1><h2 id="基础入门"><a href="#基础入门" class="headerlink" title="基础入门"></a>基础入门</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><h3 id="2-远程连接"><a href="#2-远程连接" class="headerlink" title="2.远程连接"></a>2.远程连接</h3><h4 id="window端远程连接"><a href="#window端远程连接" class="headerlink" title="window端远程连接"></a>window端远程连接</h4><p>要使用window的远程连接<code>mstsc</code>的话需要树莓派安装了<code>xrdp</code>这个软件；当然如果你觉得自带的不香的话也可以用树莓派自带的<code>vnc</code>，这得需要你去官网下一个<code>vncviewer</code>  这个客户端</p>
+<p><strong>raspberry设置</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
+
+<h4 id="linux端远程连接"><a href="#linux端远程连接" class="headerlink" title="linux端远程连接"></a>linux端远程连接</h4><p>将树莓派打开<code>vnc</code>功能，然后就可以通过vnc远程连接了</p>
+<p><strong>raspberry设置</strong></p>
+<p>因为我使用的系统是manjaro那么我就推荐arch的软件咯</p>
+<p><strong>manjaro设置</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay -S realvnc-vnc-viewer</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="虚拟篇"><a href="#虚拟篇" class="headerlink" title="虚拟篇"></a>虚拟篇</h2><h3 id="exsi虚拟化"><a href="#exsi虚拟化" class="headerlink" title="exsi虚拟化"></a>exsi虚拟化</h3><h4 id="一-树莓派更新"><a href="#一-树莓派更新" class="headerlink" title="一.树莓派更新"></a>一.树莓派更新</h4><h4 id="二-前期步骤"><a href="#二-前期步骤" class="headerlink" title="二.前期步骤"></a>二.前期步骤</h4><ul>
+<li><p><a href="https://flings.vmware.com/esxi-arm-edition">exsi官方下载地址</a></p>
+</li>
+<li><p><a href="https://bit.ly/2HpIaG6">最新的 Raspberry Pi 固件</a></p>
+</li>
+<li><p><a href="https://bit.ly/3jota8D">UEFI 树莓派固件</a></p>
+</li>
+</ul>
+<p>下载到以上的文件之后，先解压<code>firmware-master.zip</code>这个文件，弹出文件是否替换，单击<code>全部选否</code>，解压完成之后进入<code>boot</code>文件目录，拷贝里面的全部内容到你格式化好的tf卡中，并且删除掉这几个<code>kernel*</code>的文件。</p>
+<p><img src="/2022/07/17/raspberry/image-20220719185945121-1658231139940.png" alt="image-20220719185945121"></p>
+<p><img src="/2022/07/17/raspberry/image-20220719191049021-1658231139941.png" alt="image-20220719191049021"></p>
+<p><img src="/2022/07/17/raspberry/image-20220719191232782-1658231139941.png" alt="image-20220719191232782"></p>
+<p>接下来解压<code>RPi4_UEFI_Firmware_v1.20</code>压缩包，把里面的所有的内容拷贝到tf卡里面，弹出是否要替换文件的时候选择<code>替换目标中的文件</code></p>
+<p><img src="/2022/07/17/raspberry/image-20220719192054052-1658231139941.png" alt="image-20220719192054052"></p>
+<p>在<code>config.txt</code>文件中添加<code>gpu_mem=16</code></p>
+<p><img src="/2022/07/17/raspberry/image-20220719192730271-1658231139941.png" alt="image-20220719192730271"></p>
+<h4 id="三-exsi-install"><a href="#三-exsi-install" class="headerlink" title="三.exsi install"></a>三.exsi install</h4>]]></content>
+      <categories>
+        <category>娱乐单片机</category>
+      </categories>
+      <tags>
+        <tag>树莓派</tag>
+        <tag>单片机</tag>
       </tags>
   </entry>
   <entry>
@@ -3622,47 +3663,6 @@
 <p><strong>开头的显示没有问题，但是第二行出现了乱码。</strong></p>
 <p><img src="/2023/03/16/raspberry-400/IMG_20230418_142443.jpg" alt="IMG_20230418_142443"></p>
 ]]></content>
-      <categories>
-        <category>娱乐单片机</category>
-      </categories>
-      <tags>
-        <tag>树莓派</tag>
-        <tag>单片机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>raspberry(搁浅)</title>
-    <url>/2022/07/17/raspberry/</url>
-    <content><![CDATA[<p>[toc]</p>
-<h1 id="raspberry-搁浅"><a href="#raspberry-搁浅" class="headerlink" title="raspberry(搁浅)"></a>raspberry(搁浅)</h1><h2 id="基础入门"><a href="#基础入门" class="headerlink" title="基础入门"></a>基础入门</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><h3 id="2-远程连接"><a href="#2-远程连接" class="headerlink" title="2.远程连接"></a>2.远程连接</h3><h4 id="window端远程连接"><a href="#window端远程连接" class="headerlink" title="window端远程连接"></a>window端远程连接</h4><p>要使用window的远程连接<code>mstsc</code>的话需要树莓派安装了<code>xrdp</code>这个软件；当然如果你觉得自带的不香的话也可以用树莓派自带的<code>vnc</code>，这得需要你去官网下一个<code>vncviewer</code>  这个客户端</p>
-<p><strong>raspberry设置</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
-
-<h4 id="linux端远程连接"><a href="#linux端远程连接" class="headerlink" title="linux端远程连接"></a>linux端远程连接</h4><p>将树莓派打开<code>vnc</code>功能，然后就可以通过vnc远程连接了</p>
-<p><strong>raspberry设置</strong></p>
-<p>因为我使用的系统是manjaro那么我就推荐arch的软件咯</p>
-<p><strong>manjaro设置</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yay -S realvnc-vnc-viewer</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="虚拟篇"><a href="#虚拟篇" class="headerlink" title="虚拟篇"></a>虚拟篇</h2><h3 id="exsi虚拟化"><a href="#exsi虚拟化" class="headerlink" title="exsi虚拟化"></a>exsi虚拟化</h3><h4 id="一-树莓派更新"><a href="#一-树莓派更新" class="headerlink" title="一.树莓派更新"></a>一.树莓派更新</h4><h4 id="二-前期步骤"><a href="#二-前期步骤" class="headerlink" title="二.前期步骤"></a>二.前期步骤</h4><ul>
-<li><p><a href="https://flings.vmware.com/esxi-arm-edition">exsi官方下载地址</a></p>
-</li>
-<li><p><a href="https://bit.ly/2HpIaG6">最新的 Raspberry Pi 固件</a></p>
-</li>
-<li><p><a href="https://bit.ly/3jota8D">UEFI 树莓派固件</a></p>
-</li>
-</ul>
-<p>下载到以上的文件之后，先解压<code>firmware-master.zip</code>这个文件，弹出文件是否替换，单击<code>全部选否</code>，解压完成之后进入<code>boot</code>文件目录，拷贝里面的全部内容到你格式化好的tf卡中，并且删除掉这几个<code>kernel*</code>的文件。</p>
-<p><img src="/2022/07/17/raspberry/image-20220719185945121-1658231139940.png" alt="image-20220719185945121"></p>
-<p><img src="/2022/07/17/raspberry/image-20220719191049021-1658231139941.png" alt="image-20220719191049021"></p>
-<p><img src="/2022/07/17/raspberry/image-20220719191232782-1658231139941.png" alt="image-20220719191232782"></p>
-<p>接下来解压<code>RPi4_UEFI_Firmware_v1.20</code>压缩包，把里面的所有的内容拷贝到tf卡里面，弹出是否要替换文件的时候选择<code>替换目标中的文件</code></p>
-<p><img src="/2022/07/17/raspberry/image-20220719192054052-1658231139941.png" alt="image-20220719192054052"></p>
-<p>在<code>config.txt</code>文件中添加<code>gpu_mem=16</code></p>
-<p><img src="/2022/07/17/raspberry/image-20220719192730271-1658231139941.png" alt="image-20220719192730271"></p>
-<h4 id="三-exsi-install"><a href="#三-exsi-install" class="headerlink" title="三.exsi install"></a>三.exsi install</h4>]]></content>
       <categories>
         <category>娱乐单片机</category>
       </categories>
@@ -4476,17 +4476,6 @@
       </tags>
   </entry>
   <entry>
-    <title>有趣的Web页面</title>
-    <url>/2022/11/17/%E6%9C%89%E8%B6%A3%E7%9A%84Web%E9%A1%B5%E9%9D%A2/</url>
-    <content><![CDATA[<div class="pdfobject-container" data-target="OrangePi.pdf" data-height="500px"></div>]]></content>
-      <categories>
-        <category>黑科技</category>
-      </categories>
-      <tags>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>树莓派400和创乐博的碰撞结合</title>
     <url>/2024/01/04/%E6%A0%91%E8%8E%93%E6%B4%BE400%E5%92%8C%E5%88%9B%E4%B9%90%E5%8D%9A%E7%9A%84%E7%A2%B0%E6%92%9E%E7%BB%93%E5%90%88/</url>
     <content><![CDATA[<p>[toc]</p>
@@ -4528,6 +4517,17 @@
       </tags>
   </entry>
   <entry>
+    <title>有趣的Web页面</title>
+    <url>/2022/11/17/%E6%9C%89%E8%B6%A3%E7%9A%84Web%E9%A1%B5%E9%9D%A2/</url>
+    <content><![CDATA[<div class="pdfobject-container" data-target="OrangePi.pdf" data-height="500px"></div>]]></content>
+      <categories>
+        <category>黑科技</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>树莓派4b发射wifi</title>
     <url>/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/</url>
     <content><![CDATA[<p><strong>Raspberry Pi 4B板载了无线网络适配器，不需要额外增加无线网卡就可以把它打造成一个无线路由器。有一种方法是给Raspberry Pi刷上OpenWRT等路由器固件，这样它就变成了一个比较正宗的路由器。另一种方法是开启树莓派无线网络适配器的AP功能，并且共享其有线网络。这样依然使用Raspbian系统，可以发挥Raspiberry Pi作为一个微型服务器的优势。</strong></p>
@@ -4558,49 +4558,6 @@
 <img src="/2023/08/13/%E6%A0%91%E8%8E%93%E6%B4%BE4b%E5%8F%91%E5%B0%84wifi/微信图片_20230813002548-1691857577096.jpg" alt="微信图片_20230813002548" style="zoom:50%;">
 
 <p><strong>这里默认是wifi4的<code>802.11n</code>，不知道为啥我强制选择<code>802.11n</code>或者<code>802.11ac</code>都是wifi4的<code>802.11n</code>而且是2.4Ghz的，无论远近都不自适应跳转5Ghz，可能这就是bug或者没完善吧！</strong></p>
-]]></content>
-      <categories>
-        <category>娱乐单片机</category>
-      </categories>
-      <tags>
-        <tag>树莓派</tag>
-        <tag>单片机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>树莓派vnc远程桌面</title>
-    <url>/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/</url>
-    <content><![CDATA[<p>[toc]</p>
-<h2 id="开启-VNC-服务"><a href="#开启-VNC-服务" class="headerlink" title="开启 VNC 服务"></a>开启 VNC 服务</h2><p>在命令行输入：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010356098.png" alt="image-20230802010356098"></p>
-<p>选择<code>Interface Options</code>，然后回车</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010448952.png" alt="image-20230802010448952"></p>
-<p>然后选择<code>VNC</code>，然后回车，再选择<code>Yes</code>开启</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010515821.png" alt="image-20230802010515821"></p>
-<p>弹出下面这话即开启成功</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010600332.png" alt="image-20230802010600332"></p>
-<h2 id="设置分辨率"><a href="#设置分辨率" class="headerlink" title="设置分辨率"></a>设置分辨率</h2><p>还是在命令行输入之后那个界面</p>
-<p>选择<code>Display Options</code>选项</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010837297.png" alt="image-20230802010837297"></p>
-<p>然后选择<code>D5 VNC Resolution...</code>，然后回车，再选择<code>合适的分辨率（1920*1080）</code>，然后回车即可</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010924329.png" alt="image-20230802010924329"></p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011043166.png" alt="image-20230802011043166"></p>
-<p>弹出下图直接回车即可</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011121714.png" alt="image-20230802011121714"></p>
-<p>设置完成记得<code>finish</code>，树莓派会自动<code>reboot</code>,那么接下来VNC就看到<code>1920*1080</code>的远程桌面了</p>
-<h2 id="VNC-远程桌面"><a href="#VNC-远程桌面" class="headerlink" title="VNC 远程桌面"></a>VNC 远程桌面</h2><p>下载<code>win版</code>VNC就可以远程树莓派了</p>
-<p><a href="https://www.realvnc.com/en/connect/download/viewer/">VNC官网</a></p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011420613.png" alt="image-20230802011420613"></p>
-<p>下载好后点击安装，没有中文的，这才是正宗VNC，有中文的要警惕病毒</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011505719.png" alt="image-20230802011505719"></p>
-<p>安装好后直接打开，然后输入<code>ip</code>，然后回车,再选择<code>Continue</code>选项</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011748589.png" alt="image-20230802011748589"></p>
-<p>然后就弹出需要账号和密码，输入自己设置的管理员账号和密码或者用(官方的用户名是 pi，密码是 raspberry)</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011847484.png" alt="image-20230802011847484"></p>
-<p>ok之后就看到远程的树莓派桌面了</p>
-<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802094938075.png" alt="image-20230802094938075"></p>
 ]]></content>
       <categories>
         <category>娱乐单片机</category>
@@ -4713,6 +4670,49 @@
       </tags>
   </entry>
   <entry>
+    <title>树莓派vnc远程桌面</title>
+    <url>/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h2 id="开启-VNC-服务"><a href="#开启-VNC-服务" class="headerlink" title="开启 VNC 服务"></a>开启 VNC 服务</h2><p>在命令行输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010356098.png" alt="image-20230802010356098"></p>
+<p>选择<code>Interface Options</code>，然后回车</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010448952.png" alt="image-20230802010448952"></p>
+<p>然后选择<code>VNC</code>，然后回车，再选择<code>Yes</code>开启</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010515821.png" alt="image-20230802010515821"></p>
+<p>弹出下面这话即开启成功</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010600332.png" alt="image-20230802010600332"></p>
+<h2 id="设置分辨率"><a href="#设置分辨率" class="headerlink" title="设置分辨率"></a>设置分辨率</h2><p>还是在命令行输入之后那个界面</p>
+<p>选择<code>Display Options</code>选项</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010837297.png" alt="image-20230802010837297"></p>
+<p>然后选择<code>D5 VNC Resolution...</code>，然后回车，再选择<code>合适的分辨率（1920*1080）</code>，然后回车即可</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802010924329.png" alt="image-20230802010924329"></p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011043166.png" alt="image-20230802011043166"></p>
+<p>弹出下图直接回车即可</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011121714.png" alt="image-20230802011121714"></p>
+<p>设置完成记得<code>finish</code>，树莓派会自动<code>reboot</code>,那么接下来VNC就看到<code>1920*1080</code>的远程桌面了</p>
+<h2 id="VNC-远程桌面"><a href="#VNC-远程桌面" class="headerlink" title="VNC 远程桌面"></a>VNC 远程桌面</h2><p>下载<code>win版</code>VNC就可以远程树莓派了</p>
+<p><a href="https://www.realvnc.com/en/connect/download/viewer/">VNC官网</a></p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011420613.png" alt="image-20230802011420613"></p>
+<p>下载好后点击安装，没有中文的，这才是正宗VNC，有中文的要警惕病毒</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011505719.png" alt="image-20230802011505719"></p>
+<p>安装好后直接打开，然后输入<code>ip</code>，然后回车,再选择<code>Continue</code>选项</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011748589.png" alt="image-20230802011748589"></p>
+<p>然后就弹出需要账号和密码，输入自己设置的管理员账号和密码或者用(官方的用户名是 pi，密码是 raspberry)</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802011847484.png" alt="image-20230802011847484"></p>
+<p>ok之后就看到远程的树莓派桌面了</p>
+<p><img src="/2023/08/02/%E6%A0%91%E8%8E%93%E6%B4%BEvnc%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/image-20230802094938075.png" alt="image-20230802094938075"></p>
+]]></content>
+      <categories>
+        <category>娱乐单片机</category>
+      </categories>
+      <tags>
+        <tag>树莓派</tag>
+        <tag>单片机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>树莓派脚本</title>
     <url>/2024/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%84%9A%E6%9C%AC/</url>
     <content><![CDATA[<h2 id="make-swap-sh"><a href="#make-swap-sh" class="headerlink" title="make_swap.sh"></a>make_swap.sh</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否为root用户</span></span><br><span class="line"><span class="keyword">if</span> [ `<span class="built_in">id</span> -u` -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;请使用sudo或作为root用户运行此脚本以执行必要的操作。&quot;</span></span><br><span class="line">    <span class="comment">#在这里1是状态码，表示脚本执行出现了某种问题或错误。通常，成功的执行返回状态码为0，而非零的状态码通常表示错误或异常情况。</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提示用户输入交换文件大小</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">&quot;请输入交换文件大小（例如16G）: &quot;</span> swap_size</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证输入是否符合格式，以G结尾表示</span></span><br><span class="line"><span class="keyword">if</span> [[ ! <span class="variable">$swap_size</span> =~ ^[0-9]+[Gg]$ ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;无效的输入格式，请使用格式如&#x27;16G&#x27;表示大小。&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提示用户确认操作</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">&quot;将创建大小为 <span class="variable">$swap_size</span> 的交换文件，是否继续？(y/n): &quot;</span> confirm</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ ! <span class="variable">$confirm</span> =~ ^[Yy]$ ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;操作已取消.&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算交换文件大小（这里把上面获取到大小系数和1024相乘，例如，如果swap_size的值是&quot;16G&quot;，那么$&#123;swap_size%G&#125;将会得到&quot;16&quot;，去掉了末尾的 &quot;G&quot;。）</span></span><br><span class="line">swap_size=$(( <span class="variable">$&#123;swap_size%G&#125;</span> * <span class="number">1024</span> ))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建交换文件</span></span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=/swapfile bs=1M count=<span class="variable">$&#123;swap_size&#125;</span> status=progress</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置正确的权限</span></span><br><span class="line"><span class="built_in">chmod</span> 600 /swapfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化交换文件</span></span><br><span class="line">mkswap /swapfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启用交换文件</span></span><br><span class="line">swapon /swapfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将/swapfile追加到/etc/fstab文件内</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;/swapfile none swap defaults 0 0&#x27;</span> | sudo <span class="built_in">tee</span> -a /etc/fstab</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;交换文件创建成功并已启用，而且追加到/etc/fstab内。&quot;</span></span><br></pre></td></tr></table></figure>
@@ -4763,6 +4763,68 @@
       <tags>
         <tag>树莓派</tag>
         <tag>单片机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>版本切换工具篇</title>
+    <url>/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/</url>
+    <content><![CDATA[<h1 id="版本切换工具篇"><a href="#版本切换工具篇" class="headerlink" title="版本切换工具篇"></a>版本切换工具篇</h1><h2 id="JENV管理JDK"><a href="#JENV管理JDK" class="headerlink" title="JENV管理JDK"></a>JENV管理JDK</h2><p><strong>jdk全称”Java Development Kit“，指的是Java语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序的开发。jdk是java开发的核心，包括了JRE（Java运行环境）运行时类库、JVM（Java虚拟机）。</strong></p>
+<p><strong>一般，我们需要用到基于Java虚拟机的操作服务时，需要有JDK的环境，这样的Java有两个特点（Write once, run anywhere）：</strong></p>
+<ul>
+<li><strong>易于移植：只需要有Java的虚拟机（JDK）环境，即可运行Java程序。</strong></li>
+<li><strong>需要平台有Java虚拟机支持：Java程序有所限制，需要有Java环境支持</strong></li>
+</ul>
+<p><strong>大部分程序开发者，或者普通用户，都有了解过JDK的配置。但是：</strong></p>
+<ul>
+<li><strong>Linux服务器上怎么配置JDK呢？</strong></li>
+<li><strong>能否实现多版本JDK同时配置安装呢？</strong></li>
+</ul>
+<p><strong>本次教程，就在Linux（ubuntu系统）上安装多版本JDK，并使用Jenv管理JDK。</strong></p>
+<h3 id="安装思路"><a href="#安装思路" class="headerlink" title="安装思路"></a>安装思路</h3><h4 id="常规（传统）安装"><a href="#常规（传统）安装" class="headerlink" title="常规（传统）安装"></a>常规（传统）安装</h4><p><strong>我们通常安装JDK是：</strong></p>
+<ul>
+<li><strong>Centos系统使用<code>yum</code>包管理器安装&#x2F;Ubuntu使用<code>apt</code>包管理器安装，然后直接使用。</strong></li>
+<li><strong>上传源码包、解压源码包、在环境变量文件中追加<code>JAVA_HOME</code>然后<code>source</code>重载配置后使用。</strong></li>
+</ul>
+<h4 id="前卫安装"><a href="#前卫安装" class="headerlink" title="前卫安装"></a>前卫安装</h4><p><strong>在前面常规（传统）安装的前提下，追加<code>Jenv</code>的配置，实现JDK的切换：</strong></p>
+<p><strong>确定使用OpenJDK和JDK的版本之后，使用<a href="https://www.azul.com/downloads/?package=jdk#download-openjdk">ZuluJDK（一个OpenJDK的发行版本）</a></strong></p>
+<h5 id="安装JDK8"><a href="#安装JDK8" class="headerlink" title="安装JDK8"></a>安装JDK8</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># wget 下载源码包</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># wget https://cdn.azul.com/zulu/bin/zulu8.66.0.15-ca-jdk8.0.352-linux_x64.tar.gz</span></span><br><span class="line"><span class="comment"># 创建源码包保存目录</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># mkdir /JDK</span></span><br><span class="line"><span class="comment"># 解压源码包至保存目录</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># tar -xzvf zulu8.66.0.15-ca-jdk8.0.352-linux_x64.tar.gz -C /JDK/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置JAVA_HOME</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># vim .bashrc</span></span><br><span class="line"><span class="comment"># JAVA环境变量配置</span></span><br><span class="line">JAVA_HOME=/JDK/jdk8</span><br><span class="line">CLASSPATH=<span class="variable">$JAVA_HOME</span>/lib/</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin/</span><br><span class="line"><span class="built_in">export</span> PATH JAVA_HOME CLASSSPATH</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重载配置</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># source ~/.bashrc </span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看版本（JDK1.8就是JDK8）</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># java -version</span></span><br><span class="line">openjdk version <span class="string">&quot;1.8.0_352&quot;</span></span><br><span class="line">OpenJDK Runtime Environment (Zulu 8.66.0.15-CA-linux64) (build 1.8.0_352-b08)</span><br><span class="line">OpenJDK 64-Bit Server VM (Zulu 8.66.0.15-CA-linux64) (build 25.352-b08, mixed mode)</span><br></pre></td></tr></table></figure>
+
+<h3 id="多版本JDK管理"><a href="#多版本JDK管理" class="headerlink" title="多版本JDK管理"></a>多版本JDK管理</h3><h4 id="安装JENV"><a href="#安装JENV" class="headerlink" title="安装JENV"></a>安装JENV</h4><p><a href="https://www.jenv.be/">Jenv项目地址</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用git下载jenv源码到用户目录下的.jenv文件夹</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># git clone https://github.com/jenv/jenv.git ~/.jenv</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># vim .bashrc</span></span><br><span class="line"><span class="comment"># Jenv配置环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$HOME</span>/.jenv/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(jenv init -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重载配置(会出现“jenv has been updated, process to refresh plugin links”这句话，说明配置成功)</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># source ~/.bashrc </span></span><br></pre></td></tr></table></figure>
+
+<p><strong>现在jenv就可以使用了：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv help</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="切换JDK"><a href="#切换JDK" class="headerlink" title="切换JDK"></a>切换JDK</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看当前安装的JDK版本</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 局部JDK11</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv local 11</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 全局JDK11</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv global 11</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="管理JDK"><a href="#管理JDK" class="headerlink" title="管理JDK"></a>管理JDK</h4><p><strong>有时候，jenv的add扫描，扫描的内容过多怎么办呢？比如，我只添加了JDK8、JDK11,怎么会有这么多版本JDK：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br><span class="line">* system (<span class="built_in">set</span> by /root/.jenv/version)</span><br><span class="line">  11</span><br><span class="line">  11.0</span><br><span class="line">  11.0.17</span><br><span class="line">  1.8.0.352</span><br><span class="line">  1.8</span><br><span class="line">  1.8.0.352</span><br><span class="line">  zulu64-1.8.0.352</span><br></pre></td></tr></table></figure>
+
+<p><strong>这个时候也很简单，使用remove命令即可：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv remove zulu64-1.8.0.352</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv remove 1.8</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br><span class="line">  system</span><br><span class="line">  11.0.17</span><br><span class="line">* 1.8.0.352 (<span class="built_in">set</span> by /root/.jenv/version)</span><br></pre></td></tr></table></figure>
+
+<h2 id="NVM管理Node-js"><a href="#NVM管理Node-js" class="headerlink" title="NVM管理Node.js"></a>NVM管理Node.js</h2>]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>环境工具</tag>
       </tags>
   </entry>
   <entry>
@@ -5834,68 +5896,6 @@
       <tags>
         <tag>渗透</tag>
         <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>版本切换工具篇</title>
-    <url>/2022/11/23/%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%AF%87/</url>
-    <content><![CDATA[<h1 id="版本切换工具篇"><a href="#版本切换工具篇" class="headerlink" title="版本切换工具篇"></a>版本切换工具篇</h1><h2 id="JENV管理JDK"><a href="#JENV管理JDK" class="headerlink" title="JENV管理JDK"></a>JENV管理JDK</h2><p><strong>jdk全称”Java Development Kit“，指的是Java语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序的开发。jdk是java开发的核心，包括了JRE（Java运行环境）运行时类库、JVM（Java虚拟机）。</strong></p>
-<p><strong>一般，我们需要用到基于Java虚拟机的操作服务时，需要有JDK的环境，这样的Java有两个特点（Write once, run anywhere）：</strong></p>
-<ul>
-<li><strong>易于移植：只需要有Java的虚拟机（JDK）环境，即可运行Java程序。</strong></li>
-<li><strong>需要平台有Java虚拟机支持：Java程序有所限制，需要有Java环境支持</strong></li>
-</ul>
-<p><strong>大部分程序开发者，或者普通用户，都有了解过JDK的配置。但是：</strong></p>
-<ul>
-<li><strong>Linux服务器上怎么配置JDK呢？</strong></li>
-<li><strong>能否实现多版本JDK同时配置安装呢？</strong></li>
-</ul>
-<p><strong>本次教程，就在Linux（ubuntu系统）上安装多版本JDK，并使用Jenv管理JDK。</strong></p>
-<h3 id="安装思路"><a href="#安装思路" class="headerlink" title="安装思路"></a>安装思路</h3><h4 id="常规（传统）安装"><a href="#常规（传统）安装" class="headerlink" title="常规（传统）安装"></a>常规（传统）安装</h4><p><strong>我们通常安装JDK是：</strong></p>
-<ul>
-<li><strong>Centos系统使用<code>yum</code>包管理器安装&#x2F;Ubuntu使用<code>apt</code>包管理器安装，然后直接使用。</strong></li>
-<li><strong>上传源码包、解压源码包、在环境变量文件中追加<code>JAVA_HOME</code>然后<code>source</code>重载配置后使用。</strong></li>
-</ul>
-<h4 id="前卫安装"><a href="#前卫安装" class="headerlink" title="前卫安装"></a>前卫安装</h4><p><strong>在前面常规（传统）安装的前提下，追加<code>Jenv</code>的配置，实现JDK的切换：</strong></p>
-<p><strong>确定使用OpenJDK和JDK的版本之后，使用<a href="https://www.azul.com/downloads/?package=jdk#download-openjdk">ZuluJDK（一个OpenJDK的发行版本）</a></strong></p>
-<h5 id="安装JDK8"><a href="#安装JDK8" class="headerlink" title="安装JDK8"></a>安装JDK8</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># wget 下载源码包</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># wget https://cdn.azul.com/zulu/bin/zulu8.66.0.15-ca-jdk8.0.352-linux_x64.tar.gz</span></span><br><span class="line"><span class="comment"># 创建源码包保存目录</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># mkdir /JDK</span></span><br><span class="line"><span class="comment"># 解压源码包至保存目录</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># tar -xzvf zulu8.66.0.15-ca-jdk8.0.352-linux_x64.tar.gz -C /JDK/</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置JAVA_HOME</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># vim .bashrc</span></span><br><span class="line"><span class="comment"># JAVA环境变量配置</span></span><br><span class="line">JAVA_HOME=/JDK/jdk8</span><br><span class="line">CLASSPATH=<span class="variable">$JAVA_HOME</span>/lib/</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin/</span><br><span class="line"><span class="built_in">export</span> PATH JAVA_HOME CLASSSPATH</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重载配置</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># source ~/.bashrc </span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看版本（JDK1.8就是JDK8）</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># java -version</span></span><br><span class="line">openjdk version <span class="string">&quot;1.8.0_352&quot;</span></span><br><span class="line">OpenJDK Runtime Environment (Zulu 8.66.0.15-CA-linux64) (build 1.8.0_352-b08)</span><br><span class="line">OpenJDK 64-Bit Server VM (Zulu 8.66.0.15-CA-linux64) (build 25.352-b08, mixed mode)</span><br></pre></td></tr></table></figure>
-
-<h3 id="多版本JDK管理"><a href="#多版本JDK管理" class="headerlink" title="多版本JDK管理"></a>多版本JDK管理</h3><h4 id="安装JENV"><a href="#安装JENV" class="headerlink" title="安装JENV"></a>安装JENV</h4><p><a href="https://www.jenv.be/">Jenv项目地址</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用git下载jenv源码到用户目录下的.jenv文件夹</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># git clone https://github.com/jenv/jenv.git ~/.jenv</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># vim .bashrc</span></span><br><span class="line"><span class="comment"># Jenv配置环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$HOME</span>/.jenv/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(jenv init -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重载配置(会出现“jenv has been updated, process to refresh plugin links”这句话，说明配置成功)</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># source ~/.bashrc </span></span><br></pre></td></tr></table></figure>
-
-<p><strong>现在jenv就可以使用了：</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv help</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="切换JDK"><a href="#切换JDK" class="headerlink" title="切换JDK"></a>切换JDK</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看当前安装的JDK版本</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 局部JDK11</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv local 11</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 全局JDK11</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv global 11</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="管理JDK"><a href="#管理JDK" class="headerlink" title="管理JDK"></a>管理JDK</h4><p><strong>有时候，jenv的add扫描，扫描的内容过多怎么办呢？比如，我只添加了JDK8、JDK11,怎么会有这么多版本JDK：</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br><span class="line">* system (<span class="built_in">set</span> by /root/.jenv/version)</span><br><span class="line">  11</span><br><span class="line">  11.0</span><br><span class="line">  11.0.17</span><br><span class="line">  1.8.0.352</span><br><span class="line">  1.8</span><br><span class="line">  1.8.0.352</span><br><span class="line">  zulu64-1.8.0.352</span><br></pre></td></tr></table></figure>
-
-<p><strong>这个时候也很简单，使用remove命令即可：</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv remove zulu64-1.8.0.352</span></span><br><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv remove 1.8</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@VM-4-12-ubuntu:~<span class="comment"># jenv versions</span></span><br><span class="line">  system</span><br><span class="line">  11.0.17</span><br><span class="line">* 1.8.0.352 (<span class="built_in">set</span> by /root/.jenv/version)</span><br></pre></td></tr></table></figure>
-
-<h2 id="NVM管理Node-js"><a href="#NVM管理Node-js" class="headerlink" title="NVM管理Node.js"></a>NVM管理Node.js</h2>]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>环境工具</tag>
       </tags>
   </entry>
   <entry>
