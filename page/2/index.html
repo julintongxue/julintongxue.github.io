@@ -120,12 +120,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">18</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">86</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">87</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -135,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">48</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">49</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -196,6 +196,159 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2024/06/01/raspberry%E5%BD%93dhcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B1%E4%BA%AB%E4%BB%A5%E5%A4%AA%E7%BD%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/01/raspberry%E5%BD%93dhcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B1%E4%BA%AB%E4%BB%A5%E5%A4%AA%E7%BD%91/" class="post-title-link" itemprop="url">raspberry当dhcp服务器共享以太网</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-01 22:26:29" itemprop="dateCreated datePublished" datetime="2024-06-01T22:26:29+08:00">2024-06-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-10-08 14:21:40" itemprop="dateModified" datetime="2024-10-08T14:21:40+08:00">2024-10-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/06/01/raspberry%E5%BD%93dhcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B1%E4%BA%AB%E4%BB%A5%E5%A4%AA%E7%BD%91/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/06/01/raspberry%E5%BD%93dhcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B1%E4%BA%AB%E4%BB%A5%E5%A4%AA%E7%BD%91/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<blockquote>
+<p>这里我的raspberry外接了一个网卡eth1，这个eth1直接连接路由器获取互联网络，raspberry自己有一个eth0这个网卡用来接电脑，它(eth0)将运行dhcp服务下发ip给电脑，这样我们的电脑就能拥有网络。你会问我为啥要脱裤子放屁，因为这个eth1网卡可以是通过手机usb共享出来的网络(eth1可以当成手机usb共享的网卡，到时不叫这个名字，这里为了好记忆还是这么叫)，我设计这个的目的就是让手机共享网络给树莓派，然后通过树莓派的lan口(eth0)下发局域网给路由器的wan口，路由器会自己再生成一个局域网下发lan口和wifi，设备连wifi和连路由器的lan都在一个局域网内。</p>
+</blockquote>
+<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><ul>
+<li><strong>清华源bookworm</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt;/etc/apt/sources.list&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string"># 清华源</span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>更新系统</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt upgrade -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="eth0处于up状态"><a href="#eth0处于up状态" class="headerlink" title="eth0处于up状态"></a>eth0处于up状态</h2><p><strong>这地方很重要！先让网卡起来，然后拥有一个网段的ip（因为我的eth0在192.168.1.0&#x2F;24这个网段，所以我可以设置除这个网段外的192.168.10.0&#x2F;24），这个ip将充当网关中转流量也是DHCP服务器。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ip <span class="built_in">link</span> <span class="built_in">set</span> eth0 up</span><br><span class="line">sudo ip addr add 192.168.10.1/24 dev eth0</span><br></pre></td></tr></table></figure>
+
+<h2 id="dhcp服务器安装和设置"><a href="#dhcp服务器安装和设置" class="headerlink" title="dhcp服务器安装和设置"></a>dhcp服务器安装和设置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y isc-dhcp-server</span><br></pre></td></tr></table></figure>
+
+<p><strong>编辑<code>/etc/default/isc-dhcp-server </code>,在里面改<code>INTERFACESv4=“eth0”</code>就行了</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/isc-dhcp-server </span><br></pre></td></tr></table></figure>
+
+<p><strong>修改<code>dhcpd.conf </code></strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/dhcp/dhcpd.conf </span><br></pre></td></tr></table></figure>
+
+<p><strong>看我的配置！这里设计了树莓派的lan口下发的ip范围，但你懂得，树莓派就一个lan口，还是自带的，所以只有一个ip就是<code>192.168.10.1</code>,下发的ip是给路由器或者电脑一个设备端使用，这里我就把范围调大了，可以按照自己喜欢调小</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">subnet 192.168.10.0 netmask 255.255.255.0 &#123;</span><br><span class="line">    range 192.168.10.100 192.168.10.200;</span><br><span class="line">    option routers 192.168.10.1;</span><br><span class="line">    option subnet-mask 255.255.255.0;</span><br><span class="line">    option domain-name-servers 8.8.8.8, 8.8.4.4;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置ipv4流量中转"><a href="#设置ipv4流量中转" class="headerlink" title="设置ipv4流量中转"></a>设置ipv4流量中转</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加net.ipv4.ip_forward=1</span></span><br><span class="line">net.ipv4.ip_forward=1</span><br></pre></td></tr></table></figure>
+
+<p><strong>配置载入</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sysctl -p</span><br></pre></td></tr></table></figure>
+
+<h2 id="防火墙流量放行"><a href="#防火墙流量放行" class="headerlink" title="防火墙流量放行"></a>防火墙流量放行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE    <span class="comment"># 注意！这个网卡是连接以太网的网卡，不是连接你电脑那个网卡！！！这个网卡是连接外部互联网的网卡，这么理解会不会好点呢！</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>如果没<code>iptables</code>需要安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y iptables iptables-persistent</span><br></pre></td></tr></table></figure>
+
+<p><strong>保存<code>iptables</code>配置</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netfilter-persistent save</span><br></pre></td></tr></table></figure>
+
+<h2 id="dhcp服务！启动！"><a href="#dhcp服务！启动！" class="headerlink" title="dhcp服务！启动！"></a>dhcp服务！启动！</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart isc-dhcp-server</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用过程报错"><a href="#使用过程报错" class="headerlink" title="使用过程报错"></a>使用过程报错</h2><ul>
+<li><p><strong>如果使用过程中是手机usb共享网络的记得要重新获取一下设备ip，我的是<code>华为nova7</code>就是要这样弄的，不然没有网络</strong></p>
+</li>
+<li><p><strong>如果用的是以太网自动下发的ip地址，就不会出现上述问题</strong></p>
+</li>
+</ul>
+<h1 id="脚本安装"><a href="#脚本安装" class="headerlink" title="脚本安装"></a>脚本安装</h1><p><strong>使用该脚本的时候，请把<code>连接Internet的网卡</code>的ip设置为静态，不然重启你会很开心的</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取网卡名称</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">&quot;请输入连接Internet的网卡名称: &quot;</span> internet_interface</span><br><span class="line"><span class="built_in">read</span> -p <span class="string">&quot;请输入共享的网卡名称: &quot;</span> shared_interface</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置清华源</span></span><br><span class="line">sudo <span class="built_in">tee</span> /etc/apt/sources.list &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string"># 清华源</span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新系统</span></span><br><span class="line">sudo apt update -y &amp;&amp; sudo apt upgrade -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置网络接口</span></span><br><span class="line">sudo ip <span class="built_in">link</span> <span class="built_in">set</span> <span class="string">&quot;<span class="variable">$shared_interface</span>&quot;</span> up</span><br><span class="line">sudo ip addr add 192.168.2.1/24 dev <span class="string">&quot;<span class="variable">$shared_interface</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 ISC DHCP 服务器</span></span><br><span class="line">sudo apt-get install -y isc-dhcp-server vim</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 /etc/default/isc-dhcp-server 文件中的 INTERFACESv4</span></span><br><span class="line">sudo sed -i <span class="string">&quot;/^INTERFACESv4=/c\INTERFACESv4=\&quot;<span class="variable">$shared_interface</span>\&quot;&quot;</span> /etc/default/isc-dhcp-server</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑 /etc/dhcp/dhcpd.conf</span></span><br><span class="line">sudo <span class="built_in">tee</span> /etc/dhcp/dhcpd.conf &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">subnet 192.168.2.0 netmask 255.255.255.0 &#123;</span></span><br><span class="line"><span class="string">    range 192.168.2.100 192.168.2.200;</span></span><br><span class="line"><span class="string">    option routers 192.168.2.1;</span></span><br><span class="line"><span class="string">    option subnet-mask 255.255.255.0;</span></span><br><span class="line"><span class="string">    option domain-name-servers 8.8.8.8, 8.8.4.4;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启用 IP 转发</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.ipv4.ip_forward=1&quot;</span> | sudo <span class="built_in">tee</span> -a /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新载入 /etc/sysctl.conf</span></span><br><span class="line">sudo sysctl -p</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 iptables 和 iptables-persistent</span></span><br><span class="line">sudo apt-get install -y iptables iptables-persistent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存 iptables 配置</span></span><br><span class="line">sudo netfilter-persistent save</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 NAT 规则</span></span><br><span class="line">sudo iptables -t nat -A POSTROUTING -o <span class="string">&quot;<span class="variable">$internet_interface</span>&quot;</span> -j MASQUERADE</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启 ISC DHCP 服务器</span></span><br><span class="line">sudo systemctl restart isc-dhcp-server</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -427,116 +580,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2024/01/19/%E9%80%82%E5%90%88%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%9D%E5%AE%9D%E7%9A%84docker-compose/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/01/19/%E9%80%82%E5%90%88%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%9D%E5%AE%9D%E7%9A%84docker-compose/" class="post-title-link" itemprop="url">适合树莓派宝宝的docker-compose</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-01-19 23:16:31" itemprop="dateCreated datePublished" datetime="2024-01-19T23:16:31+08:00">2024-01-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-20 00:06:52" itemprop="dateModified" datetime="2024-01-20T00:06:52+08:00">2024-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Linux系统</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2024/01/19/%E9%80%82%E5%90%88%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%9D%E5%AE%9D%E7%9A%84docker-compose/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/01/19/%E9%80%82%E5%90%88%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%9D%E5%AE%9D%E7%9A%84docker-compose/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="gitlab"><a href="#gitlab" class="headerlink" title="gitlab"></a>gitlab</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /root/docker-compose/gitlab/docker-compose.yml &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">version: &#x27;3&#x27;</span></span><br><span class="line"><span class="string">services:</span></span><br><span class="line"><span class="string">  gitlab:</span></span><br><span class="line"><span class="string">    image: yrzr/gitlab-ce-arm64v8:latest</span></span><br><span class="line"><span class="string">    container_name: gitlab</span></span><br><span class="line"><span class="string">    restart: always</span></span><br><span class="line"><span class="string">    privileged: true</span></span><br><span class="line"><span class="string">    environment:</span></span><br><span class="line"><span class="string">      TZ: &#x27;Asia/Shanghai&#x27;</span></span><br><span class="line"><span class="string">      GITLAB_OMNIBUS_CONFIG: |</span></span><br><span class="line"><span class="string">        external_url = &quot;http://gitlab.fastjrun.com&quot;</span></span><br><span class="line"><span class="string">        gitlab_rails[&#x27;time_zone&#x27;] = &#x27;Asia/Shanghai&#x27;</span></span><br><span class="line"><span class="string">        gitlab_rails[&#x27;gitlab_ssh_host&#x27;] = &#x27;gitlab.fastjrun.com&#x27;</span></span><br><span class="line"><span class="string">        gitlab_rails[&#x27;gitlab_shell_ssh_port&#x27;] = 22</span></span><br><span class="line"><span class="string">    ports:</span></span><br><span class="line"><span class="string">      - &#x27;8080:80&#x27;</span></span><br><span class="line"><span class="string">      - &#x27;443:443&#x27;</span></span><br><span class="line"><span class="string">      - &#x27;222:22&#x27;</span></span><br><span class="line"><span class="string">    volumes:</span></span><br><span class="line"><span class="string">      - &#x27;./gitlab/config:/etc/gitlab&#x27;</span></span><br><span class="line"><span class="string">      - &#x27;./gitlab/logs:/var/log/gitlab&#x27;</span></span><br><span class="line"><span class="string">      - &#x27;./gitlab/data:/var/opt/gitlab&#x27;</span></span><br><span class="line"><span class="string">    logging:</span></span><br><span class="line"><span class="string">      driver: &quot;json-file&quot;</span></span><br><span class="line"><span class="string">      options:</span></span><br><span class="line"><span class="string">        max-size: &quot;20m&quot;</span></span><br><span class="line"><span class="string">        max-file: &quot;10&quot;      </span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="mariadb"><a href="#mariadb" class="headerlink" title="mariadb"></a>mariadb</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /root/docker-compose/mariadb/docker-compose.yml &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">version: &#x27;3.1&#x27;</span></span><br><span class="line"><span class="string">services:</span></span><br><span class="line"><span class="string">  db:</span></span><br><span class="line"><span class="string">    image: mariadb</span></span><br><span class="line"><span class="string">    restart: always</span></span><br><span class="line"><span class="string">    environment:</span></span><br><span class="line"><span class="string">      MARIADB_ROOT_PASSWORD:#自己喜欢</span></span><br><span class="line"><span class="string">    ports:</span></span><br><span class="line"><span class="string">      - 3306:3306</span></span><br><span class="line"><span class="string">    volumes:</span></span><br><span class="line"><span class="string">      - &#x27;./mysql.conf.d/mysql.cnf:/etc/mysql/mysql.conf.d/mysql.cnf&#x27;</span></span><br><span class="line"><span class="string">      - &#x27;./data:/var/lib/mysql&#x27;</span></span><br><span class="line"><span class="string">  adminer:</span></span><br><span class="line"><span class="string">    image: adminer</span></span><br><span class="line"><span class="string">    restart: always</span></span><br><span class="line"><span class="string">    ports:</span></span><br><span class="line"><span class="string">      - 8888:8080</span></span><br><span class="line"><span class="string">EOF</span>  </span><br></pre></td></tr></table></figure>
-
-<h1 id="pixapop"><a href="#pixapop" class="headerlink" title="pixapop"></a>pixapop</h1><p><strong>这个没办法分文件夹看图，可惜了</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /root/docker-compose/pixapop/docker-compose.yml &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">version: &quot;2.1&quot;</span></span><br><span class="line"><span class="string">services:</span></span><br><span class="line"><span class="string">  pixapop:</span></span><br><span class="line"><span class="string">    image: lscr.io/linuxserver/pixapop:latest</span></span><br><span class="line"><span class="string">    container_name: pixapop</span></span><br><span class="line"><span class="string">    environment:</span></span><br><span class="line"><span class="string">      - PUID=1000</span></span><br><span class="line"><span class="string">      - PGID=1000</span></span><br><span class="line"><span class="string">      - TZ=Asia/Shanghai</span></span><br><span class="line"><span class="string">      - APP_USERNAME=#自己喜欢</span></span><br><span class="line"><span class="string">      - APP_PASSWORD=#自己喜欢</span></span><br><span class="line"><span class="string">    volumes:</span></span><br><span class="line"><span class="string">      - /root/docker-compose/pixapop/config:/config</span></span><br><span class="line"><span class="string">      - /root/docker-compose/pixapop/photos:/photos</span></span><br><span class="line"><span class="string">    ports:</span></span><br><span class="line"><span class="string">      - 5555:80</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="nextcloud"><a href="#nextcloud" class="headerlink" title="nextcloud"></a>nextcloud</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /root/docker-compose/nextcloud/docker-compose.yml &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">version: &#x27;2&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">volumes:</span></span><br><span class="line"><span class="string">  nextcloud:</span></span><br><span class="line"><span class="string">  db:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">services:</span></span><br><span class="line"><span class="string">  db:</span></span><br><span class="line"><span class="string">    image: mariadb:10.6</span></span><br><span class="line"><span class="string">    restart: always</span></span><br><span class="line"><span class="string">    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW</span></span><br><span class="line"><span class="string">    volumes:</span></span><br><span class="line"><span class="string">      - db:/var/lib/mysql</span></span><br><span class="line"><span class="string">    environment:</span></span><br><span class="line"><span class="string">      - MYSQL_ROOT_PASSWORD=#自己喜欢</span></span><br><span class="line"><span class="string">      - MYSQL_PASSWORD=#自己喜欢</span></span><br><span class="line"><span class="string">      - MYSQL_DATABASE=nextcloud</span></span><br><span class="line"><span class="string">      - MYSQL_USER=nextcloud</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  app:</span></span><br><span class="line"><span class="string">    image: nextcloud</span></span><br><span class="line"><span class="string">    restart: always</span></span><br><span class="line"><span class="string">    ports:</span></span><br><span class="line"><span class="string">      - 9999:80</span></span><br><span class="line"><span class="string">    links:</span></span><br><span class="line"><span class="string">      - db</span></span><br><span class="line"><span class="string">    volumes:</span></span><br><span class="line"><span class="string">      - nextcloud:/var/www/html</span></span><br><span class="line"><span class="string">    environment:</span></span><br><span class="line"><span class="string">      - MYSQL_PASSWORD=#自己喜欢</span></span><br><span class="line"><span class="string">      - MYSQL_DATABASE=nextcloud</span></span><br><span class="line"><span class="string">      - MYSQL_USER=nextcloud</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -612,20 +655,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

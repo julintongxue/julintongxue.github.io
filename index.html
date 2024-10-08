@@ -120,12 +120,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">18</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">86</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">87</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -135,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">48</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">49</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -200,6 +200,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2024/09/24/Windows-Server-2012-R2-Datacenter%E5%88%9D%E4%BD%93%E9%AA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/24/Windows-Server-2012-R2-Datacenter%E5%88%9D%E4%BD%93%E9%AA%8C/" class="post-title-link" itemprop="url">Windows Server 2012 R2 Datacenter初体验</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-09-24 19:42:30 / 修改时间：20:04:46" itemprop="dateCreated datePublished" datetime="2024-09-24T19:42:30+08:00">2024-09-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Win%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">Win系统</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/09/24/Windows-Server-2012-R2-Datacenter%E5%88%9D%E4%BD%93%E9%AA%8C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/09/24/Windows-Server-2012-R2-Datacenter%E5%88%9D%E4%BD%93%E9%AA%8C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>432</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Windows-Server-2012-R2-Datacenter初体验"><a href="#Windows-Server-2012-R2-Datacenter初体验" class="headerlink" title="Windows Server 2012 R2 Datacenter初体验"></a>Windows Server 2012 R2 Datacenter初体验</h3><p><strong>前几天和电信那边的云工程师和业务一起开了个会，他们给我讲述了上云的好处，这个概念呢，我是在大学就接触到了，但是这两年里，阿里云就出现了两起重大事故，导致上云的应用商被狠狠上了一课;这个先入为主，导致我对云服务器的安全、灾备产生很大的兴趣，这次，很有幸能和云工程师、业务经理开这个短会，我要到了体验云主机的一次机会。我今天收到邮件的时候以为是普普通通的一个账号和一个内网的win机子，但没想到电信很大方的给了搭载<code>Windows Server 2012 R2 Datacenter</code> 、<code>志强处理器(Intel64 Family 6 Model 85属于第2代至第3代的Intel Xeon处理器)</code>、<code>16G运行内存</code>、<code>40G(NTFS)+500G(REFS)硬盘</code>，我将在上面完成几个小小的测试体验一下这个服务器对比纯命令行的RHEL&#x2F;Centos7&#x2F;Ubuntu&#x2F;Archlinux有没有带给我震撼。</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2024/07/31/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,10 +319,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-07-31 18:44:18 / 修改时间：10:56:27" itemprop="dateCreated datePublished" datetime="2024-07-31T18:44:18+08:00">2024-07-31</time>
+              <time title="创建时间：2024-07-31 18:44:18" itemprop="dateCreated datePublished" datetime="2024-07-31T18:44:18+08:00">2024-07-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-10-01 12:02:02" itemprop="dateModified" datetime="2024-10-01T12:02:02+08:00">2024-10-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -257,7 +359,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -511,155 +613,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2024/06/01/raspberry%E5%BD%93dhcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B1%E4%BA%AB%E4%BB%A5%E5%A4%AA%E7%BD%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/06/01/raspberry%E5%BD%93dhcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B1%E4%BA%AB%E4%BB%A5%E5%A4%AA%E7%BD%91/" class="post-title-link" itemprop="url">raspberry当dhcp服务器共享以太网</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-06-01 22:26:29" itemprop="dateCreated datePublished" datetime="2024-06-01T22:26:29+08:00">2024-06-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-06-08 03:09:50" itemprop="dateModified" datetime="2024-06-08T03:09:50+08:00">2024-06-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2024/06/01/raspberry%E5%BD%93dhcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B1%E4%BA%AB%E4%BB%A5%E5%A4%AA%E7%BD%91/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/06/01/raspberry%E5%BD%93dhcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B1%E4%BA%AB%E4%BB%A5%E5%A4%AA%E7%BD%91/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这里我的raspberry外接了一个网卡eth1，这个eth1直接连接路由器获取互联网络，raspberry自己有一个eth0这个网卡用来接电脑，它(eth0)将运行dhcp服务下发ip给电脑，这样我们的电脑就能拥有网络。你会问我为啥要脱裤子放屁，因为这个eth1网卡可以是通过手机usb共享出来的网络(eth1可以当成手机usb共享的网卡，到时不叫这个名字，这里为了好记忆还是这么叫)，我设计这个的目的就是让手机共享网络给树莓派，然后通过树莓派的lan口(eth0)下发局域网给路由器的wan口，路由器会自己再生成一个局域网下发lan口和wifi，设备连wifi和连路由器的lan都在一个局域网内。</p>
-</blockquote>
-<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><ul>
-<li><strong>清华源bookworm</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt;/etc/apt/sources.list&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string"># 清华源</span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>更新系统</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt upgrade -y</span><br></pre></td></tr></table></figure>
-
-<h2 id="eth0处于up状态"><a href="#eth0处于up状态" class="headerlink" title="eth0处于up状态"></a>eth0处于up状态</h2><p><strong>这地方很重要！先让网卡起来，然后拥有一个网段的ip（因为我的eth0在192.168.1.0&#x2F;24这个网段，所以我可以设置除这个网段外的192.168.10.0&#x2F;24），这个ip将充当网关中转流量也是DHCP服务器。</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ip <span class="built_in">link</span> <span class="built_in">set</span> eth0 up</span><br><span class="line">sudo ip addr add 192.168.10.1/24 dev eth0</span><br></pre></td></tr></table></figure>
-
-<h2 id="dhcp服务器安装和设置"><a href="#dhcp服务器安装和设置" class="headerlink" title="dhcp服务器安装和设置"></a>dhcp服务器安装和设置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y isc-dhcp-server</span><br></pre></td></tr></table></figure>
-
-<p><strong>编辑<code>/etc/default/isc-dhcp-server </code>,在里面改<code>INTERFACESv4=“eth0”</code>就行了</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/isc-dhcp-server </span><br></pre></td></tr></table></figure>
-
-<p><strong>修改<code>dhcpd.conf </code></strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/dhcp/dhcpd.conf </span><br></pre></td></tr></table></figure>
-
-<p><strong>看我的配置！这里设计了树莓派的lan口下发的ip范围，但你懂得，树莓派就一个lan口，还是自带的，所以只有一个ip就是<code>192.168.10.1</code>,下发的ip是给路由器或者电脑一个设备端使用，这里我就把范围调大了，可以按照自己喜欢调小</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">subnet 192.168.10.0 netmask 255.255.255.0 &#123;</span><br><span class="line">    range 192.168.10.100 192.168.10.200;</span><br><span class="line">    option routers 192.168.10.1;</span><br><span class="line">    option subnet-mask 255.255.255.0;</span><br><span class="line">    option domain-name-servers 8.8.8.8, 8.8.4.4;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置ipv4流量中转"><a href="#设置ipv4流量中转" class="headerlink" title="设置ipv4流量中转"></a>设置ipv4流量中转</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加net.ipv4.ip_forward=1</span></span><br><span class="line">net.ipv4.ip_forward=1</span><br></pre></td></tr></table></figure>
-
-<p><strong>配置载入</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sysctl -p</span><br></pre></td></tr></table></figure>
-
-<h2 id="防火墙流量放行"><a href="#防火墙流量放行" class="headerlink" title="防火墙流量放行"></a>防火墙流量放行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE    <span class="comment"># 注意！这个网卡是连接以太网的网卡，不是连接你电脑那个网卡！！！这个网卡是连接外部互联网的网卡，这么理解会不会好点呢！</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>如果没<code>iptables</code>需要安装</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y iptables iptables-persistent</span><br></pre></td></tr></table></figure>
-
-<p><strong>保存<code>iptables</code>配置</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netfilter-persistent save</span><br></pre></td></tr></table></figure>
-
-<h2 id="dhcp服务！启动！"><a href="#dhcp服务！启动！" class="headerlink" title="dhcp服务！启动！"></a>dhcp服务！启动！</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart isc-dhcp-server</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用过程报错"><a href="#使用过程报错" class="headerlink" title="使用过程报错"></a>使用过程报错</h2><ul>
-<li><p><strong>如果使用过程中是手机usb共享网络的记得要重新获取一下设备ip，我的是<code>华为nova7</code>就是要这样弄的，不然没有网络</strong></p>
-</li>
-<li><p><strong>如果用的是以太网自动下发的ip地址，就不会出现上述问题</strong></p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -735,20 +688,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

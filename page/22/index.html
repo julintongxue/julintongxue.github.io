@@ -120,12 +120,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">18</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">86</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">87</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -135,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">48</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">49</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -196,6 +196,182 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/12/09/L2TP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="涩橙子">
+      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="orangeの博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/09/L2TP/" class="post-title-link" itemprop="url">L2TP</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-12-09 19:38:20" itemprop="dateCreated datePublished" datetime="2022-12-09T19:38:20+08:00">2022-12-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-05-09 15:22:10" itemprop="dateModified" datetime="2023-05-09T15:22:10+08:00">2023-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/12/09/L2TP/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/12/09/L2TP/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h1 id="L2TP"><a href="#L2TP" class="headerlink" title="L2TP"></a>L2TP</h1><p>全程注意！！！不要把我的注释弄进配置里面，绝对会报错！！！</p>
+<p>L2TP通俗的说就是一种VPN隧道技术。</p>
+<p>VPN就是一种网络穿透技术，可以让你链接到一处网络，同时本身的流量限制就会失效变成链接处的网络规则所以如果你在<strong>外网服务器上搭建</strong>后连接上去，你的网络就可以变成没有国内限制，可以自由的访问外网。但是<strong>在国际上搭建VPN是犯法的</strong>，本章节教授的技术也无指导国际上搭建VPN的内容，仅内网网段实验可用。</p>
+<h2 id="检测服务器"><a href="#检测服务器" class="headerlink" title="检测服务器"></a>检测服务器</h2><p>查看系统是否支持PPP</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modprobe ppp-compress-18 &amp;&amp; <span class="built_in">echo</span> <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+
+<p>检查是否开启了TUN</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /dev/net/tun</span><br></pre></td></tr></table></figure>
+
+<p>有的虚拟机主机需要开启，返回结果为cat: &#x2F;dev&#x2F;net&#x2F;tun: File descriptor in bad state(cat: &#x2F;dev&#x2F;net&#x2F;tun: 文件描述符处于错误状态),就表示通过。</p>
+<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><h3 id="更换yum源"><a href="#更换yum源" class="headerlink" title="更换yum源"></a>更换yum源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -f /var/run/yum.pid</span><br><span class="line"></span><br><span class="line">yum install -y wget</span><br><span class="line"></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"></span><br><span class="line">yum clean all &amp;&amp; yum makecache</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装epel源"><a href="#安装epel源" class="headerlink" title="安装epel源"></a>安装epel源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y epel-release</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装必要程序"><a href="#安装必要程序" class="headerlink" title="安装必要程序"></a>安装必要程序</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y make gcc gmp-devel xmlto bison flex xmlto libpcap-devel lsof vim vim-enhanced man xl2tpd libreswan</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><h3 id="options-xl2tpd"><a href="#options-xl2tpd" class="headerlink" title="options.xl2tpd"></a>options.xl2tpd</h3><p><strong>编辑编辑&#x2F;etc&#x2F;ppp&#x2F;options.xl2tpd</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ppp/options.xl2tpd</span><br><span class="line">require-mschap-v2</span><br><span class="line">ms-dns 8.8.8.8</span><br><span class="line">ms-dns 8.8.4.4</span><br><span class="line">auth</span><br><span class="line">mtu 1200</span><br><span class="line">mru 1000</span><br><span class="line">crtscts</span><br><span class="line">hide-password</span><br><span class="line">modem</span><br><span class="line">name l2tpd</span><br><span class="line">proxyarp</span><br><span class="line">lcp-echo-interval 30</span><br><span class="line">lcp-echo-failure 10</span><br></pre></td></tr></table></figure>
+
+<h3 id="xl2tpd-conf"><a href="#xl2tpd-conf" class="headerlink" title="xl2tpd.conf"></a>xl2tpd.conf</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/xl2tpd/xl2tpd.conf</span><br><span class="line">; This is a minimal sample xl2tpd configuration file <span class="keyword">for</span> use</span><br><span class="line">; with L2TP over IPsec.</span><br><span class="line">;</span><br><span class="line">; The idea is to provide an L2TP daemon to <span class="built_in">which</span> remote Windows L2TP/IPsec</span><br><span class="line">; clients connect. In this example, the internal (protected) network </span><br><span class="line">; is 192.168.1.0/24.  A special IP range within this network is reserved</span><br><span class="line">; <span class="keyword">for</span> the remote clients: 192.168.1.128/25</span><br><span class="line">; (i.e. 192.168.1.128 ... 192.168.1.254)</span><br><span class="line">;</span><br><span class="line">; The listen-addr parameter can be used <span class="keyword">if</span> you want to <span class="built_in">bind</span> the L2TP daemon</span><br><span class="line">; to a specific IP address instead of to all interfaces. For instance,</span><br><span class="line">; you could <span class="built_in">bind</span> it to the interface of the internal LAN (e.g. 192.168.1.98</span><br><span class="line">; <span class="keyword">in</span> the example below). Yet another IP address (<span class="built_in">local</span> ip, e.g. 192.168.1.99)</span><br><span class="line">; will be used by xl2tpd as its address on pppX interfaces.</span><br><span class="line"></span><br><span class="line">[global]</span><br><span class="line"><span class="comment"># 这个去掉listen-addr前面的注释，后面写上自己的网卡ip</span></span><br><span class="line">listen-addr = 192.168.241.130</span><br><span class="line">;</span><br><span class="line">; requires openswan-2.5.18 or higher - Also does not yet work <span class="keyword">in</span> combination</span><br><span class="line">; with kernel mode l2tp as present <span class="keyword">in</span> linux 2.6.23+</span><br><span class="line">ipsec saref = <span class="built_in">yes</span> <span class="comment">#去掉注释</span></span><br><span class="line">; Use refinfo of 22 <span class="keyword">if</span> using an SAref kernel patch based on openswan 2.6.35 or</span><br><span class="line">;  when using any of the SAref kernel patches <span class="keyword">for</span> kernels up to 2.6.35.</span><br><span class="line">; saref refinfo = 30</span><br><span class="line">;</span><br><span class="line">; force userspace = <span class="built_in">yes</span></span><br><span class="line">;</span><br><span class="line">; debug tunnel = <span class="built_in">yes</span></span><br><span class="line"></span><br><span class="line">[lns default]</span><br><span class="line"><span class="comment"># ip range 分配给VPN客户端的IP，这个可以随便用，但是后面对应的local ip要改，然后防火墙也要改</span></span><br><span class="line">ip range = 192.168.2.2-192.168.2.20</span><br><span class="line"><span class="built_in">local</span> ip = 192.168.2.1</span><br><span class="line">require chap = <span class="built_in">yes</span></span><br><span class="line">refuse pap = <span class="built_in">yes</span></span><br><span class="line">require authentication = <span class="built_in">yes</span></span><br><span class="line">name = LinuxVPNserver</span><br><span class="line">ppp debug = <span class="built_in">yes</span></span><br><span class="line">pppoptfile = /etc/ppp/options.xl2tpd</span><br><span class="line">length bit = <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="编辑内核参数"><a href="#编辑内核参数" class="headerlink" title="编辑内核参数"></a>编辑内核参数</h3><p>修改&#x2F;etc&#x2F;sysctl.conf</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.ip_forward = 1</span><br><span class="line">net.ipv4.conf.all.accept_redirects = 0</span><br><span class="line">net.ipv4.conf.all.rp_filter = 0</span><br><span class="line">net.ipv4.conf.all.send_redirects = 0</span><br><span class="line">net.ipv4.conf.default.accept_redirects = 0</span><br><span class="line">net.ipv4.conf.default.rp_filter = 0</span><br><span class="line">net.ipv4.conf.default.send_redirects = 0</span><br><span class="line">net.ipv4.conf.ens33.accept_redirects = 0 <span class="comment">#注意这里网卡名称ens33，如果你的网卡不是这个名字的话请注意修改！！！</span></span><br><span class="line">net.ipv4.conf.ens33.rp_filter = 0 <span class="comment">#注意这里网卡名称ens33，如果你的网卡不是这个名字的话请注意修改！！！</span></span><br><span class="line">net.ipv4.conf.ens33.send_redirects = 0 <span class="comment">#注意这里网卡名称ens33，如果你的网卡不是这个名字的话请注意修改！！！</span></span><br><span class="line">net.ipv4.conf.lo.accept_redirects = 0</span><br><span class="line">net.ipv4.conf.lo.rp_filter = 0</span><br><span class="line">net.ipv4.conf.lo.send_redirects = 0</span><br></pre></td></tr></table></figure>
+
+<p>加载内核参数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置vpn账号密码"><a href="#设置vpn账号密码" class="headerlink" title="设置vpn账号密码"></a>设置vpn账号密码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># vim /etc/ppp/chap-secrets</span></span><br><span class="line"><span class="comment"># Secrets for authentication using CHAP</span></span><br><span class="line"><span class="comment"># client	server	secret			IP addresses</span></span><br><span class="line"><span class="built_in">test</span>              *     <span class="built_in">test</span>                       *</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建预共享密钥"><a href="#创建预共享密钥" class="headerlink" title="创建预共享密钥"></a>创建预共享密钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># vim /etc/ipsec.d/ipsec.secrets</span></span><br><span class="line">192.168.241.130  %any: PSK <span class="string">&quot;test&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>192.168.241.130：是服务器网卡ip地址</p>
+<p>PSK：PSK是预存共享密匙</p>
+<h3 id="建立ipsec-与-l2tp-服务关联的配置文件"><a href="#建立ipsec-与-l2tp-服务关联的配置文件" class="headerlink" title="建立ipsec 与 l2tp 服务关联的配置文件"></a>建立ipsec 与 l2tp 服务关联的配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ipsec.d/l2tp_psk.conf</span><br><span class="line">conn L2TP-PSK-NAT</span><br><span class="line">    rightsubnet=vhost:%priv</span><br><span class="line">    also=L2TP-PSK-noNAT</span><br><span class="line">conn L2TP-PSK-noNAT</span><br><span class="line">    authby=secret</span><br><span class="line">    pfs=no</span><br><span class="line">    auto=add</span><br><span class="line">    keyingtries=3</span><br><span class="line">    dpddelay=30</span><br><span class="line">    dpdtimeout=120</span><br><span class="line">    dpdaction=clear</span><br><span class="line">    rekey=no</span><br><span class="line">    ikelifetime=8h</span><br><span class="line">    keylife=1h</span><br><span class="line">    <span class="built_in">type</span>=transport</span><br><span class="line">    left=192.168.241.130  <span class="comment">#也是网卡IP</span></span><br><span class="line">    leftprotoport=17/1701</span><br><span class="line">    right=%any</span><br><span class="line">    rightprotoport=17/%any</span><br></pre></td></tr></table></figure>
+
+<h2 id="防火墙配置"><a href="#防火墙配置" class="headerlink" title="防火墙配置"></a>防火墙配置</h2><h3 id="安装iptables"><a href="#安装iptables" class="headerlink" title="安装iptables"></a>安装iptables</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y iptables</span><br><span class="line">yum install iptables-services</span><br></pre></td></tr></table></figure>
+
+<h3 id="永久关闭防火墙"><a href="#永久关闭防火墙" class="headerlink" title="永久关闭防火墙"></a>永久关闭防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl mask firewalld</span><br></pre></td></tr></table></figure>
+
+<h3 id="iptables配置"><a href="#iptables配置" class="headerlink" title="iptables配置"></a>iptables配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iptables -L -n</span><br><span class="line">iptables -P INPUT ACCEPT</span><br><span class="line">iptables -F</span><br><span class="line">iptables -X</span><br><span class="line">iptables -Z</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A POSTROUTING -s 192.168.2.0/24 -o ens33 -j MASQUERADE</span><br><span class="line">iptables -I FORWARD -s 192.168.2.0/24 -j ACCEPT</span><br><span class="line">iptables -I FORWARD -d 192.168.2.0/24 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p udp -m policy --<span class="built_in">dir</span> <span class="keyword">in</span> --pol ipsec -m udp --dport 1701 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p udp -m udp --dport 1701 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p udp -m udp --dport 500 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p udp -m udp --dport 4500 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p esp -j ACCEPT</span><br><span class="line">iptables -A INPUT -m policy --<span class="built_in">dir</span> <span class="keyword">in</span> --pol ipsec -j ACCEPT</span><br><span class="line">iptables -A FORWARD -i ppp+ -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<h3 id="开启ipsec"><a href="#开启ipsec" class="headerlink" title="开启ipsec"></a>开启ipsec</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start ipsec</span><br><span class="line">systemctl <span class="built_in">enable</span> ipsec</span><br></pre></td></tr></table></figure>
+
+<h3 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipsec verify</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/12/09/L2TP/image-20221209210709274.png" alt="image-20221209210709274"></p>
+<p>粘贴这两句命令就行了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0&quot;</span> &gt; /proc/sys/net/ipv4/conf/virbr0-nic/rp_filter</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;0&quot;</span> &gt; /proc/sys/net/ipv4/conf/virbr0/rp_filter</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/12/09/L2TP/image-20221209210806496.png" alt="image-20221209210806496"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xl2tpd</span><br><span class="line">systemctl <span class="built_in">enable</span> xl2tpd</span><br><span class="line">systemctl status xl2tpd</span><br></pre></td></tr></table></figure>
+
+<h2 id="登录vpn"><a href="#登录vpn" class="headerlink" title="登录vpn"></a>登录vpn</h2><p>测试！！！本人树莓派上成功搭建出L2TP，并且通过window系统和华为手机连接vpn都没有问题。</p>
+<p>比较遗憾的是，无论是多账号还是单一账号，都只能一个设备登陆，原因可能是端口被占用了。</p>
+<p><img src="/2022/12/09/L2TP/image-20221209211314458.png" alt="image-20221209211314458"></p>
+<p><img src="/2022/12/09/L2TP/image-20221209211632696.png" alt="image-20221209211632696"></p>
+<p><img src="/2022/12/09/L2TP/image-20221209211703852.png" alt="image-20221209211703852"></p>
+<p><img src="/2022/12/09/L2TP/image-20221209211744310.png" alt="image-20221209211744310"></p>
+<p>图左边是我看的直播VTB，右边是<code>nload</code>命令监控到服务器在帮我转发着流量</p>
+<p><img src="/2022/12/09/L2TP/image-20221210012919413.png" alt="image-20221210012919413"></p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>重启服务器发现无法连接…真的无语</p>
+<p>经过一段排错操作之后，原来是防火墙配置被还原了。</p>
+<p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y netfilter-persistent iptables-persistent  <span class="comment"># centos的话把前面的apt换yum</span></span><br></pre></td></tr></table></figure>
+
+<p>保存防火墙配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netfilter-persistent save</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -460,876 +636,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://julintongxue.github.io/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="涩橙子">
-      <meta itemprop="description" content="自己对技术的小小见解，如果有误，请轻点喷，作者会腾出时间修改错误！！！(写了"搁浅"两字的就是个空文档,望注意)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="orangeの博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/" class="post-title-link" itemprop="url">Raspberry玩法和心得</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-23 00:22:19" itemprop="dateCreated datePublished" datetime="2022-11-23T00:22:19+08:00">2022-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-05-07 03:48:27" itemprop="dateModified" datetime="2024-05-07T03:48:27+08:00">2024-05-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A8%B1%E4%B9%90%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">娱乐单片机</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>21k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>19 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h2 id="入门-x2F-萌新篇"><a href="#入门-x2F-萌新篇" class="headerlink" title="入门&#x2F;萌新篇"></a>入门&#x2F;萌新篇</h2><h3 id="安装树莓派基地系统"><a href="#安装树莓派基地系统" class="headerlink" title="安装树莓派基地系统"></a>安装树莓派基地系统</h3><p><strong>买回来一块树莓派4b裸板，首先得给它刷上系统。那么选<a target="_blank" rel="noopener" href="https://www.raspberrypi.com/software/">官方的树莓派</a>系统呢？还是选一个干净的<a target="_blank" rel="noopener" href="https://cn.ubuntu.com/download/raspberry-pi">ubuntu系统</a>呢？嘿嘿，我们都不选，我们使用树莓派爱好者基地编译好的树莓派基地系统。里面集成了各种功能强大的图像化面板。</strong></p>
-<h3 id="优化-x2F-关闭多余服务"><a href="#优化-x2F-关闭多余服务" class="headerlink" title="优化&#x2F;关闭多余服务"></a>优化&#x2F;关闭多余服务</h3><h3 id="安装宝塔服务"><a href="#安装宝塔服务" class="headerlink" title="安装宝塔服务"></a>安装宝塔服务</h3><p><a target="_blank" rel="noopener" href="https://www.bt.cn/new/download.html">宝塔面板下载，免费全能的服务器运维软件 (bt.cn)</a></p>
-<h2 id="进阶-x2F-折腾篇"><a href="#进阶-x2F-折腾篇" class="headerlink" title="进阶&#x2F;折腾篇"></a>进阶&#x2F;折腾篇</h2><h3 id="raspberry安装-hexo博客"><a href="#raspberry安装-hexo博客" class="headerlink" title="raspberry安装 hexo博客"></a>raspberry安装 hexo博客</h3><p><strong>学习raspberry是少不了折腾的，每一次的折腾都能积累不少经验，这些失败的记忆和折腾的历程会伴随时间慢慢淡去，一个博客能够记下你的学习历程以及知识的积累。那么，入门的萌新都不舍得花钱买服务器,公网ip,域名等等。那么，我们现在开始搭建的博客，可以在有“免费的x级域名”的github下用“免费的仓库”来搭建我们“宝贵的知识宝库”。</strong></p>
-<p><strong>首先我们安装nvm</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/nvm-sh/nvm/archive/refs/tags/v0.39.1.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p><strong>然后解压</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf v0.39.1.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p><strong>进入解压目录中</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> nvm-0.39.1/</span><br></pre></td></tr></table></figure>
-
-<p><strong>安装</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./install.sh</span><br></pre></td></tr></table></figure>
-
-<p><strong>执行完成后会弹出这样的信息</strong></p>
-<p><strong>export NVM_DIR&#x3D;”$HOME&#x2F;.nvm”</strong><br><strong>[ -s “$NVM_DIR&#x2F;nvm.sh” ] &amp;&amp; . “$NVM_DIR&#x2F;nvm.sh”  # This loads nvm</strong><br><strong>[ -s “$NVM_DIR&#x2F;bash_completion” ] &amp;&amp; . “$NVM_DIR&#x2F;bash_completion”  # This loads nvm bash_completion</strong></p>
-<p><strong>然后在终端粘贴这个命令配置环境</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="variable">$HOME</span>/.nvm&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span>  <span class="comment"># This loads nvm</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span>  <span class="comment"># This loads nvm bash_completion</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>检测nvm是否安装成功</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm --version</span><br></pre></td></tr></table></figure>
-
-<p><strong>查看已经安装的版本</strong></p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvm list</span></span><br></pre></td></tr></table></figure>
-
-<p>查看可安装版本</p>
-<p><strong>如何查看通过NVM安装的Node.js版本呢？</strong><br><strong>你可以直接使用NVM命令：</strong></p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># raspberry</span></span><br><span class="line">nvm list available</span><br></pre></td></tr></table></figure>
-
-<p><strong>安装Node.js</strong></p>
-<p><strong>我们安装16.15.1版本node.js：</strong></p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvm</span> install <span class="number">16</span>.<span class="number">15</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>激活Node.js版本</strong></p>
-<p><strong>我们安装好Node.js以后，需要激活它</strong></p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvm</span> use <span class="number">16</span>.<span class="number">15</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>换腾讯的源</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry http://mirrors.cloud.tencent.com/npm/</span><br></pre></td></tr></table></figure>
-
-<p><strong>安装Git</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install git</span><br></pre></td></tr></table></figure>
-
-<p><strong>安装hexo博客软件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p><strong>创建博客orange目录</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> orange</span><br></pre></td></tr></table></figure>
-
-<p><strong>初始化博客目录</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> orange </span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
-<p><strong>启动博客服务</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在orange目录里面，执行后去4000端口查看博客生成</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20220830135622620.png" alt="image-20220830135622620"></p>
-<h3 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h3><h4 id="临时获得访问GitHub"><a href="#临时获得访问GitHub" class="headerlink" title="临时获得访问GitHub"></a>临时获得访问GitHub</h4><p><strong>很多时候，我们使用终端去克隆下载GitHub的东西的时候，发现会被拒绝的现象出现，这个原因是我们国家的GFW在发挥着不可或缺的作用，那么Github在世界是有大量的CDN节点的，我们可以利用这个特性，让我们的终端临时性重新获得下载东西的能力。</strong></p>
-<p><strong>首先，访问<a target="_blank" rel="noopener" href="https://tool.lu/ip/">tool.lu</a>把域名的ip解析出来</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230205943.png" alt="image-20230125230205943"></p>
-<p><strong>然后修改Linux系统的<code>/etc/hosts</code>文件</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230244687.png" alt="image-20230125230244687"></p>
-<p><strong>那么终端就能临时性的访问Github的能力了。</strong></p>
-<h4 id="终端代理访问GitHub"><a href="#终端代理访问GitHub" class="headerlink" title="终端代理访问GitHub"></a>终端代理访问GitHub</h4><p><strong>如果你们设计了本地代理软件的话，可以把局域网共享打开然后让树莓派也获得访问GitHub能力，这样终端下载国外的deb包速度也是很快的(因为我不习惯换国内源，国内源删太多东西了，有些资源包说没有的时候比下的慢更难受)</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">proxy_on</span></span>() &#123;</span><br><span class="line">    <span class="built_in">export</span> http_proxy=http://your_ip:your_port</span><br><span class="line">    <span class="built_in">export</span> https_proxy=<span class="variable">$http_proxy</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;终端代理已开启。&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">proxy_off</span></span>()&#123;</span><br><span class="line">    <span class="built_in">unset</span> http_proxy https_proxy</span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;终端代理已关闭。&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>弄好后，记得要<code>source  /etc/profile</code>让其临时生效，不然就要重启才能使用了</strong></p>
-<p><strong>通过<code>proxy_on</code>启动代理，<code>proxy_off</code>关闭代理。</strong></p>
-<p><strong>可以执行<code>curl cip.cc</code>验证：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">root@raspbian:~<span class="comment"># proxy_on</span></span><br><span class="line">终端代理已开启。</span><br><span class="line">root@raspbian:~<span class="comment"># curl cip.cc</span></span><br><span class="line">IP	: 3.113.4.154</span><br><span class="line">地址	: 美国  美国</span><br><span class="line"></span><br><span class="line">数据二	: 日本 | 东京Amazon数据中心</span><br><span class="line"></span><br><span class="line">数据三	: 美国华盛顿 | 亚马逊</span><br><span class="line"></span><br><span class="line">URL	: http://www.cip.cc/3.113.4.154</span><br></pre></td></tr></table></figure>
-
-<h4 id="更加先进的clash终端代理"><a href="#更加先进的clash终端代理" class="headerlink" title="更加先进的clash终端代理"></a>更加先进的clash终端代理</h4><p><strong>下载项目</strong></p>
-<p><a href="clash-for-linux-backup-main.rar">博客备份下载</a></p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/Elegycloud/</span>clash-<span class="keyword">for</span>-linux-backup.git</span><br></pre></td></tr></table></figure>
-
-<p><strong>进入到项目目录，编辑<code>.env</code>文件，修改变量<code>CLASH_URL</code>的值。</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> clash-for-linux</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vim .<span class="built_in">env</span></span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>注意：</strong> <code>.env</code> 文件中的变量 <code>CLASH_SECRET</code> 为自定义 Clash Secret，值为空时，脚本将自动生成随机字符串。</p>
-</blockquote>
-<p><strong>启动程序</strong></p>
-<p><strong>直接运行脚本文件start.sh即可</strong></p>
-<ul>
-<li><strong>进入项目目录</strong></li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> <span class="built_in">cd</span> clash<span class="literal">-for-linux</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>运行启动脚本</strong></li>
-</ul>
-<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ sudo bash start.sh</span><br><span class="line"></span><br><span class="line">正在检测订阅地址...</span><br><span class="line"><span class="symbol">Clash</span>订阅地址可访问！                                      [  <span class="symbol">OK</span>  ]</span><br><span class="line"></span><br><span class="line">正在下载<span class="symbol">Clash</span>配置文件...</span><br><span class="line">配置文件config.yaml下载成功！                              [  <span class="symbol">OK</span>  ]</span><br><span class="line"></span><br><span class="line">正在启动<span class="symbol">Clash</span>服务...</span><br><span class="line">服务启动成功！                                             [  <span class="symbol">OK</span>  ]</span><br><span class="line"></span><br><span class="line"><span class="symbol">Clash</span> <span class="symbol">Dashboard</span> 访问地址：http://&lt;ip&gt;:<span class="number">9090</span>/ui</span><br><span class="line"><span class="symbol">Secret</span>：xxxxxxxxxxxxx</span><br><span class="line"></span><br><span class="line">请执行以下命令加载环境变量: source /etc/profile.d/clash.sh</span><br><span class="line"></span><br><span class="line">请执行以下命令开启系统代理: proxy_on</span><br><span class="line"></span><br><span class="line">若要临时关闭系统代理，请执行: proxy_off</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> /etc/profile.d/clash.sh</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">proxy_on</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>检查服务端口</strong></li>
-</ul>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>netstat -tln | grep -E <span class="string">&#x27;9090|789.&#x27;</span></span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">127.0</span>.<span class="number">0.1</span><span class="symbol">:</span><span class="number">9090</span>          <span class="number">0.0</span>.<span class="number">0.0</span><span class="symbol">:*</span>               <span class="title class_">LISTEN</span>     </span><br><span class="line">tcp6       <span class="number">0</span>      <span class="number">0</span> ::<span class="symbol">:</span><span class="number">7890</span>                 ::<span class="symbol">:*</span>                    <span class="title class_">LISTEN</span>     </span><br><span class="line">tcp6       <span class="number">0</span>      <span class="number">0</span> ::<span class="symbol">:</span><span class="number">7891</span>                 ::<span class="symbol">:*</span>                    <span class="title class_">LISTEN</span>     </span><br><span class="line">tcp6       <span class="number">0</span>      <span class="number">0</span> ::<span class="symbol">:</span><span class="number">7892</span>                 ::<span class="symbol">:*</span>                    <span class="title class_">LISTEN</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>检查环境变量</strong></li>
-</ul>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ env | grep -E <span class="string">&#x27;http_proxy|https_proxy&#x27;</span></span><br><span class="line">http_proxy=http:<span class="regexp">//</span><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">7890</span></span><br><span class="line">https_proxy=http:<span class="regexp">//</span><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">7890</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>以上步骤如果正常，说明服务clash程序启动成功，现在就可以体验高速下载github资源了。</strong></p>
-<p><strong>重启程序</strong></p>
-<p><strong>如果需要对Clash配置进行修改，请修改 <code>conf/config.yaml</code> 文件。然后运行 <code>restart.sh</code> 脚本进行重启。</strong></p>
-<blockquote>
-<p><strong>注意：</strong> 重启脚本 <code>restart.sh</code> 不会更新订阅信息。</p>
-</blockquote>
-<p><strong>停止程序</strong></p>
-<ul>
-<li><strong>进入项目目录</strong></li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> <span class="built_in">cd</span> clash<span class="literal">-for-linux</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>关闭服务</strong></li>
-</ul>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="keyword">bash </span><span class="keyword">shutdown.sh</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line">服务关闭成功，请执行以下命令关闭系统代理：proxy_off</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>proxy_off</span><br></pre></td></tr></table></figure>
-
-<p><strong>然后检查程序端口、进程以及环境变量<code>http_proxy|https_proxy</code>，若都没则说明服务正常关闭。</strong></p>
-<p><strong>Clash Dashboard</strong></p>
-<ul>
-<li><strong>访问 Clash Dashboard</strong></li>
-</ul>
-<p>通过浏览器访问 <code>start.sh</code> 执行成功后输出的地址，例如：<a target="_blank" rel="noopener" href="http://192.168.0.1:9090/ui">http://192.168.0.1:9090/ui</a></p>
-<ul>
-<li><strong>登录管理界面</strong></li>
-</ul>
-<p><strong>在<code>API Base URL</code>一栏中输入：http:&#x2F;&#x2F;<ip>:9090 ，在<code>Secret(optional)</code>一栏中输入启动成功后输出的Secret。</ip></strong></p>
-<p><strong>点击Add并选择刚刚输入的管理界面地址，之后便可在浏览器上进行一些配置。</strong></p>
-<ul>
-<li><strong>更多教程</strong></li>
-</ul>
-<p><strong>此 Clash Dashboard 使用的是<a target="_blank" rel="noopener" href="https://github.com/haishanh/yacd">yacd</a>项目，详细使用方法请移步到yacd上查询。</strong></p>
-<p><strong>终端界面选择代理节点</strong></p>
-<p><strong>部分用户无法通过浏览器使用 Clash Dashboard 进行节点选择、代理模式修改等操作，为了方便用户可以在Linux终端进行操作，下面提供了一个功能简单的脚本以便用户可以临时通过终端界面进行配置。</strong></p>
-<p>**脚本存放位置：<code>scripts/clash_proxy-selector.sh**</code></p>
-<blockquote>
-<p><strong>注意：</strong></p>
-<p>使用脚本前，需要修改脚本中的 <strong>Secret</strong> 变量值为上述启动脚本输出的值，或者与 <code>.env</code> 文件中定义的 <strong>CLASH_SECRET</strong> 变量值保持一致。</p>
-</blockquote>
-<h3 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h3><h4 id="备份一个盘符"><a href="#备份一个盘符" class="headerlink" title="备份一个盘符"></a>备份一个盘符</h4><p><strong>首先，先确定盘符，然后开始备份</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span> bs=4M <span class="keyword">if</span>=/dev/sda | gzip &gt; bask-raspberry.img.gz</span><br></pre></td></tr></table></figure>
-
-<h4 id="解压至盘符"><a href="#解压至盘符" class="headerlink" title="解压至盘符"></a>解压至盘符</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -<span class="built_in">cd</span> bask-raspberry.img.gz | <span class="built_in">dd</span> bs=4M of=/dev/sda</span><br></pre></td></tr></table></figure>
-
-<h4 id="备份到远程服务器"><a href="#备份到远程服务器" class="headerlink" title="备份到远程服务器"></a>备份到远程服务器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -p bask-raspberry.img.gz user@ip:path/</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>scp 和 rsync : scp是每次传都是重新重传独立的一份，rsync使用的是差分传输算法，只会传输发生了变化的那部分</strong></p>
-</blockquote>
-<h4 id="定时备份脚本"><a href="#定时备份脚本" class="headerlink" title="定时备份脚本"></a>定时备份脚本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">TODAY=$(<span class="built_in">date</span> + <span class="string">&quot;%F&quot;</span>)</span><br><span class="line"><span class="built_in">cd</span> /home/pi</span><br><span class="line">tar -czf mydocsbackup-<span class="string">&quot;<span class="variable">$TODAY</span>&quot;</span>.tgz Documents</span><br><span class="line">scp mydocsbackup-<span class="string">&quot;<span class="variable">$TODAY</span>&quot;</span>.tgz user@ip:path/bak/</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>这里需要双方互换ssh-key，不然需要验证密码，这样脚本就无法完成最后一步</strong></p>
-</blockquote>
-<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p><strong>学到这里了，那么我默认你已经是具有RHCSA（RHCSA是Red Hat Certified System Administrator的简称，属于红帽linux的初级入门认证）的实力。下面学到的命令，跟RHCSA学到的可以起到相辅相成的作用。</strong></p>
-<h4 id="安全移除数据"><a href="#安全移除数据" class="headerlink" title="安全移除数据"></a>安全移除数据</h4><p><strong>别以为，你<code>rm -rf</code>就是删掉了数据，其实跟win一样都是只删掉了对应的<code>inode表项</code>，是可以通过修复底层数据的修复来还原整个文件系统，如果你需要安全清理某些敏感数据，可以试一下<code>shred</code>这是通过多次覆盖，下面是覆盖5次。（其实<code>dd</code>命令也是可以以比特为单位覆盖数据，<code>shred</code>能干多次而已）</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shred</span> -v -n 5 a.txt</span><br><span class="line"><span class="built_in">shred</span> -v -n 5 /dev/sdb</span><br></pre></td></tr></table></figure>
-
-<h3 id="我的世界"><a href="#我的世界" class="headerlink" title="我的世界"></a>我的世界</h3><h4 id="我的世界启动器安装"><a href="#我的世界启动器安装" class="headerlink" title="我的世界启动器安装"></a>我的世界启动器安装</h4><h5 id="HMCL"><a href="#HMCL" class="headerlink" title="HMCL"></a>HMCL</h5><p><strong><a target="_blank" rel="noopener" href="https://hmcl.huangyuhui.net/">HMCL</a></strong></p>
-<p><strong>下载好后点开安装即可</strong></p>
-<h4 id="我的世界程序安装"><a href="#我的世界程序安装" class="headerlink" title="我的世界程序安装"></a>我的世界程序安装</h4><p><strong>想要我的世界服务跑起来，光有启动器是不行的，还得有我的世界程序。那么这个 程序可以跑在本地电脑（自己一个人游玩和局域网内和小伙伴们一起游玩），也可以跑在公网服务器上（自己游玩的同时，小伙伴们也不限制在局域网连机，小伙伴可以在各自的家里舒舒服服地躺着玩，也因为是公网服务器，世界各地的小伙伴也可以进来happy，只不过由于地域距离的问题，他们要顶着高ping和国人玩耍。正常来讲是我们顶着高ping去玩人家的服务器，网易服务器的尿性你们懂的！！！）</strong></p>
-<h5 id="raspberry树莓派4b部署我的世界"><a href="#raspberry树莓派4b部署我的世界" class="headerlink" title="raspberry树莓派4b部署我的世界"></a>raspberry树莓派4b部署我的世界</h5><p><strong><code>pinecraft</code>里面已经支持到了<code>1.20.1</code>，旧版本的MC也可以通过之前发布的版本找到，本次以<code>1.16.5</code>作为安装教程。</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230714173342531.png" alt="image-20230714173342531"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Cat5TV/pinecraft">pinecraft项目所在地</a></p>
-<p><strong>下载安装程序：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span>  https://github.com/Cat5TV/pinecraft.git</span><br></pre></td></tr></table></figure>
-
-<p><strong>进入下载程序目录：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> pinecraft/</span><br></pre></td></tr></table></figure>
-
-<p><strong>安装</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./install</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185458839.png" alt="image-20230216185458839"></p>
-<p><strong>敲下安装命令可以看到一个非常好看的安装界面，不要吐槽，这在linux算是貂蝉西施那样的尤物了。我们按下两下空格，等待安装包下载。。。</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185626671.png" alt="image-20230216185626671"></p>
-<p><strong>下面是安装路径和启动用户（pi），我们按下空格确认，这样我就知道程序运行在哪里，运行程序的用户是谁了。</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230216185652951.png" alt="image-20230216185652951"></p>
-<p><strong>选择种子。。。</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111118092.png" alt="image-20230217111118092"></p>
-<p><strong>选择服务器是什么版本的我选择fabric的。。。因为我只会fabric，你们如果不会直接默认paper（人家优化好说不定。。。）</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113335192.png" alt="image-20230217113335192"></p>
-<p><strong>模式选择生存模式</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111444649.png" alt="image-20230217111444649"></p>
-<p><strong>同意一下协议</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111500058.png" alt="image-20230217111500058"></p>
-<p><strong>它想写点东西进你的boot</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217111533209.png" alt="image-20230217111533209"></p>
-<p><strong>意思是。。。把你的树莓派超频到1.9Ghz，吃掉你的树莓派内存4398MB~5319MB，要记得你这我的世界的版本是1.16.5</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113423508.png" alt="image-20230217113423508"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217112021350.png" alt="image-20230217112021350"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113447754.png" alt="image-20230217113447754"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113513324.png" alt="image-20230217113513324"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htop</span><br></pre></td></tr></table></figure>
-
-<p><strong>可以看出mc吃内存和占用cpu很高</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113613574.png" alt="image-20230217113613574"></p>
-<p>切换用户</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - pi</span><br></pre></td></tr></table></figure>
-
-<p>进入目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> minecraft/</span><br></pre></td></tr></table></figure>
-
-<p>编辑文件，允许非正版用户加入MC</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim server.properties</span><br></pre></td></tr></table></figure>
-
-<p><strong>改成false</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217120355525.png" alt="image-20230217120355525"></p>
-<p><strong>我们来看一下这个MC目录里面的结构</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121055428.png" alt="image-20230217121055428"></p>
-<p><strong>里面有个叫server的执行文件，我们可以修改里面给java赋予的内存，可以把最小值改到1G即（1024M）</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121345778.png" alt="image-20230217121345778"></p>
-<p><strong>我一般喜欢把能降低的都降低。。。尽量压缩使用内存留给更多后续服务</strong></p>
-<p><strong>然后执行停止命令</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./stop</span><br></pre></td></tr></table></figure>
-
-<p><strong>然后执行运行我的世界命令</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -R MC</span><br></pre></td></tr></table></figure>
-
-<p><strong>然后</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./server</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121804146.png" alt="image-20230217121804146"></p>
-<p><strong>等待到100%就可以使用启动器进入我的世界了</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217121841038.png" alt="image-20230217121841038"></p>
-<p><strong>我们按住<code>ctrl+a</code>然后<code>ctrl+d</code>就能把这个sscreen程序运行的mc服务常驻后台</strong></p>
-<p><strong>我们再看看<code>htop</code>，先后对比</strong></p>
-<p><strong>修改server之前</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217113613574.png" alt="image-20230217113613574"></p>
-<p><strong>修改server之后</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217122052848.png" alt="image-20230217122052848"></p>
-<p><strong>Mem内存的使用状况已经降低，我们可以为后续加mod留出更大的空间</strong></p>
-<p><strong>查看服务器ip</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip add</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217123031830.png" alt="image-20230217123031830"></p>
-<p><strong>由上面，可以知道我们MC服务器ip是内网地址192.168.0.107，那么我本机也是在内网的可以直接连接。</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217123149553.png" alt="image-20230217123149553"></p>
-<p><strong>启动器打开，进MC，左上角FPS达到惊人的98</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230217122542979.png" alt="image-20230217122542979"></p>
-<h5 id="启动器"><a href="#启动器" class="headerlink" title="启动器"></a>启动器</h5><p><strong>我们刚刚安装好HMCL后，打开应该都是这个样子</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145515476.png" alt="image-20230321145515476"></p>
-<p><strong>我们首先登录账号，如果有微软正版账号也可以用正版登录，这里选择离线模式和微软账号都没有任何区别，这里用离线模式登录。</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145856307.png" alt="image-20230321145856307"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321145933639.png" alt="image-20230321145933639"></p>
-<p><strong>然后，回到最初界面，可以看到有个用户了。</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150044259.png" alt="image-20230321150044259"></p>
-<p><strong>接下来，我们选择我的世界版本。</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150123098.png" alt="image-20230321150123098"></p>
-<p><strong>点击安装新游戏版本</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150153176.png" alt="image-20230321150153176"></p>
-<p><strong>我们服务器安装的就是1.16.5fabric版本</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150303388.png" alt="image-20230321150303388"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150521647.png" alt="image-20230321150521647"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150550571.png" alt="image-20230321150550571"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150605561.png" alt="image-20230321150605561"></p>
-<p><strong>我们还是遵循选新不选旧原则</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321150639242.png" alt="image-20230321150639242"></p>
-<p><strong>本体+fabric+fabric API确认无误之后然后点击安装</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151023930.png" alt="image-20230321151023930"></p>
-<p><strong>点击安装，静待安装成功</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151106422.png" alt="image-20230321151106422"></p>
-<p><strong>安装成功，回到最初界面，发现图标变了。</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151213363.png" alt="image-20230321151213363"></p>
-<p><strong>点击游戏开始玩原汁原味的MC 1.16.5吧！！！</strong></p>
-<h5 id="加装光影"><a href="#加装光影" class="headerlink" title="加装光影"></a>加装光影</h5><p><strong>光影只会占本地端电脑的性能，不关linux服务器的事，所以光影只需放在本地即可</strong></p>
-<p><strong>然后，在本地电脑端找到<code>.minecraft</code>–&gt;<code>shaderpacks</code>放入下载好的光影压缩包</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202947555.png" alt="image-20230328202947555"></p>
-<p><strong>然后在游戏加载光影压缩包即可</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230321151636309.png" alt="image-20230321151636309"></p>
-<h5 id="材质包"><a href="#材质包" class="headerlink" title="材质包"></a>材质包</h5><h5 id="加装mods"><a href="#加装mods" class="headerlink" title="加装mods"></a>加装mods</h5><p><strong>MOD它是一个英语的缩写，它的全称应该是modification，这个其实是修改的意思，不过中文给音译过来变成了“模组”，所以MOD其实就是游戏模组，作用就是对原本的游戏内容再加入一些新的东西，让我的世界这款游戏，更加的多样化。</strong></p>
-<p><strong>这里有个要点，就是服务器加mod，本地不加mod是无法调用mod的。反之，本地加了mod，服务器没有加mod也是用不了的。必须要两端都加mod才能成功使用mod。</strong></p>
-<p><strong>首先，在你linux服务器上面找到你mc的服务文件夹，然后<code>cd</code>进去，然后<code>ls</code>一下就能看到<code>mods</code>文件夹了</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328201940861.png" alt="image-20230328201940861"></p>
-<p><strong>在网上找到喜欢的mod，然后下载相对应版本的mod放进去mods文件夹中</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202239098.png" alt="image-20230328202239098"></p>
-<p><strong>就是这样啦！什么模组菜单啦！一键整理啦！创世神啦！</strong></p>
-<p><strong>然后，在本地电脑端也要找到<code>.minecraft</code>–&gt;<code>mods</code>放入和服务器端一样的<code>mod</code></strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328202522867.png" alt="image-20230328202522867"></p>
-<p><strong>打开游戏就会自动和服务器同步载入mod啦</strong></p>
-<h5 id="MC调用独显帧率暴涨"><a href="#MC调用独显帧率暴涨" class="headerlink" title="MC调用独显帧率暴涨"></a>MC调用独显帧率暴涨</h5><p><strong>搭好MC会发现，进去玩的时候<code>50</code>多帧，下雨的时候直接掉到<code>40</code>多帧，这怎么办？</strong></p>
-<p><strong>按<code>F3</code>可以看到这个图，左边的<code>52FPS</code>夜晚状态，中间的<code>GPU</code>占用<code>72%</code>，右边的<code>CPUI5-12450H</code>可以知道目前使用的是CPU的核显，那个性能懂得都懂。</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230711235352153.png" alt="image-20230711235352153"></p>
-<p>接下来教你们怎么驱动独显跑MC，帧率暴涨，首先打开<code>MC的启动器</code>，我的以<code>HMCL</code>作为演示。</p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230711235836145.png" alt="image-20230711235836145"></p>
-<p>打开<code>HMCL</code>，然后点击<code>设置</code></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230711235920070.png" alt="image-20230711235920070"></p>
-<p>记住这个<code>java路径</code></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230712000007798.png" alt="image-20230712000007798"></p>
-<p><strong>点击电脑的开始菜单，找到设置按钮，并且点击进去</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230712000136395.png" alt="image-20230712000136395"></p>
-<p><strong>找到游戏选项，点击进去</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230712000217306.png" alt="image-20230712000217306"></p>
-<p><strong>在<code>Xbox Game Bar</code>找到右上角这个<code>图形设置</code>，并且点击进去</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230712000315575.png" alt="image-20230712000315575"></p>
-<p><strong>打开里面的<code>硬件加速GPU计划</code>，再点击下方的浏览找到<code>Java</code>的路径</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230712000438716.png" alt="image-20230712000438716"></p>
-<p><strong>把<code>java.exe</code>,<code>javac.exe</code>,<code>javaw.exe</code>这三个都加入进去</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230712000701293.png" alt="image-20230712000701293"></p>
-<p><strong>并且三个都设置为独显</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230712000845161.png" alt="image-20230712000845161"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230712000925958.png" alt="image-20230712000925958"></p>
-<p><strong>设置完成之后重启电脑，再次打开MC的F3就能看到帧率暴涨了</strong></p>
-<p><strong>按<code>F3</code>可以看到这个图，左边的<code>144FPS</code>夜晚状态，中间的<code>GPU</code>占用<code>10%</code>，右边的<code>CPUI5-12450H</code>,但是下方多了个3050显卡</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230712001320008.png" alt="image-20230712001320008"></p>
-<h3 id="ZeroTier"><a href="#ZeroTier" class="headerlink" title="ZeroTier"></a><a target="_blank" rel="noopener" href="https://www.zerotier.com/">ZeroTier</a></h3><p><strong>最最最最nb的内网穿透工具！</strong></p>
-<h4 id="zt安装命令"><a href="#zt安装命令" class="headerlink" title="zt安装命令"></a>zt安装命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s https://install.zerotier.com | sudo bash</span><br></pre></td></tr></table></figure>
-
-<p><strong>自己先去zt官网创建网卡，然后需要的设备安装zt并且加入该网络就行了，支持linux、苹果和安卓手机、win电脑、mac等</strong></p>
-<h3 id="pi-apps"><a href="#pi-apps" class="headerlink" title="pi-apps"></a>pi-apps</h3><p><a target="_blank" rel="noopener" href="https://github.com/Botspot/pi-apps">https://github.com/Botspot/pi-apps</a></p>
-<h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><h4 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h4><p>Centos</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
-
-<h4 id="阿里云源"><a href="#阿里云源" class="headerlink" title="阿里云源"></a>阿里云源</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
-
-<h4 id="官方源"><a href="#官方源" class="headerlink" title="官方源"></a>官方源</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
-
-<p><strong>由于树莓派基地系统自带了docker，我们只需要将docker服务启动即可，为了docker能够更好完成和为我们设备提供优质服务，这里建议将docker设置为开机自启。</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看docker状态</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl status docker.service</span></span><br><span class="line"><span class="comment"># 开机自启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl enable docker.service</span></span><br><span class="line"><span class="comment"># 关闭开机自启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl disable docker.service</span></span><br><span class="line"><span class="comment"># 关闭docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl stop docker.service</span></span><br><span class="line"><span class="comment"># 开启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl start docker.service</span></span><br><span class="line"><span class="comment"># 关闭再开启docker</span></span><br><span class="line">root@raspbian:~<span class="comment"># systemctl restart docker.service</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>怎么说咧！想要玩得起docker，有个地方是我们不得不去的，那就是docker的官方宝藏之地——<a target="_blank" rel="noopener" href="https://hub.docker.com/">Dockerhub</a>,里面有世界各地说话又好听、技术又高的大佬，他们写好的容器则上传到了dockerhub，这些容器就是一个小型的服务或者说是应用。这些应用可以独立或者混合其他容器一起使用。我们后面会讲到部署一个<code>wordpress博客</code>然后用到<code>mariadb数据库容器</code>的案例。再此之前，我们还是先老老实实去b站学习有关docker的各种课程，学习好docker对我们后面学习其他的容器化有很大帮助，而docker里面的网络内容则会贯穿整个进阶篇章。</strong></p>
-<h4 id="配置镜像加速"><a href="#配置镜像加速" class="headerlink" title="配置镜像加速"></a>配置镜像加速</h4><p><strong>额，换了上面的源就别搞下面的加速了</strong></p>
-<p><strong>镜像加速</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
-
-<p><strong>加入这个中科大的源</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>重新加载配置</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
-
-<h4 id="docker-compose安装"><a href="#docker-compose安装" class="headerlink" title="docker-compose安装"></a>docker-compose安装</h4><p><a target="_blank" rel="noopener" href="https://github.com/docker/compose/releases">docker-compose二进制执行包</a></p>
-<p><strong>把二进制包放下面路径</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/</span><br></pre></td></tr></table></figure>
-
-<p><strong>并且改名为<code>docker-compose</code>就行了</strong></p>
-<h4 id="papermc-server"><a href="#papermc-server" class="headerlink" title="papermc-server"></a>papermc-server</h4><p><a target="_blank" rel="noopener" href="https://hub.docker.com/r/marctv/minecraft-papermc-server">minecraft-papermc-server</a></p>
-<h4 id="openwrt"><a href="#openwrt" class="headerlink" title="openwrt"></a>openwrt</h4><p><strong>openwrt软路由可以替我们电脑实现一些魔法上网的功能，将fq功能给予树莓派处理可以让我们的fq体验更加顺畅丝滑。</strong></p>
-<p><strong>下面我以docker容器化部署一下openwrt，实现家庭设备魔法上网。</strong></p>
-<p><strong>拉取镜像</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先下载openwrt镜像，这个镜像是树莓派4b的openwrt镜像</span></span><br><span class="line">docker pull registry.cn-shanghai.aliyuncs.com/suling/openwrt:rpi4</span><br></pre></td></tr></table></figure>
-
-<p><strong>查看镜像</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-
-<p><strong>打开网卡混杂模式</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ip <span class="built_in">link</span> <span class="built_in">set</span> eth0 promisc on </span><br></pre></td></tr></table></figure>
-
-<p><strong>创建网络(须结合实际网络情况，不能照抄命令)</strong></p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker<span class="built_in"> network </span>create -d macvlan <span class="attribute">--subnet</span>=192.168.1.0/24 <span class="attribute">--gateway</span>=192.168.1.1 -o <span class="attribute">parent</span>=eth0 macnet</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--subnet=192.168.1.0/24  <span class="comment">#树莓派正所处在192.168.1.x网段</span></span><br><span class="line"></span><br><span class="line">--gateway=192.168.1.1    <span class="comment">#树莓派的网关（即路由器ip）</span></span><br><span class="line"></span><br><span class="line">parent=eth0              <span class="comment">#这个是物理网卡名字</span></span><br><span class="line"></span><br><span class="line">macvlan                  <span class="comment">#这是创建的一个驱动程序macvlan管理网络（已经创建了192.168.1这个网络段给它）</span></span><br><span class="line"></span><br><span class="line">macnet                   <span class="comment">#macnet创建的网络名字</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>查看macnet网络创建程度</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>创建并启动容器</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --restart always --name openwrt -d --network macnet --privileged registry.cn-shanghai.aliyuncs.com/suling/openwrt:rpi4 /sbin/init</span><br></pre></td></tr></table></figure>
-
-<p><strong>进入容器并修改相关参数</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it openwrt bash</span><br></pre></td></tr></table></figure>
-
-<p><strong>执行此命令后我们便进入 OpenWrt 的命令行界面，首先，我们需要编辑 OpenWrt 的网络配置文件：</strong></p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>config/network</span><br></pre></td></tr></table></figure>
-
-<p><strong>我们需要更改 Lan 口设置：</strong></p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">config interface <span class="string">&#x27;lan&#x27;</span></span><br><span class="line">        <span class="keyword">option</span> <span class="keyword">type</span> <span class="string">&#x27;bridge&#x27;</span></span><br><span class="line">        <span class="keyword">option</span> ifname <span class="string">&#x27;eth0&#x27;</span></span><br><span class="line">        <span class="keyword">option</span> proto <span class="string">&#x27;static&#x27;</span></span><br><span class="line">        <span class="keyword">option</span> ipaddr <span class="string">&#x27;192.168.1.100&#x27;</span>    #自己设置一个ip，这个ip是你即将要访问的openwrt控制面板</span><br><span class="line">        <span class="keyword">option</span> netmask <span class="string">&#x27;255.255.255.0&#x27;</span></span><br><span class="line">        <span class="keyword">option</span> ip6assign <span class="string">&#x27;60&#x27;</span></span><br><span class="line">        <span class="keyword">option</span> gateway <span class="string">&#x27;192.168.1.1&#x27;</span></span><br><span class="line">        <span class="keyword">option</span> broadcast <span class="string">&#x27;192.168.1.255&#x27;</span></span><br><span class="line">        <span class="keyword">option</span> dns <span class="string">&#x27;8.8.8.8&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>所有的 <code>192.168.1.x</code> 需要根据树莓派所处网段修改，<code>option gateway</code>填写路由器的 IP。</strong></p>
-<p><strong><code>option ipaddr </code>项目定义了 OpenWrt 的 IP 地址，在完成网段设置后，IP最后一段可根据自己的爱好修改（前提是符合规则且不和现有已分配 IP 冲突）。</strong></p>
-<p><strong>重启网络</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/network restart</span><br></pre></td></tr></table></figure>
-
-<p><strong>输入完成这段命令之后，按住键盘的<code>ctrl+p+q</code>就能退出<code>openwrt</code>容器的命令行界面。</strong></p>
-<p><strong>如果有更换mac的要求，下面给一个临时更换的办法，重启会失效要注意哦！</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip <span class="built_in">link</span> <span class="built_in">set</span> dev br-lan address 12:34:56:78:9A:BC</span><br></pre></td></tr></table></figure>
-
-<p><strong>进入控制面板</strong></p>
-<p><strong>在浏览器中输入<code>option ipaddr </code>项目中的 IP 进入 Luci 控制面板，若<code>option ipaddr </code>的参数为 <code>192.168.1.100</code>，则可以在浏览器输入 <code>http://192.168.1.100</code>进入控制面板。</strong></p>
-<p><strong>用户名：<code>root</code></strong></p>
-<p>**密码：<code>password</code> **</p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182120848.png" alt="image-20221222182120848"></p>
-<p><strong>登录进去后可以看到树莓派的基础信息、cpu架构、cpu温度等信息</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182250444.png" alt="image-20221222182250444"></p>
-<p><strong>fq的功能配置：左边的列表选择<code>服务</code>–&gt;<code>PassWall</code>,可以看到这个界面。</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182535583.png" alt="image-20221222182535583"></p>
-<p><strong>首先，打开里面的主开关</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222182649678.png" alt="image-20221222182649678"></p>
-<p><strong>复制fq节点的订阅地址到节点订阅选项</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183121714.png" alt="image-20221222183121714"></p>
-<p><strong>设置完成之后点击手动订阅可以看到相应日志</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183224283.png" alt="image-20221222183224283"></p>
-<p><strong>回到节点列表就可以看到大量节点出现</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183338376.png" alt="image-20221222183338376"></p>
-<p><strong>我一般喜欢开放固定端口代理流量，这样我就可以通过<code>ip+端口</code>使用代理服务器</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183615463.png" alt="image-20221222183615463"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183815397.png" alt="image-20221222183815397"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183910155.png" alt="image-20221222183910155"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222183920184.png" alt="image-20221222183920184"></p>
-<p><strong>清理完成刷新一下，fq服务就可以使用了。win系统有代理功能的，首次fq可以先在win系统里面设置，然后打开谷歌浏览器安装代理插件。</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184044294.png" alt="image-20221222184044294"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184141529.png" alt="image-20221222184141529"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20221222184202042.png" alt="image-20221222184202042"></p>
-<p><strong>这样可以很好的切换，而且只有浏览器能够fq，想要电脑全局fq就在代理里面设置<code>ip+端口</code>即可。记住win的代理和浏览器的插件只能开一个，别环路了。。。</strong></p>
-<p><strong>网络修复</strong></p>
-<p><strong>用久了发现，树莓派居然没办法将自己的流量代理这就很离谱了，我用<code>ping</code>命令测试了<code>openwrt</code>的容器<code>ip</code>，发现是没办法<code>ping</code>通的，然后把<code>openwrt</code>防火墙清空了还是不行。在同一个网段下，主机居然无法<code>ping</code>通自己<code>肚子里</code>的<code>openwrt</code>，这里我重新想了docker容器和主机之间的网卡之间的关系。</strong></p>
-<p><strong>我认为，我在发送ping命令的icmp给openwrt的时候，流量通过树莓派的物理网卡出去了，但是路由器说流量应该流回树莓派内，然后接收到流量的树莓派因为规则把这股流量给丢弃了（因为没有找到内部的openwrt设备ip），这是我的猜想。</strong></p>
-<p><strong>所以，我觉得应该桥接一个网卡出来，这个网卡是和树莓派、openwrt都在同一个网段下的才行，而且ip要独立（非树莓派的ip、非openwrt的ip）</strong></p>
-<p><strong>编辑<code>/etc/network/interfaces</code>文件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加下面</span></span><br><span class="line">auto macvlan</span><br><span class="line">iface macvlan inet static</span><br><span class="line">  address 192.168.1.5       <span class="comment">#这个ip一定要非树莓派的ip和非openwrt的ip</span></span><br><span class="line">  netmask 255.255.255.0</span><br><span class="line">  gateway 192.168.1.1       <span class="comment">#要同一个网段</span></span><br><span class="line">  dns-nameservers 192.168.1.1</span><br><span class="line">  pre-up ip <span class="built_in">link</span> add macvlan <span class="built_in">link</span> eth0 <span class="built_in">type</span> macvlan mode bridge</span><br><span class="line">  post-down ip <span class="built_in">link</span> del macvlan <span class="built_in">link</span> eth0 <span class="built_in">type</span> macvlan mode bridge</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong><code>pre-up ip link add macvlan link eth0 type macvlan mode bridge</code>: 在接口启动之前，使用 <code>ip link add</code> 命令创建一个名为 <code>macvlan</code> 的 <code>macvlan</code> 类型的子接口，连接到 <code>eth0</code> 主接口上，以桥接模式运行。</strong></li>
-<li><strong><code>post-down ip link del macvlan link eth0 type macvlan mode bridge</code>: 在接口关闭之后，使用 <code>ip link del</code> 命令删除 <code>macvlan</code> 子接口。</strong></li>
-</ul>
-<p><strong>重启树莓派即可，就发现可以<code>ping</code>通<code>openwrt</code>的容器<code>ip</code>了</strong></p>
-<p><strong>docker版的openwrt还有其他的很多功能，可以自己私下去探索，这里就不再多说了，各自努力吧！</strong></p>
-<h4 id="aria2"><a href="#aria2" class="headerlink" title="aria2"></a>aria2</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name aria2-pro \</span><br><span class="line">    --restart unless-stopped \</span><br><span class="line">    --log-opt max-size=1m \</span><br><span class="line">    -e PUID=<span class="variable">$UID</span> \</span><br><span class="line">    -e PGID=<span class="variable">$GID</span> \</span><br><span class="line">    -e UMASK_SET=022 \</span><br><span class="line">    -e RPC_SECRET=orange \        <span class="comment"># 这个自定义，一定要记住</span></span><br><span class="line">    -e RPC_PORT=6800 \</span><br><span class="line">    -p 6800:6800 \</span><br><span class="line">    -e LISTEN_PORT=6888 \</span><br><span class="line">    -p 6888:6888 \</span><br><span class="line">    -p 6888:6888/udp \</span><br><span class="line">    -v <span class="variable">$PWD</span>/aria2-config:/config \</span><br><span class="line">    -v <span class="variable">$PWD</span>/aria2-downloads:/downloads \</span><br><span class="line">    p3terx/aria2-pro</span><br></pre></td></tr></table></figure>
-
-<p><strong>WebUI</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name ariang \</span><br><span class="line">    --log-opt max-size=1m \</span><br><span class="line">    --restart unless-stopped \</span><br><span class="line">    -p 6880:6880 \</span><br><span class="line">    p3terx/ariang</span><br></pre></td></tr></table></figure>
-
-<h4 id="mariadb"><a href="#mariadb" class="headerlink" title="mariadb"></a>mariadb</h4><p><strong>先拉取mariadb</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mariadb</span><br></pre></td></tr></table></figure>
-
-<p><strong>下面需要修改的地方就是密码password修改成为自己需要的密码就可以刷入命令了</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --restart=always --name mariadb01 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -v /data/mariadb/mysql.conf.d/mysql.cnf:/etc/mysql/mysql.conf.d/mysql.cnf -v /data/mariadb/data:/var/lib/mysql -d mariadb</span><br></pre></td></tr></table></figure>
-
-<p><strong>那么再教你个好玩的，使用Navicat连接数据库爽的一批</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328163059348.png" alt="image-20230328163059348"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230328163207688.png" alt="image-20230328163207688"></p>
-<h4 id="wordpress"><a href="#wordpress" class="headerlink" title="wordpress"></a>wordpress</h4><h4 id="httpbin"><a href="#httpbin" class="headerlink" title="httpbin"></a>httpbin</h4><p><strong>现在越来越多的测试人员除了功能测试外，都已开始接触并进行接口测试。在学习接口测试时，尤其对于测试新手来说，接口测试工具上怎样填写请求地址、方法、请求参数等，还是多多少少有些困难，而且往往找不到合适的调试与请求的接口服务地址而无从练手。那么本地化部署<code>httpbin</code>就能满足你对接口调试的需求啦</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull kong/httpbin</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart always -p 8080:80 --name httpbin kong/httpbin:latest</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230725232514912.png" alt="image-20230725232514912"></p>
-<h3 id="双网卡内外网优先级设置"><a href="#双网卡内外网优先级设置" class="headerlink" title="双网卡内外网优先级设置"></a>双网卡内外网优先级设置</h3><p><strong>根据自己的需要，有时候树莓派需要两张网卡，一张用于访问外网（wlan0），另一种用于连接内网（eth0）。</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429233559391.png" alt="image-20230429233559391"></p>
-<p><strong>我们可以看到这里连接了两个网卡，分别是wlan0和eth0，在我们学数通知识的时候，我们老师会教我们网络的知识，直连的跃点数是会比连接wifi的是要更小的（普遍情况下是这样，不要和我杠，杠的要不你别学）</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234002039.png" alt="image-20230429234002039"></p>
-<p><strong>这里，我设计的网络是eth0是面向内网的，对我的nas起到稳定的网络传输和安全性；而wlan0是连接了我的热点，这里我ping了一下8.8.8.8，发现是完全ping不同的。</strong></p>
-<p><strong>我们再查看了网络优先级方面，发现eth0的网络优先级是比wlan0高的（即eth0的网络跃点数metric比wlan0的跃点数metric要小）</strong></p>
-<p><strong>我们可以使用以下命令查看跃点数</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@raspberrypi:~<span class="comment"># ip route show</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234447247.png" alt="image-20230429234447247"></p>
-<p><strong>一个100一个600，看得很清楚吧。这里我把wlan0跃点数调到99，192.168.137.1是路由器网关地址</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@raspberrypi:~<span class="comment"># sudo ip route add default via 192.168.137.1 dev wlan0 proto dhcp metric 99</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429234927301.png" alt="image-20230429234927301"></p>
-<p><strong>wlan0这个网卡优先级马上就第一了，那么不出意外的话，这个网络就能通了</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230429235048919.png" alt="image-20230429235048919"></p>
-<p><strong>上面讲的这个咧，是临时解决办法，要是想一劳永逸呢还是要把<code>IPV4_ROUTE_METRIC=99</code>这个写入到网卡配置文件中,但是。。。很不巧树莓派貌似没有。。。除非你用的不是树莓派官方的</strong></p>
-<p><strong>那么我们也有另外的处理办法，把<code>sudo ip route add default via 192.168.137.1 dev wlan0 proto dhcp metric 99</code>这个命令写入一个文本里面，然后添加入<code>contab</code>里面，命令如下：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@raspberrypi:/usr/bin<span class="comment"># /usr/bin</span></span><br><span class="line">root@raspberrypi:/usr/bin<span class="comment"># vim network_metric</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line">ip route add default via 192.168.137.1 dev wlan0 proto dhcp metric 99</span><br><span class="line"></span><br><span class="line">root@raspberrypi:/usr/bin<span class="comment"># chmod +x network_metric </span></span><br></pre></td></tr></table></figure>
-<p><strong>这里是设置开机执行文件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@raspberrypi:/usr/bin<span class="comment"># crontab -e</span></span><br><span class="line">@reboot bash /usr/bin/network_metric</span><br></pre></td></tr></table></figure>
-
-<h3 id="树莓派跑win98"><a href="#树莓派跑win98" class="headerlink" title="树莓派跑win98"></a>树莓派跑win98</h3><p><strong>看到这个标题是不是很疯狂？确实。。。真离谱</strong></p>
-<p><a target="_blank" rel="noopener" href="https://magpi.raspberrypi.com/articles/run-windows-98-on-raspberry-pi-with-dosbox-x">run-windows-98-on-raspberry-pi-with-dosbox-x</a></p>
-<h3 id="树莓派安装win10、win11"><a href="#树莓派安装win10、win11" class="headerlink" title="树莓派安装win10、win11"></a>树莓派安装win10、win11</h3><p><strong>这个更逆天</strong></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Botspot/wor-flasher">wor-flasher</a></p>
-<h3 id="微型电台-FM"><a href="#微型电台-FM" class="headerlink" title="微型电台-FM"></a>微型电台-FM</h3><p><strong>树莓派的 GPIO 引脚可以用作信号输出,因此,可以把音频信号通过树莓派进行 FM 调制后从 GPIO引脚送出,这样树莓派就变成了一个微型FM 发射器,即微型电台,可以自己指定发射频率,打开 FM 调频收音机,调到对应频道就可以接收到树派播放的 FM 广播信号了。</strong><br><strong>通过安装 <a target="_blank" rel="noopener" href="https://github.com/ChristopheJacquet/PiFmRds">PiFmRds</a> 来将树莓派变成微型 FM 电台</strong></p>
-<h4 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h4><p><strong>首先,执行以下命令,安装 sndfile 库:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libsndfile1-dev</span><br></pre></td></tr></table></figure>
-
-<p><strong>第二步,执行以下命令,克隆 PiFmRds 的源代码:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ChristopheJacquet/PiFmRds.git</span><br></pre></td></tr></table></figure>
-
-<p><strong>第三步,执行以下命令,进行编译:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> PiFmRds/src</span><br><span class="line">make clean</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-
-<h4 id="播放命令"><a href="#播放命令" class="headerlink" title="播放命令"></a>播放命令</h4><p><strong>编译完成后,可以执行 <code>sudo ./pi_fm_rds </code>命令发射 FM信号。pi_fm_rds 命令格式为：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./pi_fm_rds -audio [filename] -freq [frequency]</span><br></pre></td></tr></table></figure>
-
-<p><strong>其中<code>-audio [filename]</code>是指定播放文件是<code>wav</code>格式的音频文件；</strong></p>
-<p><strong><code>-freq [frequency]</code>是指定发射信号的频率</strong></p>
-<p><strong>下面是不指定发射信号播放666.wav文件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~/PiFmRds/src<span class="comment"># pwd</span></span><br><span class="line">/root/PiFmRds/src</span><br><span class="line">root@ubuntu:~/PiFmRds/src<span class="comment"># sudo ./pi_fm_rds</span></span><br><span class="line">root@ubuntu:~/PiFmRds/src<span class="comment"># sudo ./pi_fm_rds</span></span><br><span class="line">Using mbox device /dev/vcio.</span><br><span class="line">Allocating physical memory: size = 3403776     mem_ref = 4     bus_addr = fe8bb000     virt_addr = 0xffff94ea1000</span><br><span class="line">ppm corr is 0.0000, divider is 1644.7368 (1644 + 3018*2^-12) [nominal 1096.4912].</span><br><span class="line">PI: 1234, PS: &lt;Varying&gt;.</span><br><span class="line">RT: <span class="string">&quot;PiFmRds: live FM-RDS transmission from the RaspberryPi&quot;</span></span><br><span class="line">Starting to transmit on 107.9 MHz.</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230610164626929.png" alt="image-20230610164626929"></p>
-<p><strong>然后新建一个shell窗口，执行播放文件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~/PiFmRds/src<span class="comment"># sudo ./pi_fm_rds -audio 666.wav </span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230610164453696.png" alt="image-20230610164453696"></p>
-<p><strong>用FM收音机接收107.9MHZ信号，可以听到文件声音</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230610164817.jpg" alt="微信图片_20230610164817"></p>
-<h4 id="增强播放效果"><a href="#增强播放效果" class="headerlink" title="增强播放效果"></a>增强播放效果</h4><p><strong>在树莓派 GPIO 4(物理引脚编号为7)接上一根长 20m 的杜邦线作为发射天线来增强 FM 信号,然后使用 FM(调频)收音机收听,在 1m 范围内音质很清晰，在3m 范围内仍然可以听得见,超过 3m 信号会很弱。</strong></p>
-<h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><h4 id="一、简介一下iptables"><a href="#一、简介一下iptables" class="headerlink" title="一、简介一下iptables"></a>一、简介一下iptables</h4><p><strong>iptables命令中ACCEPT（允许流量通过）、LOG（记录日志信息）、REJECT（拒绝流量通过）、DROP（拒绝流量通过）。允许动作和记录日志工作都比较好理解，着重需要讲解的是这两条拒绝动作的不同点，其中REJECT和DROP的动作操作都是把数据包拒绝，DROP是直接把数据包抛弃不响应，而REJECT会拒绝后再回复一条“您的信息我已收到，但被扔掉了”，让对方清晰的看到数据被拒绝的响应。</strong></p>
-<h4 id="四表五链"><a href="#四表五链" class="headerlink" title="四表五链"></a>四表五链</h4><h5 id="命令解释"><a href="#命令解释" class="headerlink" title="命令解释"></a>命令解释</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许192.168.1.0/24这个IP段的流量流进服务器的80端口</span></span><br><span class="line">iptables -I INPUT -s 192.168.1.0/24 -p tcp --dport 80 -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只允许本机22端口被192.168.1.0/24网段访问，其他流量均被拒绝。我们输入命令：</span></span><br><span class="line">iptables -I INPUT -s 192.168.1.0/24 -p tcp --dport 22 -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拒绝所有人访问本机4444到5555端口，输入命令：</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 4444:5555 -j REJECT</span><br><span class="line">iptables -A INPUT -p udp --dport 4444:5555 -j REJECT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除INPUT链中的第2条策略，首先我们看一下防火墙策略中的第二条策略是什么“iptables -L”，然后输入命令删除第2条策略：</span></span><br><span class="line">iptables -D INPUT 2</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>当我们使用 ipt­a­bles 设置了一些规则后需要对这些设置永久保存，避免当服务器重启后规则消失需要重新配置。为了能够让 ipt­a­bles 规则永久保存，这里介绍两种方法：</strong></p>
-<h4 id="1、-使用iptables-restore"><a href="#1、-使用iptables-restore" class="headerlink" title="1、 使用iptables-restore"></a>1、 使用iptables-restore</h4><p><strong>在设置了一系列的 ipt­a­bles 规则后，首先需要切换到 root 用户，执行如下命令将规则保存到文件中：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 这包括了ipv4和ipv6规则，如果只有ipv4的规则可以只执行第一条</span><br><span class="line">iptables-save &gt; /etc/iptables-rules</span><br><span class="line">ip6tables-save &gt; /etc/ip6tables-rules</span><br></pre></td></tr></table></figure>
-
-<p><strong>然后编辑 &#x2F;etc&#x2F;net­work&#x2F;in­ter­faces 文件，在对应的外网网卡下（通常是 eth0 接口，如果不是请按照实际情况添加，可以通过 if­con­fig 查看外网 ip 对应的网卡接口）插入下面两行：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pre-up iptables-restore &lt; /etc/iptables-rules</span><br><span class="line">pre-up ip6tables-restore &lt; /etc/ip6tables-rules</span><br></pre></td></tr></table></figure>
-
-<p>这样当服务器重启后就能自动加载已经配置好的 ipt­a­bles 规则了。如果后续有添加新的规则则需要重新执行上面的 ipt­a­bles-save 命令更新规则文件即可</p>
-<h4 id="2、-使用iptables-persistent"><a href="#2、-使用iptables-persistent" class="headerlink" title="2、 使用iptables-persistent"></a>2、 使用iptables-persistent</h4><p><strong>这个方法是我更喜欢使用的，它实际操作起来更简单一些。</strong></p>
-<ul>
-<li><strong>首先安装iptables-persistent工具</strong></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install iptables-persistent</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>每当设置了新的iptables规则后，使用如下命令保存规则即可，规则会根据ipv4和ipv6分别保存在了&#x2F;etc&#x2F;iptables&#x2F;rules.v4和&#x2F;etc&#x2F;iptables&#x2F;rules.v6文件中。</strong></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 保存现有规则</span><br><span class="line">sudo service netfilter-persistent save</span><br><span class="line"># 读取并应用先有规则</span><br><span class="line">sudo service netfilter-persistent reload</span><br></pre></td></tr></table></figure>
-
-<p><strong>由于 ipt­a­bles-per­sis­tent 在安装时已经把它作为一个服务设置为开机启动了，它在开机后会自动加载已经保存的规则，所以也就达到了永久保存的目的。其实原理和第一种方法是类似的，只是设置起来会更简单一些。</strong></p>
-<h3 id="RaspAP"><a href="#RaspAP" class="headerlink" title="RaspAP"></a>RaspAP</h3><p><a target="_blank" rel="noopener" href="https://raspap.com/">https://raspap.com/</a></p>
-<h3 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h3><h4 id="samba"><a href="#samba" class="headerlink" title="samba"></a>samba</h4><p><strong>首先，安装samba服务</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install samba samba-common-bin</span><br></pre></td></tr></table></figure>
-
-<p><strong>添加文件配置</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/samba/smb.conf</span><br></pre></td></tr></table></figure>
-
-<p><strong>配置如下：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[share]                      <span class="comment">#共享文件夹名字，将在网络上显示此名称</span></span><br><span class="line">   path = /orange/share      <span class="comment">#共享文件夹的路径</span></span><br><span class="line">   valid <span class="built_in">users</span> = orange      <span class="comment">#允许访问的用户名称</span></span><br><span class="line">   browseable = <span class="built_in">yes</span>          <span class="comment">#允许浏览文件夹</span></span><br><span class="line">   writable = <span class="built_in">yes</span>            <span class="comment">#可以写入文件</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>创建orange的linux用户</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -m orange</span><br></pre></td></tr></table></figure>
-
-<p><strong>创建samba的orange用户并且设置密码</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smbpasswd -a orange</span><br></pre></td></tr></table></figure>
-
-<p><strong>重启samba服务即可访问</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart smbd.service</span><br></pre></td></tr></table></figure>
-
-<p><strong>这里由于华为手机有隐私保护，不能截图，所以我已经登录账号密码进来了</strong></p>
-<img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/微信图片_20230607011823.jpg" alt="微信图片_20230607011823" style="zoom:50%;">
-
-<p><strong>咳咳，都配了认证，那么我们是不是可以端口映射一下</strong></p>
-<p><strong>把445映射出去即可</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230607015948428.png" alt="image-20230607015948428"></p>
-<p><strong>手机和win电脑都验证过了，完全没问题。</strong></p>
-<h4 id="NFS"><a href="#NFS" class="headerlink" title="NFS"></a>NFS</h4><p><strong>安装rpcbind</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install rpcbind</span><br></pre></td></tr></table></figure>
-
-<p><strong>查看rpcbind.socket状态</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status rpcbind.socket</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145322917.png" alt="image-20230508145322917"></p>
-<p><strong>可以看出rpcbind.socket一直在监听端口</strong></p>
-<p><strong>安装nfs</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nfs-kernel-server</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145655757.png" alt="image-20230508145655757"></p>
-<p><strong>查看rpcbind.socket状态</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status rpcbind.service</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145512096.png" alt="image-20230508145512096"></p>
-<p><strong>从上面安装好看nfs再查看rpcbind.service可以发现，nfs没开启服务，rpcbind.service也不会自动开启</strong></p>
-<p><strong>这次，我们开启nfs再查看nfs和rpcbind.service的服务状态</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nfs-kernel-server.service</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status nfs-kernel-server.service</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145901666.png" alt="image-20230508145901666"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status rpcbind.service</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508145927673.png" alt="image-20230508145927673"></p>
-<p><strong>可以看出，nfs服务启动后，rpcbind.socket检测到端口被激活从而开启了rpcbind.service服务</strong></p>
-<p><strong>编辑&#x2F;etc&#x2F;exports</strong></p>
-<p><strong>后面的权限我先不加，这里默认是只读</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data *</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152044419.png" alt="image-20230508152044419"></p>
-<p><strong>重新加载配置(不需要重启服务)</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exportfs -r</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152209456.png" alt="image-20230508152209456"></p>
-<p><strong>查看默认权限</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exportfs -v</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152254228.png" alt="image-20230508152254228"></p>
-<p><strong>显示NFS服务器的共享信息</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">showmount -e</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152331011.png" alt="image-20230508152331011"></p>
-<p><strong>win10挂载nfs共享目录</strong></p>
-<p><strong>先打开控制面板，找到程序</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152719331.png" alt="image-20230508152719331"></p>
-<p><strong>点击启用或者关闭windows功能</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152753361.png" alt="image-20230508152753361"></p>
-<p><strong>把nfs服务全选上</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152913031.png" alt="image-20230508152913031"></p>
-<p><strong>然后确认退出，打开此电脑找到映射网络驱动器</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508152644711.png" alt="image-20230508152644711"></p>
-<p><strong>按照<code>\\ip\共享目录名字</code>这样的格式</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153030562.png" alt="image-20230508153030562"></p>
-<p><strong>然后就能看到共享的文件了</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153203212.png" alt="image-20230508153203212"></p>
-<p><strong>由于上面在&#x2F;etc&#x2F;exports里没有添加权限使用仅有下载功能，硬盘的大小还不能完全支配</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508153328881.png" alt="image-20230508153328881"></p>
-<p><strong>卸载挂载。。。懂？</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508154432995.png" alt="image-20230508154432995"></p>
-<p><strong>linux挂载nfs共享目录</strong></p>
-<p><strong>很简单。。。知道怎么挂载磁盘吧。。。就是这样</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount ip:/data /服务器的本地文件夹</span><br></pre></td></tr></table></figure>
-
-<p><strong>临时挂载很不方便，你懂的！！！重启就没了，可以试一下永久挂载，这里就不BB了</strong></p>
-<p><strong>卸载挂载</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount /服务器的本地文件夹</span><br></pre></td></tr></table></figure>
-
-<p><strong>权限修改</strong></p>
-<p><strong>rw</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data *(rw)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exportfs -r</span><br><span class="line">exportfs -v</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160434284.png" alt="image-20230508160434284"></p>
-<p><strong>拉个文件进去，它说哒咩！！！</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508155738554.png" alt="image-20230508155738554"></p>
-<p><strong>这怎么回事捏，我可是win10的主人，居然没有权限访问？</strong></p>
-<p><strong>好吧！虽然是win10的主人，但是linux层面上你只是一个来宾，所以还要在文件夹授予其他用户权限</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> o+rw /data/</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160220572.png" alt="image-20230508160220572"></p>
-<p><strong>嘿嘿！给了权限就可以上传了</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230508160209860.png" alt="image-20230508160209860"></p>
-<table>
-<thead>
-<tr>
-<th>权限选择</th>
-<th>权限的作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ro</td>
-<td>只读</td>
-</tr>
-<tr>
-<td>rw</td>
-<td>读写</td>
-</tr>
-<tr>
-<td>async</td>
-<td>异步，先将数据写入到内存，在将数据写入到硬盘（性能高）</td>
-</tr>
-<tr>
-<td>root_squash</td>
-<td>将客户端使用的是root用户时，则映射到NFS服务器的用户为NFS的匿名用户（nfsnobody）</td>
-</tr>
-<tr>
-<td>no_root_squash</td>
-<td>将客户端使用的是root用户时，则映射到FNS服务器的用户依然为root用户</td>
-</tr>
-<tr>
-<td>all_squash</td>
-<td>默认选项，将所有访问NFS服务器的客户端的用户都映射为匿名用户，不管客户端使用的是什么用户</td>
-</tr>
-<tr>
-<td>anonuid</td>
-<td>设置映射到本地的匿名用户的UID（配合all_squash使用）</td>
-</tr>
-<tr>
-<td>anongid</td>
-<td>设置映射到本地的匿名用户的GID（配合all_squash使用）</td>
-</tr>
-<tr>
-<td>sync</td>
-<td>默认选项，保持数据同步，数据同步写入到内存和硬盘</td>
-</tr>
-<tr>
-<td>secure</td>
-<td>NFS客户端必须使用NFS保留端口（通常是1024以下的端口），默认选项</td>
-</tr>
-<tr>
-<td>insecure</td>
-<td>允许NFS客户端不使用NFS保留端口（通常是1024以上的端口）</td>
-</tr>
-</tbody></table>
-<h4 id="OpenMediaVault"><a href="#OpenMediaVault" class="headerlink" title="OpenMediaVault"></a>OpenMediaVault</h4><p><a target="_blank" rel="noopener" href="https://www.openmediavault.org/">https://www.openmediavault.org/</a></p>
-<p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/openmediavault/">OpenMediaVault | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
-<h5 id="换源-树莓派5"><a href="#换源-树莓派5" class="headerlink" title="换源(树莓派5)"></a>换源(树莓派5)</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt;/etc/apt/sources.list&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string"># 清华源</span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware </span></span><br><span class="line"><span class="string">deb https://mirrors4.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</span></span><br><span class="line"><span class="string">#deb-src https://mirrors4.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="网络修复"><a href="#网络修复" class="headerlink" title="网络修复"></a>网络修复</h5><h6 id="这个是我的特殊需求！你们别用！"><a href="#这个是我的特殊需求！你们别用！" class="headerlink" title="这个是我的特殊需求！你们别用！"></a>这个是我的特殊需求！你们别用！</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt;add_route.sh&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">#! /bin/bash</span></span><br><span class="line"><span class="string">sudo ip route add default via 192.168.200.1 dev wlan0 proto dhcp metric 99</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x add_route.sh</span><br></pre></td></tr></table></figure>
-
-<h6 id="zt"><a href="#zt" class="headerlink" title="zt"></a>zt</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s https://install.zerotier.com | sudo bash</span><br></pre></td></tr></table></figure>
-
-<p><strong>自己加入自己的zt网络</strong></p>
-<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><ul>
-<li><strong>注意</strong></li>
-</ul>
-<p><strong>安装omv需要<code>无头树莓派</code>，也就是无桌面化的树莓派才行，所以千万别装有桌面化的镜像！！！我是安装树莓派5的64bit lite版本，后面装桌面应该也可以，但是我不会装的</strong></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224215907560.png" alt="image-20231224215907560"></p>
-<h6 id="前期部署"><a href="#前期部署" class="headerlink" title="前期部署"></a>前期部署</h6><ul>
-<li><strong>设置root密码</strong></li>
-</ul>
-<p><strong>omv装好后会把<code>用户一切权限禁用</code>，从而导致<code>用户</code>没办法登录<code>ssh</code>，如果<code>root</code>管理员没有设置密码和开启允许<code>root</code>管理员<code>ssh</code>登录，那就完蛋了！</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@R5:~<span class="comment"># passwd</span></span><br><span class="line">New password: </span><br><span class="line">Retype new password: </span><br><span class="line">passwd: password updated successfully</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>允许root管理员ssh登录</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@R5:~<span class="comment"># nano /etc/ssh/sshd_config</span></span><br><span class="line"><span class="comment">#在里面加入这句</span></span><br><span class="line">PermitRootLogin <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>重启ssh服务</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@R5:~<span class="comment"># systemctl restart sshd</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>提前解析<code>raw.githubusercontent.com</code>的ip</strong></li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://tool.lu/ip/">反向解析最近能用ip网站</a></p>
-<p><strong>在中国玩服务器百分之九十的问题都来自网络！而世界上最大的同性交流网站<code>gayhub(github)</code>经常被<code>干</code>,所以学多点骚操作很有必要</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过上面解析出来的ip</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;185.199.111.133 raw.githubusercontent.com&quot;</span> &gt;&gt; /etc/hosts</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>安装个救命的网络包</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install network-manager</span><br></pre></td></tr></table></figure>
-
-<p><strong>因为安装omv会导致无线网卡直接关闭，而树莓派5很特殊，用平常的改文件没办法让它连上wifi的，这个安装包里面有个叫<code>nmtui</code>的命令超级好用！</strong></p>
-<p><strong>我的树莓派是双网卡连接模式，所以我知道这个坑！使用单网卡而且用的是网口当我没说</strong></p>
-<h6 id="一键安装脚本"><a href="#一键安装脚本" class="headerlink" title="一键安装脚本"></a>一键安装脚本</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O - https://raw.githubusercontent.com/OpenMediaVault-Plugin-Developers/installScript/master/install | sudo bash</span><br></pre></td></tr></table></figure>
-
-<h6 id="面板设置"><a href="#面板设置" class="headerlink" title="面板设置"></a>面板设置</h6><ul>
-<li><strong>账号：admin</strong></li>
-<li><strong>密码：openmediavault</strong></li>
-</ul>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224203714581.png" alt="image-20231224203714581"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224233310464.png" alt="image-20231224233310464"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224233431216.png" alt="image-20231224233431216"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224233459808.png" alt="image-20231224233459808"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224233758795.png" alt="image-20231224233758795"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224233818742.png" alt="image-20231224233818742"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224233917785.png" alt="image-20231224233917785"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224233952330.png" alt="image-20231224233952330"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224234040032.png" alt="image-20231224234040032"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224234151290.png" alt="image-20231224234151290"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224234258984.png" alt="image-20231224234258984"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224234321072.png" alt="image-20231224234321072"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224235034120.png" alt="image-20231224235034120"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224235055339.png" alt="image-20231224235055339"></p>
-<p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20231224235643001.png" alt="image-20231224235643001"></p>
-<h6 id="特殊待遇"><a href="#特殊待遇" class="headerlink" title="特殊待遇"></a>特殊待遇</h6><p><strong>我这边有特殊需求，要手机设备和内网设备可以连接nas，其他全部拒绝访问nas，所以有了这个配置</strong></p>
-<ul>
-<li><strong>除了192.168.0.0&#x2F;24和192.168.200.108该ip设备，其他一并拒绝，有密码也没用</strong></li>
-<li><strong>samba我还是很不放心的，虽然已经开启smb3.0，但是我曾经用其他舍友的电脑直接无密码登进去了，就让我对nas设备产生了安全顾虑！</strong></li>
-<li><strong>后面有新的安全内容也会进行添加</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@R5:~<span class="comment"># vim /etc/samba/smb.conf</span></span><br><span class="line"><span class="comment"># 用户配置加入这个</span></span><br><span class="line">hosts allow = 192.168.0.0/24 192.168.200.108</span><br><span class="line">hosts deny = ALL </span><br></pre></td></tr></table></figure>
-
-<h3 id="k3s"><a href="#k3s" class="headerlink" title="k3s"></a>k3s</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /boot/cmdline.txt</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cgroup_memory=1 cgroup_enable=memory</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="ansible"><a href="#ansible" class="headerlink" title="ansible"></a>ansible</h4><h3 id="raspberry-python-控-GPIO"><a href="#raspberry-python-控-GPIO" class="headerlink" title="raspberry python 控 GPIO"></a>raspberry python 控 GPIO</h3><p><strong>python添加gpiozero库</strong></p>
-<h3 id="raspberry-python-与树莓派硬件交互"><a href="#raspberry-python-与树莓派硬件交互" class="headerlink" title="raspberry python 与树莓派硬件交互"></a>raspberry python 与树莓派硬件交互</h3><p><strong>python添加psutil库、OS库、commands库、subprocess库</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1405,20 +711,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
