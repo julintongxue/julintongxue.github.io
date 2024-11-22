@@ -6293,7 +6293,7 @@
     <title>Windows Server 2012 R2 Datacenter初体验</title>
     <url>/2024/09/24/Windows-Server-2012-R2-Datacenter%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
     <content><![CDATA[<h3 id="Windows-Server-2012-R2-Datacenter初体验"><a href="#Windows-Server-2012-R2-Datacenter初体验" class="headerlink" title="Windows Server 2012 R2 Datacenter初体验"></a>Windows Server 2012 R2 Datacenter初体验</h3><p><strong>前几天和电信那边的云工程师和业务一起开了个会，他们给我讲述了上云的好处，这个概念呢，我是在大学就接触到了，但是这两年里，阿里云就出现了两起重大事故，导致上云的应用商被狠狠上了一课;这个先入为主，导致我对云服务器的安全、灾备产生很大的兴趣，这次，很有幸能和云工程师、业务经理开这个短会，我要到了体验云主机的一次机会。我今天收到邮件的时候以为是普普通通的一个账号和一个内网的win机子，但没想到电信很大方的给了搭载<code>Windows Server 2012 R2 Datacenter</code> 、<code>志强处理器(Intel64 Family 6 Model 85属于第2代至第3代的Intel Xeon处理器)</code>、<code>16G运行内存</code>、<code>40G(NTFS)+500G(REFS)硬盘</code>，我将在上面完成几个小小的测试体验一下这个服务器对比纯命令行的RHEL&#x2F;Centos7&#x2F;Ubuntu&#x2F;Archlinux有没有带给我震撼。</strong></p>
-]]></content>
+<h2 id="邮箱SMTP"><a href="#邮箱SMTP" class="headerlink" title="邮箱SMTP"></a>邮箱SMTP</h2><h3 id="winmail"><a href="#winmail" class="headerlink" title="winmail"></a>winmail</h3>]]></content>
       <categories>
         <category>Win系统</category>
       </categories>
