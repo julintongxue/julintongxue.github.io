@@ -54,7 +54,7 @@
 <meta property="og:image" content="https://julintongxue.github.io/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231116_165156.png">
 <meta property="og:image" content="https://julintongxue.github.io/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/Screenshot_20231125_164005.png">
 <meta property="article:published_time" content="2022-07-17T10:46:02.000Z">
-<meta property="article:modified_time" content="2024-04-29T12:49:00.000Z">
+<meta property="article:modified_time" content="2024-11-25T06:28:09.685Z">
 <meta property="article:author" content="涩橙子">
 <meta property="article:tag" content="Arch">
 <meta property="article:tag" content="Manjaro">
@@ -260,7 +260,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-29 20:49:00" itemprop="dateModified" datetime="2024-04-29T20:49:00+08:00">2024-04-29</time>
+                <time title="修改时间：2024-11-25 14:28:09" itemprop="dateModified" datetime="2024-11-25T14:28:09+08:00">2024-11-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -319,8 +319,8 @@
 <h5 id="3-GNOME"><a href="#3-GNOME" class="headerlink" title="3.GNOME"></a>3.GNOME</h5><p><strong>对于想要一个非常现代和简单的桌面的人</strong></p>
 <p><strong>简单来说，这就是像ubuntu那样的桌面，算是极简主义者的天堂了。</strong></p>
 <p><img src="/2022/07/17/Manjaro-%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/GNOME.jpg" alt="GNOME"></p>
-<h3 id="制造启动U盘"><a href="#制造启动U盘" class="headerlink" title="制造启动U盘"></a><a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">制造启动U盘</a></h3><h4 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h4><p>这里我们去<code>balenaEtcher</code>的官网下载一个便携式的u盘刻录工具，萌新前期可以通过这个工具把我们需要装的系统刻录进u盘中。(如果觉得一次只能刻录一个镜像而感到苦恼的话，也可以去<a target="_blank" rel="noopener" href="https://www.ventoy.net/cn/index.html">ventoy官网</a>下载ventoy这款无敌的工具，能够兼容多个系统镜像，真正让你的u盘不再唯一)</p>
-<p>刻录好u盘之后我们可以开始进行我们的系统安装了！！！</p>
+<h3 id="制造启动U盘"><a href="#制造启动U盘" class="headerlink" title="制造启动U盘"></a><a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">制造启动U盘</a></h3><h4 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h4><p><strong>这里我们去<code>balenaEtcher</code>的官网下载一个便携式的u盘刻录工具，萌新前期可以通过这个工具把我们需要装的系统刻录进u盘中。(如果觉得一次只能刻录一个镜像而感到苦恼的话，也可以去<a target="_blank" rel="noopener" href="https://www.ventoy.net/cn/index.html">ventoy官网</a>下载ventoy这款无敌的工具，能够兼容多个系统镜像，真正让你的u盘不再唯一)</strong></p>
+<p><strong>刻录好u盘之后我们可以开始进行我们的系统安装了！！！</strong></p>
 <h3 id="1-单系统-manjaro"><a href="#1-单系统-manjaro" class="headerlink" title="1.单系统(manjaro)"></a>1.单系统(manjaro)</h3><h3 id="2-双系统-window10-manjaro"><a href="#2-双系统-window10-manjaro" class="headerlink" title="2.双系统(window10 + manjaro)"></a>2.双系统(window10 + manjaro)</h3><h3 id="一-与window10-efi-共存方案"><a href="#一-与window10-efi-共存方案" class="headerlink" title="一.与window10 efi 共存方案"></a>一.与window10 efi 共存方案</h3><h3 id="二-单独一个-manjaro-efi-方案"><a href="#二-单独一个-manjaro-efi-方案" class="headerlink" title="二.单独一个 manjaro efi 方案"></a>二.单独一个 manjaro efi 方案</h3><h3 id="三-如何删除双系统下的manjaro系统"><a href="#三-如何删除双系统下的manjaro系统" class="headerlink" title="三.如何删除双系统下的manjaro系统"></a>三.如何删除双系统下的manjaro系统</h3><h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p><strong>直接在window系统上面格式化manjaro的磁盘是不能完全删除manjaro的，这样做会触发efi检测不到manjaro硬盘而进入grub模式！！！</strong></p>
 <h4 id="1-EFI根除教程"><a href="#1-EFI根除教程" class="headerlink" title="1.EFI根除教程"></a>1.EFI根除教程</h4><p><strong>1.删除EFI首先在cmd里面把装系统的那个分区显现出来，并且赋予盘符号。</strong></p>
 <ul>
@@ -356,11 +356,11 @@
 </li>
 </ul>
 <h4 id="2-删除卷"><a href="#2-删除卷" class="headerlink" title="2.删除卷"></a>2.删除卷</h4><p><strong>右键<code>此电脑</code>—&gt;单击<code>管理</code>—&gt;单击<code>磁盘管理</code>—&gt;找到你分配给<code>manjaro</code>的磁盘，直接右击<code>删除卷</code>，然后重新添加新的分区就行了。</strong></p>
-<h4 id="3-manjaro系统入门操作-过不了就躺板板吧，别学了"><a href="#3-manjaro系统入门操作-过不了就躺板板吧，别学了" class="headerlink" title="3.manjaro系统入门操作(过不了就躺板板吧，别学了)"></a>3.manjaro系统入门操作(过不了就躺板板吧，别学了)</h4><h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><h4 id="1-换国内软件源"><a href="#1-换国内软件源" class="headerlink" title="1.换国内软件源"></a>1.换国内软件源</h4><p>安装完成manjaro的第一步就是给manjaro换上国内源，使接下来能安装软件等其他操作。</p>
+<h4 id="3-manjaro系统入门操作-过不了就躺板板吧，别学了"><a href="#3-manjaro系统入门操作-过不了就躺板板吧，别学了" class="headerlink" title="3.manjaro系统入门操作(过不了就躺板板吧，别学了)"></a>3.manjaro系统入门操作(过不了就躺板板吧，别学了)</h4><h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><h4 id="1-换国内软件源"><a href="#1-换国内软件源" class="headerlink" title="1.换国内软件源"></a>1.换国内软件源</h4><p><strong>安装完成manjaro的第一步就是给manjaro换上国内源，使接下来能安装软件等其他操作。</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman-mirrors -i -c China -m rank <span class="comment">#在弹出来的面板选择一道两个时间短的源</span></span><br></pre></td></tr></table></figure>
 
-<p>下面这个跟上面那一步操作类似，它是直接把源放入到文件里面一步到位(注意：这个源要放文件内容最前面)，有上面命令的操作可以跳过导入源到mirrorlist这一步。</p>
-<p>首先把这几个源加入到这个文件里面：</p>
+<p><strong>下面这个跟上面那一步操作类似，它是直接把源放入到文件里面一步到位(注意：这个源要放文件内容最前面)，有上面命令的操作可以跳过导入源到mirrorlist这一步。</strong></p>
+<p><strong>首先把这几个源加入到这个文件里面：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/pacman.d/mirrorlist    <span class="comment">#因为没有软件源，我没办法下载vim,所以这里我用的编辑器是vi,你们可以使用nano</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Country : China</span></span><br><span class="line">Server = https://mirrors.huaweicloud.com/manjaro/stable/<span class="variable">$repo</span>/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Country : China</span></span><br><span class="line">Server = https://mirrors.ustc.edu.cn/manjaro/stable/<span class="variable">$repo</span>/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Country : China</span></span><br><span class="line">Server = https://mirrors.sjtug.sjtu.edu.cn/manjaro/stable/<span class="variable">$repo</span>/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Country : China</span></span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/<span class="variable">$repo</span>/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Country : China</span></span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/<span class="variable">$repo</span>/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
@@ -427,12 +427,12 @@
 <p>设置环境变量 编辑文件 <code>sudo vim /etc/environment</code> 加入以下内容。konsole 以及 dolphin 都需要这些环境变量，倒是 chrome 和 firefox 都不需要就可以输入中文</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br><span class="line">SDL_IM_MODULE=fcitx</span><br></pre></td></tr></table></figure>
 
-<p>打开 <em>系统设置</em> &gt; <em>区域设置</em> &gt; _输入法_，先点击<code>运行Fcitx</code>即可，拼音为默认添加项。如你还需要更多输入法如五笔，则再点击<code>添加输入法</code>，找到简体中文下的五笔 ，点击添加即可加入五笔输入法。(建议，无论什么输入法都留一个英文的输入法在首位置)。</p>
-<p>接下来点击 <em>拼音</em> 右侧的配置按钮，点选<code>云拼音</code>和<code>在程序中显示预编辑文本</code> 最后应用。</p>
-<p>回到输入法设置，点击<code>配置附加组件</code>，找到 <em>经典用户界面</em> 在主题里选择一个你喜欢的颜色 最后应用。</p>
-<p>注销，重新登陆，就可以发现已经可以在各个软件中输入中文了</p>
-<h3 id="聊天工具"><a href="#聊天工具" class="headerlink" title="聊天工具"></a>聊天工具</h3><p>我们日常使用的聊天工具无非就是微信,QQ,Telegram</p>
-<p>这个时候，我们可以去<a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/">Archlinux庞大的AUR软件</a>里面搜索</p>
+<p><strong>打开 <em>系统设置</em> &gt; <em>区域设置</em> &gt; _输入法_，先点击<code>运行Fcitx</code>即可，拼音为默认添加项。如你还需要更多输入法如五笔，则再点击<code>添加输入法</code>，找到简体中文下的五笔 ，点击添加即可加入五笔输入法。(建议，无论什么输入法都留一个英文的输入法在首位置)。</strong></p>
+<p><strong>接下来点击 <em>拼音</em> 右侧的配置按钮，点选<code>云拼音</code>和<code>在程序中显示预编辑文本</code> 最后应用。</strong></p>
+<p><strong>回到输入法设置，点击<code>配置附加组件</code>，找到 <em>经典用户界面</em> 在主题里选择一个你喜欢的颜色 最后应用。</strong></p>
+<p><strong>注销，重新登陆，就可以发现已经可以在各个软件中输入中文了</strong></p>
+<h3 id="聊天工具"><a href="#聊天工具" class="headerlink" title="聊天工具"></a>聊天工具</h3><p><strong>我们日常使用的聊天工具无非就是微信,QQ,Telegram</strong></p>
+<p><strong>这个时候，我们可以去<a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/">Archlinux庞大的AUR软件</a>里面搜索</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#微信(已经是孤儿包不维护了)</span></span><br><span class="line">yay -S deepin-wine-wechat </span><br><span class="line"><span class="comment">#QQ(已经是孤儿包不维护了)</span></span><br><span class="line">yay -S deepin-wine-qq</span><br><span class="line"><span class="comment">#Telegram</span></span><br><span class="line">sudo pacman  -S telegram-desktop</span><br></pre></td></tr></table></figure>
 
 <h3 id="科学上网-没有经验的直接跳过"><a href="#科学上网-没有经验的直接跳过" class="headerlink" title="科学上网(没有经验的直接跳过)"></a>科学上网(没有经验的直接跳过)</h3><h4 id="服务器端-Server端"><a href="#服务器端-Server端" class="headerlink" title="服务器端(Server端)"></a>服务器端(Server端)</h4><h5 id="1-科学上网服务器-外网服务器一台"><a href="#1-科学上网服务器-外网服务器一台" class="headerlink" title="1.科学上网服务器(外网服务器一台)"></a>1.科学上网服务器(外网服务器一台)</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 系统是centos7,更新软件</span></span><br><span class="line">yum update -y &amp;&amp; yum upgrade &amp;&amp; yum install curl -y &amp;&amp; yum -y install wget</span><br></pre></td></tr></table></figure>

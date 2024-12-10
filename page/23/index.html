@@ -231,7 +231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-08 14:20:02" itemprop="dateModified" datetime="2024-10-08T14:20:02+08:00">2024-10-08</time>
+                <time title="修改时间：2024-11-26 17:24:02" itemprop="dateModified" datetime="2024-11-26T17:24:02+08:00">2024-11-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1043,6 +1043,9 @@
 <li><strong>后面有新的安全内容也会进行添加</strong></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@R5:~<span class="comment"># vim /etc/samba/smb.conf</span></span><br><span class="line"><span class="comment"># 用户配置加入这个</span></span><br><span class="line">hosts allow = 192.168.0.0/24 192.168.200.108</span><br><span class="line">hosts deny = ALL </span><br></pre></td></tr></table></figure>
+
+<h5 id="修复"><a href="#修复" class="headerlink" title="修复"></a>修复</h5><p><strong>WEB无法登陆的问题</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/php/8.2/fpm/php.ini</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加这个</span></span><br><span class="line">session.save_path = “/tmp”</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line">service php8.2-fpm  restart</span><br></pre></td></tr></table></figure>
 
 <h3 id="k3s"><a href="#k3s" class="headerlink" title="k3s"></a>k3s</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /boot/cmdline.txt</span><br></pre></td></tr></table></figure>
 
