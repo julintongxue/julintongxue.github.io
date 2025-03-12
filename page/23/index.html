@@ -231,7 +231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-26 17:24:02" itemprop="dateModified" datetime="2024-11-26T17:24:02+08:00">2024-11-26</time>
+                <time title="修改时间：2025-02-24 15:47:13" itemprop="dateModified" datetime="2025-02-24T15:47:13+08:00">2025-02-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -263,14 +263,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>21k</span>
+              <span>22k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>19 分钟</span>
+              <span>20 分钟</span>
             </span>
 
         </div>
@@ -347,7 +347,7 @@
 <p><img src="/2022/11/23/Raspberry%E7%8E%A9%E6%B3%95%E5%92%8C%E5%BF%83%E5%BE%97/image-20230125230244687.png" alt="image-20230125230244687"></p>
 <p><strong>那么终端就能临时性的访问Github的能力了。</strong></p>
 <h4 id="终端代理访问GitHub"><a href="#终端代理访问GitHub" class="headerlink" title="终端代理访问GitHub"></a>终端代理访问GitHub</h4><p><strong>如果你们设计了本地代理软件的话，可以把局域网共享打开然后让树莓派也获得访问GitHub能力，这样终端下载国外的deb包速度也是很快的(因为我不习惯换国内源，国内源删太多东西了，有些资源包说没有的时候比下的慢更难受)</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">proxy_on</span></span>() &#123;</span><br><span class="line">    <span class="built_in">export</span> http_proxy=http://your_ip:your_port</span><br><span class="line">    <span class="built_in">export</span> https_proxy=<span class="variable">$http_proxy</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;终端代理已开启。&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">proxy_off</span></span>()&#123;</span><br><span class="line">    <span class="built_in">unset</span> http_proxy https_proxy</span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;终端代理已关闭。&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">proxy_on</span></span>() &#123;</span><br><span class="line">    <span class="built_in">export</span> http_proxy=http://10.10.93.9:7890</span><br><span class="line">    <span class="built_in">export</span> https_proxy=<span class="variable">$http_proxy</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;终端代理已开启。&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">proxy_off</span></span>()&#123;</span><br><span class="line">    <span class="built_in">unset</span> http_proxy https_proxy</span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;终端代理已关闭。&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>弄好后，记得要<code>source  /etc/profile</code>让其临时生效，不然就要重启才能使用了</strong></p>
 <p><strong>通过<code>proxy_on</code>启动代理，<code>proxy_off</code>关闭代理。</strong></p>
@@ -424,7 +424,7 @@
 <p><strong>此 Clash Dashboard 使用的是<a target="_blank" rel="noopener" href="https://github.com/haishanh/yacd">yacd</a>项目，详细使用方法请移步到yacd上查询。</strong></p>
 <p><strong>终端界面选择代理节点</strong></p>
 <p><strong>部分用户无法通过浏览器使用 Clash Dashboard 进行节点选择、代理模式修改等操作，为了方便用户可以在Linux终端进行操作，下面提供了一个功能简单的脚本以便用户可以临时通过终端界面进行配置。</strong></p>
-<p>**脚本存放位置：<code>scripts/clash_proxy-selector.sh**</code></p>
+<p><strong>脚本存放位置：scripts&#x2F;clash_proxy-selector.sh</strong></p>
 <blockquote>
 <p><strong>注意：</strong></p>
 <p>使用脚本前，需要修改脚本中的 <strong>Secret</strong> 变量值为上述启动脚本输出的值，或者与 <code>.env</code> 文件中定义的 <strong>CLASH_SECRET</strong> 变量值保持一致。</p>
@@ -623,12 +623,25 @@
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
 
+<h4 id="docker代理"><a href="#docker代理" class="headerlink" title="docker代理"></a>docker代理</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/systemd/system/docker.service.d</span><br><span class="line">sudo <span class="built_in">touch</span> /etc/systemd/system/docker.service.d/proxy.conf</span><br><span class="line">sudo vim /etc/systemd/system/docker.service.d/proxy.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Service]</span><br><span class="line">Environment=<span class="string">&quot;HTTP_PROXY=http://10.10.93.9:7890/&quot;</span></span><br><span class="line">Environment=<span class="string">&quot;HTTPS_PROXY=http://10.10.93.9:7890/&quot;</span></span><br><span class="line">Environment=<span class="string">&quot;NO_PROXY=localhost,127.0.0.1,.example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
 <h4 id="docker-compose安装"><a href="#docker-compose安装" class="headerlink" title="docker-compose安装"></a>docker-compose安装</h4><p><a target="_blank" rel="noopener" href="https://github.com/docker/compose/releases">docker-compose二进制执行包</a></p>
 <p><strong>把二进制包放下面路径</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/</span><br></pre></td></tr></table></figure>
 
 <p><strong>并且改名为<code>docker-compose</code>就行了</strong></p>
 <h4 id="papermc-server"><a href="#papermc-server" class="headerlink" title="papermc-server"></a>papermc-server</h4><p><a target="_blank" rel="noopener" href="https://hub.docker.com/r/marctv/minecraft-papermc-server">minecraft-papermc-server</a></p>
+<h4 id="VPN"><a href="#VPN" class="headerlink" title="VPN"></a>VPN</h4><p><strong>顾名思义，就是让电脑回到公司内网环境，达到在家也能在公司一样的舒适感</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull hwdsl2/ipsec-vpn-server</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name ipsec-vpn-server --env-file ./vpn.env --restart=always -v ikev2-vpn-data:/etc/ipsec.d -v /lib/modules:/lib/modules:ro -p 500:500/udp -p 4500:4500/udp -d --privileged hwdsl2/ipsec-vpn-server</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vpn.env文件，记得开放500、4500udp端口</span></span><br><span class="line"></span><br><span class="line">VPN_IPSEC_PSK=123456</span><br><span class="line"><span class="comment"># 配置用于登陆VPN的账号和密码</span></span><br><span class="line">VPN_USER=orange</span><br><span class="line">VPN_PASSWORD=123456</span><br><span class="line"><span class="comment"># 下面是多用户的</span></span><br><span class="line">VPN_ADDL_USERS=orange2</span><br><span class="line">VPN_ADDL_PASSWORDS=123456</span><br><span class="line"><span class="comment"># 如下应该填写本机的外网IP（服务器ip）</span></span><br><span class="line">VPN_PUBLIC_IP=x.x.x.x</span><br><span class="line"><span class="comment"># DNS配置</span></span><br><span class="line">VPN_DNS_SRV1=8.8.8.8</span><br><span class="line">VPN_DNS_SRV2=114.114.114.114</span><br></pre></td></tr></table></figure>
+
 <h4 id="openwrt"><a href="#openwrt" class="headerlink" title="openwrt"></a>openwrt</h4><p><strong>openwrt软路由可以替我们电脑实现一些魔法上网的功能，将fq功能给予树莓派处理可以让我们的fq体验更加顺畅丝滑。</strong></p>
 <p><strong>下面我以docker容器化部署一下openwrt，实现家庭设备魔法上网。</strong></p>
 <p><strong>拉取镜像</strong></p>
@@ -2534,7 +2547,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
